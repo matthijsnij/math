@@ -953,29 +953,46 @@ def generate_sequence() -> tuple[list[int | float], int | float, str]:
     return seq.terms, seq.next_term, seq.explanation
 
 
-def ask_question(terms: list, answer: int | float, explanation: str) -> bool:
-    """Present a single sequence question and return True if the user is correct."""
+def ask_question(
+    terms: list, answer: int | float, explanation: str, show_explanation: bool
+) -> tuple[bool, float]:
+    """
+    Present a single sequence question.
+
+    Returns:
+        correct       – whether the user answered correctly
+        paused_secs   – seconds spent reading the explanation (to add back to deadline)
+    """
     display = "  ".join(str(t) for t in terms)
     try:
         raw = input(f"\n{display}  ___ ? ").strip()
         user_answer = float(raw)
     except (ValueError, EOFError):
         print("  Invalid input — skipping.")
-        return False
+        return False, 0.0
 
     correct = abs(user_answer - answer) < 1e-9
     if correct:
         print("  Correct!")
     else:
         print(f"  Wrong. The answer was {answer}.")
-    print(f"  Explanation: {explanation}")
-    return correct
+
+    paused_secs = 0.0
+    if show_explanation:
+        print(f"  Explanation: {explanation}")
+        pause_start = time.time()
+        input("  [Timer paused — press Enter to continue]")
+        paused_secs = time.time() - pause_start
+
+    return correct, paused_secs
 
 
-def run_session(time_limit_minutes: int) -> None:
+def run_session(time_limit_minutes: int, show_explanation: bool) -> None:
     """Run a timed practice session and print a summary at the end."""
     time_limit_seconds = time_limit_minutes * 60
-    print(f"\nStarting practice session — time limit: {time_limit_minutes} minute(s).")
+    mode_label = "learning (timer pauses on explanation)" if show_explanation else "hardcore (no explanations)"
+    print(f"\nMode: {mode_label}")
+    print(f"Time limit: {time_limit_minutes} minute(s).")
     print("Type the next number in each sequence and press Enter.")
     print("Press Ctrl+C at any time to stop early.\n")
 
@@ -991,8 +1008,11 @@ def run_session(time_limit_minutes: int) -> None:
 
             terms, answer, explanation = generate_sequence()
             total_count += 1
-            if ask_question(terms, answer, explanation):
+            correct, paused_secs = ask_question(terms, answer, explanation, show_explanation)
+            if correct:
                 correct_count += 1
+            # Pause reading time does not count against the player
+            deadline += paused_secs
 
     except KeyboardInterrupt:
         print("\n\nSession interrupted.")
@@ -1015,48 +1035,20 @@ def parse_args() -> argparse.Namespace:
         metavar="MINUTES",
         help="Time limit for the practice session in minutes (default: 5).",
     )
+    parser.add_argument(
+        "--mode", "-m",
+        choices=["hardcore", "learning"],
+        default="hardcore",
+        help=(
+            "Practice mode: 'hardcore' = no explanations, full time pressure; "
+            "'learning' = explanation shown after each answer, timer pauses while reading (default: hardcore)."
+        ),
+    )
     return parser.parse_args()
 
 
 if __name__ == "__main__":
     args = parse_args()
+    run_session(time_limit_minutes=args.time, show_explanation=(args.mode == "learning"))
 
-    # ------------------------------------------------------------------
-    # Demo: one example from every tier
-    # ------------------------------------------------------------------
-    bank = SequenceBank()
-    print("=" * 60)
-    print("SEQUENCE SHOWCASE — one example per tier")
-    print("=" * 60)
-    shown_tiers: set[int] = set()
-    for seq in bank.get_all():
-        if seq.tier in shown_tiers:
-            continue
-        shown_tiers.add(seq.tier)
-        print(f"\n[Tier {seq.tier}] {seq.name}")
-        print(f"  Terms      : {seq.terms}")
-        print(f"  Rule       : {seq.rule}")
-        print(f"  Explanation: {seq.explanation}")
-        print(f"  Next term  : {seq.next_term}")
-
-    # ------------------------------------------------------------------
-    # Demo: 3 random challenges (answer hidden, then revealed)
-    # ------------------------------------------------------------------
-    print("\n" + "=" * 60)
-    print("RANDOM CHALLENGES — try to guess before the reveal!")
-    print("=" * 60)
-    for i in range(1, 4):
-        challenge = bank.get_random_challenge()
-        print(f"\nChallenge {i}: {challenge['terms']}  ___")
-        input("  Press Enter to reveal the answer...")
-        print(f"  Answer     : {challenge['answer']}")
-        print(f"  Name       : {challenge['name']}")
-        print(f"  Rule       : {challenge['rule']}")
-        print(f"  Explanation: {challenge['explanation']}")
-
-    # ------------------------------------------------------------------
-    # Timed practice session
-    # ------------------------------------------------------------------
-    print("\n" + "=" * 60)
-    run_session(time_limit_minutes=args.time)
 
