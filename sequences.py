@@ -65,23 +65,6 @@ def gen_geometric(n: int = 6, start: int = 2, ratio: int = 3) -> Sequence:
     )
 
 
-def gen_constant(n: int = 6, value: int = 7) -> Sequence:
-    terms = [value] * (n + 1)
-    return Sequence(
-        terms=terms[:n],
-        name="Constant",
-        tier=1,
-        rule="aₙ = c",
-        explanation=(
-            f"Every term equals the same constant value ({value}). "
-            "To identify: all terms are identical. "
-            "The next term is just that same value."
-        ),
-        next_term=terms[n],
-        params={"value": value},
-    )
-
-
 def gen_alternating_sign(n: int = 6, start: int = 1, difference: int = 1) -> Sequence:
     terms = [(((-1) ** i) * (start + i * difference)) for i in range(n + 1)]
     return Sequence(
@@ -126,76 +109,50 @@ def gen_two_step_arithmetic(
 # Tier 2 – Polynomial & Power-Based
 # ===========================================================================
 
-def gen_quadratic(n: int = 6, start_n: int = 1) -> Sequence:
-    terms = [(start_n + i) ** 2 for i in range(n + 1)]
+def gen_quadratic(
+    n: int = 6, a: int = 1, b: int = 0, c: int = 0, start_n: int = 1
+) -> Sequence:
+    """General quadratic: aₙ = a·n² + b·n + c."""
+    def _term(k):
+        return a * k ** 2 + b * k + c
+    terms = [_term(start_n + i) for i in range(n + 1)]
+    rule = f"aₙ = {a}n²" + (f" + {b}n" if b else "") + (f" + {c}" if c else "")
     return Sequence(
         terms=terms[:n],
-        name="Quadratic (n²)",
+        name="General Quadratic",
         tier=2,
-        rule="aₙ = n²",
+        rule=rule,
         explanation=(
-            "Each term is the square of its index. "
-            "To identify: second differences of consecutive terms are constant (= 2). "
-            "The next term is the square of the next index value."
+            f"Each term follows a quadratic formula: {rule}. "
+            "To identify: the second differences of consecutive terms are constant (= 2a). "
+            "Calculate next first difference and add it to the last term to get the next term."
         ),
         next_term=terms[n],
-        params={"start_n": start_n},
+        params={"a": a, "b": b, "c": c, "start_n": start_n},
     )
 
 
-def gen_cubic(n: int = 6, start_n: int = 1) -> Sequence:
-    terms = [(start_n + i) ** 3 for i in range(n + 1)]
+def gen_cubic(
+    n: int = 6, a: int = 1, b: int = 0, c: int = 0, d: int = 0, start_n: int = 1
+) -> Sequence:
+    """General cubic: aₙ = a·n³ + b·n² + c·n + d."""
+    def _term(k):
+        return a * k ** 3 + b * k ** 2 + c * k + d
+    terms = [_term(start_n + i) for i in range(n + 1)]
+    rule = f"aₙ = {a}n³" + (f" + {b}n²" if b else "") + (f" + {c}n" if c else "") + (f" + {d}" if d else "")
     return Sequence(
         terms=terms[:n],
-        name="Cubic (n³)",
+        name="General Cubic",
         tier=2,
-        rule="aₙ = n³",
+        rule=rule,
         explanation=(
-            "Each term is the cube of its index. "
-            "To identify: third differences of consecutive terms are constant (= 6). "
-            "The next term is the cube of the next index."
+            f"Each term follows a cubic formula: {rule}. "
+            "To identify: the third differences of consecutive terms are constant (= 6a). "
+            "Calculate next second difference, then next first difference, and add it to the last term to get the next term."
         ),
         next_term=terms[n],
-        params={"start_n": start_n},
+        params={"a": a, "b": b, "c": c, "d": d, "start_n": start_n},
     )
-
-
-def gen_triangular(n: int = 6, start_n: int = 1) -> Sequence:
-    terms = [(start_n + i) * (start_n + i + 1) // 2 for i in range(n + 1)]
-    return Sequence(
-        terms=terms[:n],
-        name="Triangular Numbers",
-        tier=2,
-        rule="aₙ = n(n+1)/2",
-        explanation=(
-            "Triangular numbers count objects arranged in an equilateral triangle. "
-            "To identify: differences between consecutive terms increase by 1 each step (1, 2, 3, …). "
-            "Add the next integer to the last term."
-        ),
-        next_term=terms[n],
-        params={"start_n": start_n},
-    )
-
-
-def gen_tetrahedral(n: int = 6, start_n: int = 1) -> Sequence:
-    terms = [
-        (start_n + i) * (start_n + i + 1) * (start_n + i + 2) // 6
-        for i in range(n + 1)
-    ]
-    return Sequence(
-        terms=terms[:n],
-        name="Tetrahedral Numbers",
-        tier=2,
-        rule="aₙ = n(n+1)(n+2)/6",
-        explanation=(
-            "Tetrahedral numbers count spheres in a triangular pyramid. "
-            "To identify: they are the partial sums of triangular numbers. "
-            "Compute the next triangular number and add it to the last term."
-        ),
-        next_term=terms[n],
-        params={"start_n": start_n},
-    )
-
 
 def gen_perfect_powers(n: int = 6, k: int = 4, start_n: int = 1) -> Sequence:
     terms = [(start_n + i) ** k for i in range(n + 1)]
@@ -257,7 +214,7 @@ def gen_lucas(n: int = 6) -> Sequence:
 
 
 def gen_tribonacci(n: int = 6) -> Sequence:
-    terms = [0, 1, 1]
+    terms = [0, 0, 1]
     while len(terms) < n + 1:
         terms.append(terms[-1] + terms[-2] + terms[-3])
     return Sequence(
@@ -285,11 +242,11 @@ def gen_linear_recurrence(
         terms=terms[:n],
         name="General Linear Recurrence",
         tier=3,
-        rule=f"aₙ = {p}·aₙ₋₁ + ({q})·aₙ₋₂",
+        rule=f"aₙ = {p}*aₙ₋₁ + ({q})*aₙ₋₂",
         explanation=(
-            f"Each term is computed as {p}×(previous) + ({q})×(term before that). "
+            f"Each term is computed as {p}*(previous) + ({q})*(term before that). "
             "To identify: check if a fixed linear combination of the last two terms reproduces the sequence. "
-            f"Apply the recurrence: {p}×last + ({q})×second-to-last."
+            f"Apply the recurrence: {p}*last + ({q})*second-to-last."
         ),
         next_term=terms[n],
         params={"p": p, "q": q, "a1": a1, "a2": a2},
@@ -861,14 +818,11 @@ _ALL_GENERATORS = [
     # Tier 1
     gen_arithmetic,
     gen_geometric,
-    gen_constant,
     gen_alternating_sign,
     gen_two_step_arithmetic,
     # Tier 2
     gen_quadratic,
     gen_cubic,
-    gen_triangular,
-    gen_tetrahedral,
     gen_perfect_powers,
     # Tier 3
     gen_fibonacci,
