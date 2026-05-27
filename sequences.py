@@ -429,15 +429,15 @@ def gen_triangular_recurrence(n: int = 6, start: int = 0) -> Sequence:
 
 
 def gen_factorial_recurrence(n: int = 6, start: int = 1) -> Sequence:
-    """aₙ = n × aₙ₋₁."""
+    """aₙ = n * aₙ₋₁."""
     terms = [start]
     for i in range(2, n + 2):
         terms.append(i * terms[-1])
     return Sequence(
         terms=terms[:n],
-        name="Factorial Recurrence (aₙ = n·aₙ₋₁)",
+        name="Factorial Recurrence (aₙ = n * aₙ₋₁)",
         tier=6,
-        rule="aₙ = n · aₙ₋₁",
+        rule="aₙ = n * aₙ₋₁",
         explanation=(
             "Each term is the previous term multiplied by the current index. "
             "To identify: the ratio of consecutive terms increases by 1 each step. "
@@ -449,7 +449,7 @@ def gen_factorial_recurrence(n: int = 6, start: int = 1) -> Sequence:
 
 
 # ===========================================================================
-# Tier 7 – Advanced Combinatorial
+# Tier 7 – Combinatorial
 # ===========================================================================
 
 def gen_binomial(n: int = 6, k: int = 2, start_n: int = 0) -> Sequence:
@@ -458,117 +458,11 @@ def gen_binomial(n: int = 6, k: int = 2, start_n: int = 0) -> Sequence:
         terms=terms[:n],
         name=f"Binomial Coefficients C(n,{k})",
         tier=7,
-        rule=f"aₙ = C(n,{k}) = n! / ({k}!·(n-{k})!)",
+        rule=f"aₙ = C(n,{k}) = n! / ({k}! * (n-{k})!)",
         explanation=(
             f"Each term is the binomial coefficient C(n, {k}) — the number of ways to choose {k} items from n. "
             "To identify: differences of order k become constant. "
             f"Increment n and compute C(n+1, {k})."
-        ),
-        next_term=terms[n],
-        params={"k": k, "start_n": start_n},
-    )
-
-
-def gen_pascal_diagonal(n: int = 6, diagonal: int = 3, start_n: int = 0) -> Sequence:
-    terms = [math.comb(start_n + i + diagonal, diagonal) for i in range(n + 1)]
-    return Sequence(
-        terms=terms[:n],
-        name=f"Pascal's Triangle Diagonal {diagonal}",
-        tier=7,
-        rule=f"aₙ = C(n+{diagonal},{diagonal})",
-        explanation=(
-            f"This is diagonal {diagonal} of Pascal's triangle, also known as figurate numbers of order {diagonal}. "
-            "To identify: consecutive differences eventually become constant at a deeper level. "
-            f"Compute C(next_n + {diagonal}, {diagonal})."
-        ),
-        next_term=terms[n],
-        params={"diagonal": diagonal, "start_n": start_n},
-    )
-
-
-def gen_powers_of_2(n: int = 6, start_n: int = 0, offset: int = 0) -> Sequence:
-    terms = [2 ** (start_n + i) + offset for i in range(n + 1)]
-    label = "Powers of 2" if offset == 0 else f"Powers of 2 + {offset}"
-    rule = "aₙ = 2ⁿ" if offset == 0 else f"aₙ = 2ⁿ + {offset}"
-    return Sequence(
-        terms=terms[:n],
-        name=label,
-        tier=7,
-        rule=rule,
-        explanation=(
-            f"Each term is a power of 2{f' plus {offset}' if offset else ''}. "
-            "To identify: each term is exactly double the previous (after subtracting any offset). "
-            "Double the last term (and add back the offset if any)."
-        ),
-        next_term=terms[n],
-        params={"start_n": start_n, "offset": offset},
-    )
-
-
-def gen_lazy_caterer(n: int = 6, start_n: int = 0) -> Sequence:
-    terms = [(start_n + i) * (start_n + i + 1) // 2 + 1 for i in range(n + 1)]
-    return Sequence(
-        terms=terms[:n],
-        name="Lazy Caterer Numbers",
-        tier=7,
-        rule="aₙ = n(n+1)/2 + 1",
-        explanation=(
-            "Lazy caterer numbers give the maximum pieces a disk can be cut into with n straight cuts. "
-            "To identify: it is one more than the triangular number for the same index. "
-            "Compute the next triangular number and add 1."
-        ),
-        next_term=terms[n],
-        params={"start_n": start_n},
-    )
-
-
-def _motzkin(k: int) -> int:
-    # Recurrence: M(n) = M(n-1) + sum_{i=0}^{n-2} M(i)*M(n-2-i)
-    if k == 0 or k == 1:
-        return 1
-    m = [1, 1]
-    for j in range(2, k + 1):
-        val = m[j - 1] + sum(m[i] * m[j - 2 - i] for i in range(j - 1))
-        m.append(val)
-    return m[k]
-
-
-def gen_motzkin(n: int = 6, start_n: int = 0) -> Sequence:
-    terms = [_motzkin(start_n + i) for i in range(n + 1)]
-    return Sequence(
-        terms=terms[:n],
-        name="Motzkin Numbers",
-        tier=7,
-        rule="M(n) = M(n-1) + Σ M(i)·M(n-2-i)",
-        explanation=(
-            "Motzkin numbers count the number of paths from (0,0) to (n,0) using steps +1, 0, −1 that stay ≥ 0. "
-            "To identify: they grow similarly to Catalan numbers but more slowly. "
-            "Use the recurrence or look up the known sequence (1,1,2,4,9,21,51,…)."
-        ),
-        next_term=terms[n],
-        params={"start_n": start_n},
-    )
-
-
-def _stirling2(n: int, k: int) -> int:
-    if n == 0 and k == 0:
-        return 1
-    if n == 0 or k == 0:
-        return 0
-    return k * _stirling2(n - 1, k) + _stirling2(n - 1, k - 1)
-
-
-def gen_stirling2(n: int = 6, k: int = 2, start_n: int = 2) -> Sequence:
-    terms = [_stirling2(start_n + i, k) for i in range(n + 1)]
-    return Sequence(
-        terms=terms[:n],
-        name=f"Stirling Numbers of the 2nd Kind S(n,{k})",
-        tier=7,
-        rule=f"S(n,{k}) = {k}·S(n-1,{k}) + S(n-1,{k-1})",
-        explanation=(
-            f"S(n, {k}) counts the number of ways to partition an n-element set into {k} non-empty subsets. "
-            "To identify: for fixed k, it grows polynomially in n of degree k. "
-            f"Apply the recurrence: {k}×S(n-1,{k}) + S(n-1,{k-1})."
         ),
         next_term=terms[n],
         params={"k": k, "start_n": start_n},
@@ -608,11 +502,6 @@ _ALL_GENERATORS = [
     gen_factorial_recurrence,
     # Tier 7
     gen_binomial,
-    gen_pascal_diagonal,
-    gen_powers_of_2,
-    gen_lazy_caterer,
-    gen_motzkin,
-    gen_stirling2,
 ]
 
 
