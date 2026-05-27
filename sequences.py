@@ -280,56 +280,6 @@ def _factorial(k: int) -> int:
     return math.factorial(k)
 
 
-def _double_factorial(k: int) -> int:
-    if k <= 0:
-        return 1
-    result = 1
-    while k > 0:
-        result *= k
-        k -= 2
-    return result
-
-
-def _subfactorial(k: int) -> int:
-    if k == 0:
-        return 1
-    if k == 1:
-        return 0
-    return (k - 1) * (_subfactorial(k - 1) + _subfactorial(k - 2))
-
-
-def _catalan(k: int) -> int:
-    return math.comb(2 * k, k) // (k + 1)
-
-
-def _bell(k: int) -> int:
-    # Bell triangle method
-    if k == 0:
-        return 1
-    row = [1]
-    for _ in range(k):
-        new_row = [row[-1]]
-        for j in range(len(row)):
-            new_row.append(new_row[-1] + row[j])
-        row = new_row
-    return row[0]
-
-
-def _primorial(k: int) -> int:
-    def is_prime(x):
-        if x < 2:
-            return False
-        for i in range(2, int(x**0.5) + 1):
-            if x % i == 0:
-                return False
-        return True
-    primes = [x for x in range(2, 200) if is_prime(x)]
-    result = 1
-    for p in primes[:k]:
-        result *= p
-    return result
-
-
 def gen_factorial(n: int = 6, start_n: int = 1) -> Sequence:
     terms = [_factorial(start_n + i) for i in range(n + 1)]
     return Sequence(
@@ -338,94 +288,9 @@ def gen_factorial(n: int = 6, start_n: int = 1) -> Sequence:
         tier=4,
         rule="aₙ = n!",
         explanation=(
-            "Each term is the factorial of its index: n! = 1×2×3×…×n. "
+            "Each term is the factorial of its index: n! = n*(n-1)*(n-2)*…*1."
             "To identify: each term divided by the previous gives consecutive integers. "
             "Multiply the last term by the next index."
-        ),
-        next_term=terms[n],
-        params={"start_n": start_n},
-    )
-
-
-def gen_double_factorial(n: int = 6, start_n: int = 1) -> Sequence:
-    terms = [_double_factorial(start_n + i) for i in range(n + 1)]
-    return Sequence(
-        terms=terms[:n],
-        name="Double Factorials (n!!)",
-        tier=4,
-        rule="n!! = n·(n-2)·(n-4)·… down to 1 or 2",
-        explanation=(
-            "The double factorial multiplies every other integer down to 1 (odd) or 2 (even). "
-            "To identify: growth is slower than n! since only alternating factors appear. "
-            "Multiply the last term by n (skipping one integer)."
-        ),
-        next_term=terms[n],
-        params={"start_n": start_n},
-    )
-
-
-def gen_subfactorial(n: int = 6, start_n: int = 0) -> Sequence:
-    terms = [_subfactorial(start_n + i) for i in range(n + 1)]
-    return Sequence(
-        terms=terms[:n],
-        name="Subfactorials / Derangements (!n)",
-        tier=4,
-        rule="!n = (n-1)·(!{n-1} + !{n-2})",
-        explanation=(
-            "The subfactorial !n counts permutations of n elements with no fixed points (derangements). "
-            "To identify: values are close to n!/e. Use the recurrence !n = (n-1)(!{n-1} + !{n-2}). "
-            "Apply the recurrence with the last two visible values."
-        ),
-        next_term=terms[n],
-        params={"start_n": start_n},
-    )
-
-
-def gen_catalan(n: int = 6, start_n: int = 0) -> Sequence:
-    terms = [_catalan(start_n + i) for i in range(n + 1)]
-    return Sequence(
-        terms=terms[:n],
-        name="Catalan Numbers",
-        tier=4,
-        rule="Cₙ = C(2n,n)/(n+1)",
-        explanation=(
-            "Catalan numbers count many combinatorial structures (e.g. valid bracket sequences). "
-            "To identify: ratios of consecutive terms approach 4. "
-            "Compute C(2n, n)/(n+1) for the next index."
-        ),
-        next_term=terms[n],
-        params={"start_n": start_n},
-    )
-
-
-def gen_bell(n: int = 6, start_n: int = 0) -> Sequence:
-    terms = [_bell(start_n + i) for i in range(n + 1)]
-    return Sequence(
-        terms=terms[:n],
-        name="Bell Numbers",
-        tier=4,
-        rule="Bₙ = Σ S(n,k) for k=0..n (sum of Stirling 2nd kind)",
-        explanation=(
-            "Bell numbers count the number of partitions of a set of n elements. "
-            "To identify: they grow super-exponentially and can be computed via the Bell triangle. "
-            "Build the Bell triangle: start each new row with the last row's last element."
-        ),
-        next_term=terms[n],
-        params={"start_n": start_n},
-    )
-
-
-def gen_primorial(n: int = 6, start_n: int = 1) -> Sequence:
-    terms = [_primorial(start_n + i) for i in range(n + 1)]
-    return Sequence(
-        terms=terms[:n],
-        name="Primorial (p#)",
-        tier=4,
-        rule="pₙ# = product of first n primes",
-        explanation=(
-            "The primorial is the product of the first n prime numbers. "
-            "To identify: each term is the previous term multiplied by the next prime. "
-            "Identify the next prime and multiply the last term."
         ),
         next_term=terms[n],
         params={"start_n": start_n},
@@ -447,7 +312,6 @@ def _sieve(limit: int) -> list[int]:
 
 
 _PRIMES = _sieve(10_000)
-_PRIME_SET = set(_PRIMES)
 
 
 def gen_primes(n: int = 6, start_idx: int = 0) -> Sequence:
@@ -467,24 +331,6 @@ def gen_primes(n: int = 6, start_idx: int = 0) -> Sequence:
     )
 
 
-def gen_composites(n: int = 6, start_idx: int = 0) -> Sequence:
-    composites = [x for x in range(4, 200) if x not in _PRIME_SET]
-    terms = composites[start_idx: start_idx + n + 1]
-    return Sequence(
-        terms=terms[:n],
-        name="Composite Numbers",
-        tier=5,
-        rule="aₙ = nth composite number",
-        explanation=(
-            "Each term is a composite number — a positive integer with at least one divisor other than 1 and itself. "
-            "To identify: none of the terms are prime. "
-            "Find the next non-prime integer after the last term."
-        ),
-        next_term=terms[n],
-        params={"start_idx": start_idx},
-    )
-
-
 def _digit_sum(x: int) -> int:
     return sum(int(d) for d in str(abs(x)))
 
@@ -498,88 +344,8 @@ def gen_digit_sum(n: int = 6, start_n: int = 1) -> Sequence:
         rule="aₙ = sum of digits of n",
         explanation=(
             "Each term is the sum of the decimal digits of the corresponding index. "
-            "To identify: values reset downward when crossing powers of 10. "
+            "To identify: values reset downward when crossing multiples of 10, fully resetting at powers of 10. "
             "Sum the digits of the next index value."
-        ),
-        next_term=terms[n],
-        params={"start_n": start_n},
-    )
-
-
-def _digital_root(x: int) -> int:
-    if x == 0:
-        return 0
-    return 1 + (x - 1) % 9
-
-
-def gen_digital_root(n: int = 6, start_n: int = 1) -> Sequence:
-    terms = [_digital_root(start_n + i) for i in range(n + 1)]
-    return Sequence(
-        terms=terms[:n],
-        name="Digital Root",
-        tier=5,
-        rule="aₙ = 1 + (n-1) mod 9",
-        explanation=(
-            "The digital root is found by repeatedly summing digits until a single digit remains. "
-            "To identify: the sequence cycles through 1–9 periodically. "
-            "Use the formula: 1 + (n-1) mod 9, or trace the repeating cycle."
-        ),
-        next_term=terms[n],
-        params={"start_n": start_n},
-    )
-
-
-def _totient(x: int) -> int:
-    result = x
-    p = 2
-    temp = x
-    while p * p <= temp:
-        if temp % p == 0:
-            while temp % p == 0:
-                temp //= p
-            result -= result // p
-        p += 1
-    if temp > 1:
-        result -= result // temp
-    return result
-
-
-def gen_totient(n: int = 6, start_n: int = 1) -> Sequence:
-    terms = [_totient(start_n + i) for i in range(n + 1)]
-    return Sequence(
-        terms=terms[:n],
-        name="Euler's Totient φ(n)",
-        tier=5,
-        rule="φ(n) = count of integers ≤ n coprime to n",
-        explanation=(
-            "Euler's totient φ(n) counts how many integers from 1 to n share no common factor with n. "
-            "To identify: for prime p, φ(p) = p−1; values are always even for n > 2. "
-            "Factorize n and apply φ(n) = n·∏(1 − 1/p) over prime factors p."
-        ),
-        next_term=terms[n],
-        params={"start_n": start_n},
-    )
-
-
-def _divisor_count(x: int) -> int:
-    count = 0
-    for i in range(1, int(x**0.5) + 1):
-        if x % i == 0:
-            count += 2 if i != x // i else 1
-    return count
-
-
-def gen_divisor_count(n: int = 6, start_n: int = 1) -> Sequence:
-    terms = [_divisor_count(start_n + i) for i in range(n + 1)]
-    return Sequence(
-        terms=terms[:n],
-        name="Divisor Count σ₀(n)",
-        tier=5,
-        rule="σ₀(n) = number of divisors of n",
-        explanation=(
-            "Each term counts how many positive integers divide evenly into the corresponding index. "
-            "To identify: primes always give 2; highly composite numbers give large values. "
-            "Factor the next index and count all divisor pairs."
         ),
         next_term=terms[n],
         params={"start_n": start_n},
@@ -832,18 +598,9 @@ _ALL_GENERATORS = [
     gen_padovan,
     # Tier 4
     gen_factorial,
-    gen_double_factorial,
-    gen_subfactorial,
-    gen_catalan,
-    gen_bell,
-    gen_primorial,
     # Tier 5
     gen_primes,
-    gen_composites,
     gen_digit_sum,
-    gen_digital_root,
-    gen_totient,
-    gen_divisor_count,
     # Tier 6
     gen_alternating_rule,
     gen_two_interleaved,
