@@ -31,7 +31,10 @@ class Sequence:
 # Tier 1 – Arithmetic & Basic
 # ===========================================================================
 
-def gen_arithmetic(n: int = 6, start: int = 1, difference: int = 3) -> Sequence:
+def gen_arithmetic(n: int = 0, start: int | None = None, difference: int | None = None) -> Sequence:
+    if n == 0: n = random.randint(5, 6)
+    if start is None: start = random.randint(1, 20)
+    if difference is None: difference = random.randint(2, 12)
     terms = [start + i * difference for i in range(n + 1)]
     return Sequence(
         terms=terms[:n],
@@ -48,7 +51,10 @@ def gen_arithmetic(n: int = 6, start: int = 1, difference: int = 3) -> Sequence:
     )
 
 
-def gen_geometric(n: int = 6, start: int = 2, ratio: int = 3) -> Sequence:
+def gen_geometric(n: int = 0, start: int | None = None, ratio: int | None = None) -> Sequence:
+    if n == 0: n = random.randint(5, 6)
+    if start is None: start = random.randint(1, 5)
+    if ratio is None: ratio = random.randint(2, 4)
     terms = [start * (ratio ** i) for i in range(n + 1)]
     return Sequence(
         terms=terms[:n],
@@ -65,7 +71,10 @@ def gen_geometric(n: int = 6, start: int = 2, ratio: int = 3) -> Sequence:
     )
 
 
-def gen_alternating_sign(n: int = 6, start: int = 1, difference: int = 1) -> Sequence:
+def gen_alternating_sign(n: int = 0, start: int | None = None, difference: int | None = None) -> Sequence:
+    if n == 0: n = random.randint(5, 6)
+    if start is None: start = random.randint(1, 10)
+    if difference is None: difference = random.randint(1, 8)
     terms = [(((-1) ** i) * (start + i * difference)) for i in range(n + 1)]
     return Sequence(
         terms=terms[:n],
@@ -81,38 +90,19 @@ def gen_alternating_sign(n: int = 6, start: int = 1, difference: int = 1) -> Seq
         params={"start": start, "difference": difference},
     )
 
-
-def gen_two_step_arithmetic(
-    n: int = 6, start: int = 1, diff_odd: int = 2, diff_even: int = 5
-) -> Sequence:
-    terms = []
-    val = start
-    for i in range(n + 1):
-        terms.append(val)
-        val += diff_odd if i % 2 == 0 else diff_even
-    return Sequence(
-        terms=terms[:n],
-        name="Two-Step Arithmetic",
-        tier=1,
-        rule="alternates between two constant differences",
-        explanation=(
-            f"The sequence alternates between adding {diff_odd} and adding {diff_even}. "
-            "To identify: the differences between consecutive terms form a two-value repeating pattern. "
-            "Apply whichever difference is next in the alternating cycle."
-        ),
-        next_term=terms[n],
-        params={"start": start, "diff_odd": diff_odd, "diff_even": diff_even},
-    )
-
-
 # ===========================================================================
 # Tier 2 – Polynomial & Power-Based
 # ===========================================================================
 
 def gen_quadratic(
-    n: int = 6, a: int = 1, b: int = 0, c: int = 0, start_n: int = 1
+    n: int = 0, a: int | None = None, b: int | None = None, c: int | None = None, start_n: int | None = None
 ) -> Sequence:
     """General quadratic: aₙ = a·n² + b·n + c."""
+    if n == 0: n = random.randint(5, 6)
+    if a is None: a = random.randint(1, 3)
+    if b is None: b = random.randint(0, 4)
+    if c is None: c = random.randint(0, 10)
+    if start_n is None: start_n = random.randint(1, 5)
     def _term(k):
         return a * k ** 2 + b * k + c
     terms = [_term(start_n + i) for i in range(n + 1)]
@@ -133,9 +123,15 @@ def gen_quadratic(
 
 
 def gen_cubic(
-    n: int = 6, a: int = 1, b: int = 0, c: int = 0, d: int = 0, start_n: int = 1
+    n: int = 0, a: int | None = None, b: int | None = None, c: int | None = None, d: int | None = None, start_n: int | None = None
 ) -> Sequence:
     """General cubic: aₙ = a·n³ + b·n² + c·n + d."""
+    if n == 0: n = random.randint(5, 6)
+    if a is None: a = 1  # fixed to avoid extreme growth
+    if b is None: b = random.randint(0, 3)
+    if c is None: c = random.randint(0, 5)
+    if d is None: d = random.randint(0, 10)
+    if start_n is None: start_n = random.randint(1, 4)
     def _term(k):
         return a * k ** 3 + b * k ** 2 + c * k + d
     terms = [_term(start_n + i) for i in range(n + 1)]
@@ -154,7 +150,10 @@ def gen_cubic(
         params={"a": a, "b": b, "c": c, "d": d, "start_n": start_n},
     )
 
-def gen_perfect_powers(n: int = 6, k: int = 4, start_n: int = 1) -> Sequence:
+def gen_perfect_powers(n: int = 0, k: int | None = None, start_n: int | None = None) -> Sequence:
+    if n == 0: n = random.randint(5, 6)
+    if k is None: k = random.randint(3, 5)
+    if start_n is None: start_n = random.randint(1, 3)
     terms = [(start_n + i) ** k for i in range(n + 1)]
     return Sequence(
         terms=terms[:n],
@@ -175,7 +174,8 @@ def gen_perfect_powers(n: int = 6, k: int = 4, start_n: int = 1) -> Sequence:
 # Tier 3 – Recurrence Relations
 # ===========================================================================
 
-def gen_fibonacci(n: int = 6) -> Sequence:
+def gen_fibonacci(n: int = 0) -> Sequence:
+    if n == 0: n = random.randint(6, 8)
     terms = [1, 1]
     while len(terms) < n + 1:
         terms.append(terms[-1] + terms[-2])
@@ -194,7 +194,8 @@ def gen_fibonacci(n: int = 6) -> Sequence:
     )
 
 
-def gen_lucas(n: int = 6) -> Sequence:
+def gen_lucas(n: int = 0) -> Sequence:
+    if n == 0: n = random.randint(6, 8)
     terms = [2, 1]
     while len(terms) < n + 1:
         terms.append(terms[-1] + terms[-2])
@@ -213,7 +214,8 @@ def gen_lucas(n: int = 6) -> Sequence:
     )
 
 
-def gen_tribonacci(n: int = 6) -> Sequence:
+def gen_tribonacci(n: int = 0) -> Sequence:
+    if n == 0: n = random.randint(7, 9)
     terms = [0, 0, 1]
     while len(terms) < n + 1:
         terms.append(terms[-1] + terms[-2] + terms[-3])
@@ -233,8 +235,13 @@ def gen_tribonacci(n: int = 6) -> Sequence:
 
 
 def gen_linear_recurrence(
-    n: int = 6, p: int = 2, q: int = -1, a1: int = 1, a2: int = 3
+    n: int = 0, p: int | None = None, q: int | None = None, a1: int | None = None, a2: int | None = None
 ) -> Sequence:
+    if n == 0: n = random.randint(7, 9)
+    if p is None: p = random.randint(1, 3)
+    if q is None: q = random.choice([-2, -1, 0, 1])
+    if a1 is None: a1 = random.randint(1, 5)
+    if a2 is None: a2 = random.randint(2, 10)
     terms = [a1, a2]
     while len(terms) < n + 1:
         terms.append(p * terms[-1] + q * terms[-2])
@@ -253,7 +260,8 @@ def gen_linear_recurrence(
     )
 
 
-def gen_padovan(n: int = 6) -> Sequence:
+def gen_padovan(n: int = 0) -> Sequence:
+    if n == 0: n = random.randint(8, 10)
     terms = [1, 1, 1]
     while len(terms) < n + 1:
         terms.append(terms[-2] + terms[-3])
@@ -280,7 +288,9 @@ def _factorial(k: int) -> int:
     return math.factorial(k)
 
 
-def gen_factorial(n: int = 6, start_n: int = 1) -> Sequence:
+def gen_factorial(n: int = 0, start_n: int | None = None) -> Sequence:
+    if n == 0: n = random.randint(5, 6)
+    if start_n is None: start_n = random.randint(1, 4)
     terms = [_factorial(start_n + i) for i in range(n + 1)]
     return Sequence(
         terms=terms[:n],
@@ -314,7 +324,9 @@ def _sieve(limit: int) -> list[int]:
 _PRIMES = _sieve(10_000)
 
 
-def gen_primes(n: int = 6, start_idx: int = 0) -> Sequence:
+def gen_primes(n: int = 0, start_idx: int | None = None) -> Sequence:
+    if n == 0: n = random.randint(6, 8)
+    if start_idx is None: start_idx = random.randint(0, 30)
     terms = _PRIMES[start_idx: start_idx + n + 1]
     return Sequence(
         terms=terms[:n],
@@ -335,7 +347,9 @@ def _digit_sum(x: int) -> int:
     return sum(int(d) for d in str(abs(x)))
 
 
-def gen_digit_sum(n: int = 6, start_n: int = 1) -> Sequence:
+def gen_digit_sum(n: int = 0, start_n: int | None = None) -> Sequence:
+    if n == 0: n = random.randint(7, 9)
+    if start_n is None: start_n = random.randint(1, 50)
     terms = [_digit_sum(start_n + i) for i in range(n + 1)]
     return Sequence(
         terms=terms[:n],
@@ -356,60 +370,64 @@ def gen_digit_sum(n: int = 6, start_n: int = 1) -> Sequence:
 # Tier 6 – Positional / Index-Based
 # ===========================================================================
 
-def gen_alternating_rule(n: int = 6, start_n: int = 1) -> Sequence:
-    """Odd-indexed positions: n, even-indexed positions: n²."""
-    terms = []
-    for i in range(n + 1):
-        idx = start_n + i
-        terms.append(idx if idx % 2 != 0 else idx ** 2)
-    return Sequence(
-        terms=terms[:n],
-        name="Alternating Index Rule (odd: n, even: n²)",
-        tier=6,
-        rule="aₙ = n if n odd, n² if n even",
-        explanation=(
-            "The rule applied to each term depends on whether its index is odd or even. "
-            "To identify: split the sequence into odd- and even-indexed subsequences and look for separate patterns. "
-            "Determine the parity of the next index and apply the corresponding rule."
-        ),
-        next_term=terms[n],
-        params={"start_n": start_n},
-    )
+# Subsequence builders used by gen_two_interleaved
+_SUBSEQ_TYPES = [
+    ("arithmetic",  lambda start, p, k: start + k * p),
+    ("geometric",   lambda start, p, k: start * (p ** k)),
+    ("quadratic",   lambda start, p, k: start + p * (k + 1) ** 2),
+    ("triangular",  lambda start, p, k: start + (k + 1) * (k + 2) // 2),
+    ("powers of 2", lambda start, p, k: start * (2 ** k)),
+]
 
 
-def gen_two_interleaved(
-    n: int = 6, start_a: int = 1, diff_a: int = 2, start_b: int = 10, diff_b: int = 3
-) -> Sequence:
-    seq_a = [start_a + i * diff_a for i in range((n + 2) // 2 + 1)]
-    seq_b = [start_b + i * diff_b for i in range((n + 2) // 2 + 1)]
+def gen_two_interleaved(n: int = 0) -> Sequence:
+    """
+    Interleave two independently generated subsequences of (possibly) different types.
+    The subsequence types and parameters are chosen at random each call.
+    """
+    if n == 0: n = random.randint(8, 10)
+    type_a, fn_a = random.choice(_SUBSEQ_TYPES)
+    type_b, fn_b = random.choice(_SUBSEQ_TYPES)
+
+    start_a = random.randint(1, 10)
+    start_b = random.randint(1, 10)
+    param_a = random.randint(2, 5)   # difference / ratio / coefficient
+    param_b = random.randint(2, 5)
+
+    need = (n + 2) // 2 + 1
+    seq_a = [fn_a(start_a, param_a, k) for k in range(need)]
+    seq_b = [fn_b(start_b, param_b, k) for k in range(need)]
+
     terms = []
-    ia, ib = 0, 0
+    ia = ib = 0
     for i in range(n + 1):
         if i % 2 == 0:
             terms.append(seq_a[ia]); ia += 1
         else:
             terms.append(seq_b[ib]); ib += 1
+
     return Sequence(
         terms=terms[:n],
-        name="Two Interleaved Arithmetic Subsequences",
+        name="Two Interleaved Subsequences",
         tier=6,
-        rule="odd positions: arithmetic seq A; even positions: arithmetic seq B",
+        rule=f"odd positions: {type_a} seq; even positions: {type_b} seq",
         explanation=(
-            f"Odd-positioned terms form an arithmetic sequence (start={start_a}, d={diff_a}); "
-            f"even-positioned terms form another (start={start_b}, d={diff_b}). "
-            "To identify: separate alternate terms into two groups and check each for constant differences. "
-            "Extend the appropriate subsequence."
+            f"Odd-positioned terms follow a {type_a} pattern; "
+            f"even-positioned terms follow a {type_b} pattern. "
+            "To identify: separate the sequence into two groups by alternating index and analyse each independently. "
+            "Extend whichever group corresponds to the next position."
         ),
         next_term=terms[n],
-        params={
-            "start_a": start_a, "diff_a": diff_a,
-            "start_b": start_b, "diff_b": diff_b,
-        },
+        params={"type_a": type_a, "type_b": type_b,
+                "start_a": start_a, "param_a": param_a,
+                "start_b": start_b, "param_b": param_b},
     )
 
 
-def gen_triangular_recurrence(n: int = 6, start: int = 0) -> Sequence:
+def gen_triangular_recurrence(n: int = 0, start: int | None = None) -> Sequence:
     """aₙ = aₙ₋₁ + n, starting from index 1."""
+    if n == 0: n = random.randint(6, 8)
+    if start is None: start = random.randint(0, 15)
     terms = [start]
     for i in range(1, n + 1):
         terms.append(terms[-1] + i)
@@ -428,8 +446,10 @@ def gen_triangular_recurrence(n: int = 6, start: int = 0) -> Sequence:
     )
 
 
-def gen_factorial_recurrence(n: int = 6, start: int = 1) -> Sequence:
+def gen_factorial_recurrence(n: int = 0, start: int | None = None) -> Sequence:
     """aₙ = n * aₙ₋₁."""
+    if n == 0: n = random.randint(5, 6)
+    if start is None: start = random.randint(1, 3)
     terms = [start]
     for i in range(2, n + 2):
         terms.append(i * terms[-1])
@@ -452,7 +472,10 @@ def gen_factorial_recurrence(n: int = 6, start: int = 1) -> Sequence:
 # Tier 7 – Combinatorial
 # ===========================================================================
 
-def gen_binomial(n: int = 6, k: int = 2, start_n: int = 0) -> Sequence:
+def gen_binomial(n: int = 0, k: int | None = None, start_n: int | None = None) -> Sequence:
+    if n == 0: n = random.randint(6, 8)
+    if k is None: k = random.randint(2, 4)
+    if start_n is None: start_n = k + random.randint(0, 3)  # ensure non-trivial starting terms
     terms = [math.comb(start_n + i, k) for i in range(n + 1)]
     return Sequence(
         terms=terms[:n],
@@ -479,7 +502,6 @@ _ALL_GENERATORS = [
     gen_arithmetic,
     gen_geometric,
     gen_alternating_sign,
-    gen_two_step_arithmetic,
     # Tier 2
     gen_quadratic,
     gen_cubic,
@@ -496,7 +518,6 @@ _ALL_GENERATORS = [
     gen_primes,
     gen_digit_sum,
     # Tier 6
-    gen_alternating_rule,
     gen_two_interleaved,
     gen_triangular_recurrence,
     gen_factorial_recurrence,
