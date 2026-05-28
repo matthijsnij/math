@@ -493,6 +493,158 @@ def gen_binomial(n: int = 0, k: int | None = None, start_n: int | None = None) -
 
 
 # ===========================================================================
+# Tier 8 – Hybrid
+# ===========================================================================
+
+def gen_hybrid_alternating_linear(n: int = 0, start_n: int | None = None) -> Sequence:
+    """a_n = (-1)^(n+1) * n — linear magnitude with alternating sign."""
+    if n == 0: n = random.randint(6, 8)
+    if start_n is None: start_n = random.randint(1, 8)
+    terms = [((-1) ** (i + 1)) * (start_n + i) for i in range(n + 1)]
+    return Sequence(
+        terms=terms[:n],
+        name="Alternating Linear",
+        tier=8,
+        rule="aₙ = (-1)^(n+1) · n",
+        explanation=(
+            "The absolute values form a linear (arithmetic) sequence while the signs alternate each term. "
+            "To identify: take absolute values — they increase by 1; signs flip each step. "
+            "Negate the last term's sign and add 1 to its absolute value."
+        ),
+        next_term=terms[n],
+        params={"start_n": start_n},
+    )
+
+
+def gen_hybrid_polynomial_exponential(n: int = 0, start_n: int | None = None) -> Sequence:
+    """a_n = n² · 2^n — quadratic envelope on exponential growth."""
+    if n == 0: n = random.randint(5, 7)
+    if start_n is None: start_n = random.randint(1, 4)
+    terms = [(start_n + i) ** 2 * (2 ** (start_n + i)) for i in range(n + 1)]
+    return Sequence(
+        terms=terms[:n],
+        name="Polynomial × Exponential",
+        tier=8,
+        rule="aₙ = n² · 2ⁿ",
+        explanation=(
+            "Each term combines a quadratic factor (n²) with exponential growth (2ⁿ). "
+            "To identify: divide consecutive terms — the ratio is not constant but grows; "
+            "dividing out the exponential leaves a polynomial. "
+            "Compute (n+1)² · 2^(n+1) for the next term."
+        ),
+        next_term=terms[n],
+        params={"start_n": start_n},
+    )
+
+
+def gen_hybrid_alternating_geometric(n: int = 0, r: int | None = None, start_n: int | None = None) -> Sequence:
+    """a_n = (-r)^n — geometric sequence with alternating sign baked in."""
+    if n == 0: n = random.randint(6, 8)
+    if r is None: r = random.randint(2, 4)
+    if start_n is None: start_n = random.randint(0, 3)
+    terms = [((-r) ** (start_n + i)) for i in range(n + 1)]
+    return Sequence(
+        terms=terms[:n],
+        name="Alternating Geometric",
+        tier=8,
+        rule=f"aₙ = (-{r})ⁿ",
+        explanation=(
+            f"Each term is a power of -{r}, so the sequence grows geometrically in magnitude "
+            f"(ratio = {r}) while alternating in sign. "
+            "To identify: absolute values form a geometric sequence; signs alternate. "
+            f"Multiply the last term by -{r}."
+        ),
+        next_term=terms[n],
+        params={"r": r, "start_n": start_n},
+    )
+
+
+def gen_hybrid_factorial_polynomial(n: int = 0, start_n: int | None = None) -> Sequence:
+    """a_n = n! · n — factorial scaled by the index."""
+    if n == 0: n = random.randint(5, 6)
+    if start_n is None: start_n = random.randint(1, 4)
+    terms = [math.factorial(start_n + i) * (start_n + i) for i in range(n + 1)]
+    return Sequence(
+        terms=terms[:n],
+        name="Factorial * Polynomial",
+        tier=8,
+        rule="aₙ = n! · n",
+        explanation=(
+            "Each term is the factorial of the index multiplied by the index itself. "
+            "To identify: ratios between consecutive terms are not integer but grow quickly; "
+            "dividing each term by its index reveals factorials. "
+            "Compute (n+1)! · (n+1) for the next term."
+        ),
+        next_term=terms[n],
+        params={"start_n": start_n},
+    )
+
+
+def gen_hybrid_polynomial_periodic(n: int = 0, start_n: int | None = None) -> Sequence:
+    """a_n = n² + (-1)^n — quadratic with alternating ±1 perturbation."""
+    if n == 0: n = random.randint(6, 8)
+    if start_n is None: start_n = random.randint(1, 5)
+    terms = [(start_n + i) ** 2 + ((-1) ** (start_n + i)) for i in range(n + 1)]
+    return Sequence(
+        terms=terms[:n],
+        name="Polynomial + Periodic Perturbation",
+        tier=8,
+        rule="aₙ = n² + (-1)ⁿ",
+        explanation=(
+            "The dominant trend is quadratic (n²), with a ±1 alternating perturbation added each term. "
+            "To identify: second differences are nearly constant (≈ 2) but consecutive terms alternate "
+            "between being 1 above and 1 below the pure quadratic. "
+            "Compute (n+1)² and add +1 or -1 depending on parity of n+1."
+        ),
+        next_term=terms[n],
+        params={"start_n": start_n},
+    )
+
+
+def gen_hybrid_binomial_exponential(n: int = 0, start_n: int | None = None) -> Sequence:
+    """a_n = 2^n · C(n, 2) — binomial coefficient scaled by exponential."""
+    if n == 0: n = random.randint(5, 7)
+    if start_n is None: start_n = 2 + random.randint(0, 3)  # C(n,2) needs n >= 2
+    terms = [(2 ** (start_n + i)) * math.comb(start_n + i, 2) for i in range(n + 1)]
+    return Sequence(
+        terms=terms[:n],
+        name="Binomial * Exponential",
+        tier=8,
+        rule="aₙ = 2ⁿ · C(n,2)",
+        explanation=(
+            "Each term combines exponential growth (2ⁿ) with the binomial coefficient C(n,2) = n(n-1)/2. "
+            "To identify: divide consecutive terms — the ratio is not constant; "
+            "factor out the exponential to reveal the binomial pattern. "
+            "Compute 2^(n+1) · C(n+1, 2) for the next term."
+        ),
+        next_term=terms[n],
+        params={"start_n": start_n},
+    )
+
+
+def gen_hybrid_digit_sum_shift(n: int = 0, start_n: int | None = None) -> Sequence:
+    """a_n = n + digit_sum(n) — index plus sum of its own digits."""
+    if n == 0: n = random.randint(6, 8)
+    if start_n is None: start_n = random.randint(1, 50)
+    def _val(k): return k + sum(int(d) for d in str(k))
+    terms = [_val(start_n + i) for i in range(n + 1)]
+    return Sequence(
+        terms=terms[:n],
+        name="Digit Sum Shift",
+        tier=8,
+        rule="aₙ = n + S(n)  where S(n) = sum of digits of n",
+        explanation=(
+            "Each term is the index plus the sum of its own digits. "
+            "To identify: differences between consecutive terms are mostly constant but "
+            "drop sharply when crossing a multiple of 10 (digit sum resets). "
+            "Compute n+1 and add its digit sum."
+        ),
+        next_term=terms[n],
+        params={"start_n": start_n},
+    )
+
+
+# ===========================================================================
 # SequenceBank
 # ===========================================================================
 
@@ -523,6 +675,14 @@ _ALL_GENERATORS = [
     gen_factorial_recurrence,
     # Tier 7
     gen_binomial,
+    # Tier 8
+    gen_hybrid_alternating_linear,
+    gen_hybrid_polynomial_exponential,
+    gen_hybrid_alternating_geometric,
+    gen_hybrid_factorial_polynomial,
+    gen_hybrid_polynomial_periodic,
+    gen_hybrid_binomial_exponential,
+    gen_hybrid_digit_sum_shift,
 ]
 
 
