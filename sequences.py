@@ -644,6 +644,72 @@ def gen_hybrid_digit_sum_shift(n: int = 0, start_n: int | None = None) -> Sequen
     )
 
 
+def gen_hybrid_oscillating_fibonacci(n: int = 0) -> Sequence:
+    """a_n = (-1)^n · F_n — Fibonacci magnitudes with alternating sign."""
+    if n == 0: n = random.randint(6, 8)
+    fibs = [1, 1]
+    while len(fibs) < n + 1:
+        fibs.append(fibs[-1] + fibs[-2])
+    terms = [((-1) ** i) * fibs[i] for i in range(n + 1)]
+    return Sequence(
+        terms=terms[:n],
+        name="Oscillating Fibonacci",
+        tier=8,
+        rule="aₙ = (-1)ⁿ · Fₙ",
+        explanation=(
+            "The absolute values follow the Fibonacci sequence while the sign alternates each term. "
+            "To identify: take absolute values — they satisfy Fₙ = Fₙ₋₁ + Fₙ₋₂; signs flip each step. "
+            "Add the last two absolute values to get the next magnitude, then apply the next sign."
+        ),
+        next_term=terms[n],
+        params={},
+    )
+
+
+def gen_hybrid_oscillating_factorial(n: int = 0, start_n: int | None = None) -> Sequence:
+    """a_n = (-1)^n · n! — factorial magnitudes with alternating sign."""
+    if n == 0: n = random.randint(5, 6)
+    if start_n is None: start_n = random.randint(1, 4)
+    terms = [((-1) ** i) * math.factorial(start_n + i) for i in range(n + 1)]
+    return Sequence(
+        terms=terms[:n],
+        name="Oscillating Factorial",
+        tier=8,
+        rule="aₙ = (-1)ⁿ · n!",
+        explanation=(
+            "The absolute values are factorials while the sign alternates each term. "
+            "To identify: absolute values grow super-exponentially and each is divisible by the previous "
+            "by the next integer; signs flip each step. "
+            "Multiply the last absolute value by the next index, then flip the sign."
+        ),
+        next_term=terms[n],
+        params={"start_n": start_n},
+    )
+
+
+def gen_hybrid_oscillating_poly_exponential(n: int = 0, r: int | None = None, start_n: int | None = None) -> Sequence:
+    """a_n = (-1)^n · n · r^n — polynomial-exponential with alternating sign."""
+    if n == 0: n = random.randint(6, 8)
+    if r is None: r = random.randint(2, 3)
+    if start_n is None: start_n = random.randint(1, 4)
+    terms = [((-1) ** i) * (start_n + i) * (r ** (start_n + i)) for i in range(n + 1)]
+    return Sequence(
+        terms=terms[:n],
+        name="Oscillating Poly-Exponential",
+        tier=8,
+        rule=f"aₙ = (-1)ⁿ · n · {r}ⁿ",
+        explanation=(
+            f"Each term is n × {r}ⁿ with alternating sign. "
+            "To identify: strip the sign — absolute values grow faster than pure exponential "
+            f"because of the linear n factor; dividing consecutive absolute values gives a ratio "
+            f"that increases (not constant). Factor out {r}ⁿ to reveal the linear n. "
+            f"Next term: flip sign, multiply (n+1) · {r}^(n+1)."
+        ),
+        next_term=terms[n],
+        params={"r": r, "start_n": start_n},
+    )
+
+
 # ===========================================================================
 # SequenceBank
 # ===========================================================================
@@ -683,6 +749,9 @@ _ALL_GENERATORS = [
     gen_hybrid_polynomial_periodic,
     gen_hybrid_binomial_exponential,
     gen_hybrid_digit_sum_shift,
+    gen_hybrid_oscillating_fibonacci,
+    gen_hybrid_oscillating_factorial,
+    gen_hybrid_oscillating_poly_exponential,
 ]
 
 
