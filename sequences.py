@@ -604,7 +604,7 @@ def gen_hybrid_polynomial_periodic(n: int = 0, start_n: int | None = None) -> Se
 def gen_hybrid_binomial_exponential(n: int = 0, start_n: int | None = None) -> Sequence:
     """a_n = 2^n · C(n, 2) — binomial coefficient scaled by exponential."""
     if n == 0: n = random.randint(5, 7)
-    if start_n is None: start_n = 2 + random.randint(0, 3)  # C(n,2) needs n >= 2
+    if start_n is None: start_n = 2 + random.randint(0, 1)  # C(n,2) needs n >= 2
     terms = [(2 ** (start_n + i)) * math.comb(start_n + i, 2) for i in range(n + 1)]
     return Sequence(
         terms=terms[:n],
