@@ -66,6 +66,41 @@ def _float_fmt(x: float, decimals: int = 4) -> str:
     return s if s else "0"
 
 
+def _repeating_decimal_str(n: int, d: int) -> str:
+    """Return exact decimal string for n/d, using (repeating) notation.
+
+    Examples:
+        1/4  -> '0.25'
+        1/3  -> '0.(3)'
+        1/6  -> '0.1(6)'
+        2/7  -> '0.(285714)'
+    """
+    g = math.gcd(abs(n), abs(d))
+    n, d = abs(n) // g, abs(d) // g
+    integer_part = n // d
+    remainder = n % d
+
+    digits: list[int] = []
+    seen: dict[int, int] = {}  # remainder -> digit index where it first appeared
+
+    while remainder != 0 and remainder not in seen:
+        seen[remainder] = len(digits)
+        remainder *= 10
+        digits.append(remainder // d)
+        remainder = remainder % d
+
+    if remainder == 0:
+        # Terminating decimal
+        frac_part = "".join(map(str, digits))
+        return f"{integer_part}.{frac_part}" if frac_part else str(integer_part)
+    else:
+        # Repeating decimal
+        repeat_start = seen[remainder]
+        non_rep = "".join(map(str, digits[:repeat_start]))
+        rep = "".join(map(str, digits[repeat_start:]))
+        return f"{integer_part}.{non_rep}({rep})" if non_rep else f"{integer_part}.({rep})"
+
+
 # ---------------------------------------------------------------------------
 # CATEGORY 1 – Fraction ↔ Decimal conversion
 # ---------------------------------------------------------------------------
@@ -106,12 +141,12 @@ def _gen_fraction_decimal(difficulty: str) -> dict:
         alt = [_float_fmt(value, 2), _float_fmt(value, 3), f"{value:.4f}"]
     else:
         # give decimal, ask for fraction
-        rounded = round(value, 4)
-        question = f"Express {_float_fmt(rounded, 4)} as a fraction in lowest terms."
         f_reduced = Fraction(n, d)
+        dec_str = _repeating_decimal_str(f_reduced.numerator, f_reduced.denominator)
+        question = f"Express {dec_str} as a fraction in lowest terms."
         answer_str = f"{f_reduced.numerator}/{f_reduced.denominator}"
         explanation = (
-            f"{_float_fmt(rounded, 4)} = {f_reduced.numerator}/{f_reduced.denominator}. "
+            f"{dec_str} = {f_reduced.numerator}/{f_reduced.denominator}. "
             f"Multiply by the denominator you suspect, e.g. ×{d} → {n}, so {n}/{d} = {f_reduced}."
         )
         alt = [f"{n}/{d}"]
