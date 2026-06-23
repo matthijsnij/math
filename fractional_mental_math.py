@@ -497,7 +497,10 @@ def _gen_estimation(difficulty: str) -> dict:
             a = RNG.randint(100, 999)
             b = RNG.randint(100, 999)
         value = a * b
-        question = f"Estimate {a} × {b} to 2 significant figures."
+        if difficulty == "easy":
+            question = f"Estimate {a} × {b}."
+        else:
+            question = f"Estimate {a} × {b} to 2 significant figures."
         a_r = round(a, -len(str(a)) + 2)
         b_r = round(b, -len(str(b)) + 2)
         approx = a_r * b_r
@@ -506,7 +509,7 @@ def _gen_estimation(difficulty: str) -> dict:
             f"Estimate: {a_r} × {b_r} = {approx}. "
             f"Exact: {value}. Error: {abs(approx-value)/value*100:.1f}%."
         )
-        answer_str = _float_fmt(value, 0)
+        answer_str = str(int(approx))
 
     elif mode == "sqrt_irrational":
         # non-perfect squares between 2 and 150
