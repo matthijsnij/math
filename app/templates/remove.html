@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block title %}Remove cards{% endblock %}
+{% block content %}
+  <h1>Remove cards</h1>
+
+  <form method="get" class="filters">
+    <fieldset>
+      <legend>Category</legend>
+      {% for category in categories %}
+        <label>
+          <input type="checkbox" name="category" value="{{ category }}"
+            {% if category in selected_categories %}checked{% endif %}>
+          {{ category }}
+        </label>
+      {% endfor %}
+    </fieldset>
+    <fieldset>
+      <legend>Subtopic</legend>
+      {% for subtopic in subtopics %}
+        <label>
+          <input type="checkbox" name="subtopic" value="{{ subtopic }}"
+            {% if subtopic in selected_subtopics %}checked{% endif %}>
+          {{ subtopic }}
+        </label>
+      {% endfor %}
+    </fieldset>
+    <fieldset>
+      <legend>Level</legend>
+      {% for level in levels %}
+        <label>
+          <input type="checkbox" name="level" value="{{ level }}"
+            {% if level in selected_levels %}checked{% endif %}>
+          {{ level }}
+        </label>
+      {% endfor %}
+    </fieldset>
+    <button type="submit">Filter</button>
+  </form>
+
+  <ul class="card-list">
+    {% for card in cards %}
+      <li>
+        <span class="meta">{{ card.category }} / {{ card.subtopic }} / L{{ card.level }}</span>
+        <div class="question">\[{{ card.question }}\]</div>
+        <form method="post" action="{{ url_for('main.delete_card', card_id=card.id, category=selected_categories, subtopic=selected_subtopics, level=selected_levels) }}">
+          <button type="submit" class="delete-btn">Delete</button>
+        </form>
+      </li>
+    {% else %}
+      <li>No cards match the current filters.</li>
+    {% endfor %}
+  </ul>
+{% endblock %}

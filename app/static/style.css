@@ -1,0 +1,39 @@
+body {
+  font-family: system-ui, sans-serif;
+  max-width: 40rem;
+  margin: 1rem auto;
+  padding: 0 1rem;
+}
+
+nav a {
+  margin-right: 1rem;
+}
+
+fieldset {
+  margin-bottom: 0.75rem;
+}
+
+.card-list {
+  list-style: none;
+  padding: 0;
+}
+
+.card-list li {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.meta {
+  font-size: 0.8rem;
+  color: #666;
+}
+
+.errors {
+  color: #b00020;
+}
+
+.flash {
+  color: #0a6b0a;
+}
