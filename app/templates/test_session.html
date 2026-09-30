@@ -43,7 +43,10 @@
         review.hidden = false;
         blind.hidden = true;
         if (window.renderMathInElement) {
-          renderMathInElement(review, {delimiters: [{left: "\\[", right: "\\]", display: true}]});
+          renderMathInElement(review, {
+            delimiters: [{left: "\\[", right: "\\]", display: true}],
+            macros: window.KATEX_MACROS,
+          });
         }
       });
     })();

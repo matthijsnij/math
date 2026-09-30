@@ -22,12 +22,12 @@
   </main>
   <script id="katex-macros" type="application/json">{{ (macros or {}) | tojson }}</script>
   <script>
+    window.KATEX_MACROS = JSON.parse(document.getElementById("katex-macros").textContent);
     document.addEventListener("DOMContentLoaded", () => {
-      var macros = JSON.parse(document.getElementById("katex-macros").textContent);
       if (window.renderMathInElement) {
         renderMathInElement(document.body, {
           delimiters: [{left: "\\[", right: "\\]", display: true}],
-          macros: macros,
+          macros: window.KATEX_MACROS,
         });
       }
     });

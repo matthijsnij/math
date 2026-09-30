@@ -36,8 +36,14 @@ def _all_subtopics() -> list[str]:
     return sorted({name for names in subtopics.values() for name in names})
 
 
-def _levels_from_args(values: list[str]) -> list[int]:
-    return [int(value) for value in values if value.isdigit()]
+def _filtered_cards(source) -> list:
+    """Apply the category/subtopic/level multi-select filters from a request's args or form."""
+    categories = source.getlist("category")
+    subtopics = source.getlist("subtopic")
+    levels = [int(value) for value in source.getlist("level") if value.isdigit()]
+    return _card_store().filter_cards(
+        categories=categories or None, subtopics=subtopics or None, levels=levels or None
+    )
 
 
 @main_bp.route("/")
@@ -75,21 +81,16 @@ def add_cards():
 
 @main_bp.route("/remove")
 def remove_cards():
-    categories = request.args.getlist("category")
-    subtopics = request.args.getlist("subtopic")
-    levels = _levels_from_args(request.args.getlist("level"))
-    cards = _card_store().filter_cards(
-        categories=categories or None, subtopics=subtopics or None, levels=levels or None
-    )
+    cards = _filtered_cards(request.args)
     return render_template(
         "remove.html",
         cards=cards,
         categories=CATEGORIES,
         levels=LEVELS,
         subtopics=_all_subtopics(),
-        selected_categories=categories,
-        selected_subtopics=subtopics,
-        selected_levels=levels,
+        selected_categories=request.args.getlist("category"),
+        selected_subtopics=request.args.getlist("subtopic"),
+        selected_levels=[int(value) for value in request.args.getlist("level") if value.isdigit()],
         macros=_macros(),
     )
 
@@ -116,12 +117,7 @@ def practice_setup():
 
 @main_bp.route("/practice/session", methods=["POST"])
 def practice_session():
-    categories = request.form.getlist("category")
-    subtopics = request.form.getlist("subtopic")
-    levels = _levels_from_args(request.form.getlist("level"))
-    cards = _card_store().filter_cards(
-        categories=categories or None, subtopics=subtopics or None, levels=levels or None
-    )
+    cards = _filtered_cards(request.form)
     return render_template(
         "practice_session.html", cards_json=[asdict(c) for c in cards], macros=_macros()
     )
@@ -136,13 +132,8 @@ def test_setup():
 
 @main_bp.route("/test/session", methods=["POST"])
 def test_session():
-    categories = request.form.getlist("category")
-    subtopics = request.form.getlist("subtopic")
-    levels = _levels_from_args(request.form.getlist("level"))
     count = int(request.form.get("count") or 0)
-    pool = _card_store().filter_cards(
-        categories=categories or None, subtopics=subtopics or None, levels=levels or None
-    )
+    pool = _filtered_cards(request.form)
     random.shuffle(pool)
     notice = None
     if count > 0 and len(pool) < count:
