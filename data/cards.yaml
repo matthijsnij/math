@@ -1,1 +1,30 @@
-[]
+- id: mathematics-exponents-and-logarithms-1-01
+  category: Mathematics
+  subtopic: Exponents and Logarithms
+  level: 1
+  question: "\\text{Simplify: } \\dfrac{a^{4} \\cdot a^{-6}}{a^{-3}}"
+  answer: "a"
+- id: mathematics-exponents-and-logarithms-1-02
+  category: Mathematics
+  subtopic: Exponents and Logarithms
+  level: 1
+  question: "\\log_b(x) = y \\text{ is equivalent to which equation?}"
+  answer: "b^y = x \\quad (b>0,\\ b\\neq 1,\\ x>0)"
+- id: mathematics-exponents-and-logarithms-1-03
+  category: Mathematics
+  subtopic: Exponents and Logarithms
+  level: 1
+  question: "\\text{Write } \\log(x^3 y) \\text{ as a sum of logarithms.}"
+  answer: "3\\log x + \\log y"
+- id: mathematics-exponents-and-logarithms-1-04
+  category: Mathematics
+  subtopic: Exponents and Logarithms
+  level: 1
+  question: "\\text{Simplify: } \\ln(e^{4}) + 10^{\\log_{10}(3)}"
+  answer: "7"
+- id: mathematics-exponents-and-logarithms-1-05
+  category: Mathematics
+  subtopic: Exponents and Logarithms
+  level: 1
+  question: "\\text{Solve for } x: \\quad 3^{x} = 81"
+  answer: "x = 4"
