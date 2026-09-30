@@ -40,7 +40,10 @@
         span.textContent = "\\[" + latex + "\\]";
         el.appendChild(span);
         if (window.renderMathInElement) {
-          renderMathInElement(el, {delimiters: [{left: "\\[", right: "\\]", display: true}]});
+          renderMathInElement(el, {
+            delimiters: [{left: "\\[", right: "\\]", display: true}],
+            macros: window.KATEX_MACROS,
+          });
         }
       }
 
