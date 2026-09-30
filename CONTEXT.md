@@ -17,7 +17,7 @@ A named grouping within a Category (e.g. "Linear Algebra" under Mathematics). Mo
 _Avoid_: Sub-category
 
 **Level**:
-A difficulty tier from 1-3 within a Subtopic. Level 1 is basic definitions/standard questions. Level 2 is applied theory and intermediate relations/properties. Levels 1-2 together form the theoretical base. Level 3 is a quant-interview-style application problem — the most important tier.
+A difficulty tier from 1-4 within a Subtopic. Level 1 is basic definitions/standard questions. Level 2 is applied theory and intermediate relations/properties. Level 3 is mastery — deep theoretical content (e.g. proofs, edge cases, derivations) that's valuable knowledge but not necessarily phrased as an interview question. Levels 1-3 together form the full theoretical base. Level 4 is a quant-interview-style application problem — the most important tier.
 _Avoid_: Difficulty, tier
 
 **Practice mode**:

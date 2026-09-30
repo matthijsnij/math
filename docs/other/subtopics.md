@@ -1,0 +1,76 @@
+# Subtopics per category (draft)
+
+## Mathematics
+- Limits
+- Derivatives
+- Integrals
+- Multivariate Calculus
+- Exponents and Logarithms
+- Geometry
+- Taylor Expansion
+- Functions and Graphs
+- Optimization
+- Vectors and Vector Operations
+- Matrices and Matrix Operations
+- Matrix Decompositions
+- Eigenvalues and Eigenvectors
+- Determinant
+- Systems of Linear Equations
+- Inequalities
+- Sequences and Series
+
+## Computer Science
+- Time/space complexity
+- Dynamic Programming
+
+## Probability & Statistics
+- Mean, Median, Mode and Range
+- Expected Value, Variance and Covariance
+- Order Statistics
+- Conditional Probability and Bayes
+- Combinatorics
+- Set Theory in Probability
+- Random Variables
+- Probability Distributions
+- Central Limit Theorem
+- Linear Regression
+- Confidence Intervals and Regions
+- Hypothesis Testing
+- Markov Chains
+- Martingale and Random Walk
+- Brownian Motion
+
+## Machine Learning
+- Bias-Variance Tradeoff
+
+## Economics & Finance
+- Time Value of Money
+- Inflation and Interest Rates
+- Stocks, Bonds and Mutual Funds
+- Derivatives Basics
+- Fixed Income
+- Asset Pricing
+- The Concept of Alpha
+- Efficient Market Hypothesis
+- Foreign Exchange
+- Option Pricing
+- Greeks
+- Option Portfolios
+- Market Microstructure
+- Risk
+- Backtesting
+- Volatility
+
+## Brainteasers
+- Problem Simplification
+- Logic Reasoning
+- Thinking out of the Box
+- Application of Symmetry
+- Series Summation
+- Pigeon Hole Principle
+- Modular Arithmetic
+- Math Induction
+- Proof by Contradiction
+- Other Proofs
+- Fermi Estimation
+- Game Theory
