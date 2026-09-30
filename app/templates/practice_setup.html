@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}Practice{% endblock %}
+{% block content %}
+  <h1>Practice mode</h1>
+  <form method="post" action="{{ url_for('main.practice_session') }}" class="filters">
+    <fieldset>
+      <legend>Category</legend>
+      {% for category in categories %}
+        <label><input type="checkbox" name="category" value="{{ category }}"> {{ category }}</label>
+      {% endfor %}
+    </fieldset>
+    <fieldset>
+      <legend>Subtopic</legend>
+      {% for subtopic in subtopics %}
+        <label><input type="checkbox" name="subtopic" value="{{ subtopic }}"> {{ subtopic }}</label>
+      {% endfor %}
+    </fieldset>
+    <fieldset>
+      <legend>Level</legend>
+      {% for level in levels %}
+        <label><input type="checkbox" name="level" value="{{ level }}"> {{ level }}</label>
+      {% endfor %}
+    </fieldset>
+    <button type="submit">Start practice</button>
+  </form>
+{% endblock %}
