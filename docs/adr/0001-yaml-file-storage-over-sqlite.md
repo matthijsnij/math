@@ -1,0 +1,3 @@
+# Store cards as a single YAML file, not SQLite
+
+Cards (question/answer LaTeX plus category/subtopic/level) are stored in one git-tracked YAML file rather than SQLite. Scale is small (low thousands of cards at most, all edits go through the app UI, single user), and the deciding factors are LaTeX-friendliness and repo readability: YAML's literal block style (`answer: |`) holds raw LaTeX backslashes without JSON/DB-style escaping, and the file stays human-readable when browsed directly on GitHub. SQLite would make the store an opaque binary blob in git history and adds schema-migration ceremony this single-user app doesn't need.
