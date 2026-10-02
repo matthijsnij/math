@@ -2,29 +2,223 @@
   category: Mathematics
   subtopic: Exponents and Logarithms
   level: 1
-  question: "\\text{Simplify: } \\dfrac{a^{4} \\cdot a^{-6}}{a^{-3}}"
-  answer: "a"
+  question: |
+    \text{Simplify: } \dfrac{a^{4} \cdot a^{-6}}{a^{-3}}
+  answer: |
+    a
 - id: mathematics-exponents-and-logarithms-1-02
   category: Mathematics
   subtopic: Exponents and Logarithms
   level: 1
-  question: "\\log_b(x) = y \\text{ is equivalent to which equation?}"
-  answer: "b^y = x \\quad (b>0,\\ b\\neq 1,\\ x>0)"
+  question: |
+    \text{Simplify: } (a^{3})^{0}
+  answer: |
+    (a^{3})^{0} = a^{3 \cdot 0} = a^{0} = 1
 - id: mathematics-exponents-and-logarithms-1-03
   category: Mathematics
   subtopic: Exponents and Logarithms
   level: 1
-  question: "\\text{Write } \\log(x^3 y) \\text{ as a sum of logarithms.}"
-  answer: "3\\log x + \\log y"
+  question: |
+    \text{Evaluate: } 8^{2/3}
+  answer: |
+    8^{2/3} = \left(\sqrt[3]{8}\right)^{2} = 2^{2} = 4
 - id: mathematics-exponents-and-logarithms-1-04
   category: Mathematics
   subtopic: Exponents and Logarithms
   level: 1
-  question: "\\text{Simplify: } \\ln(e^{4}) + 10^{\\log_{10}(3)}"
-  answer: "7"
+  question: |
+    \log_b(x) = y \text{ is equivalent to which equation?}
+  answer: |
+    b^y = x \quad (b>0,\ b\neq 1,\ x>0)
 - id: mathematics-exponents-and-logarithms-1-05
   category: Mathematics
   subtopic: Exponents and Logarithms
   level: 1
-  question: "\\text{Solve for } x: \\quad 3^{x} = 81"
-  answer: "x = 4"
+  question: |
+    \text{Write } \log\!\left(\dfrac{x^{3} y}{z^{2}}\right) \text{ as a sum/difference of logarithms.}
+  answer: |
+    3\log x + \log y - 2\log z
+- id: mathematics-exponents-and-logarithms-1-06
+  category: Mathematics
+  subtopic: Exponents and Logarithms
+  level: 1
+  question: |
+    \text{Simplify: } \ln(e^{4}) + 10^{\log_{10}(3)}
+  answer: |
+    7
+- id: mathematics-exponents-and-logarithms-1-07
+  category: Mathematics
+  subtopic: Exponents and Logarithms
+  level: 1
+  question: |
+    \text{Solve for } x: \quad 3^{x} = 81
+  answer: |
+    x = 4
+- id: mathematics-exponents-and-logarithms-2-01
+  category: Mathematics
+  subtopic: Exponents and Logarithms
+  level: 2
+  question: |
+    \text{Rewrite } \log_2(5) \text{ using base-10 logarithms (change of base formula).}
+  answer: |
+    \log_2(5) = \dfrac{\log_{10} 5}{\log_{10} 2}
+- id: mathematics-exponents-and-logarithms-2-02
+  category: Mathematics
+  subtopic: Exponents and Logarithms
+  level: 2
+  question: |
+    \text{Solve for } x: \quad 2^{x+1} = 5
+  answer: |
+    \begin{aligned}
+    2^{x+1} &= 5 \\
+    (x+1)\ln 2 &= \ln 5 \\
+    x &= \dfrac{\ln 5}{\ln 2} - 1
+    \end{aligned}
+- id: mathematics-exponents-and-logarithms-2-03
+  category: Mathematics
+  subtopic: Exponents and Logarithms
+  level: 2
+  question: |
+    \text{Solve for } x: \quad \log_{10}(x) + \log_{10}(x-3) = 1
+  answer: |
+    \begin{aligned}
+    \log_{10}\big(x(x-3)\big) &= 1 \\
+    x(x-3) &= 10 \\
+    x^{2} - 3x - 10 &= 0 \\
+    (x-5)(x+2) &= 0 \\
+    x &= 5 \ \text{or} \ x=-2 \\
+    &\text{domain requires } x>3 \text{, so } x=-2 \text{ is extraneous} \\
+    x &= 5
+    \end{aligned}
+- id: mathematics-exponents-and-logarithms-2-04
+  category: Mathematics
+  subtopic: Exponents and Logarithms
+  level: 2
+  question: |
+    \text{A radioactive sample has a half-life of 10 years. How many years until only } \tfrac{1}{8} \text{ of the original amount remains?}
+  answer: |
+    \begin{aligned}
+    \left(\tfrac12\right)^{t/10} &= \tfrac18 = \left(\tfrac12\right)^{3} \\
+    t/10 &= 3 \\
+    t &= 30 \text{ years}
+    \end{aligned}
+- id: mathematics-exponents-and-logarithms-2-05
+  category: Mathematics
+  subtopic: Exponents and Logarithms
+  level: 2
+  question: |
+    \text{Solve: } \left(\tfrac12\right)^{x} < \left(\tfrac12\right)^{3}
+  answer: |
+    \begin{aligned}
+    \left(\tfrac12\right)^x &< \left(\tfrac12\right)^3 \\
+    x &> 3 \quad \text{(base } 0<b<1 \text{ reverses the inequality)}
+    \end{aligned}
+- id: mathematics-exponents-and-logarithms-2-06
+  category: Mathematics
+  subtopic: Exponents and Logarithms
+  level: 2
+  question: |
+    \text{pH is defined as } \mathrm{pH} = -\log_{10}[\mathrm{H}^+]. \text{ If pH drops from 7 to 4, by what factor does } [\mathrm{H}^+] \text{ increase?}
+  answer: |
+    [\mathrm{H}^+] \text{ increases by a factor of } 10^{7-4} = 10^{3} = 1000
+- id: mathematics-exponents-and-logarithms-3-01
+  category: Mathematics
+  subtopic: Exponents and Logarithms
+  level: 3
+  question: |
+    \text{Prove: } \log_b(xy) = \log_b(x) + \log_b(y) \quad (x,y>0,\ b>0,\ b\neq1)
+  answer: |
+    \begin{aligned}
+    \text{let } m &= \log_b(x), \ n = \log_b(y), \quad \text{so } b^m = x, \ b^n = y \\
+    xy &= b^m \cdot b^n = b^{m+n} \\
+    \text{by the definition of log, } \log_b(xy) &= m+n = \log_b(x) + \log_b(y)
+    \end{aligned}
+- id: mathematics-exponents-and-logarithms-3-02
+  category: Mathematics
+  subtopic: Exponents and Logarithms
+  level: 3
+  question: |
+    \text{Derive the change-of-base formula: } \log_b(x) = \dfrac{\log_c(x)}{\log_c(b)} \quad (b,c>0,\ b,c\neq1,\ x>0)
+  answer: |
+    \begin{aligned}
+    \text{let } y &= \log_b(x), \quad \text{so } b^y = x \\
+    \log_c(b^y) &= \log_c(x) \\
+    y \log_c(b) &= \log_c(x) \quad \text{(power rule)} \\
+    y &= \dfrac{\log_c(x)}{\log_c(b)}, \quad \text{i.e. } \log_b(x) = \dfrac{\log_c(x)}{\log_c(b)}
+    \end{aligned}
+- id: mathematics-exponents-and-logarithms-3-03
+  category: Mathematics
+  subtopic: Exponents and Logarithms
+  level: 3
+  question: |
+    \text{For } a \neq 0, \text{ prove that consistency with the exponent law } a^{m-n} = \dfrac{a^m}{a^n} \text{ forces } a^{0} = 1.
+  answer: |
+    \begin{aligned}
+    \text{set } m&=n \text{ in the law: } a^{m-m} = \dfrac{a^m}{a^m} \\
+    a^{0} &= \dfrac{a^m}{a^m} = 1 \quad \text{(valid since } a^m \neq 0 \text{ for } a \neq 0\text{)} \\
+    &\text{this holds for every } m\text{, so } a^0=1 \text{ is the only value consistent with the law}
+    \end{aligned}
+- id: mathematics-exponents-and-logarithms-3-04
+  category: Mathematics
+  subtopic: Exponents and Logarithms
+  level: 3
+  question: |
+    \text{Prove that } \log_b(x) \text{ is strictly increasing on } (0,\infty) \text{ when } b>1, \text{ and strictly decreasing when } 0<b<1.
+  answer: |
+    \begin{aligned}
+    &\text{case } b>1: \text{ let } x_1 < x_2, \ t_i = \log_b(x_i), \text{ so } b^{t_i}=x_i \\
+    &\text{since } b>1, \ b^{\epsilon} \geq 1 \text{ for } \epsilon \geq 0, \text{ so } s \mapsto b^s \text{ is non-decreasing} \\
+    &\text{if } t_1 \geq t_2 \text{ this gives } x_1 \geq x_2, \text{ contradicting } x_1<x_2 \\
+    &\text{so } t_1 < t_2, \text{ i.e. } \log_b \text{ is strictly increasing} \\
+    &\text{case } 0<b<1: \ b^{\epsilon}<1 \text{ for } \epsilon>0, \text{ so } s \mapsto b^s \text{ is strictly decreasing} \\
+    &\text{the mirrored argument gives } \log_b(x_1) > \log_b(x_2) \text{ whenever } x_1<x_2: \text{ strictly decreasing}
+    \end{aligned}
+- id: mathematics-exponents-and-logarithms-4-01
+  category: Mathematics
+  subtopic: Exponents and Logarithms
+  level: 4
+  question: |
+    \text{How many digits does } 2^{1000} \text{ have? (Use } \log_{10}2 \approx 0.30103.)
+  answer: |
+    \begin{aligned}
+    \text{digits}(N) &= \lfloor \log_{10}N \rfloor + 1 \quad \text{for positive integer } N \\
+    \log_{10}(2^{1000}) &= 1000 \cdot \log_{10}2 \approx 1000 \times 0.30103 = 301.03 \\
+    \text{digits} &= \lfloor 301.03 \rfloor + 1 = 302
+    \end{aligned}
+- id: mathematics-exponents-and-logarithms-4-02
+  category: Mathematics
+  subtopic: Exponents and Logarithms
+  level: 4
+  question: |
+    \text{Given } \log_{10}2 \approx 0.301 \text{ and } \log_{10}3 \approx 0.477, \text{ estimate } \log_{10}5 \text{ without a calculator.}
+  answer: |
+    \begin{aligned}
+    \log_{10}5 &= \log_{10}\!\left(\dfrac{10}{2}\right) = \log_{10}10 - \log_{10}2 \\
+    &= 1 - 0.301 = 0.699
+    \end{aligned}
+- id: mathematics-exponents-and-logarithms-4-03
+  category: Mathematics
+  subtopic: Exponents and Logarithms
+  level: 4
+  question: |
+    \text{Investment A doubles every 6 years. Investment B compounds continuously at an annual rate of 10\%. Both start at the same value } V_0. \text{ After 20 years, which is worth more, and by what ratio (A:B)?}
+  answer: |
+    \begin{aligned}
+    A(t) &= V_0 \cdot 2^{t/6} = V_0\, e^{(\ln 2/6)\,t}, \quad B(t) = V_0\, e^{0.1t} \\
+    \dfrac{A(t)}{B(t)} &= e^{\left(\frac{\ln 2}{6}-0.1\right)t}, \quad \dfrac{\ln 2}{6} \approx \dfrac{0.6931}{6} \approx 0.1155 \\
+    \dfrac{A(20)}{B(20)} &= e^{(0.1155-0.1)\cdot 20} = e^{0.310} \approx 1.36 \\
+    &\text{A is worth more, by a ratio of about } 1.36:1
+    \end{aligned}
+- id: mathematics-exponents-and-logarithms-4-04
+  category: Mathematics
+  subtopic: Exponents and Logarithms
+  level: 4
+  question: |
+    \text{Solve for } x,y>0 \text{ with } x \neq y: \quad x^{y}=y^{x} \text{ and } y=2x.
+  answer: |
+    \begin{aligned}
+    x^y &= y^x \ \Rightarrow\ y\ln x = x\ln y \\
+    \text{substitute } y&=2x: \quad 2x\ln x = x\ln(2x) \\
+    \text{divide by } x: \quad 2\ln x &= \ln 2 + \ln x \ \Rightarrow\ \ln x = \ln 2 \ \Rightarrow\ x=2 \\
+    y&=2x=4 \quad \text{(check: } 2^4=16=4^2\text{)}
+    \end{aligned}

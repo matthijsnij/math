@@ -66,3 +66,35 @@ it:
 - **Batch review before adding**: when proposing several Cards at once, list them for review first
   rather than writing straight into `data/cards.yaml`, so duplicate cases (see above) get caught
   before they're stored.
+
+## Generating Cards for a Subtopic
+
+Whether a Subtopic has no Cards yet or already has some Levels filled in, generate all its missing
+Levels together rather than one Level at a time — a new Level's Cards need to be checked against
+every other Level for the same Subtopic to avoid restating a case with different numbers (see "one
+case per card" above), which only works if every Level is visible at once.
+
+0. **List what's already there.** Read the existing Cards for the Subtopic (all Levels, not just
+   the ones you're about to add) so the outline and the cross-Level dedup check in step 3 both
+   have the full picture. If the Subtopic is brand new, this step is empty.
+1. **Draft an outline first, not Cards**, covering only the missing Levels. List the distinct
+   cases/techniques to cover per Level (roughly Level 1: 4-6, Level 2: 4-6, Level 3: 3-5, Level 4:
+   3-5 — fewer for a narrow Subtopic, more for a broad one). Post the outline for approval before
+   writing any LaTeX: it's much cheaper to fix scope at this stage than after Cards are drafted.
+   Flag any Level 3-4 case that has more than one reasonable solution method here too, so the
+   method can be picked before drafting (see "Multiple solution methods" above).
+2. **Draft the Cards** for the approved outline, following the depth/formatting/macro rules above.
+3. **Batch-review the drafted Cards** as a single set, against each other and against the existing
+   Cards from step 0, before anything is written to `data/cards.yaml` — this is the pass that
+   catches cross-Level duplicates.
+4. **Write and validate**: add the approved Cards, then run `tests/test_cards_data.py`
+   (`.\venv\Scripts\python.exe -m pytest tests/test_cards_data.py`) to check ids, Category/Level
+   validity, and Subtopic registration across the whole file.
+
+Keep the outline in the conversation only — don't save it as a file. Once Cards exist,
+`data/cards.yaml` is the record; a separate persisted outline would just be one more thing that
+can drift out of sync with it.
+
+Multiple Subtopics can be run through this pipeline back-to-back in one session, but don't merge
+two Subtopics' review gates into one — a review batch that's too large is where a duplicate case
+or a gap in a derivation slips through unnoticed.
