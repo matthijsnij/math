@@ -1636,3 +1636,179 @@
     EAR_B = 6.0\% \quad \text{(annual compounding means the nominal and effective rates coincide)} \\
     \text{Although Bank A quotes a lower nominal rate, its more frequent compounding pushes its} \\
     \text{effective annual rate (6.062\%) above Bank B's (6.0\%), so Bank A effectively pays more.}
+- id: economics-finance-inflation-and-interest-rates-1-01
+  category: Economics & Finance
+  subtopic: Inflation and Interest Rates
+  level: 1
+  question: |
+    \text{What is the } \textbf{nominal interest rate}, \text{ and what does it fail to} \\
+    \text{account for?}
+  answer: |
+    \text{The nominal interest rate is the stated rate of return on an investment or loan, with} \\
+    \text{no adjustment for the loss of purchasing power caused by inflation.}
+- id: economics-finance-inflation-and-interest-rates-1-02
+  category: Economics & Finance
+  subtopic: Inflation and Interest Rates
+  level: 1
+  question: |
+    \text{What is the } \textbf{real interest rate}, \text{ and what exact relationship (the} \\
+    \textbf{Fisher equation}\text{) links it to the nominal rate } r \text{ and the inflation rate } \pi?
+  answer: |
+    \text{The real interest rate is the rate at which purchasing power grows, after removing the} \\
+    \text{effect of inflation from the nominal rate. The exact Fisher equation states} \\
+    (1+r) = (1+r_{real})(1+\pi), \quad \text{equivalently} \quad r_{real} = \dfrac{1+r}{1+\pi}-1.
+- id: economics-finance-inflation-and-interest-rates-1-03
+  category: Economics & Finance
+  subtopic: Inflation and Interest Rates
+  level: 1
+  question: |
+    \text{State the commonly used linear approximation to the exact Fisher equation} \\
+    (1+r)=(1+r_{real})(1+\pi), \text{ and explain when it stays accurate.}
+  answer: |
+    \begin{aligned}
+    r &\approx r_{real} + \pi \quad \text{(equivalently } r_{real}\approx r-\pi\text{)}
+    \end{aligned} \\
+    \text{Expanding the exact relation gives } r = r_{real}+\pi+r_{real}\pi, \text{ so the approximation} \\
+    \text{simply drops the cross term } r_{real}\pi. \text{ It stays accurate whenever both } r_{real} \\
+    \text{and } \pi \text{ are small (roughly single-digit percentages), since their product is then} \\
+    \text{second-order small; it breaks down at high inflation.}
+- id: economics-finance-inflation-and-interest-rates-1-04
+  category: Economics & Finance
+  subtopic: Inflation and Interest Rates
+  level: 1
+  question: |
+    \text{What are } \textbf{Treasury Inflation-Protected Securities (TIPS)}, \text{ and how do their} \\
+    \text{principal and coupon payments respond to inflation?}
+  answer: |
+    \text{TIPS are U.S. Treasury bonds whose principal is periodically adjusted in line with the} \\
+    \text{CPI. Because the fixed coupon rate is applied to this inflation-adjusted principal, the} \\
+    \text{dollar coupon payment rises (or falls) with inflation too, and at maturity the holder is} \\
+    \text{repaid the greater of the inflation-adjusted principal or the original par value.}
+- id: economics-finance-inflation-and-interest-rates-1-05
+  category: Economics & Finance
+  subtopic: Inflation and Interest Rates
+  level: 1
+  question: |
+    \text{What is the } \textbf{breakeven inflation rate}, \text{ and how is it computed from the yields} \\
+    \text{of a nominal Treasury bond and a TIPS of the same maturity?}
+  answer: |
+    \text{Breakeven inflation} = y_{nominal} - y_{TIPS}, \text{ the nominal Treasury yield minus the} \\
+    \text{TIPS (real) yield of matching maturity. It represents the market's average expected} \\
+    \text{inflation rate over that maturity: realized inflation above this level makes the TIPS the} \\
+    \text{better holding, and realized inflation below it favors the nominal bond.}
+- id: economics-finance-inflation-and-interest-rates-1-06
+  category: Economics & Finance
+  subtopic: Inflation and Interest Rates
+  level: 1
+  question: |
+    \text{Nominal bond yields typically include an } \textbf{inflation risk premium} \text{ on top of} \\
+    \text{expected inflation. What is this premium compensating investors for, and how does it} \\
+    \text{bias the breakeven inflation rate as a measure of expected inflation?}
+  answer: |
+    \text{It compensates investors for the } \textit{uncertainty} \text{ around future inflation: a nominal} \\
+    \text{bond's fixed payments lose real value if inflation turns out higher than expected, a risk} \\
+    \text{a TIPS holder doesn't bear. Because nominal yields embed this premium, the breakeven} \\
+    \text{inflation rate (} y_{nominal}-y_{TIPS} \text{) overstates the market's true expected inflation by} \\
+    \text{roughly the size of this premium (plus any liquidity difference between the two securities).}
+- id: economics-finance-inflation-and-interest-rates-2-01
+  category: Economics & Finance
+  subtopic: Inflation and Interest Rates
+  level: 2
+  question: |
+    \text{A one-year investment offers a nominal rate of } 8\%, \text{ and expected inflation over the} \\
+    \text{year is } 3\%. \text{ Using the exact Fisher equation, what is the real interest rate?}
+  answer: |
+    r_{real} = \dfrac{1+r}{1+\pi}-1 = \dfrac{1.08}{1.03}-1 \approx 4.85\%
+- id: economics-finance-inflation-and-interest-rates-2-02
+  category: Economics & Finance
+  subtopic: Inflation and Interest Rates
+  level: 2
+  question: |
+    \text{A 10-year nominal Treasury bond yields } 4.2\%, \text{ and a 10-year TIPS of the same} \\
+    \text{maturity yields } 1.5\% \text{ (real). What is the market-implied breakeven inflation rate?}
+  answer: |
+    \text{Breakeven inflation} = y_{nominal}-y_{TIPS} = 4.2\%-1.5\% = 2.7\%
+- id: economics-finance-inflation-and-interest-rates-2-03
+  category: Economics & Finance
+  subtopic: Inflation and Interest Rates
+  level: 2
+  question: |
+    \text{An economy has a real interest rate of } 5\% \text{ and expected inflation of } 20\%. \text{ Compute} \\
+    \text{the nominal rate using (a) the exact Fisher equation and (b) the approximate relation} \\
+    r\approx r_{real}+\pi. \text{ By how much does the approximation miss?}
+  answer: |
+    \begin{aligned}
+    \text{(a) Exact: } (1+r) &= (1.05)(1.20) = 1.26 \implies r = 26\% \\
+    \text{(b) Approx: } r &\approx 5\%+20\% = 25\%
+    \end{aligned} \\
+    \text{The approximation misses by } 1 \text{ percentage point, exactly the dropped cross term} \\
+    r_{real}\pi = 0.05\times 0.20 = 1\%. \text{ At high inflation this cross term is no longer} \\
+    \text{negligible, so the approximation noticeably understates the true nominal rate.}
+- id: economics-finance-inflation-and-interest-rates-2-04
+  category: Economics & Finance
+  subtopic: Inflation and Interest Rates
+  level: 2
+  question: |
+    \text{A TIPS has an original principal of \$1{,}000 and a real coupon rate of } 2\% \text{ per year.} \\
+    \text{Over the first year, the CPI rises } 4\%. \text{ What is the inflation-adjusted principal at} \\
+    \text{year-end, and what dollar coupon is paid for that year?}
+  answer: |
+    \begin{aligned}
+    \text{Adjusted principal} &= 1000\times 1.04 = \$1{,}040 \\
+    \text{Coupon paid} &= 2\%\times 1{,}040 = \$20.80
+    \end{aligned} \\
+    \text{Both the principal and the coupon rise with CPI — compared to a conventional bond,} \\
+    \text{which would still pay just \$20 on an unchanged \$1{,}000 principal.}
+- id: economics-finance-inflation-and-interest-rates-2-05
+  category: Economics & Finance
+  subtopic: Inflation and Interest Rates
+  level: 2
+  question: |
+    \text{An investor earns a } 7\% \text{ nominal return over a year in which realized inflation turns} \\
+    \text{out to be } 4.5\%. \text{ What is the investor's exact real return for the year?}
+  answer: |
+    r_{real} = \dfrac{1.07}{1.045}-1 \approx 2.39\%
+- id: economics-finance-inflation-and-interest-rates-2-06
+  category: Economics & Finance
+  subtopic: Inflation and Interest Rates
+  level: 2
+  question: |
+    \text{Inflation unexpectedly rises well above the rate priced into a nominal bond's yield at} \\
+    \text{issuance. Explain, with reference to each security's payoff structure, why a fixed-rate} \\
+    \text{nominal bondholder loses real purchasing power from this shock while a TIPS holder is} \\
+    \text{largely protected.}
+  answer: |
+    \text{The nominal bond pays fixed dollar coupons and principal regardless of the inflation} \\
+    \text{path; its yield at issuance only priced in the } \textit{expected} \text{ inflation at that time, so} \\
+    \text{those fixed cash flows are worth less in real terms once actual inflation comes in higher} \\
+    \text{than expected — the holder's realized real return falls short of what was priced in. A} \\
+    \text{TIPS's principal (and so its coupon, paid on that principal) scales automatically with the} \\
+    \text{CPI, so its real cash flows are preserved regardless of the inflation surprise — the TIPS} \\
+    \text{holder's real return stays close to the real yield locked in at purchase.}
+- id: economics-finance-inflation-and-interest-rates-2-07
+  category: Economics & Finance
+  subtopic: Inflation and Interest Rates
+  level: 2
+  question: |
+    \text{A perpetual bond pays a fixed annual coupon of \$50. If the market discount rate (yield)} \\
+    \text{rises from } 5\% \text{ to } 6\%, \text{ what happens to the bond's price, and by what percentage} \\
+    \text{does it fall?}
+  answer: |
+    \begin{aligned}
+    P_{old} &= \dfrac{50}{0.05} = \$1{,}000 \\
+    P_{new} &= \dfrac{50}{0.06} \approx \$833.33
+    \end{aligned} \\
+    \text{Percentage change} = \dfrac{833.33-1{,}000}{1{,}000} \approx -16.67\%. \\
+    \text{Bond prices move inversely with interest rates because the present value of a fixed set} \\
+    \text{of future cash flows falls whenever the discount rate used to value them rises.}
+- id: economics-finance-inflation-and-interest-rates-2-08
+  category: Economics & Finance
+  subtopic: Inflation and Interest Rates
+  level: 2
+  question: |
+    \text{You hold \$10{,}000 in cash, earning } 0\% \text{ nominal interest, while inflation averages } 3\% \\
+    \text{per year. What is the real (inflation-adjusted) value of that cash after 5 years?}
+  answer: |
+    \text{Real value} = \dfrac{10{,}000}{(1.03)^5} \approx \$8{,}626.09 \\
+    \text{The cash loses about } 13.7\% \text{ of its purchasing power over the 5 years, since it earns} \\
+    \text{no nominal return at all to offset inflation.}
