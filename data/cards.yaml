@@ -673,3 +673,233 @@
     &\text{The remaining 4 letters must all be in the wrong envelope: } D_4 = 9 \\
     &\text{Total: } 15 \cdot 9 = 135
     \end{aligned}
+- id: probability-statistics-mean-median-mode-and-range-1-01
+  category: Probability & Statistics
+  subtopic: Mean, Median, Mode and Range
+  level: 1
+  question: |
+    \text{Find the mean of the dataset: } 4, 8, 6, 5, 3
+  answer: |
+    \bar{x} = \dfrac{4+8+6+5+3}{5} = \dfrac{26}{5} = 5.2
+- id: probability-statistics-mean-median-mode-and-range-1-02
+  category: Probability & Statistics
+  subtopic: Mean, Median, Mode and Range
+  level: 1
+  question: |
+    \text{Find the median of the dataset: } 7, 2, 9, 4, 5
+  answer: |
+    \text{Sorted: } 2, 4, 5, 7, 9 \quad\Rightarrow\quad \text{median} = 5
+- id: probability-statistics-mean-median-mode-and-range-1-03
+  category: Probability & Statistics
+  subtopic: Mean, Median, Mode and Range
+  level: 1
+  question: |
+    \text{Find the median of the dataset: } 3, 7, 1, 9
+  answer: |
+    \text{Sorted: } 1, 3, 7, 9 \quad\Rightarrow\quad \text{median} = \dfrac{3+7}{2} = 5
+- id: probability-statistics-mean-median-mode-and-range-1-04
+  category: Probability & Statistics
+  subtopic: Mean, Median, Mode and Range
+  level: 1
+  question: |
+    \text{Find the mode of the dataset: } 2, 3, 3, 5, 7, 3, 8
+  answer: |
+    3 \text{ appears three times, more than any other value} \quad\Rightarrow\quad \text{mode} = 3
+- id: probability-statistics-mean-median-mode-and-range-1-05
+  category: Probability & Statistics
+  subtopic: Mean, Median, Mode and Range
+  level: 1
+  question: |
+    \text{Find the range of the dataset: } 12, 7, 19, 3, 15
+  answer: |
+    \text{range} = \max - \min = 19 - 3 = 16
+- id: probability-statistics-mean-median-mode-and-range-1-06
+  category: Probability & Statistics
+  subtopic: Mean, Median, Mode and Range
+  level: 1
+  question: |
+    \text{Find the mode(s) of the dataset: } 1, 2, 2, 3, 4, 4, 5
+  answer: |
+    \text{Both } 2 \text{ and } 4 \text{ occur twice, more than any other value} \quad\Rightarrow\quad \text{the dataset is bimodal with modes } 2 \text{ and } 4
+- id: probability-statistics-mean-median-mode-and-range-2-01
+  category: Probability & Statistics
+  subtopic: Mean, Median, Mode and Range
+  level: 2
+  question: |
+    \text{A dataset has mean } \bar{x}, \text{ median } m, \text{ mode } M, \text{ and range } R. \text{ If a constant } c \\
+    \text{ is added to every value, what are the new mean, median, mode, and range?}
+  answer: |
+    \begin{aligned}
+    \text{new mean} &= \bar{x} + c \\
+    \text{new median} &= m + c \\
+    \text{new mode} &= M + c \\
+    \text{new range} &= R \quad \text{(unchanged: both the max and min shift by } c\text{, so their difference doesn't)}
+    \end{aligned}
+- id: probability-statistics-mean-median-mode-and-range-2-02
+  category: Probability & Statistics
+  subtopic: Mean, Median, Mode and Range
+  level: 2
+  question: |
+    \text{A dataset has mean } \bar{x}, \text{ median } m, \text{ mode } M, \text{ and range } R. \text{ If every value is} \\
+    \text{multiplied by a constant } k>0, \text{ what are the new mean, median, mode, and range?}
+  answer: |
+    \begin{aligned}
+    \text{new mean} &= k\bar{x} \\
+    \text{new median} &= km \\
+    \text{new mode} &= kM \\
+    \text{new range} &= kR
+    \end{aligned}
+- id: probability-statistics-mean-median-mode-and-range-2-03
+  category: Probability & Statistics
+  subtopic: Mean, Median, Mode and Range
+  level: 2
+  question: |
+    \text{The dataset } 2, 3, 4, 5, 6 \text{ has mean } 4 \text{ and median } 4. \text{ Suppose the value } 6 \text{ is replaced} \\
+    \text{by } 100. \text{ Find the new mean and median, and state which measure is more robust to outliers.}
+  answer: |
+    \begin{aligned}
+    \text{new dataset: } &2, 3, 4, 5, 100 \\
+    \text{new mean} &= \dfrac{2+3+4+5+100}{5} = \dfrac{114}{5} = 22.8 \\
+    \text{new median (sorted } 2,3,4,5,100\text{)} &= 4
+    \end{aligned} \\
+    \text{The mean jumped from 4 to 22.8 while the median barely changed, so the median is far more robust to outliers.}
+- id: probability-statistics-mean-median-mode-and-range-2-04
+  category: Probability & Statistics
+  subtopic: Mean, Median, Mode and Range
+  level: 2
+  question: |
+    \text{A student's grades are } 80 \text{ (weight 2)}, 90 \text{ (weight 3)}, \text{ and } 70 \text{ (weight 1)}. \\
+    \text{Find the weighted mean.}
+  answer: |
+    \bar{x}_w = \dfrac{2(80) + 3(90) + 1(70)}{2+3+1} = \dfrac{160+270+70}{6} = \dfrac{500}{6} \approx 83.33
+- id: probability-statistics-mean-median-mode-and-range-2-05
+  category: Probability & Statistics
+  subtopic: Mean, Median, Mode and Range
+  level: 2
+  question: |
+    \text{Group A has } 10 \text{ values with mean } 50. \text{ Group B has } 15 \text{ values with mean } 60. \\
+    \text{Find the mean of the combined } 25 \text{ values.}
+  answer: |
+    \bar{x} = \dfrac{10(50) + 15(60)}{10+15} = \dfrac{500+900}{25} = \dfrac{1400}{25} = 56
+- id: probability-statistics-mean-median-mode-and-range-3-01
+  category: Probability & Statistics
+  subtopic: Mean, Median, Mode and Range
+  level: 3
+  question: |
+    \text{Prove that the sample mean } \bar{x} \text{ minimizes } f(c) = \sum_{i=1}^{n}(x_i - c)^2 \text{ over all real } c.
+  answer: |
+    \begin{aligned}
+    f(c) &= \sum_{i=1}^n (x_i-c)^2 \\
+    f'(c) &= -2\sum_{i=1}^n (x_i - c) \\
+    \text{Setting } f'(c)=0: \quad \sum_{i=1}^n x_i - nc &= 0 \\
+    c &= \dfrac{1}{n}\sum_{i=1}^n x_i = \bar{x} \\
+    f''(c) &= 2n > 0
+    \end{aligned} \\
+    \text{so } f \text{ is convex and } c = \bar{x} \text{ is the unique minimizer.}
+- id: probability-statistics-mean-median-mode-and-range-3-02
+  category: Probability & Statistics
+  subtopic: Mean, Median, Mode and Range
+  level: 3
+  question: |
+    \text{Prove that the sample median } m \text{ minimizes } g(c) = \sum_{i=1}^{n}|x_i - c| \text{ over all real } c.
+  answer: |
+    \text{For } c \text{ strictly between the } k\text{-th and } (k{+}1)\text{-th order statistics (exactly } k \text{ points} \\
+    \text{below } c\text{), each of those } k \text{ points contributes slope } +1 \text{ to } g \text{ (since } |x_i-c|=c-x_i\text{)} \\
+    \text{and each of the remaining } n-k \text{ points contributes slope } -1\text{, so} \\
+    \begin{aligned}
+    g'(c) &= k - (n-k) = 2k-n, \quad \text{constant between consecutive data points.}
+    \end{aligned} \\
+    \text{This slope increases by 2 each time } c \text{ passes a data point, so } g \text{ is convex and piecewise linear.} \\
+    \text{The slope is negative while } k < n/2 \text{ and positive once } k > n/2\text{, so the minimum is at } k=n/2\text{:} \\
+    \text{if } n \text{ is odd this pins down the single middle order statistic; if } n \text{ is even, the slope is} \\
+    \text{exactly } 0 \text{ for any } c \text{ between the two middle order statistics. In both cases this is the median } m.
+- id: probability-statistics-mean-median-mode-and-range-3-03
+  category: Probability & Statistics
+  subtopic: Mean, Median, Mode and Range
+  level: 3
+  question: |
+    \text{Group 1 has } n_1 \text{ values with mean } \bar{x}_1 \text{ and Group 2 has } n_2 \text{ values with mean } \bar{x}_2. \\
+    \text{Derive a formula for the mean } \bar{x} \text{ of the combined } n_1+n_2 \text{ values, and show it is a} \\
+    \text{weighted average of } \bar{x}_1 \text{ and } \bar{x}_2.
+  answer: |
+    \begin{aligned}
+    \sum_{i=1}^{n_1} x_i &= n_1 \bar{x}_1, \qquad \sum_{j=1}^{n_2} y_j = n_2 \bar{x}_2 \\
+    \bar{x} &= \frac{1}{n_1+n_2}\left(\sum_{i=1}^{n_1} x_i + \sum_{j=1}^{n_2} y_j\right) = \frac{n_1\bar{x}_1 + n_2\bar{x}_2}{n_1+n_2} \\
+    &= \frac{n_1}{n_1+n_2}\bar{x}_1 + \frac{n_2}{n_1+n_2}\bar{x}_2
+    \end{aligned} \\
+    \text{The two weights } \frac{n_1}{n_1+n_2} \text{ and } \frac{n_2}{n_1+n_2} \text{ are nonnegative and sum to 1, so } \bar{x} \\
+    \text{is a weighted average of } \bar{x}_1 \text{ and } \bar{x}_2, \text{ weighted by each group's size.}
+- id: probability-statistics-mean-median-mode-and-range-3-04
+  category: Probability & Statistics
+  subtopic: Mean, Median, Mode and Range
+  level: 3
+  question: |
+    \text{Let } X \sim \text{Exponential}(\lambda). \text{ Find } \E[X] \text{ and the median of } X, \text{ and determine} \\
+    \text{which is larger.}
+  answer: |
+    \begin{aligned}
+    \E[X] &= \frac{1}{\lambda} \\
+    \text{Median } m \text{ solves } F(m) = 1 - e^{-\lambda m} &= \frac{1}{2} \\
+    e^{-\lambda m} = \frac{1}{2} \quad\Rightarrow\quad m &= \frac{\ln 2}{\lambda} \approx \frac{0.693}{\lambda}
+    \end{aligned} \\
+    \text{Since } \frac{\ln 2}{\lambda} < \frac{1}{\lambda}\text{, the median is smaller than the mean, consistent with the} \\
+    \text{exponential distribution's right skew pulling the mean above the median.}
+- id: probability-statistics-mean-median-mode-and-range-4-01
+  category: Probability & Statistics
+  subtopic: Mean, Median, Mode and Range
+  level: 4
+  question: |
+    \text{The mean of 7 numbers is } 15. \text{ Six of the numbers are } 10, 12, 18, 20, 9, 14. \text{ Find the} \\
+    \text{seventh number.}
+  answer: |
+    \begin{aligned}
+    \text{Total sum} &= 7 \times 15 = 105 \\
+    \text{Sum of six known values} &= 10+12+18+20+9+14 = 83 \\
+    \text{Seventh value} &= 105 - 83 = 22
+    \end{aligned}
+- id: probability-statistics-mean-median-mode-and-range-4-02
+  category: Probability & Statistics
+  subtopic: Mean, Median, Mode and Range
+  level: 4
+  question: |
+    \text{A class of } 20 \text{ students has an average test score of } 68. \text{ A new student joins and} \\
+    \text{scores } 95. \text{ Find the new average for all } 21 \text{ students.}
+  answer: |
+    \begin{aligned}
+    \text{Original total} &= 20 \times 68 = 1360 \\
+    \text{New total} &= 1360 + 95 = 1455 \\
+    \text{New average} &= \frac{1455}{21} = \frac{485}{7} \approx 69.29
+    \end{aligned}
+- id: probability-statistics-mean-median-mode-and-range-4-03
+  category: Probability & Statistics
+  subtopic: Mean, Median, Mode and Range
+  level: 4
+  question: |
+    \text{A company has } 10 \text{ employees. Nine of them each earn } \$55{,}000\text{, and the mean salary} \\
+    \text{across all } 10 \text{ employees is } \$80{,}000. \text{ Find the CEO's salary (the tenth employee), and} \\
+    \text{compare it to the median salary.}
+  answer: |
+    \begin{aligned}
+    \text{Total payroll} &= 10 \times 80{,}000 = 800{,}000 \\
+    \text{Sum of the nine } \$55{,}000 \text{ salaries} &= 9 \times 55{,}000 = 495{,}000 \\
+    \text{CEO salary} &= 800{,}000 - 495{,}000 = 305{,}000
+    \end{aligned} \\
+    \text{The median salary is } \$55{,}000 \text{ (the middle value among the ten, sorted), far below the} \\
+    \$80{,}000 \text{ mean — a single large value pulls the mean well above the median.}
+- id: probability-statistics-mean-median-mode-and-range-4-04
+  category: Probability & Statistics
+  subtopic: Mean, Median, Mode and Range
+  level: 4
+  question: |
+    \text{A market-making desk's P\&L over } 11 \text{ trading days consists of } 10 \text{ days each losing exactly} \\
+    \$2{,}000\text{, and one day with a large gain. The mean P\&L over all } 11 \text{ days is } \$1{,}000. \text{ Find the} \\
+    \text{gain on the big day, and find the median P\&L.}
+  answer: |
+    \begin{aligned}
+    \text{Total P\&L} &= 11 \times 1{,}000 = 11{,}000 \\
+    \text{Sum of the } 10 \text{ losing days} &= 10 \times (-2{,}000) = -20{,}000 \\
+    \text{Big-gain day} &= 11{,}000 - (-20{,}000) = 31{,}000
+    \end{aligned} \\
+    \text{Sorted P\&L: ten values of } -2{,}000 \text{ followed by } 31{,}000\text{, so the median (6th of 11 values) is} \\
+    -2{,}000\text{ — negative, even though the mean P\&L is a positive } \$1{,}000\text{, because one large gain} \\
+    \text{pulls the mean up without affecting the median.}
