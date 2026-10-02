@@ -11,3 +11,8 @@ Default label vocabulary (`needs-triage`, `needs-info`, `ready-for-agent`, `read
 ### Domain docs
 
 Single-context: `CONTEXT.md` + `docs/adr/` at the repo root. See `docs/agents/domain.md`.
+
+### Card writing
+
+Guidelines for authoring Card question/answer pairs (one case per Card, answer depth by Level,
+LaTeX macro use, KaTeX formatting constraints). See `docs/agents/card-writing.md`.
