@@ -65,7 +65,9 @@ it:
   (`app/slugs.py`) — only relevant if hand-editing `data/cards.yaml` instead of using the Add page.
 - **Batch review before adding**: when proposing several Cards at once, list them for review first
   rather than writing straight into `data/cards.yaml`, so duplicate cases (see above) get caught
-  before they're stored.
+  before they're stored. Show only the question of each Card at this stage — the question is what
+  determines coverage and duplication, which is all the review is judging. The answer still gets
+  written to `data/cards.yaml` and must be correct, it's just not part of what's shown for approval.
 
 ## Generating Cards for a Subtopic
 
@@ -86,7 +88,9 @@ case per card" above), which only works if every Level is visible at once.
 2. **Draft the Cards** for the approved outline, following the depth/formatting/macro rules above.
 3. **Batch-review the drafted Cards** as a single set, against each other and against the existing
    Cards from step 0, before anything is written to `data/cards.yaml` — this is the pass that
-   catches cross-Level duplicates.
+   catches cross-Level duplicates. Show only the question of each Card here (see "Batch review
+   before adding" above) — the answer is still written and must be correct, it's just not needed
+   to judge coverage/duplication.
 4. **Write and validate**: add the approved Cards, then run `tests/test_cards_data.py`
    (`.\venv\Scripts\python.exe -m pytest tests/test_cards_data.py`) to check ids, Category/Level
    validity, and Subtopic registration across the whole file.
