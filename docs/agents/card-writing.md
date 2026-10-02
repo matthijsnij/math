@@ -102,7 +102,13 @@ case per card" above), which only works if every Level is visible at once.
    have the full picture. If the Subtopic is brand new, this step is empty.
 1. **Draft an outline first, not Cards**, covering only the missing Levels. List the distinct
    cases/techniques to cover per Level (roughly Level 1: 4-6, Level 2: 4-6, Level 3: 3-5, Level 4:
-   3-5 — fewer for a narrow Subtopic, more for a broad one). Post the outline for approval before
+   3-5 — fewer for a narrow Subtopic, more for a broad one). Keep Level 3 and Level 4 cases
+   qualitatively distinct, not just same-content-different-count (see Level definitions in
+   `CONTEXT.md`): a Level 3 case is deep theoretical content — a proof, an edge case, a
+   derivation — valuable to know but not phrased as an interview prompt, even if the underlying
+   fact is one an interviewer could ask about. A Level 4 case is phrased and solved as an actual
+   quant-interview application question. When a classic problem (e.g. Monty Hall, a named
+   paradox) could fit either, put it at Level 4, not Level 3. Post the outline for approval before
    writing any LaTeX: it's much cheaper to fix scope at this stage than after Cards are drafted.
    Flag any Level 3-4 case that has more than one reasonable solution method here too, so the
    method can be picked before drafting (see "Multiple solution methods" above). Also flag any

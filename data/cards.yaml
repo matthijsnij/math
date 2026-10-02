@@ -903,3 +903,280 @@
     \text{Sorted P\&L: ten values of } -2{,}000 \text{ followed by } 31{,}000\text{, so the median (6th of 11 values) is} \\
     -2{,}000\text{ — negative, even though the mean P\&L is a positive } \$1{,}000\text{, because one large gain} \\
     \text{pulls the mean up without affecting the median.}
+- id: probability-statistics-conditional-probability-and-bayes-1-01
+  category: Probability & Statistics
+  subtopic: Conditional Probability and Bayes
+  level: 1
+  question: |
+    \text{Given } \P(A \cap B) = 0.3 \text{ and } \P(B) = 0.5, \text{ find } \P(A \mid B).
+  answer: |
+    \P(A\mid B) = \dfrac{\P(A\cap B)}{\P(B)} = \dfrac{0.3}{0.5} = 0.6
+- id: probability-statistics-conditional-probability-and-bayes-1-02
+  category: Probability & Statistics
+  subtopic: Conditional Probability and Bayes
+  level: 1
+  question: |
+    \text{A survey of 200 people classifies them by smoking status and whether they have a} \\
+    \text{certain condition:} \\
+    \begin{array}{c|cc}
+     & \text{Condition} & \text{No condition} \\\hline
+    \text{Smoker} & 30 & 70 \\
+    \text{Non-smoker} & 20 & 80
+    \end{array} \\
+    \text{Find } \P(\text{Condition} \mid \text{Smoker}).
+  answer: |
+    \text{Total smokers} = 30+70 = 100 \\
+    \P(\text{Condition}\mid\text{Smoker}) = \dfrac{30}{100} = 0.3
+- id: probability-statistics-conditional-probability-and-bayes-1-03
+  category: Probability & Statistics
+  subtopic: Conditional Probability and Bayes
+  level: 1
+  question: |
+    \text{Events } A \text{ and } B \text{ satisfy } \P(A) = 0.4 \text{ and } \P(A \mid B) = 0.4. \\
+    \text{Are } A \text{ and } B \text{ independent? Justify your answer.}
+  answer: |
+    \text{Yes. } \P(A\mid B) = \P(A) \text{ is exactly the definition of independence between } A \text{ and } B\text{:} \\
+    \text{knowing that } B \text{ occurred does not change the probability of } A.
+- id: probability-statistics-conditional-probability-and-bayes-1-04
+  category: Probability & Statistics
+  subtopic: Conditional Probability and Bayes
+  level: 1
+  question: |
+    \text{Given } \P(A) = 0.6 \text{ and } \P(B \mid A) = 0.5, \text{ find } \P(A \cap B).
+  answer: |
+    \P(A\cap B) = \P(B\mid A)\,\P(A) = 0.5 \times 0.6 = 0.3
+- id: probability-statistics-conditional-probability-and-bayes-1-05
+  category: Probability & Statistics
+  subtopic: Conditional Probability and Bayes
+  level: 1
+  question: |
+    \text{Factory 1 produces 60\% of a company's widgets, with a 2\% defect rate. Factory 2} \\
+    \text{produces the remaining 40\%, with a 5\% defect rate. Find the overall probability that} \\
+    \text{a randomly chosen widget is defective.}
+  answer: |
+    \P(D) = \P(D\mid F_1)\P(F_1) + \P(D\mid F_2)\P(F_2) = (0.02)(0.6) + (0.05)(0.4) = 0.012 + 0.02 = 0.032
+- id: probability-statistics-conditional-probability-and-bayes-1-06
+  category: Probability & Statistics
+  subtopic: Conditional Probability and Bayes
+  level: 1
+  question: |
+    \text{A bag contains one fair coin and one two-headed coin. A coin is picked at random and} \\
+    \text{flipped once, landing heads. Find the probability the coin picked was the fair one.}
+  answer: |
+    \begin{aligned}
+    \P(\text{Fair}) &= \P(\text{Two-headed}) = 0.5 \\
+    \P(H\mid \text{Fair}) &= 0.5, \quad \P(H\mid\text{Two-headed}) = 1 \\
+    \P(H) &= 0.5(0.5) + 0.5(1) = 0.75 \\
+    \P(\text{Fair}\mid H) &= \dfrac{\P(H\mid\text{Fair})\,\P(\text{Fair})}{\P(H)} = \dfrac{0.5 \times 0.5}{0.75} = \dfrac{1}{3}
+    \end{aligned}
+- id: probability-statistics-conditional-probability-and-bayes-2-01
+  category: Probability & Statistics
+  subtopic: Conditional Probability and Bayes
+  level: 2
+  question: |
+    \text{Three machines A, B, C produce 20\%, 30\%, and 50\% of a factory's items respectively,} \\
+    \text{with defect rates 1\%, 2\%, and 3\%. Given that a randomly selected item is defective,} \\
+    \text{find the probability it came from machine A.}
+  answer: |
+    \begin{aligned}
+    \P(D) &= (0.01)(0.2) + (0.02)(0.3) + (0.03)(0.5) = 0.002+0.006+0.015 = 0.023 \\
+    \P(A\mid D) &= \dfrac{\P(D\mid A)\,\P(A)}{\P(D)} = \dfrac{0.002}{0.023} = \dfrac{2}{23} \approx 0.087
+    \end{aligned}
+- id: probability-statistics-conditional-probability-and-bayes-2-02
+  category: Probability & Statistics
+  subtopic: Conditional Probability and Bayes
+  level: 2
+  question: |
+    \text{An urn contains 5 red and 3 blue balls. Three balls are drawn without replacement.} \\
+    \text{Find the probability the sequence drawn is red, red, blue (in that order).}
+  answer: |
+    \P(R,R,B) = \dfrac{5}{8}\cdot\dfrac{4}{7}\cdot\dfrac{3}{6} = \dfrac{60}{336} = \dfrac{5}{28}
+- id: probability-statistics-conditional-probability-and-bayes-2-03
+  category: Probability & Statistics
+  subtopic: Conditional Probability and Bayes
+  level: 2
+  question: |
+    \text{A weighted die shows a "high" roll (4, 5, 6) with probability 0.6 and a "low" roll} \\
+    \text{(1, 2, 3) with probability 0.4. After a high roll, a coin that lands heads with} \\
+    \text{probability 0.7 is flipped; after a low roll, a coin that lands heads with probability} \\
+    \text{0.3 is flipped. Given the coin lands heads, find the probability the roll was high.}
+  answer: |
+    \begin{aligned}
+    \P(H) &= (0.7)(0.6) + (0.3)(0.4) = 0.42+0.12 = 0.54 \\
+    \P(\text{High}\mid H) &= \dfrac{(0.7)(0.6)}{0.54} = \dfrac{0.42}{0.54} = \dfrac{7}{9} \approx 0.778
+    \end{aligned}
+- id: probability-statistics-conditional-probability-and-bayes-2-04
+  category: Probability & Statistics
+  subtopic: Conditional Probability and Bayes
+  level: 2
+  question: |
+    \text{Events } A \text{ and } B \text{ have joint probabilities } \P(A\cap B)=0.2, \ \P(A\cap B^c)=0.3, \\
+    \P(A^c\cap B)=0.1, \ \P(A^c\cap B^c)=0.4. \text{ Find } \P(A \mid B^c).
+  answer: |
+    \P(B^c) = \P(A\cap B^c)+\P(A^c\cap B^c) = 0.3+0.4=0.7 \\
+    \P(A\mid B^c) = \dfrac{\P(A\cap B^c)}{\P(B^c)} = \dfrac{0.3}{0.7} = \dfrac{3}{7}
+- id: probability-statistics-conditional-probability-and-bayes-2-05
+  category: Probability & Statistics
+  subtopic: Conditional Probability and Bayes
+  level: 2
+  question: |
+    \text{A disease has prevalence 2\% in a population. A test for the disease has sensitivity} \\
+    \text{95\% (true positive rate) and specificity 90\% (true negative rate). Find the positive} \\
+    \text{predictive value (PPV) and negative predictive value (NPV) of the test.}
+  answer: |
+    \begin{aligned}
+    \P(D) &= 0.02, \quad \P(D^c)=0.98 \\
+    \P(+) &= \P(+\mid D)\P(D) + \P(+\mid D^c)\P(D^c) = (0.95)(0.02)+(0.10)(0.98) = 0.019+0.098=0.117 \\
+    \text{PPV} = \P(D\mid +) &= \dfrac{0.019}{0.117} \approx 0.162 \\
+    \P(-) &= 1-0.117 = 0.883 \\
+    \text{NPV} = \P(D^c\mid -) &= \dfrac{\P(-\mid D^c)\P(D^c)}{\P(-)} = \dfrac{(0.90)(0.98)}{0.883} = \dfrac{0.882}{0.883} \approx 0.999
+    \end{aligned}
+- id: probability-statistics-conditional-probability-and-bayes-3-01
+  category: Probability & Statistics
+  subtopic: Conditional Probability and Bayes
+  level: 3
+  question: |
+    \text{Let } B_1,\dots,B_n \text{ be a partition of the sample space (pairwise disjoint, union} \\
+    \text{equal to everything), each with } \P(B_i)>0, \text{ and let } A \text{ be an event with } \P(A)>0. \\
+    \text{Derive Bayes' theorem for } \P(B_k \mid A) \text{ in terms of } \P(A\mid B_i) \text{ and } \P(B_i).
+  answer: |
+    \begin{aligned}
+    \text{By definition of conditional probability:} \quad \P(B_k \mid A) &= \dfrac{\P(A\cap B_k)}{\P(A)} \\
+    \text{By the multiplication rule:} \quad \P(A\cap B_k) &= \P(A\mid B_k)\,\P(B_k)
+    \end{aligned} \\
+    \text{Since } B_1,\dots,B_n \text{ partition the sample space, the law of total probability gives} \\
+    \P(A) = \sum_{i=1}^{n} \P(A\mid B_i)\,\P(B_i). \text{ Substituting both into the first line yields} \\
+    \P(B_k\mid A) = \dfrac{\P(A\mid B_k)\,\P(B_k)}{\displaystyle\sum_{i=1}^{n}\P(A\mid B_i)\,\P(B_i)}
+- id: probability-statistics-conditional-probability-and-bayes-3-02
+  category: Probability & Statistics
+  subtopic: Conditional Probability and Bayes
+  level: 3
+  question: |
+    \text{Prove that if events } A \text{ and } B \text{ are independent, then } A \text{ and } B^c \text{ are also independent.}
+  answer: |
+    \begin{aligned}
+    \P(A\cap B^c) &= \P(A) - \P(A\cap B) \qquad \text{(since } A = (A\cap B)\cup(A\cap B^c) \text{ is a disjoint union)} \\
+    &= \P(A) - \P(A)\P(B) \qquad \text{(by independence of } A,B\text{)} \\
+    &= \P(A)\big(1-\P(B)\big) \\
+    &= \P(A)\,\P(B^c)
+    \end{aligned} \\
+    \text{Since } \P(A\cap B^c) = \P(A)\,\P(B^c)\text{, } A \text{ and } B^c \text{ are independent.}
+- id: probability-statistics-conditional-probability-and-bayes-3-03
+  category: Probability & Statistics
+  subtopic: Conditional Probability and Bayes
+  level: 3
+  question: |
+    \text{Let } H \text{ be a hypothesis with prior } \P(H), \text{ and let } E_1, E_2 \text{ be two pieces of} \\
+    \text{evidence that are conditionally independent given } H \text{ and given } H^c. \text{ Show that} \\
+    \text{updating on } E_1 \text{ then } E_2 \text{ (one at a time) yields the same posterior } \P(H\mid E_1\cap E_2) \\
+    \text{as updating on both at once.}
+  answer: |
+    \begin{aligned}
+    \text{Step 1 (update on } E_1\text{):} \quad \P(H\mid E_1) &= \dfrac{\P(E_1\mid H)\,\P(H)}{\P(E_1\mid H)\,\P(H) + \P(E_1\mid H^c)\,\P(H^c)} \\[4pt]
+    \text{Step 2, using } \P(H\mid E_1) \text{ as the new prior:} \quad \P(H\mid E_1, E_2) &= \dfrac{\P(E_2\mid H, E_1)\,\P(H\mid E_1)}{\P(E_2\mid H,E_1)\,\P(H\mid E_1) + \P(E_2\mid H^c,E_1)\,\P(H^c\mid E_1)}
+    \end{aligned} \\
+    \text{By conditional independence, } \P(E_2\mid H,E_1)=\P(E_2\mid H) \text{ and } \P(E_2\mid H^c,E_1)=\P(E_2\mid H^c)\text{,} \\
+    \text{and substituting } \P(H\mid E_1) \text{ from step 1 (the normalizing denominators cancel) gives} \\
+    \P(H\mid E_1,E_2) = \dfrac{\P(E_2\mid H)\,\P(E_1\mid H)\,\P(H)}{\P(E_2\mid H)\,\P(E_1\mid H)\,\P(H) + \P(E_2\mid H^c)\,\P(E_1\mid H^c)\,\P(H^c)} \\
+    \text{which is exactly the direct joint-Bayes formula } \P(H\mid E_1\cap E_2) \text{ obtained by factoring} \\
+    \P(E_1\cap E_2\mid H) = \P(E_1\mid H)\,\P(E_2\mid H) \text{ under conditional independence — so updating} \\
+    \text{sequentially gives the identical posterior as updating jointly.}
+- id: probability-statistics-conditional-probability-and-bayes-3-04
+  category: Probability & Statistics
+  subtopic: Conditional Probability and Bayes
+  level: 3
+  question: |
+    \text{For events } A,B \text{ with } \P(A),\P(B)>0, \text{ derive the relationship between } \P(A\mid B) \\
+    \text{and } \P(B\mid A), \text{ and show they are equal if and only if } \P(A)=\P(B).
+  answer: |
+    \begin{aligned}
+    \P(A\mid B) &= \dfrac{\P(A\cap B)}{\P(B)}, \qquad \P(B\mid A) = \dfrac{\P(A\cap B)}{\P(A)} \\
+    \text{Dividing the two:} \quad \dfrac{\P(A\mid B)}{\P(B\mid A)} &= \dfrac{\P(A)}{\P(B)}
+    \end{aligned} \\
+    \text{So } \P(A\mid B) = \P(B\mid A)\cdot\dfrac{\P(A)}{\P(B)}\text{, and the two conditional probabilities} \\
+    \text{coincide exactly when } \dfrac{\P(A)}{\P(B)}=1\text{, i.e. } \P(A)=\P(B)\text{. In general } \P(A\mid B)\neq\P(B\mid A) \\
+    \text{whenever the two events have different marginal probabilities — the source of the} \\
+    \text{"transposed conditional" fallacy (confusing } \P(\text{evidence}\mid\text{hypothesis}) \text{ with } \P(\text{hypothesis}\mid\text{evidence})\text{).}
+- id: probability-statistics-conditional-probability-and-bayes-4-01
+  category: Probability & Statistics
+  subtopic: Conditional Probability and Bayes
+  level: 4
+  question: |
+    \text{In the Monty Hall problem: there are 3 doors, a car behind one and goats behind the} \\
+    \text{other two. You pick a door at random. The host, who knows what's behind each door,} \\
+    \text{opens one of the other two doors to reveal a goat, then offers you the chance to switch} \\
+    \text{to the remaining unopened door. Find the probability of winning the car if you switch.}
+  answer: |
+    \begin{aligned}
+    &\text{Say you pick door 1. Let } C_i \text{ be the event the car is behind door } i\text{, each with prior } \P(C_i)=\tfrac13. \\
+    &\text{Let } H \text{ be the event the host opens door 3.} \\
+    &\P(H\mid C_1) = \tfrac12 \ \text{(host picks randomly between doors 2, 3, both goats)} \\
+    &\P(H\mid C_2) = 1 \ \text{(host is forced to open door 3, since door 2 has the car)} \\
+    &\P(H\mid C_3) = 0 \ \text{(host never opens the door hiding the car)} \\
+    &\P(H) = \tfrac12\cdot\tfrac13 + 1\cdot\tfrac13 + 0\cdot\tfrac13 = \tfrac12 \\
+    &\P(C_1\mid H) = \dfrac{\tfrac12\cdot\tfrac13}{\tfrac12} = \tfrac13 \qquad \text{(stay: still the original pick)} \\
+    &\P(C_2\mid H) = \dfrac{1\cdot\tfrac13}{\tfrac12} = \tfrac23 \qquad \text{(switch to door 2)}
+    \end{aligned} \\
+    \text{So switching wins the car with probability } \tfrac23\text{, double the probability of staying.}
+- id: probability-statistics-conditional-probability-and-bayes-4-02
+  category: Probability & Statistics
+  subtopic: Conditional Probability and Bayes
+  level: 4
+  question: |
+    \text{Three prisoners, A, B, and C, are told one of them will be pardoned, each with} \\
+    \text{probability } \tfrac13. \text{ Prisoner A asks the guard (who knows the outcome) to name one} \\
+    \text{of the other two prisoners who will NOT be pardoned — if both B and C will not be} \\
+    \text{pardoned, the guard picks which name to give uniformly at random. The guard says} \\
+    \text{"B will not be pardoned." Find the probability that A is pardoned given this} \\
+    \text{information, and show it has not changed from } \tfrac13.
+  answer: |
+    \begin{aligned}
+    &\text{Let } P_A, P_B, P_C \text{ be the events each prisoner is pardoned, each with prior } \tfrac13. \\
+    &\text{Let } N_B \text{ be the event the guard names B as not pardoned.} \\
+    &\P(N_B\mid P_A) = \tfrac12 \ \text{(guard can truthfully name either B or C, picks uniformly)} \\
+    &\P(N_B\mid P_B) = 0 \ \text{(guard cannot name the prisoner who is pardoned)} \\
+    &\P(N_B\mid P_C) = 1 \ \text{(guard must name B, since C is pardoned and can't be named)} \\
+    &\P(N_B) = \tfrac12\cdot\tfrac13 + 0\cdot\tfrac13 + 1\cdot\tfrac13 = \tfrac12 \\
+    &\P(P_A\mid N_B) = \dfrac{\tfrac12\cdot\tfrac13}{\tfrac12} = \tfrac13
+    \end{aligned} \\
+    \text{A's chance of being pardoned is still } \tfrac13 \text{ — learning B's fate gave A no new information} \\
+    \text{about A's own outcome; instead it is } \P(P_C\mid N_B)=\dfrac{1\cdot\tfrac13}{\tfrac12}=\tfrac23 \text{ that rises,} \\
+    \text{mirroring the Monty Hall switch.}
+- id: probability-statistics-conditional-probability-and-bayes-4-03
+  category: Probability & Statistics
+  subtopic: Conditional Probability and Bayes
+  level: 4
+  question: |
+    \text{A family has two children. (a) Given that at least one child is a boy, find the} \\
+    \text{probability both children are boys. (b) Given that the older child is a boy, find the} \\
+    \text{probability both children are boys. Assume each child is independently equally likely} \\
+    \text{to be a boy or girl, and explain why the two answers differ.}
+  answer: |
+    \begin{aligned}
+    &\text{Sample space (older, younger): } \{BB, BG, GB, GG\}\text{, each with probability } \tfrac14. \\
+    &\text{(a)} \quad \P(BB \mid \text{at least one boy}) = \dfrac{\P(BB)}{\P(BB)+\P(BG)+\P(GB)} = \dfrac{1/4}{3/4} = \dfrac13 \\
+    &\text{(b)} \quad \P(BB \mid \text{older is a boy}) = \dfrac{\P(BB)}{\P(BB)+\P(BG)} = \dfrac{1/4}{2/4} = \dfrac12
+    \end{aligned} \\
+    \text{The two conditioning events differ: "at least one boy" is consistent with 3 equally likely} \\
+    \text{outcomes (} BB, BG, GB\text{), while "the older is a boy" is consistent with only 2 (} BB, BG\text{)} \\
+    \text{— conditioning on the less specific event (a) leaves more room for the "mixed" outcomes,} \\
+    \text{pulling the answer away from } \tfrac12.
+- id: probability-statistics-conditional-probability-and-bayes-4-04
+  category: Probability & Statistics
+  subtopic: Conditional Probability and Bayes
+  level: 4
+  question: |
+    \text{A factory's items come from Line A (70\% of production) or Line B (30\%). Each item} \\
+    \text{independently passes an initial inspection with probability 0.9 if from Line A, and 0.75} \\
+    \text{if from Line B; items that fail are scrapped before reaching final testing. Items that} \\
+    \text{pass are found defective at final testing with probability 0.02 (Line A) or 0.06 (Line B).} \\
+    \text{Given that an item was found defective at final testing, find the probability it came} \\
+    \text{from Line B.} \\
+    \includegraphics[width=8cm,height=6cm]{/static/graphs/probability-statistics-conditional-probability-and-bayes-4-04.png}
+  answer: |
+    \begin{aligned}
+    \P(\text{Defective}, A) &= \P(A)\,\P(\text{Pass}\mid A)\,\P(\text{Defective}\mid \text{Pass}, A) = 0.7 \times 0.9 \times 0.02 = 0.0126 \\
+    \P(\text{Defective}, B) &= \P(B)\,\P(\text{Pass}\mid B)\,\P(\text{Defective}\mid \text{Pass}, B) = 0.3 \times 0.75 \times 0.06 = 0.0135 \\
+    \P(\text{Defective}) &= 0.0126 + 0.0135 = 0.0261 \\
+    \P(B \mid \text{Defective}) &= \dfrac{0.0135}{0.0261} = \dfrac{15}{29} \approx 0.517
+    \end{aligned}
