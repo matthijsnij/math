@@ -43,6 +43,7 @@
           renderMathInElement(el, {
             delimiters: [{left: "\\[", right: "\\]", display: true}],
             macros: window.KATEX_MACROS,
+            trust: window.KATEX_TRUST,
           });
         }
       }

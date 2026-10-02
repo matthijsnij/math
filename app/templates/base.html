@@ -23,11 +23,17 @@
   <script id="katex-macros" type="application/json">{{ (macros or {}) | tojson }}</script>
   <script>
     window.KATEX_MACROS = JSON.parse(document.getElementById("katex-macros").textContent);
+    // Only allow \includegraphics, and only for images served from our own static/graphs folder.
+    window.KATEX_TRUST = (context) =>
+      context.command === "\\includegraphics" &&
+      typeof context.url === "string" &&
+      context.url.startsWith("/static/graphs/");
     document.addEventListener("DOMContentLoaded", () => {
       if (window.renderMathInElement) {
         renderMathInElement(document.body, {
           delimiters: [{left: "\\[", right: "\\]", display: true}],
           macros: window.KATEX_MACROS,
+          trust: window.KATEX_TRUST,
         });
       }
     });

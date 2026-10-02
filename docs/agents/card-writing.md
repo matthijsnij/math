@@ -52,7 +52,23 @@ it:
   Double-quoted YAML strings require every backslash to be doubled (`\\\\begin` for `\begin`),
   which gets unreadable fast once `\begin{aligned}` and `\\` row separators are both involved;
   block scalars take the LaTeX as-is.
+## Images (function plots, diagrams)
 
+A Card can embed a static image via `\includegraphics[width=8cm]{/static/graphs/<file>}` —
+KaTeX's `trust` is scoped (see `app/templates/base.html`) to only allow that command with a URL
+under `/static/graphs/`, nothing else. Use this when a case genuinely needs a visual (a function
+plot, a geometric figure, a Venn diagram, a probability tree, a Markov chain state diagram, a
+payoff diagram) rather than when the content is just as clear written out in LaTeX — most Cards
+still don't need one.
+
+- Generate the image (e.g. a small matplotlib/graphviz script) and save it under
+  `app/static/graphs/`, named after the Card's id it belongs to (e.g. `mathematics-functions-and-graphs-l1-03.png`)
+  so it's obvious which Card it's for and it won't collide with another Card's image.
+- Reference it from the `question` or `answer` with `\includegraphics`, same KaTeX block as the
+  rest of the Card — don't add markdown or an `<img>` tag, both are unsupported (see above).
+- Keep images small/cropped to what the question needs; `width=`/`height=` in the
+  `\includegraphics` options controls render size, the file itself should still be reasonably
+  sized.
 ## Other practices
 
 - **Category/Subtopic/Level must be valid**: Category from the fixed list in `app/categories.py`,
@@ -84,8 +100,11 @@ case per card" above), which only works if every Level is visible at once.
    3-5 — fewer for a narrow Subtopic, more for a broad one). Post the outline for approval before
    writing any LaTeX: it's much cheaper to fix scope at this stage than after Cards are drafted.
    Flag any Level 3-4 case that has more than one reasonable solution method here too, so the
-   method can be picked before drafting (see "Multiple solution methods" above).
+   method can be picked before drafting (see "Multiple solution methods" above). Also flag any
+   case that needs an image (see "Images" above) so that's agreed before drafting too.
 2. **Draft the Cards** for the approved outline, following the depth/formatting/macro rules above.
+   For any case flagged as needing an image, generate it now and save it under
+   `app/static/graphs/` before writing the Card's `\includegraphics` reference.
 3. **Batch-review the drafted Cards** as a single set, against each other and against the existing
    Cards from step 0, before anything is written to `data/cards.yaml` — this is the pass that
    catches cross-Level duplicates. Show only the question of each Card here (see "Batch review
