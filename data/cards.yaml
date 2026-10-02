@@ -1408,3 +1408,231 @@
     \text{The union bound (0.16) is a valid upper bound on the exact probability (0.1492), as} \\
     \text{guaranteed by Boole's inequality — but it overcounts the overlap between different tests} \\
     \text{failing together, so it's noticeably looser than the true value.}
+- id: economics-finance-time-value-of-money-1-01
+  category: Economics & Finance
+  subtopic: Time Value of Money
+  level: 1
+  question: |
+    \text{A single amount } PV \text{ is invested today at a periodic interest rate } r, \text{ compounded once} \\
+    \text{per period, for } n \text{ periods. What is its future value } FV?
+  answer: |
+    FV = PV(1+r)^n
+- id: economics-finance-time-value-of-money-1-02
+  category: Economics & Finance
+  subtopic: Time Value of Money
+  level: 1
+  question: |
+    \text{You will receive a single payment of } FV \text{ in } n \text{ periods. If the periodic discount rate} \\
+    \text{is } r, \text{ what is its present value } PV?
+  answer: |
+    PV = \dfrac{FV}{(1+r)^n}
+- id: economics-finance-time-value-of-money-1-03
+  category: Economics & Finance
+  subtopic: Time Value of Money
+  level: 1
+  question: |
+    \text{\$1{,}000 is invested for 3 years at an annual rate of 5\%. Compare the accumulated value} \\
+    \text{under simple interest to the accumulated value under interest compounded annually.}
+  answer: |
+    \begin{aligned}
+    \text{Simple interest: } A &= P(1+rn) = 1000(1+0.05\cdot 3) = \$1{,}150.00 \\
+    \text{Compound interest: } A &= P(1+r)^n = 1000(1.05)^3 = \$1{,}157.63
+    \end{aligned} \\
+    \text{Compounding yields \$7.63 more, since interest earns interest in later years.}
+- id: economics-finance-time-value-of-money-1-04
+  category: Economics & Finance
+  subtopic: Time Value of Money
+  level: 1
+  question: |
+    \text{A perpetuity pays a fixed amount } C \text{ at the end of every period, forever, discounted at} \\
+    \text{periodic rate } r>0. \text{ What is its present value?}
+  answer: |
+    PV = \dfrac{C}{r}
+- id: economics-finance-time-value-of-money-2-01
+  category: Economics & Finance
+  subtopic: Time Value of Money
+  level: 2
+  question: |
+    \text{An ordinary annuity pays a fixed amount } C \text{ at the end of each of the next } n \text{ periods,} \\
+    \text{discounted at periodic rate } r. \text{ State its present value, and compute it for} \\
+    C=\$1{,}000,\ r=6\%,\ n=5.
+  answer: |
+    PV = C\cdot\dfrac{1-(1+r)^{-n}}{r} = 1000\cdot\dfrac{1-(1.06)^{-5}}{0.06} \approx \$4{,}212.36
+- id: economics-finance-time-value-of-money-2-02
+  category: Economics & Finance
+  subtopic: Time Value of Money
+  level: 2
+  question: |
+    \text{An ordinary annuity pays a fixed amount } C \text{ at the end of each of the next } n \text{ periods,} \\
+    \text{with periodic interest rate } r. \text{ State its future value (at the time of the last payment),} \\
+    \text{and compute it for } C=\$500,\ r=4\%,\ n=10.
+  answer: |
+    FV = C\cdot\dfrac{(1+r)^{n}-1}{r} = 500\cdot\dfrac{(1.04)^{10}-1}{0.04} \approx \$6{,}003.05
+- id: economics-finance-time-value-of-money-2-03
+  category: Economics & Finance
+  subtopic: Time Value of Money
+  level: 2
+  question: |
+    \text{An ordinary annuity of } n=8 \text{ annual payments of } \$2{,}000 \text{ at } r=5\% \text{ has present value} \\
+    PV_{ord}. \text{ If the same 8 payments are instead made at the } \textbf{start} \text{ of each year} \\
+    \text{(an annuity due), what is the new present value } PV_{due}, \text{ and how does it relate to } PV_{ord}?
+  answer: |
+    \begin{aligned}
+    PV_{ord} &= 2000\cdot\dfrac{1-(1.05)^{-8}}{0.05} \approx \$12{,}926.45 \\
+    PV_{due} &= PV_{ord}\cdot(1+r) \approx \$13{,}572.77
+    \end{aligned} \\
+    \text{Each annuity-due payment arrives one period earlier than the matching ordinary-annuity} \\
+    \text{payment, so every term is discounted one fewer period — equivalent to multiplying the} \\
+    \text{whole ordinary annuity's value by } (1+r).
+- id: economics-finance-time-value-of-money-2-04
+  category: Economics & Finance
+  subtopic: Time Value of Money
+  level: 2
+  question: |
+    \text{A loan quotes a nominal annual rate of 12\%, compounded monthly. What is the effective} \\
+    \text{annual rate (} EAR \text{)?}
+  answer: |
+    EAR = \left(1+\dfrac{0.12}{12}\right)^{12} - 1 = (1.01)^{12} - 1 \approx 12.68\%
+- id: economics-finance-time-value-of-money-2-05
+  category: Economics & Finance
+  subtopic: Time Value of Money
+  level: 2
+  question: |
+    \text{A growing perpetuity pays } C_1 \text{ at the end of period 1, with each subsequent payment} \\
+    \text{growing at rate } g, \text{ discounted at rate } r>g. \text{ State its present value, and compute it for} \\
+    C_1=\$100,\ g=3\%,\ r=8\%.
+  answer: |
+    PV = \dfrac{C_1}{r-g} = \dfrac{100}{0.08-0.03} = \$2{,}000
+- id: economics-finance-time-value-of-money-2-06
+  category: Economics & Finance
+  subtopic: Time Value of Money
+  level: 2
+  question: |
+    \text{A project requires an initial outlay of \$10{,}000 today and returns \$4{,}000 at the end of} \\
+    \text{year 1, \$5{,}000 at the end of year 2, and \$3{,}000 at the end of year 3. At a discount rate} \\
+    \text{of 7\%, what is the project's } NPV, \text{ and is it worth undertaking?}
+  answer: |
+    NPV = -10{,}000 + \dfrac{4{,}000}{1.07} + \dfrac{5{,}000}{1.07^2} + \dfrac{3{,}000}{1.07^3} \\
+    \approx -10{,}000 + 3{,}738.32 + 4{,}367.19 + 2{,}449.00 = \$554.51 \\
+    \text{Since } NPV>0, \text{ the project is worth undertaking.}
+- id: economics-finance-time-value-of-money-3-01
+  category: Economics & Finance
+  subtopic: Time Value of Money
+  level: 3
+  question: |
+    \text{Derive the ordinary-annuity present-value formula } PV = C\cdot\dfrac{1-(1+r)^{-n}}{r} \text{ starting} \\
+    \text{from } PV=\displaystyle\sum_{t=1}^n \dfrac{C}{(1+r)^t}, \text{ using the geometric series sum.}
+  answer: |
+    \begin{aligned}
+    PV &= C\sum_{t=1}^n x^t, \quad x=\dfrac{1}{1+r} \\
+    \sum_{t=1}^n x^t &= x\cdot\dfrac{1-x^n}{1-x} \quad \text{(finite geometric series)} \\
+    1-x &= 1-\dfrac{1}{1+r} = \dfrac{r}{1+r} \\
+    \sum_{t=1}^n x^t &= \dfrac{\frac{1}{1+r}\left(1-(1+r)^{-n}\right)}{\frac{r}{1+r}} = \dfrac{1-(1+r)^{-n}}{r} \\
+    PV &= C\cdot\dfrac{1-(1+r)^{-n}}{r}
+    \end{aligned}
+- id: economics-finance-time-value-of-money-3-02
+  category: Economics & Finance
+  subtopic: Time Value of Money
+  level: 3
+  question: |
+    \text{Show that the perpetuity formula } PV=\dfrac{C}{r} \text{ arises as the } n\to\infty \text{ limit of the} \\
+    \text{ordinary-annuity formula } PV_n = C\cdot\dfrac{1-(1+r)^{-n}}{r}, \text{ and explain why this limit} \\
+    \text{requires } r>0.
+  answer: |
+    \begin{aligned}
+    PV_n &= C\cdot\dfrac{1-(1+r)^{-n}}{r}
+    \end{aligned} \\
+    \text{If } r>0 \text{ then } 1+r>1, \text{ so } (1+r)^{-n}\to 0 \text{ as } n\to\infty, \text{ giving} \\
+    \lim_{n\to\infty} PV_n = C\cdot\dfrac{1-0}{r} = \dfrac{C}{r}. \\
+    \text{If } r\le 0, \text{ then } 1+r\le 1, \text{ so } (1+r)^{-n} \text{ does not shrink to } 0 \text{ (it stays} \ge 1 \\
+    \text{or is undefined/diverges), and the sum of an infinite stream of equal payments has no} \\
+    \text{finite present value — the perpetuity formula only holds for a strictly positive discount rate.}
+- id: economics-finance-time-value-of-money-3-03
+  category: Economics & Finance
+  subtopic: Time Value of Money
+  level: 3
+  question: |
+    \text{Derive the growing-perpetuity formula } PV=\dfrac{C_1}{r-g} \text{ from} \\
+    PV=\displaystyle\sum_{t=1}^{\infty}\dfrac{C_1(1+g)^{t-1}}{(1+r)^t}, \text{ and state the condition on } r \text{ and } g \\
+    \text{needed for the series to converge.}
+  answer: |
+    \begin{aligned}
+    PV &= \dfrac{C_1}{1+r}\sum_{t=1}^{\infty}\left(\dfrac{1+g}{1+r}\right)^{t-1}, \quad x=\dfrac{1+g}{1+r} \\
+    \sum_{t=1}^{\infty} x^{t-1} &= \dfrac{1}{1-x} \quad \text{(infinite geometric series, valid for } |x|<1\text{)} \\
+    PV &= \dfrac{C_1}{1+r}\cdot\dfrac{1}{1-\frac{1+g}{1+r}} = \dfrac{C_1}{1+r}\cdot\dfrac{1+r}{(1+r)-(1+g)} = \dfrac{C_1}{r-g}
+    \end{aligned} \\
+    \text{Convergence requires } \left|\dfrac{1+g}{1+r}\right|<1, \text{ i.e. } r>g.
+- id: economics-finance-time-value-of-money-3-04
+  category: Economics & Finance
+  subtopic: Time Value of Money
+  level: 3
+  question: |
+    \text{Show that } \displaystyle\lim_{m\to\infty}\left(1+\dfrac{r}{m}\right)^{mt} = e^{rt}, \text{ and use this result to express} \\
+    \text{the continuously-compounded rate } r_{cc} \text{ equivalent to a given effective annual rate } EAR.
+  answer: |
+    \begin{aligned}
+    \ln\left[\left(1+\dfrac{r}{m}\right)^{mt}\right] &= mt\ln\!\left(1+\dfrac{r}{m}\right)
+    \end{aligned} \\
+    \text{As } m\to\infty,\ r/m\to 0, \text{ and } \ln(1+x)\approx x \text{ for small } x, \text{ so} \\
+    mt\ln\!\left(1+\dfrac{r}{m}\right) \to mt\cdot\dfrac{r}{m} = rt. \\
+    \text{Exponentiating, } \left(1+\dfrac{r}{m}\right)^{mt} \to e^{rt}. \\
+    \text{Setting } t=1, \text{ a continuously-compounded rate } r_{cc} \text{ matches a given } EAR \text{ when} \\
+    e^{r_{cc}} = 1+EAR, \text{ i.e. } r_{cc} = \ln(1+EAR).
+- id: economics-finance-time-value-of-money-4-01
+  category: Economics & Finance
+  subtopic: Time Value of Money
+  level: 4
+  question: |
+    \text{You take out a \$250{,}000 mortgage at a nominal annual rate of 6\%, compounded monthly,} \\
+    \text{to be repaid in equal monthly installments over 30 years. What is the monthly payment?}
+  answer: |
+    \text{Monthly rate } r=0.06/12=0.005, \ n=360 \text{ payments.} \\
+    \text{Solving } PV = C\cdot\dfrac{1-(1+r)^{-n}}{r} \text{ for } C: \\
+    C = \dfrac{PV\cdot r}{1-(1+r)^{-n}} = \dfrac{250{,}000\times 0.005}{1-(1.005)^{-360}} \approx \$1{,}498.88
+- id: economics-finance-time-value-of-money-4-02
+  category: Economics & Finance
+  subtopic: Time Value of Money
+  level: 4
+  question: |
+    \text{You are offered \$8{,}000 today or \$10{,}000 in 4 years. If your discount rate is 6\% per year,} \\
+    \text{which option has the greater present value, and by how much?}
+  answer: |
+    \text{PV of the delayed payment: } \dfrac{10{,}000}{(1.06)^4} \approx \$7{,}921.35 \\
+    \text{This is less than the \$8{,}000 offered today, so taking \$8{,}000 now is better, by about} \\
+    \$8{,}000 - \$7{,}921.35 = \$78.65 \text{ in present-value terms.}
+- id: economics-finance-time-value-of-money-4-03
+  category: Economics & Finance
+  subtopic: Time Value of Money
+  level: 4
+  question: |
+    \text{You want to accumulate \$500{,}000 in 20 years by making equal end-of-year deposits into} \\
+    \text{an account earning 7\% annually. What annual deposit is required?}
+  answer: |
+    \text{Solving } FV = C\cdot\dfrac{(1+r)^n-1}{r} \text{ for } C: \\
+    C = \dfrac{FV\cdot r}{(1+r)^n-1} = \dfrac{500{,}000\times 0.07}{(1.07)^{20}-1} \approx \$12{,}195.10 \text{ per year}
+- id: economics-finance-time-value-of-money-4-04
+  category: Economics & Finance
+  subtopic: Time Value of Money
+  level: 4
+  question: |
+    \text{An investment of \$5{,}000 grows to \$10{,}000 in 9 years with annual compounding. What} \\
+    \text{annual interest rate does this imply, and how does it compare to the quick Rule-of-72} \\
+    \text{estimate for doubling in 9 years?}
+  answer: |
+    \text{Solve } (1+r)^9 = 2: \quad r = 2^{1/9}-1 \approx 8.01\% \\
+    \text{Rule of 72 estimate: } r\approx \dfrac{72}{9} = 8\%. \\
+    \text{The quick estimate (8\%) is very close to the exact rate (8.01\%), which is typical of the} \\
+    \text{Rule of 72's accuracy for rates in the single-digit-to-low-teens range.}
+- id: economics-finance-time-value-of-money-4-05
+  category: Economics & Finance
+  subtopic: Time Value of Money
+  level: 4
+  question: |
+    \text{Bank A offers a savings account at a nominal annual rate of 5.9\%, compounded monthly.} \\
+    \text{Bank B offers 6.0\%, compounded annually. Which account effectively pays more, and what} \\
+    \text{are the two effective annual rates?}
+  answer: |
+    EAR_A = \left(1+\dfrac{0.059}{12}\right)^{12} - 1 \approx 6.062\% \\
+    EAR_B = 6.0\% \quad \text{(annual compounding means the nominal and effective rates coincide)} \\
+    \text{Although Bank A quotes a lower nominal rate, its more frequent compounding pushes its} \\
+    \text{effective annual rate (6.062\%) above Bank B's (6.0\%), so Bank A effectively pays more.}
