@@ -62,13 +62,18 @@ payoff diagram) rather than when the content is just as clear written out in LaT
 still don't need one.
 
 - Generate the image (e.g. a small matplotlib/graphviz script) and save it under
-  `app/static/graphs/`, named after the Card's id it belongs to (e.g. `mathematics-functions-and-graphs-l1-03.png`)
+  `app/static/graphs/`, named after the Card's id it belongs to (e.g. `mathematics-functions-and-graphs-4-03.png`)
   so it's obvious which Card it's for and it won't collide with another Card's image.
 - Reference it from the `question` or `answer` with `\includegraphics`, same KaTeX block as the
   rest of the Card — don't add markdown or an `<img>` tag, both are unsupported (see above).
 - Keep images small/cropped to what the question needs; `width=`/`height=` in the
   `\includegraphics` options controls render size, the file itself should still be reasonably
   sized.
+- **Always specify both `width=` and `height=`**, matching the image's real aspect ratio (e.g. a
+  5x4in figure needs an 8cm/6.4cm or similar 1.25:1 pair). If `height` is omitted, KaTeX defaults
+  it to a tiny `0.9em`, squashing the image to an invisible sliver. Verify the rendered size in a
+  real browser (practice session, not just that an `<img>` tag exists) before considering the Card
+  done.
 ## Other practices
 
 - **Category/Subtopic/Level must be valid**: Category from the fixed list in `app/categories.py`,

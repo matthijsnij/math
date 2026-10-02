@@ -222,3 +222,242 @@
     \text{divide by } x: \quad 2\ln x &= \ln 2 + \ln x \ \Rightarrow\ \ln x = \ln 2 \ \Rightarrow\ x=2 \\
     y&=2x=4 \quad \text{(check: } 2^4=16=4^2\text{)}
     \end{aligned}
+- id: mathematics-functions-and-graphs-1-01
+  category: Mathematics
+  subtopic: Functions and Graphs
+  level: 1
+  question: |
+    \text{Find the domain of } f(x) = \dfrac{\sqrt{x+3}}{x-2}.
+  answer: |
+    \begin{aligned}
+    &\text{Need } x+3 \ge 0 \text{ and } x-2 \neq 0 \\
+    &\Rightarrow x \ge -3 \text{ and } x \neq 2 \\
+    &\text{Domain: } [-3,2)\cup(2,\infty)
+    \end{aligned}
+- id: mathematics-functions-and-graphs-1-02
+  category: Mathematics
+  subtopic: Functions and Graphs
+  level: 1
+  question: |
+    \text{Find the range of } f(x) = -2(x-1)^{2}+5.
+  answer: |
+    \text{Vertex form, opens downward, vertex } (1,5) \Rightarrow \text{Range: } (-\infty, 5]
+- id: mathematics-functions-and-graphs-1-03
+  category: Mathematics
+  subtopic: Functions and Graphs
+  level: 1
+  question: |
+    \text{Find the x- and y-intercepts of } f(x) = x^{2}-5x+6.
+  answer: |
+    \begin{aligned}
+    &\text{x-intercepts: } x^{2}-5x+6=0 \Rightarrow (x-2)(x-3)=0 \Rightarrow x=2,\ 3 \\
+    &\text{y-intercept: } f(0)=6
+    \end{aligned}
+- id: mathematics-functions-and-graphs-1-04
+  category: Mathematics
+  subtopic: Functions and Graphs
+  level: 1
+  question: |
+    \text{Determine whether } f(x) = x^{4}-3x^{2} \text{ is even, odd, or neither.}
+  answer: |
+    \begin{aligned}
+    f(-x) &= (-x)^{4}-3(-x)^{2} = x^{4}-3x^{2} = f(x) \\
+    &\Rightarrow f \text{ is even}
+    \end{aligned}
+- id: mathematics-functions-and-graphs-1-05
+  category: Mathematics
+  subtopic: Functions and Graphs
+  level: 1
+  question: |
+    \text{Which of the following relations is NOT a function of } x? \\
+    \text{(a) } y=x^{2}+1 \qquad \text{(b) } x=y^{2} \qquad \text{(c) } y=\sqrt{x} \qquad \text{(d) } y=|x|-2
+  answer: |
+    \text{(b), since } x=y^{2} \text{ gives } y=\pm\sqrt{x} \text{ — a vertical line at } x>0 \text{ meets the graph twice.}
+- id: mathematics-functions-and-graphs-1-06
+  category: Mathematics
+  subtopic: Functions and Graphs
+  level: 1
+  question: |
+    \text{Let } f(x)=2x+1 \text{ and } g(x)=x^{2}-3. \text{ Evaluate } (f\circ g)(2).
+  answer: |
+    \begin{aligned}
+    g(2) &= 2^{2}-3 = 1 \\
+    (f\circ g)(2) &= f(1) = 2(1)+1 = 3
+    \end{aligned}
+- id: mathematics-functions-and-graphs-2-01
+  category: Mathematics
+  subtopic: Functions and Graphs
+  level: 2
+  question: |
+    \text{Find the inverse of } f(x) = \dfrac{2x+3}{x-1}.
+  answer: |
+    \begin{aligned}
+    y &= \dfrac{2x+3}{x-1} \\
+    y(x-1) &= 2x+3 \\
+    xy-2x &= y+3 \\
+    x(y-2) &= y+3 \\
+    x &= \dfrac{y+3}{y-2} \\
+    \Rightarrow f^{-1}(x) &= \dfrac{x+3}{x-2}
+    \end{aligned}
+- id: mathematics-functions-and-graphs-2-02
+  category: Mathematics
+  subtopic: Functions and Graphs
+  level: 2
+  question: |
+    \text{Find the vertical asymptote(s) of } f(x) = \dfrac{1}{x^{2}-4}.
+  answer: |
+    \begin{aligned}
+    &x^{2}-4=0 \Rightarrow x=\pm2 \\
+    &\text{Numerator is nonzero at } x=\pm2 \Rightarrow \text{vertical asymptotes } x=2,\ x=-2
+    \end{aligned}
+- id: mathematics-functions-and-graphs-2-03
+  category: Mathematics
+  subtopic: Functions and Graphs
+  level: 2
+  question: |
+    \text{Find the horizontal asymptote of } f(x) = \dfrac{3x^{2}+1}{x^{2}-4}.
+  answer: |
+    \begin{aligned}
+    &\text{Degrees of numerator and denominator are equal (both 2)} \\
+    &\Rightarrow \text{horizontal asymptote } y = \dfrac{3}{1} = 3
+    \end{aligned}
+- id: mathematics-functions-and-graphs-2-04
+  category: Mathematics
+  subtopic: Functions and Graphs
+  level: 2
+  question: |
+    \text{Show that } f(x) = x^{3}+x \text{ is one-to-one on } \R.
+  answer: |
+    \begin{aligned}
+    f'(x) &= 3x^{2}+1 > 0 \text{ for all } x \\
+    &\Rightarrow f \text{ is strictly increasing} \Rightarrow f \text{ is one-to-one}
+    \end{aligned}
+- id: mathematics-functions-and-graphs-2-05
+  category: Mathematics
+  subtopic: Functions and Graphs
+  level: 2
+  question: |
+    \text{Find the period of } f(x) = \sin(2x) + \cos(3x).
+  answer: |
+    \begin{aligned}
+    &\text{Period of } \sin(2x): \dfrac{2\pi}{2}=\pi, \qquad \text{Period of } \cos(3x): \dfrac{2\pi}{3} \\
+    &\text{Smallest common period: } T=2\pi \quad \left(2\pi = 2\cdot\pi = 3\cdot\tfrac{2\pi}{3}\right)
+    \end{aligned}
+- id: mathematics-functions-and-graphs-2-06
+  category: Mathematics
+  subtopic: Functions and Graphs
+  level: 2
+  question: |
+    \text{Describe how the graph of } y=|x| \text{ is transformed to obtain } y=-2|x+3|-1.
+  answer: |
+    \text{Shift left 3} \quad\Rightarrow\quad \text{vertical stretch by factor 2} \quad\Rightarrow\quad \text{reflect over the x-axis} \quad\Rightarrow\quad \text{shift down 1}
+- id: mathematics-functions-and-graphs-3-01
+  category: Mathematics
+  subtopic: Functions and Graphs
+  level: 3
+  question: |
+    \text{Prove that a strictly monotonic function } f:\R\to\R \text{ is injective.}
+  answer: |
+    \begin{aligned}
+    &\text{WLOG let } f \text{ be strictly increasing. Suppose } f(a)=f(b) \text{ with } a\neq b. \\
+    &\text{WLOG } a<b. \text{ Strict increase gives } f(a)<f(b), \text{ contradicting } f(a)=f(b). \\
+    &\text{So } a=b, \text{ i.e. } f \text{ is injective. (Strictly decreasing case is symmetric.)}
+    \end{aligned}
+- id: mathematics-functions-and-graphs-3-02
+  category: Mathematics
+  subtopic: Functions and Graphs
+  level: 3
+  question: |
+    \text{Prove that if } f \text{ and } g \text{ are injective, then } f\circ g \text{ is injective.}
+  answer: |
+    \begin{aligned}
+    \text{Suppose } (f\circ g)(a) &= (f\circ g)(b) \\
+    f(g(a)) &= f(g(b)) \\
+    \Rightarrow g(a) &= g(b) \quad (f \text{ injective}) \\
+    \Rightarrow a &= b \quad (g \text{ injective})
+    \end{aligned}
+- id: mathematics-functions-and-graphs-3-03
+  category: Mathematics
+  subtopic: Functions and Graphs
+  level: 3
+  question: |
+    \text{Find the oblique (slant) asymptote of } f(x) = \dfrac{x^{2}+2x+3}{x+1}.
+  answer: |
+    \begin{aligned}
+    \dfrac{x^{2}+2x+3}{x+1} &= (x+1) + \dfrac{2}{x+1} \quad \text{(polynomial division)} \\
+    &\text{As } x\to\pm\infty,\ \dfrac{2}{x+1}\to 0 \\
+    &\Rightarrow \text{oblique asymptote: } y = x+1
+    \end{aligned}
+- id: mathematics-functions-and-graphs-3-04
+  category: Mathematics
+  subtopic: Functions and Graphs
+  level: 3
+  question: |
+    \text{Classify the discontinuity at the indicated point for each:} \\
+    \text{(a) } f(x)=\dfrac{x^{2}-4}{x-2} \text{ at } x=2 \qquad
+    \text{(b) } g(x)=\dfrac{1}{x-2} \text{ at } x=2 \\
+    \text{(c) } h(x)=\begin{cases} x & x<1 \\ x+2 & x\ge1 \end{cases} \text{ at } x=1
+  answer: |
+    \begin{aligned}
+    &\text{(a) } f(x)=\dfrac{(x-2)(x+2)}{x-2}=x+2 \text{ for } x\neq2,\ \lim_{x\to2}f(x)=4 \text{ exists but } f(2) \text{ undefined} \Rightarrow \text{removable} \\
+    &\text{(b) } \lim_{x\to2^{\pm}}\dfrac{1}{x-2}=\pm\infty \Rightarrow \text{infinite discontinuity} \\
+    &\text{(c) } \lim_{x\to1^{-}}h(x)=1,\ \lim_{x\to1^{+}}h(x)=3,\ \text{both finite but unequal} \Rightarrow \text{jump discontinuity}
+    \end{aligned}
+- id: mathematics-functions-and-graphs-4-01
+  category: Mathematics
+  subtopic: Functions and Graphs
+  level: 4
+  question: |
+    \text{A function } f:\R\to\R \text{ satisfies } f(x+y)=f(x)f(y) \text{ for all real } x,y, \text{ and } f(1)=2. \\
+    \text{Find } f(0) \text{ and } f(n) \text{ for every integer } n.
+  answer: |
+    \begin{aligned}
+    &\text{Set } x=y=0: f(0)=f(0)^{2} \Rightarrow f(0)=0 \text{ or } 1 \\
+    &\text{If } f(0)=0, \text{ then } f(x)=f(x)f(0)=0\ \forall x, \text{ contradicting } f(1)=2 \Rightarrow f(0)=1 \\
+    &\text{For } n\ge1: f(n)=f(\underbrace{1+\cdots+1}_{n})=f(1)^{n}=2^{n} \\
+    &\text{Also } f(x)f(-x)=f(0)=1 \Rightarrow f(-n)=\dfrac{1}{f(n)}=2^{-n} \\
+    &\Rightarrow f(n)=2^{n} \text{ for every integer } n
+    \end{aligned}
+- id: mathematics-functions-and-graphs-4-02
+  category: Mathematics
+  subtopic: Functions and Graphs
+  level: 4
+  question: |
+    \text{A function } f \text{ defined on positive reals satisfies } f(xy)=f(x)+f(y) \text{ for all } x,y>0, \\
+    \text{and } f(2)=1. \text{ Find } f(64).
+  answer: |
+    \begin{aligned}
+    64 &= 2^{6} \\
+    f(2^{k}) &= f(2\cdot2^{k-1}) = f(2)+f(2^{k-1}) \Rightarrow f(2^{k})=k\,f(2) \text{ by induction} \\
+    f(64) &= f(2^{6}) = 6\cdot f(2) = 6
+    \end{aligned}
+- id: mathematics-functions-and-graphs-4-03
+  category: Mathematics
+  subtopic: Functions and Graphs
+  level: 4
+  question: |
+    \text{Let } f(x)=x^{2}-2. \text{ Find all real solutions to } f(f(x))=x.
+  answer: |
+    \begin{aligned}
+    &\text{Any fixed point of } f \text{ satisfies } f(f(x))=x, \text{ so } f(x)-x \text{ divides } f(f(x))-x: \\
+    &f(f(x))-x = x^{4}-4x^{2}-x+2 = (x^{2}-x-2)(x^{2}+x-1) \\
+    &x^{2}-x-2=0 \Rightarrow x=2,\,-1 \quad \text{(fixed points of } f\text{)} \\
+    &x^{2}+x-1=0 \Rightarrow x=\dfrac{-1\pm\sqrt5}{2} \quad \text{(genuine period-2 points)} \\
+    &\Rightarrow x \in \left\{2,\,-1,\,\dfrac{-1+\sqrt5}{2},\,\dfrac{-1-\sqrt5}{2}\right\}
+    \end{aligned}
+- id: mathematics-functions-and-graphs-4-04
+  category: Mathematics
+  subtopic: Functions and Graphs
+  level: 4
+  question: |
+    \text{The graph below shows } y=f(x). \text{ Using the graph, determine:} \\
+    \text{(a) the interval(s) where } f \text{ is strictly decreasing} \\
+    \text{(b) } f(-3) \\
+    \text{(c) whether } f \text{ is invertible on its full domain, and why} \\[1em]
+    \includegraphics[width=8cm,height=6.4cm]{/static/graphs/mathematics-functions-and-graphs-4-04.png}
+  answer: |
+    \begin{aligned}
+    &\text{(a) } f \text{ is strictly decreasing on } (-\infty, 0) \\
+    &\text{(b) } f(-3) = |-3| = 3 \\
+    &\text{(c) Not invertible: e.g. } f(-2)=2 \text{ and } f(x)=2 \text{ for every } x>2 \text{ too} \Rightarrow f \text{ is not one-to-one}
+    \end{aligned}
