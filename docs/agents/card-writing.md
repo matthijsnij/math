@@ -101,8 +101,12 @@ case per card" above), which only works if every Level is visible at once.
    the ones you're about to add) so the outline and the cross-Level dedup check in step 3 both
    have the full picture. If the Subtopic is brand new, this step is empty.
 1. **Draft an outline first, not Cards**, covering only the missing Levels. List the distinct
-   cases/techniques to cover per Level (roughly Level 1: 4-6, Level 2: 4-6, Level 3: 3-5, Level 4:
-   3-5 — fewer for a narrow Subtopic, more for a broad one). Keep Level 3 and Level 4 cases
+   cases/techniques to cover per Level. The count per Level is not a target to fill — it's
+   whatever number of genuinely distinct cases that Level of that specific Subtopic actually
+   supports. Derive it by first listing every case/technique/edge case you can think of for that
+   Level, then keeping only the ones that are truly distinct (per "one case per card" above), and
+   using however many survive — don't pad with near-duplicates to hit a round number, and don't
+   cut a genuinely distinct case just to stay low. Keep Level 3 and Level 4 cases
    qualitatively distinct, not just same-content-different-count (see Level definitions in
    `CONTEXT.md`): a Level 3 case is deep theoretical content — a proof, an edge case, a
    derivation — valuable to know but not phrased as an interview prompt, even if the underlying

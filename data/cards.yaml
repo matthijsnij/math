@@ -1180,3 +1180,231 @@
     \P(\text{Defective}) &= 0.0126 + 0.0135 = 0.0261 \\
     \P(B \mid \text{Defective}) &= \dfrac{0.0135}{0.0261} = \dfrac{15}{29} \approx 0.517
     \end{aligned}
+- id: probability-statistics-set-theory-in-probability-1-01
+  category: Probability & Statistics
+  subtopic: Set Theory in Probability
+  level: 1
+  question: |
+    \text{A fair six-sided die is rolled once. Let } \Omega \text{ be the sample space and let } A \text{ be} \\
+    \text{the event "the roll is even." Write } \Omega \text{ and } A \text{ as sets.}
+  answer: |
+    \Omega = \{1,2,3,4,5,6\}, \qquad A = \{2,4,6\} \subseteq \Omega
+- id: probability-statistics-set-theory-in-probability-1-02
+  category: Probability & Statistics
+  subtopic: Set Theory in Probability
+  level: 1
+  question: |
+    \text{For events } A \text{ and } B \text{ in a sample space, state in words what each of the following} \\
+    \text{represents: } A \cup B, \quad A \cap B, \quad A^c.
+  answer: |
+    \begin{aligned}
+    A \cup B &: \text{"} A \text{ or } B \text{ occurs (or both)"} \\
+    A \cap B &: \text{"both } A \text{ and } B \text{ occur"} \\
+    A^c &: \text{"} A \text{ does not occur"}
+    \end{aligned}
+- id: probability-statistics-set-theory-in-probability-1-03
+  category: Probability & Statistics
+  subtopic: Set Theory in Probability
+  level: 1
+  question: |
+    \text{Events } A \text{ and } B \text{ are mutually exclusive (disjoint). Write this condition using set} \\
+    \text{notation, and explain what it means for } A \text{ and } B \text{ to occur simultaneously.}
+  answer: |
+    A \cap B = \emptyset \text{: } A \text{ and } B \text{ share no outcomes, so they cannot both occur on the} \\
+    \text{same trial — observing } A \text{ rules out } B \text{ and vice versa.}
+- id: probability-statistics-set-theory-in-probability-1-04
+  category: Probability & Statistics
+  subtopic: Set Theory in Probability
+  level: 1
+  question: |
+    \text{A collection of events } A_1, A_2, \dots, A_n \text{ forms a partition of the sample space } \Omega. \\
+    \text{State the two conditions this requires, and give an example partition for the roll of a} \\
+    \text{single die.}
+  answer: |
+    \begin{aligned}
+    &\text{(1) Pairwise disjoint: } A_i \cap A_j = \emptyset \text{ for all } i \neq j. \\
+    &\text{(2) Exhaustive: } A_1 \cup A_2 \cup \dots \cup A_n = \Omega.
+    \end{aligned} \\
+    \text{Example: for a die roll, } A_1 = \{1,2,3\} \text{ and } A_2 = \{4,5,6\} \text{ partition } \Omega = \{1,\dots,6\}.
+- id: probability-statistics-set-theory-in-probability-1-05
+  category: Probability & Statistics
+  subtopic: Set Theory in Probability
+  level: 1
+  question: |
+    \text{State the inclusion-exclusion formula for } \P(A \cup B), \text{ then use it to find } \P(A \cup B) \\
+    \text{given } \P(A) = 0.5, \ \P(B) = 0.4, \ \P(A \cap B) = 0.2.
+  answer: |
+    \P(A \cup B) = \P(A) + \P(B) - \P(A \cap B) = 0.5 + 0.4 - 0.2 = 0.7
+- id: probability-statistics-set-theory-in-probability-2-01
+  category: Probability & Statistics
+  subtopic: Set Theory in Probability
+  level: 2
+  question: |
+    \text{Given } \P(A)=0.5,\ \P(B)=0.4,\ \P(C)=0.3,\ \P(A\cap B)=0.2,\ \P(A\cap C)=0.15,\ \P(B\cap C)=0.1, \\
+    \text{and } \P(A\cap B\cap C)=0.05, \text{ find } \P(A \cup B \cup C).
+  answer: |
+    \begin{aligned}
+    \P(A\cup B\cup C) &= \P(A)+\P(B)+\P(C) - \P(A\cap B)-\P(A\cap C)-\P(B\cap C) + \P(A\cap B\cap C) \\
+    &= 0.5+0.4+0.3 - 0.2-0.15-0.1 + 0.05 \\
+    &= 0.8
+    \end{aligned}
+- id: probability-statistics-set-theory-in-probability-2-02
+  category: Probability & Statistics
+  subtopic: Set Theory in Probability
+  level: 2
+  question: |
+    \text{A fair coin is flipped 4 times, independently. Let } A \text{ be the event "at least one flip} \\
+    \text{comes up heads." Find } \P(A) \text{ using the complement.}
+  answer: |
+    \begin{aligned}
+    A^c &= \text{"no heads in 4 flips"}, \qquad \P(A^c) = \left(\tfrac12\right)^4 = \tfrac{1}{16} \\
+    \P(A) &= 1 - \P(A^c) = 1 - \tfrac{1}{16} = \tfrac{15}{16}
+    \end{aligned}
+- id: probability-statistics-set-theory-in-probability-2-03
+  category: Probability & Statistics
+  subtopic: Set Theory in Probability
+  level: 2
+  question: |
+    \text{Let } A \text{ be the event "a randomly chosen card is the Ace of Spades" and } B \text{ be the event} \\
+    \text{"the card is a spade," so } A \subseteq B. \text{ Without computing either probability directly,} \\
+    \text{explain why } \P(A) \le \P(B) \text{ must hold, and confirm it numerically for a standard 52-card deck.}
+  answer: |
+    \text{Since } A \subseteq B, \text{ every outcome in } A \text{ is also in } B, \text{ so } B \text{ occurring is} \\
+    \text{no less likely than } A \text{ occurring: monotonicity gives } \P(A) \le \P(B). \\
+    \text{Numerically, } \P(A) = \tfrac{1}{52} \text{ and } \P(B) = \tfrac{13}{52} = \tfrac14, \text{ and indeed } \tfrac{1}{52} \le \tfrac14.
+- id: probability-statistics-set-theory-in-probability-2-04
+  category: Probability & Statistics
+  subtopic: Set Theory in Probability
+  level: 2
+  question: |
+    \text{Given } \P(A) = 0.6 \text{ and } \P(A \cap B) = 0.25, \text{ find } \P(A \setminus B), \text{ the probability} \\
+    \text{that } A \text{ occurs but } B \text{ does not.}
+  answer: |
+    \P(A \setminus B) = \P(A) - \P(A \cap B) = 0.6 - 0.25 = 0.35
+- id: probability-statistics-set-theory-in-probability-3-01
+  category: Probability & Statistics
+  subtopic: Set Theory in Probability
+  level: 3
+  question: |
+    \text{Prove De Morgan's laws for events: } (A \cup B)^c = A^c \cap B^c \text{ and } (A \cap B)^c = A^c \cup B^c. \\
+    \text{State the corresponding probability identity for the first law.}
+  answer: |
+    \begin{aligned}
+    \omega \in (A\cup B)^c &\iff \omega \notin A \cup B \iff \omega \notin A \text{ and } \omega \notin B \iff \omega \in A^c \cap B^c, \\
+    \omega \in (A\cap B)^c &\iff \omega \notin A \cap B \iff \omega \notin A \text{ or } \omega \notin B \iff \omega \in A^c \cup B^c.
+    \end{aligned} \\
+    \text{Both chains of "iff" hold at every step, so the two sets have the same elements:} \\
+    (A\cup B)^c = A^c \cap B^c \text{ and } (A\cap B)^c = A^c \cup B^c. \\
+    \text{Consequence of the first law: } \P((A\cup B)^c) = \P(A^c \cap B^c).
+- id: probability-statistics-set-theory-in-probability-3-02
+  category: Probability & Statistics
+  subtopic: Set Theory in Probability
+  level: 3
+  question: |
+    \text{Derive the general inclusion-exclusion formula for } n \text{ events } A_1, \dots, A_n, \text{ expressing} \\
+    \P(A_1 \cup \dots \cup A_n) \text{ as an alternating sum over all nonempty subsets of } \{1,\dots,n\}.
+  answer: |
+    \text{Let } \mathbb{1}_A \text{ denote the indicator of event } A, \text{ so } \P(A) = \E[\mathbb{1}_A]. \text{ Since} \\
+    \mathbb{1}_{A^c} = 1-\mathbb{1}_A, \text{ the indicator of the union satisfies} \\
+    \mathbb{1}_{A_1\cup\dots\cup A_n} = 1 - \prod_{i=1}^n (1-\mathbb{1}_{A_i}). \\
+    \text{Expanding the product by picking, for each factor, either the } 1 \text{ or the } -\mathbb{1}_{A_i} \text{ term gives} \\
+    \text{one term per subset } S \subseteq \{1,\dots,n\}\text{:} \\
+    \prod_{i=1}^n (1-\mathbb{1}_{A_i}) = \sum_{S \subseteq \{1,\dots,n\}} (-1)^{|S|} \mathbb{1}_{\bigcap_{i\in S} A_i}. \\
+    \text{The } S=\emptyset \text{ term equals } 1\text{, so subtracting this sum from 1 leaves only nonempty } S\text{:} \\
+    \mathbb{1}_{A_1\cup\dots\cup A_n} = \sum_{\emptyset \neq S \subseteq \{1,\dots,n\}} (-1)^{|S|+1} \mathbb{1}_{\bigcap_{i\in S} A_i}. \\
+    \text{Taking expectations of both sides (linearity of } \E\text{) and grouping subsets by size } |S|=k \\
+    \text{recovers the familiar form:} \\
+    \P\!\left(\bigcup_{i=1}^n A_i\right) = \sum_{\emptyset\neq S} (-1)^{|S|+1}\P\!\left(\bigcap_{i\in S}A_i\right) = \sum_i \P(A_i) - \sum_{i<j}\P(A_i\cap A_j) + \dots + (-1)^{n+1}\P(A_1\cap\dots\cap A_n).
+- id: probability-statistics-set-theory-in-probability-3-03
+  category: Probability & Statistics
+  subtopic: Set Theory in Probability
+  level: 3
+  question: |
+    \text{Prove Boole's inequality (the union bound): for events } A_1, \dots, A_n, \\
+    \P\!\left(\bigcup_{i=1}^n A_i\right) \le \sum_{i=1}^n \P(A_i).
+  answer: |
+    \text{Two-event case: since } \P(A\cap B) \ge 0\text{, inclusion-exclusion gives} \\
+    \P(A\cup B) = \P(A)+\P(B)-\P(A\cap B) \le \P(A)+\P(B). \\
+    \text{Induction on } n\text{: the base case } n=1 \text{ holds with equality. Assume} \\
+    \P\!\left(\bigcup_{i=1}^n A_i\right) \le \sum_{i=1}^n \P(A_i) \text{ for some } n \ge 1, \text{ and let } B = \bigcup_{i=1}^n A_i. \\
+    \text{Applying the two-event case to } B \text{ and } A_{n+1}\text{, then the induction hypothesis:} \\
+    \begin{aligned}
+    \P\!\left(\bigcup_{i=1}^{n+1} A_i\right) = \P(B \cup A_{n+1}) &\le \P(B) + \P(A_{n+1}) \\
+    &\le \sum_{i=1}^n \P(A_i) + \P(A_{n+1}) = \sum_{i=1}^{n+1} \P(A_i).
+    \end{aligned} \\
+    \text{Hence the inequality holds for all } n \ge 1 \text{ by induction.}
+- id: probability-statistics-set-theory-in-probability-3-04
+  category: Probability & Statistics
+  subtopic: Set Theory in Probability
+  level: 3
+  question: |
+    \text{Using only finite additivity (} \P(C \cup D) = \P(C) + \P(D) \text{ for disjoint } C,D \text{), prove that} \\
+    A \subseteq B \implies \P(A) \le \P(B).
+  answer: |
+    \text{Suppose } A \subseteq B. \text{ Write } B \text{ as the disjoint union } B = A \cup (B \setminus A), \text{ since every} \\
+    \text{element of } B \text{ is either in } A \text{ or in } B \text{ but not } A\text{, and these two pieces share no} \\
+    \text{elements (} A \cap (B\setminus A) = \emptyset \text{).} \\
+    \text{Finite additivity then gives } \P(B) = \P(A) + \P(B\setminus A). \text{ Since } \P(B\setminus A) \ge 0 \\
+    \text{(probabilities are nonnegative), } \P(B) = \P(A) + \P(B\setminus A) \ge \P(A)\text{, i.e. } \P(A) \le \P(B).
+- id: probability-statistics-set-theory-in-probability-4-01
+  category: Probability & Statistics
+  subtopic: Set Theory in Probability
+  level: 4
+  question: |
+    \text{A system has 5 independent backup components, each failing independently with probability} \\
+    0.1. \text{ The system fails only if all five components fail. Let } F_i \text{ be the event "component } i \\
+    \text{ fails." Using set notation, express the event "the system survives" (at least one component} \\
+    \text{works) in terms of the } F_i\text{, then find its probability.}
+  answer: |
+    \text{"System fails" is } F_1 \cap F_2 \cap \dots \cap F_5. \text{ By De Morgan's law, "system survives"} \\
+    \text{(at least one component works) is the complement:} \\
+    (F_1 \cap \dots \cap F_5)^c = F_1^c \cup F_2^c \cup \dots \cup F_5^c. \\
+    \text{Since the components fail independently,} \\
+    \P(F_1 \cap \dots \cap F_5) = \prod_{i=1}^5 \P(F_i) = 0.1^5 = 0.00001. \\
+    \P(\text{system survives}) = 1 - \P(F_1\cap\dots\cap F_5) = 1 - 0.00001 = 0.99999.
+- id: probability-statistics-set-theory-in-probability-4-02
+  category: Probability & Statistics
+  subtopic: Set Theory in Probability
+  level: 4
+  question: |
+    n \text{ people check their hats, which are returned to them uniformly at random. Let } A_i \text{ be the} \\
+    \text{event that person } i \text{ gets back their own hat. Using inclusion-exclusion on } A_1 \cup \dots \cup A_n, \\
+    \text{find the probability that nobody gets back their own hat, as } n \to \infty.
+  answer: |
+    \text{For any subset } S \subseteq \{1,\dots,n\} \text{ of size } k, \P\!\left(\bigcap_{i\in S} A_i\right) = \dfrac{(n-k)!}{n!} \\
+    \text{(the } k \text{ specified people keep their own hats, the rest are an arbitrary permutation).} \\
+    \text{There are } \binom{n}{k} \text{ such subsets, so inclusion-exclusion gives} \\
+    \P\!\left(\bigcup_{i=1}^n A_i\right) = \sum_{k=1}^n (-1)^{k+1} \binom{n}{k} \frac{(n-k)!}{n!} = \sum_{k=1}^n (-1)^{k+1} \frac{1}{k!}. \\
+    \text{The probability nobody gets their own hat back is the complement:} \\
+    1 - \sum_{k=1}^n (-1)^{k+1}\frac{1}{k!} = \sum_{k=0}^n \frac{(-1)^k}{k!}. \\
+    \text{As } n \to \infty\text{, this partial sum converges to } e^{-1}\text{, so the probability approaches } \\
+    \dfrac{1}{e} \approx 0.368.
+- id: probability-statistics-set-theory-in-probability-4-03
+  category: Probability & Statistics
+  subtopic: Set Theory in Probability
+  level: 4
+  question: |
+    \text{In a survey of 100 students, 60 study Math, 45 study Physics, 30 study Chemistry, 25 study} \\
+    \text{both Math and Physics, 15 study both Math and Chemistry, 10 study both Physics and} \\
+    \text{Chemistry, and 5 study all three. How many students study none of the three subjects?}
+  answer: |
+    \text{By inclusion-exclusion,} \\
+    |M\cup P\cup C| = |M|+|P|+|C| - |M\cap P|-|M\cap C|-|P\cap C| + |M\cap P\cap C| \\
+    = 60+45+30-25-15-10+5 = 90. \\
+    \text{Students studying none of the three subjects: } 100 - 90 = 10.
+- id: probability-statistics-set-theory-in-probability-4-04
+  category: Probability & Statistics
+  subtopic: Set Theory in Probability
+  level: 4
+  question: |
+    \text{A piece of software runs 8 independent unit tests before release; each test fails (a false} \\
+    \text{alarm) independently with probability } 0.02. \text{ Use the union bound to estimate an upper} \\
+    \text{bound on the probability that at least one test fails, then compare it to the exact} \\
+    \text{probability (computed via the complement).}
+  answer: |
+    \text{Union bound: } \P(\text{at least one test fails}) \le \sum_{i=1}^8 \P(\text{test } i \text{ fails}) = 8 \times 0.02 = 0.16. \\
+    \text{Exact value, via the complement (independence lets the "no failures" probability factor):} \\
+    \P(\text{no test fails}) = (0.98)^8 \approx 0.8508, \quad \P(\text{at least one fails}) = 1-0.8508 \approx 0.1492. \\
+    \text{The union bound (0.16) is a valid upper bound on the exact probability (0.1492), as} \\
+    \text{guaranteed by Boole's inequality — but it overcounts the overlap between different tests} \\
+    \text{failing together, so it's noticeably looser than the true value.}
