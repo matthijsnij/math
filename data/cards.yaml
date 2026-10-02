@@ -461,3 +461,215 @@
     &\text{(b) } f(-3) = |-3| = 3 \\
     &\text{(c) Not invertible: e.g. } f(-2)=2 \text{ and } f(x)=2 \text{ for every } x>2 \text{ too} \Rightarrow f \text{ is not one-to-one}
     \end{aligned}
+- id: probability-statistics-combinatorics-1-01
+  category: Probability & Statistics
+  subtopic: Combinatorics
+  level: 1
+  question: |
+    \text{In how many ways can 6 different books be arranged in a row on a shelf?}
+  answer: |
+    6! = 720
+- id: probability-statistics-combinatorics-1-02
+  category: Probability & Statistics
+  subtopic: Combinatorics
+  level: 1
+  question: |
+    \text{In how many ways can a president and a vice-president be chosen, in that order,} \\
+    \text{from 8 candidates?}
+  answer: |
+    \dfrac{8!}{(8-2)!} = 8 \cdot 7 = 56
+- id: probability-statistics-combinatorics-1-03
+  category: Probability & Statistics
+  subtopic: Combinatorics
+  level: 1
+  question: |
+    \text{In how many ways can a committee of 4 people be chosen from a group of 10?}
+  answer: |
+    \binom{10}{4} = \dfrac{10!}{4! \, 6!} = 210
+- id: probability-statistics-combinatorics-1-04
+  category: Probability & Statistics
+  subtopic: Combinatorics
+  level: 1
+  question: |
+    \text{A menu offers 3 starters, 5 mains, and 2 desserts. How many different three-course} \\
+    \text{meals (one of each) are possible?}
+  answer: |
+    3 \cdot 5 \cdot 2 = 30
+- id: probability-statistics-combinatorics-1-05
+  category: Probability & Statistics
+  subtopic: Combinatorics
+  level: 1
+  question: |
+    \text{How many distinct arrangements are there of the letters in the word MISSISSIPPI?}
+  answer: |
+    \text{11 letters: M}{=}1,\ \text{I}{=}4,\ \text{S}{=}4,\ \text{P}{=}2 \\
+    \dfrac{11!}{1! \, 4! \, 4! \, 2!} = 34650
+- id: probability-statistics-combinatorics-2-01
+  category: Probability & Statistics
+  subtopic: Combinatorics
+  level: 2
+  question: |
+    \text{In how many distinct ways can 6 people be seated around a circular table, where} \\
+    \text{rotations of a seating are considered the same?}
+  answer: |
+    \text{Fix one person to remove rotational symmetry, arrange the rest:} \\
+    (6-1)! = 5! = 120
+- id: probability-statistics-combinatorics-2-02
+  category: Probability & Statistics
+  subtopic: Combinatorics
+  level: 2
+  question: |
+    \text{In how many ways can 10 identical candies be distributed among 4 distinct children,} \\
+    \text{where some children may receive none?}
+  answer: |
+    \text{Stars and bars with } n=10 \text{ items, } k=4 \text{ boxes:} \\
+    \binom{n+k-1}{k-1} = \binom{13}{3} = 286
+- id: probability-statistics-combinatorics-2-03
+  category: Probability & Statistics
+  subtopic: Combinatorics
+  level: 2
+  question: |
+    \text{A 4-character password is formed from the 26 letters of the alphabet, with repetition} \\
+    \text{allowed. How many distinct passwords are possible?}
+  answer: |
+    \text{Each of the 4 positions is filled independently from 26 choices:} \\
+    26^{4} = 456976
+- id: probability-statistics-combinatorics-2-04
+  category: Probability & Statistics
+  subtopic: Combinatorics
+  level: 2
+  question: |
+    \text{A committee of 5 people is chosen from a group of 12 that includes a specific person,} \\
+    \text{Alice. How many such committees include Alice?}
+  answer: |
+    \text{Alice's seat is fixed, so choose the remaining 4 members from the other 11:} \\
+    \binom{11}{4} = 330
+- id: probability-statistics-combinatorics-2-05
+  category: Probability & Statistics
+  subtopic: Combinatorics
+  level: 2
+  question: |
+    \text{A committee of 5 people is chosen from a group of 8 men and 4 women. How many} \\
+    \text{committees include at least one woman?}
+  answer: |
+    \text{Total committees minus committees with no woman:} \\
+    \binom{12}{5} - \binom{8}{5} = 792 - 56 = 736
+- id: probability-statistics-combinatorics-3-01
+  category: Probability & Statistics
+  subtopic: Combinatorics
+  level: 3
+  question: |
+    \text{5 boys and 3 girls are to be arranged in a row such that no two girls sit next to} \\
+    \text{each other. In how many ways can this be done?}
+  answer: |
+    \begin{aligned}
+    &\text{Arrange the 5 boys first: } 5! \text{ ways.} \\
+    &\text{This creates 6 gaps (including the two ends) around the boys.} \\
+    &\text{Place the 3 girls into 3 of these 6 gaps, in order: } P(6,3) = 6 \cdot 5 \cdot 4 = 120 \\
+    &\text{Total: } 5! \cdot 120 = 120 \cdot 120 = 14400
+    \end{aligned}
+- id: probability-statistics-combinatorics-3-02
+  category: Probability & Statistics
+  subtopic: Combinatorics
+  level: 3
+  question: |
+    \text{How many integers from 1 to 100 are divisible by 3 or by 5?}
+  answer: |
+    \begin{aligned}
+    &A = \{\text{divisible by 3}\}, \ B = \{\text{divisible by 5}\} \\
+    &|A| = \left\lfloor \dfrac{100}{3} \right\rfloor = 33, \quad |B| = \left\lfloor \dfrac{100}{5} \right\rfloor = 20 \\
+    &|A \cap B| = \left\lfloor \dfrac{100}{15} \right\rfloor = 6 \\
+    &|A \cup B| = |A| + |B| - |A \cap B| = 33 + 20 - 6 = 47
+    \end{aligned}
+- id: probability-statistics-combinatorics-3-03
+  category: Probability & Statistics
+  subtopic: Combinatorics
+  level: 3
+  question: |
+    \text{In how many ways can 5 distinct letters be placed into 5 addressed envelopes (one} \\
+    \text{letter per envelope) such that no letter ends up in its correct envelope?}
+  answer: |
+    \begin{aligned}
+    &\text{This counts derangements } D_n \text{ of } n=5 \text{ items:} \\
+    &D_n = n! \sum_{k=0}^{n} \dfrac{(-1)^{k}}{k!} \\
+    &D_5 = 120 \left(1 - 1 + \dfrac12 - \dfrac16 + \dfrac1{24} - \dfrac1{120}\right) = 120 \cdot \dfrac{11}{30} = 44
+    \end{aligned}
+- id: probability-statistics-combinatorics-3-04
+  category: Probability & Statistics
+  subtopic: Combinatorics
+  level: 3
+  question: |
+    \text{A group of 9 distinct students is divided into three project teams of sizes 4, 3,} \\
+    \text{and 2. In how many ways can this be done?}
+  answer: |
+    \text{Multinomial coefficient for groups of sizes 4, 3, 2:} \\
+    \dfrac{9!}{4! \, 3! \, 2!} = \dfrac{362880}{24 \cdot 6 \cdot 2} = 1260
+- id: probability-statistics-combinatorics-3-05
+  category: Probability & Statistics
+  subtopic: Combinatorics
+  level: 3
+  question: |
+    \text{In how many ways can 10 identical candies be distributed among 4 distinct children} \\
+    \text{so that each child receives at least one candy?}
+  answer: |
+    \begin{aligned}
+    &\text{Give each child one candy first, then distribute the remaining } 10-4=6 \\
+    &\text{candies freely among the 4 children (stars and bars, no restriction):} \\
+    &\binom{6+4-1}{4-1} = \binom{9}{3} = 84
+    \end{aligned}
+- id: probability-statistics-combinatorics-4-01
+  category: Probability & Statistics
+  subtopic: Combinatorics
+  level: 4
+  question: |
+    \text{How many integers from 1 to 200 are divisible by 2, 3, or 5?}
+  answer: |
+    \begin{aligned}
+    &A,B,C = \{\text{divisible by } 2,3,5\} \\
+    &|A|=100, \ |B|=66, \ |C|=40 \\
+    &|A \cap B|=33 \ (\div 6), \quad |A \cap C|=20 \ (\div 10), \quad |B \cap C|=13 \ (\div 15) \\
+    &|A \cap B \cap C| = 6 \ (\div 30) \\
+    &|A \cup B \cup C| = 100+66+40-33-20-13+6 = 146
+    \end{aligned}
+- id: probability-statistics-combinatorics-4-02
+  category: Probability & Statistics
+  subtopic: Combinatorics
+  level: 4
+  question: |
+    \text{4 married couples (8 people total) are to be seated in a row such that each couple} \\
+    \text{sits together. In how many ways can this be done?}
+  answer: |
+    \begin{aligned}
+    &\text{Treat each couple as one block: 4 blocks can be arranged in } 4! \text{ ways.} \\
+    &\text{Within each block, the two people can swap order: } 2! \text{ ways per couple, } 2^{4} \text{ total.} \\
+    &\text{Total: } 4! \cdot 2^{4} = 24 \cdot 16 = 384
+    \end{aligned}
+- id: probability-statistics-combinatorics-4-03
+  category: Probability & Statistics
+  subtopic: Combinatorics
+  level: 4
+  question: |
+    \text{Give a combinatorial (bijective) proof of the hockey-stick identity:} \\
+    \sum_{i=r}^{n} \binom{i}{r} = \binom{n+1}{r+1}
+  answer: |
+    \begin{aligned}
+    &\text{The right side counts the } (r{+}1)\text{-element subsets of } \{1,\dots,n+1\}. \\
+    &\text{Classify each such subset by its largest element, } i+1, \text{ where } i \text{ ranges from } r \text{ to } n \\
+    &\text{(the largest element must be at least } r+1 \text{ to leave room for } r \text{ smaller ones).} \\
+    &\text{The remaining } r \text{ elements are then chosen from } \{1,\dots,i\}: \ \binom{i}{r} \text{ ways.} \\
+    &\text{Summing over all valid largest elements counts every subset exactly once:} \\
+    &\sum_{i=r}^{n} \binom{i}{r} = \binom{n+1}{r+1}
+    \end{aligned}
+- id: probability-statistics-combinatorics-4-04
+  category: Probability & Statistics
+  subtopic: Combinatorics
+  level: 4
+  question: |
+    \text{In how many ways can 6 distinct letters be placed into 6 addressed envelopes such} \\
+    \text{that exactly 2 letters end up in their correct envelope?}
+  answer: |
+    \begin{aligned}
+    &\text{Choose which 2 letters are correctly placed: } \binom{6}{2} = 15 \\
+    &\text{The remaining 4 letters must all be in the wrong envelope: } D_4 = 9 \\
+    &\text{Total: } 15 \cdot 9 = 135
+    \end{aligned}
