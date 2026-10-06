@@ -25,7 +25,8 @@
 
 ## Probability & Statistics
 - Mean, Median, Mode and Range
-- Expected Value, Variance and Covariance
+- Expected Value, Variance, Covariance, Correlation
+- Conditional Expectation and Variance
 - Order Statistics
 - Conditional Probability and Bayes
 - Combinatorics

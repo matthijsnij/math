@@ -2,6 +2,7 @@
 \Var: \operatorname{Var}
 \P: \mathbb{P}
 \Cov: \operatorname{Cov}
+\Corr: \operatorname{Corr}
 \R: \mathbb{R}
 \Z: \mathbb{Z}
 \N: \mathbb{N}
