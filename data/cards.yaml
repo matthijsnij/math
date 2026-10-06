@@ -2816,3 +2816,306 @@
     \begin{aligned}
     \E[X_{(n)}-X_{(1)}] = \E[X_{(n)}] - \E[X_{(1)}] = \frac{n}{n+1} - \frac{1}{n+1} = \frac{n-1}{n+1}
     \end{aligned}
+- id: probability-statistics-random-variables-1-01
+  category: Probability & Statistics
+  subtopic: Random Variables
+  level: 1
+  question: |
+    \text{Explain what a random variable is in terms of the sample space } \Omega\text{, and give one example.}
+  answer: |
+    \begin{aligned}
+    &\text{A random variable } X \text{ is a function } X:\Omega \to \R \text{ that assigns a real number to} \\
+    &\text{each outcome of a random experiment.} \\
+    &\text{Example: flip a fair coin twice, } \Omega = \{HH,HT,TH,TT\}. \text{ Let } X \text{ be the number of heads:} \\
+    &X(HH)=2,\ X(HT)=X(TH)=1,\ X(TT)=0.
+    \end{aligned}
+- id: probability-statistics-random-variables-1-02
+  category: Probability & Statistics
+  subtopic: Random Variables
+  level: 1
+  question: |
+    \text{State the criterion that distinguishes a discrete random variable from a continuous one, then classify:} \\
+    \text{(a) the number of defective items in a batch of 50; (b) the waiting time until a bus arrives.}
+  answer: |
+    \begin{aligned}
+    &\text{Discrete: the support is finite or countably infinite (its values can be listed), described} \\
+    &\text{by a pmf. Continuous: the support is an uncountable interval of } \R\text{, described by a pdf, and} \\
+    &P(X=x)=0 \text{ for every single point } x. \\
+    &\text{(a) discrete (support } \{0,1,\ldots,50\}\text{). (b) continuous (support } [0,\infty)\text{).}
+    \end{aligned}
+- id: probability-statistics-random-variables-1-03
+  category: Probability & Statistics
+  subtopic: Random Variables
+  level: 1
+  question: |
+    \text{State the two defining properties of a probability mass function (pmf). Then give the pmf of } X\text{,} \\
+    \text{the result of rolling a fair 4-sided die, and verify it satisfies both properties.}
+  answer: |
+    \begin{aligned}
+    &\text{A pmf } p(x)=P(X=x) \text{ must satisfy: (i) } p(x)\ge 0 \text{ for all } x\text{; (ii) } \sum_x p(x) = 1 \\
+    &\text{(summed over the support).} \\
+    &\text{For a fair 4-sided die, } p(x) = \tfrac14 \text{ for } x=1,2,3,4. \text{ Each } p(x)=\tfrac14 \ge 0\text{, and} \\
+    &\sum_{x=1}^4 \tfrac14 = 1.
+    \end{aligned}
+- id: probability-statistics-random-variables-1-04
+  category: Probability & Statistics
+  subtopic: Random Variables
+  level: 1
+  question: |
+    \text{Define the CDF of a random variable } X\text{. Then, given the pmf } P(X=1)=0.2,\ P(X=2)=0.5,\ P(X=3)=0.3\text{,} \\
+    \text{compute } F(0), F(1), F(1.5), F(2), F(3), F(5).
+  answer: |
+    \begin{aligned}
+    F(x) &= P(X \le x) \\
+    F(0) &= 0, \qquad F(1) = 0.2, \qquad F(1.5) = 0.2, \qquad F(2) = 0.7, \qquad F(3) = 1, \qquad F(5) = 1
+    \end{aligned}
+- id: probability-statistics-random-variables-1-05
+  category: Probability & Statistics
+  subtopic: Random Variables
+  level: 1
+  question: |
+    \text{State the two defining properties of a probability density function (pdf). A continuous random variable} \\
+    \text{has candidate pdf } f(x) = c\,x^2 \text{ on } [0,2] \text{ (and } 0 \text{ elsewhere). Find } c.
+  answer: |
+    \begin{aligned}
+    &\text{A pdf must satisfy: (i) } f(x) \ge 0 \text{ for all } x\text{; (ii) } \int_{-\infty}^{\infty} f(x)\,dx = 1. \\
+    &\int_0^2 c\,x^2\,dx = c\left[\frac{x^3}{3}\right]_0^2 = \frac{8c}{3} = 1 \implies c = \frac38
+    \end{aligned}
+- id: probability-statistics-random-variables-1-06
+  category: Probability & Statistics
+  subtopic: Random Variables
+  level: 1
+  question: |
+    \text{A continuous random variable has pdf } f(x) = \tfrac12 \text{ on } [0,2] \text{ (and } 0 \text{ elsewhere). Derive the CDF } F(x) \\
+    \text{for all } x \in \R.
+  answer: |
+    \begin{aligned}
+    F(x) &= 0 \qquad \text{for } x < 0 \\
+    F(x) &= \int_0^x \tfrac12\,dt = \frac{x}{2} \qquad \text{for } 0 \le x \le 2 \\
+    F(x) &= 1 \qquad \text{for } x > 2
+    \end{aligned}
+- id: probability-statistics-random-variables-2-01
+  category: Probability & Statistics
+  subtopic: Random Variables
+  level: 2
+  question: |
+    \text{Determine whether the following is a valid CDF, and if not, state which property fails:} \\
+    F(x) = 0 \text{ for } x<0; \quad F(x) = 1-x \text{ for } 0 \le x < 1; \quad F(x) = 1 \text{ for } x \ge 1.
+  answer: |
+    \begin{aligned}
+    &\text{A CDF must be non-decreasing. Here } F(0) = 1 \text{ but } F(0.5) = 0.5 < F(0)\text{, so } F \text{ decreases} \\
+    &\text{on } [0,1)\text{. This violates monotonicity, so } F \text{ is not a valid CDF.}
+    \end{aligned}
+- id: probability-statistics-random-variables-2-02
+  category: Probability & Statistics
+  subtopic: Random Variables
+  level: 2
+  question: |
+    \text{A discrete random variable has pmf } P(X=1)=0.2,\ P(X=2)=0.3,\ P(X=3)=0.5. \text{ Using its CDF, compute} \\
+    P(1 < X \le 3)\text{, and identify } P(X=2) \text{ as a jump in the CDF.}
+  answer: |
+    \begin{aligned}
+    F(1) &= 0.2, \qquad F(2) = 0.5, \qquad F(3) = 1 \\
+    P(1 < X \le 3) &= F(3) - F(1) = 1 - 0.2 = 0.8 \\
+    P(X=2) &= F(2) - F(2^-) = 0.5 - 0.2 = 0.3 \qquad \text{(the size of the jump in } F \text{ at } x=2\text{)}
+    \end{aligned}
+- id: probability-statistics-random-variables-2-03
+  category: Probability & Statistics
+  subtopic: Random Variables
+  level: 2
+  question: |
+    \text{Let } X \text{ take values } -2,-1,0,1,2\text{, each with probability } \tfrac15. \text{ Let } Y = X^2. \text{ Find the pmf of } Y.
+  answer: |
+    \begin{aligned}
+    &Y \text{ takes values } 0,1,4. \\
+    P(Y=0) &= P(X=0) = \tfrac15 \\
+    P(Y=1) &= P(X=-1) + P(X=1) = \tfrac25 \\
+    P(Y=4) &= P(X=-2) + P(X=2) = \tfrac25
+    \end{aligned}
+- id: probability-statistics-random-variables-2-04
+  category: Probability & Statistics
+  subtopic: Random Variables
+  level: 2
+  question: |
+    \text{Let } X \text{ have pdf } f_X(x) = 2x \text{ on } [0,1]\text{. Let } Y = X^3 \text{ (strictly increasing). Find the pdf of } Y \\
+    \text{using the CDF method.}
+  answer: |
+    \begin{aligned}
+    F_Y(y) &= P(Y \le y) = P(X^3 \le y) = P(X \le y^{1/3}) = F_X(y^{1/3}) \qquad \text{for } y \in [0,1] \\
+    F_X(x) &= \int_0^x 2t\,dt = x^2 \implies F_Y(y) = \left(y^{1/3}\right)^2 = y^{2/3} \\
+    f_Y(y) &= \frac{d}{dy}y^{2/3} = \frac23\,y^{-1/3} \qquad \text{for } y \in [0,1]
+    \end{aligned}
+- id: probability-statistics-random-variables-2-05
+  category: Probability & Statistics
+  subtopic: Random Variables
+  level: 2
+  question: |
+    \text{For events } A,B\text{, define the indicator variables } \mathbf{1}_A,\mathbf{1}_B \text{ (1 if the event occurs, 0 otherwise).} \\
+    \text{Express } \mathbf{1}_{A\cap B} \text{ and } \mathbf{1}_{A\cup B} \text{ in terms of } \mathbf{1}_A,\mathbf{1}_B\text{, and verify } \mathbf{1}_{A\cup B} \\
+    \text{against all 4 combinations of } A,B \text{ occurring or not.}
+  answer: |
+    \begin{aligned}
+    \mathbf{1}_{A\cap B} &= \mathbf{1}_A \cdot \mathbf{1}_B \qquad \text{(product is 1 only when both indicators are 1)} \\
+    \mathbf{1}_{A\cup B} &= \mathbf{1}_A + \mathbf{1}_B - \mathbf{1}_A \mathbf{1}_B
+    \end{aligned} \\
+    \text{Verification: neither occurs: } 0+0-0=0; \text{ only } A\text{: } 1+0-0=1; \text{ only } B\text{: } 0+1-0=1; \\
+    \text{both: } 1+1-1=1 \text{ — matches } \mathbf{1}_{A\cup B} \text{ in every case.}
+- id: probability-statistics-random-variables-2-06
+  category: Probability & Statistics
+  subtopic: Random Variables
+  level: 2
+  question: |
+    \text{For discrete random variables } X,Y \text{ with the joint pmf below, find the marginal pmf of } X \text{ and of } Y.
+    \begin{array}{c|cc}
+     & Y=0 & Y=1 \\
+    \hline
+    X=0 & 0.1 & 0.2 \\
+    X=1 & 0.3 & 0.4
+    \end{array}
+  answer: |
+    \begin{aligned}
+    P(X=0) &= 0.1+0.2 = 0.3, \qquad P(X=1) = 0.3+0.4 = 0.7 \\
+    P(Y=0) &= 0.1+0.3 = 0.4, \qquad P(Y=1) = 0.2+0.4 = 0.6
+    \end{aligned}
+- id: probability-statistics-random-variables-2-07
+  category: Probability & Statistics
+  subtopic: Random Variables
+  level: 2
+  question: |
+    \text{Two random variables are independent iff their joint pmf factors as } p(x,y) = p_X(x)\,p_Y(y) \text{ for all } x,y. \\
+    \text{Check whether } X,Y \text{ are independent given the joint pmf below.}
+    \begin{array}{c|cc}
+     & Y=1 & Y=2 \\
+    \hline
+    X=1 & 0.12 & 0.18 \\
+    X=2 & 0.28 & 0.42
+    \end{array}
+  answer: |
+    \begin{aligned}
+    P(X=1) &= 0.3, \qquad P(X=2) = 0.7, \qquad P(Y=1) = 0.4, \qquad P(Y=2) = 0.6 \\
+    P(X=1)P(Y=1) &= 0.12 = p(1,1), \qquad P(X=1)P(Y=2) = 0.18 = p(1,2) \\
+    P(X=2)P(Y=1) &= 0.28 = p(2,1), \qquad P(X=2)P(Y=2) = 0.42 = p(2,2)
+    \end{aligned} \\
+    \text{The joint pmf factors as the product of the marginals in every cell, so } X,Y \text{ are independent.}
+- id: probability-statistics-random-variables-3-01
+  category: Probability & Statistics
+  subtopic: Random Variables
+  level: 3
+  question: |
+    \text{Prove that the CDF } F(x) = P(X \le x) \text{ of any random variable } X \text{ satisfies: (i) non-decreasing;} \\
+    \text{(ii) right-continuous; (iii) } \lim_{x\to-\infty}F(x)=0 \text{ and } \lim_{x\to\infty}F(x)=1.
+  answer: |
+    \text{Let } A_x = \{X \le x\}.
+    \begin{aligned}
+    &\text{(i) For } a<b\text{, } A_a \subseteq A_b\text{, so by monotonicity of a probability measure } F(a) = P(A_a) \le \\
+    &P(A_b) = F(b). \\
+    &\text{(ii) For any decreasing sequence } x_n \downarrow x\text{, the events } A_{x_n} \downarrow A_x = \bigcap_n A_{x_n}\text{.} \\
+    &\text{By continuity from above of a probability measure, } F(x_n) = P(A_{x_n}) \to P(A_x) = F(x)\text{,} \\
+    &\text{so } F \text{ is right-continuous at every } x. \\
+    &\text{(iii) As } x_n \to -\infty\text{, } A_{x_n} \downarrow \varnothing\text{, so } F(x_n) \to P(\varnothing) = 0\text{. As } x_n \to \infty\text{,} \\
+    &A_{x_n} \uparrow \Omega\text{, so } F(x_n) \to P(\Omega) = 1.
+    \end{aligned}
+- id: probability-statistics-random-variables-3-02
+  category: Probability & Statistics
+  subtopic: Random Variables
+  level: 3
+  question: |
+    \text{Let } X \text{ have pdf } f_X \text{ and let } Y=g(X) \text{ for differentiable } g\text{. Derive the pdf of } Y\text{, first assuming} \\
+    g \text{ is strictly monotonic, then extending to the case where } g \text{ is not monotonic.}
+  answer: |
+    \begin{aligned}
+    &\textbf{Strictly increasing } g\text{: } F_Y(y) = P(g(X)\le y) = P(X \le g^{-1}(y)) = F_X(g^{-1}(y))\text{.} \\
+    &\text{Differentiating, } f_Y(y) = f_X(g^{-1}(y))\cdot \frac{d}{dy}g^{-1}(y)\text{.} \\
+    &\textbf{Strictly decreasing } g\text{: } F_Y(y) = P(X \ge g^{-1}(y)) = 1-F_X(g^{-1}(y))\text{, so} \\
+    &f_Y(y) = -f_X(g^{-1}(y))\cdot \frac{d}{dy}g^{-1}(y)\text{, which is positive since } \frac{d}{dy}g^{-1}(y) < 0\text{.} \\
+    &\text{Both cases combine into } f_Y(y) = f_X(x)/|g'(x)|\text{, evaluated at } x=g^{-1}(y)\text{.} \\
+    &\textbf{Non-monotonic } g\text{: partition the domain of } X \text{ into intervals on which } g \text{ is strictly} \\
+    &\text{monotonic. For a given } y\text{, let } x_1,\ldots,x_k \text{ be the (finitely many) solutions of } g(x_i)=y\text{,} \\
+    &\text{one per branch. Each branch contributes } f_X(x_i)/|g'(x_i)| \text{ to the density, so} \\
+    &f_Y(y) = \sum_{i=1}^k \frac{f_X(x_i)}{|g'(x_i)|}\text{.}
+    \end{aligned}
+- id: probability-statistics-random-variables-3-03
+  category: Probability & Statistics
+  subtopic: Random Variables
+  level: 3
+  question: |
+    \text{For independent continuous random variables } X,Y \text{ with pdfs } f_X,f_Y\text{, derive the pdf of } Z=X+Y \\
+    \text{(the convolution formula).}
+  answer: |
+    \begin{aligned}
+    F_Z(z) &= P(X+Y \le z) = \iint_{x+y\le z} f_X(x)f_Y(y)\,dx\,dy \qquad \text{(joint pdf factors by independence)} \\
+    &= \int_{-\infty}^{\infty} f_X(x) \left[\int_{-\infty}^{z-x} f_Y(y)\,dy\right] dx = \int_{-\infty}^{\infty} f_X(x)\,F_Y(z-x)\,dx
+    \end{aligned} \\
+    \text{Differentiating under the integral sign with respect to } z\text{:} \\
+    f_Z(z) = \int_{-\infty}^{\infty} f_X(x)\,f_Y(z-x)\,dx
+- id: probability-statistics-random-variables-3-04
+  category: Probability & Statistics
+  subtopic: Random Variables
+  level: 3
+  question: |
+    \text{Let } X \text{ be a continuous random variable with strictly increasing, invertible CDF } F\text{. Prove the} \\
+    \text{Probability Integral Transform: } Y=F(X) \text{ is } \text{Uniform}(0,1).
+  answer: |
+    \begin{aligned}
+    &\text{For } y \in [0,1]\text{:} \\
+    F_Y(y) &= P(F(X) \le y) = P(X \le F^{-1}(y)) \qquad \text{(}F \text{ strictly increasing, hence invertible)} \\
+    &= F(F^{-1}(y)) = y
+    \end{aligned} \\
+    \text{Also } F_Y(y)=0 \text{ for } y<0 \text{ and } F_Y(y)=1 \text{ for } y>1\text{. This is exactly the CDF of } \text{Uniform}(0,1)\text{,} \\
+    \text{so } Y \sim \text{Uniform}(0,1).
+- id: probability-statistics-random-variables-4-01
+  category: Probability & Statistics
+  subtopic: Random Variables
+  level: 4
+  question: |
+    \text{Let } X \sim N(0,1) \text{ with pdf } f_X(x) = \frac{1}{\sqrt{2\pi}}e^{-x^2/2}. \text{ Find the pdf of } Y=X^2.
+  answer: |
+    \begin{aligned}
+    &Y \ge 0\text{. For } y>0\text{, } g(x)=x^2 \text{ has two branches solving } g(x)=y\text{: } x=\pm\sqrt{y}\text{, with} \\
+    &|g'(x)| = 2|x| = 2\sqrt{y} \text{ on both branches. Using the non-monotonic transformation formula:} \\
+    f_Y(y) &= \frac{f_X(\sqrt{y})}{2\sqrt{y}} + \frac{f_X(-\sqrt{y})}{2\sqrt{y}} = \frac{2}{2\sqrt{y}}\cdot\frac{1}{\sqrt{2\pi}}e^{-y/2} = \frac{1}{\sqrt{2\pi y}}e^{-y/2}, \qquad y>0
+    \end{aligned} \\
+    \text{(This is the chi-square distribution with 1 degree of freedom.)}
+- id: probability-statistics-random-variables-4-02
+  category: Probability & Statistics
+  subtopic: Random Variables
+  level: 4
+  question: |
+    \text{Let } X,Y \text{ be iid } \text{Uniform}(0,1). \text{ Using convolution, find the pdf of } Z=X+Y.
+  answer: |
+    \begin{aligned}
+    &f_Z(z) = \int_{-\infty}^{\infty} f_X(x)f_Y(z-x)\,dx\text{, nonzero only where } x\in[0,1] \text{ and } z-x\in[0,1]\text{,} \\
+    &\text{i.e. } x \in [\max(0,z-1),\,\min(1,z)]\text{, with } f_X=f_Y=1 \text{ there.} \\
+    &\text{For } 0 \le z \le 1\text{: the overlap is } x\in[0,z]\text{, length } z\text{, so } f_Z(z)=z\text{.} \\
+    &\text{For } 1 < z \le 2\text{: the overlap is } x\in[z-1,1]\text{, length } 2-z\text{, so } f_Z(z)=2-z\text{.}
+    \end{aligned} \\
+    \text{This is the symmetric triangular distribution on } [0,2] \text{, peaking at } z=1.
+- id: probability-statistics-random-variables-4-03
+  category: Probability & Statistics
+  subtopic: Random Variables
+  level: 4
+  question: |
+    \text{Using the Probability Integral Transform, show how to generate a sample from } \text{Exponential}(\lambda) \\
+    \text{(CDF } F(x)=1-e^{-\lambda x}\text{, } x\ge 0\text{) starting from } U \sim \text{Uniform}(0,1)\text{, by deriving the required} \\
+    \text{transform } X=g(U).
+  answer: |
+    \begin{aligned}
+    &\text{By the Probability Integral Transform, if } U=F(X) \text{ then } U\sim\text{Uniform}(0,1)\text{; conversely,} \\
+    &\text{setting } X = F^{-1}(U) \text{ for } U\sim\text{Uniform}(0,1) \text{ gives } X \text{ the distribution with CDF } F\text{.} \\
+    &\text{Solve } u = 1-e^{-\lambda x} \text{ for } x\text{: } e^{-\lambda x} = 1-u \implies x = -\frac{1}{\lambda}\ln(1-u)\text{.} \\
+    &\text{Since } 1-U \text{ is also } \text{Uniform}(0,1)\text{, this simplifies to the equivalent transform}
+    \end{aligned} \\
+    X = g(U) = -\frac{1}{\lambda}\ln U \;\sim\; \text{Exponential}(\lambda)
+- id: probability-statistics-random-variables-4-04
+  category: Probability & Statistics
+  subtopic: Random Variables
+  level: 4
+  question: |
+    \text{A stick of length 1 is broken at a uniformly random point } X \sim \text{Uniform}(0,1)\text{, giving two pieces of} \\
+    \text{length } X \text{ and } 1-X. \text{ Let } L \text{ be the length of the longer piece. Find the pdf of } L.
+  answer: |
+    \begin{aligned}
+    &L = \max(X,1-X) \in [\tfrac12,1]\text{.} \\
+    F_L(l) &= P(\max(X,1-X)\le l) = P(X\le l \text{ and } 1-X\le l) = P(1-l \le X \le l) = l-(1-l) = 2l-1
+    \end{aligned} \\
+    \text{for } l \in [\tfrac12,1]\text{. Differentiating, } f_L(l) = 2 \text{ on } [\tfrac12,1] \text{ — i.e. } L \sim \text{Uniform}(\tfrac12,1).
