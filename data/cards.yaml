@@ -2538,3 +2538,281 @@
     \Var\big(\E[H\mid P]\big) &= \Var(nP) = n^2\Var(P) = \dfrac{n^2}{12} \\
     \Var(H) &= \dfrac{n}{6} + \dfrac{n^2}{12}
     \end{aligned}
+- id: probability-statistics-order-statistics-1-01
+  category: Probability & Statistics
+  subtopic: Order Statistics
+  level: 1
+  question: |
+    \text{Given an iid sample } X_1, X_2, \ldots, X_n \text{, define the order statistics } X_{(1)} \le X_{(2)} \le \cdots \le X_{(n)}. \\
+    \text{What do } X_{(1)} \text{ and } X_{(n)} \text{ represent, and how do they differ from } X_1 \text{ and } X_n?
+  answer: |
+    \text{The order statistics } X_{(1)}, \ldots, X_{(n)} \text{ are the sample values } X_1,\ldots,X_n \text{ sorted into increasing order:} \\
+    X_{(1)} = \min(X_1,\ldots,X_n), \qquad X_{(n)} = \max(X_1,\ldots,X_n). \\
+    \text{Unlike } X_1 \text{ and } X_n \text{, which are fixed labels referring to the first and } n\text{-th draws (in whatever} \\
+    \text{order they were sampled), } X_{(1)} \text{ and } X_{(n)} \text{ are random variables whose value depends on the} \\
+    \text{entire sample — e.g. } X_{(1)} \text{ could equal } X_7 \text{ in one realization and } X_2 \text{ in another.}
+- id: probability-statistics-order-statistics-1-02
+  category: Probability & Statistics
+  subtopic: Order Statistics
+  level: 1
+  question: |
+    \text{Let } X_1,\ldots,X_n \text{ be iid continuous random variables with CDF } F. \text{ Derive the CDF of the maximum } X_{(n)}.
+  answer: |
+    \begin{aligned}
+    P(X_{(n)} \le x) &= P(X_1 \le x, X_2 \le x, \ldots, X_n \le x) \\
+    &= \prod_{i=1}^n P(X_i \le x) \qquad \text{(independence)} \\
+    &= [F(x)]^n
+    \end{aligned}
+- id: probability-statistics-order-statistics-1-03
+  category: Probability & Statistics
+  subtopic: Order Statistics
+  level: 1
+  question: |
+    \text{Let } X_1,\ldots,X_n \text{ be iid continuous random variables with CDF } F. \text{ Derive the CDF of the minimum } X_{(1)}.
+  answer: |
+    \begin{aligned}
+    P(X_{(1)} \le x) &= 1 - P(X_{(1)} > x) \\
+    &= 1 - P(X_1 > x, \ldots, X_n > x) \\
+    &= 1 - \prod_{i=1}^n P(X_i > x) \qquad \text{(independence)} \\
+    &= 1 - [1-F(x)]^n
+    \end{aligned}
+- id: probability-statistics-order-statistics-1-04
+  category: Probability & Statistics
+  subtopic: Order Statistics
+  level: 1
+  question: |
+    \text{For an iid sample of size } n \text{, express the sample median as an order statistic, for both odd and even } n.
+  answer: |
+    \begin{aligned}
+    &\text{If } n = 2m+1 \text{ is odd, the median is the single middle order statistic: } X_{(m+1)}. \\
+    &\text{If } n = 2m \text{ is even, there is no single middle value, so the median is the average of the} \\
+    &\text{two middle order statistics: } \dfrac{X_{(m)} + X_{(m+1)}}{2}.
+    \end{aligned}
+- id: probability-statistics-order-statistics-1-05
+  category: Probability & Statistics
+  subtopic: Order Statistics
+  level: 1
+  question: |
+    \text{Roll two independent fair six-sided dice, } X_1 \text{ and } X_2. \text{ Find the pmf of } X_{(2)} = \max(X_1,X_2).
+  answer: |
+    \begin{aligned}
+    P(X_{(2)} \le k) &= P(X_1 \le k, X_2 \le k) = \left(\frac{k}{6}\right)^2 \\
+    P(X_{(2)} = k) &= P(X_{(2)} \le k) - P(X_{(2)} \le k-1) = \frac{k^2 - (k-1)^2}{36} = \frac{2k-1}{36}
+    \end{aligned} \\
+    \text{for } k = 1,2,\ldots,6 \text{, e.g. } P(X_{(2)}=1) = \tfrac{1}{36},\ P(X_{(2)}=6) = \tfrac{11}{36}.
+- id: probability-statistics-order-statistics-2-01
+  category: Probability & Statistics
+  subtopic: Order Statistics
+  level: 2
+  question: |
+    \text{Let } X_1,\ldots,X_n \text{ be iid continuous with CDF } F \text{ and pdf } f. \text{ Differentiate the CDF of } X_{(n)} \text{ to find its pdf.}
+  answer: |
+    \begin{aligned}
+    F_{(n)}(x) &= [F(x)]^n \\
+    f_{(n)}(x) &= \frac{d}{dx}[F(x)]^n = n[F(x)]^{n-1} f(x)
+    \end{aligned}
+- id: probability-statistics-order-statistics-2-02
+  category: Probability & Statistics
+  subtopic: Order Statistics
+  level: 2
+  question: |
+    \text{Let } X_1,\ldots,X_n \text{ be iid continuous with CDF } F \text{ and pdf } f. \text{ Differentiate the CDF of } X_{(1)} \text{ to find its pdf.}
+  answer: |
+    \begin{aligned}
+    F_{(1)}(x) &= 1-[1-F(x)]^n \\
+    f_{(1)}(x) &= \frac{d}{dx}\Big(1-[1-F(x)]^n\Big) = n[1-F(x)]^{n-1} f(x)
+    \end{aligned}
+- id: probability-statistics-order-statistics-2-03
+  category: Probability & Statistics
+  subtopic: Order Statistics
+  level: 2
+  question: |
+    \text{Let } X_1,\ldots,X_n \text{ be iid } \text{Uniform}(0,1). \text{ Find } \E[X_{(n)}].
+  answer: |
+    \begin{aligned}
+    f_{(n)}(x) &= n x^{n-1}, \quad 0 \le x \le 1 \\
+    \E[X_{(n)}] &= \int_0^1 x \cdot n x^{n-1}\,dx = n\int_0^1 x^n\,dx = \frac{n}{n+1}
+    \end{aligned}
+- id: probability-statistics-order-statistics-2-04
+  category: Probability & Statistics
+  subtopic: Order Statistics
+  level: 2
+  question: |
+    \text{Let } X_1,\ldots,X_n \text{ be iid } \text{Uniform}(0,1). \text{ Find } \E[X_{(1)}].
+  answer: |
+    \begin{aligned}
+    f_{(1)}(x) &= n(1-x)^{n-1}, \quad 0 \le x \le 1 \\
+    \E[X_{(1)}] &= \int_0^1 x \cdot n(1-x)^{n-1}\,dx
+    \end{aligned} \\
+    \text{Substituting } u=1-x\text{:} \\
+    \begin{aligned}
+    \E[X_{(1)}] &= \int_0^1 (1-u)\, n u^{n-1}\,du = n\int_0^1 (u^{n-1}-u^n)\,du = n\left(\frac{1}{n}-\frac{1}{n+1}\right) = \frac{1}{n+1}
+    \end{aligned}
+- id: probability-statistics-order-statistics-2-05
+  category: Probability & Statistics
+  subtopic: Order Statistics
+  level: 2
+  question: |
+    \text{Let } X_1,\ldots,X_n \text{ be iid } \text{Exponential}(\lambda). \text{ Find the distribution of } X_{(1)} = \min(X_1,\ldots,X_n).
+  answer: |
+    \begin{aligned}
+    P(X_{(1)} > x) &= P(X_1>x,\ldots,X_n>x) = \prod_{i=1}^n e^{-\lambda x} = e^{-n\lambda x}
+    \end{aligned} \\
+    \text{so } X_{(1)} \sim \text{Exponential}(n\lambda).
+- id: probability-statistics-order-statistics-2-06
+  category: Probability & Statistics
+  subtopic: Order Statistics
+  level: 2
+  question: |
+    \text{Let } X_1,X_2 \text{ be iid } \text{Uniform}(0,1) \text{, with order statistics } X_{(1)} \le X_{(2)}. \text{ Using their joint pdf } \\
+    f(x_1,x_2) = 2 \text{ on } 0<x_1<x_2<1\text{, find } \E[X_{(2)}-X_{(1)}].
+  answer: |
+    \begin{aligned}
+    \E[X_{(2)}-X_{(1)}] &= \int_0^1\!\!\int_{x_1}^1 (x_2-x_1)\cdot 2\,dx_2\,dx_1 \\
+    &= \int_0^1 (1-x_1)^2\,dx_1 \qquad \left(\int_{x_1}^1 2(x_2-x_1)\,dx_2 = (1-x_1)^2\right) \\
+    &= \frac{1}{3}
+    \end{aligned}
+- id: probability-statistics-order-statistics-3-01
+  category: Probability & Statistics
+  subtopic: Order Statistics
+  level: 3
+  question: |
+    \text{Let } X_1,\ldots,X_n \text{ be iid continuous with CDF } F. \text{ Derive a formula for } F_{(k)}(x) = P(X_{(k)} \le x) \\
+    \text{for general } k\text{, by counting how many of the } X_i \text{ fall below } x.
+  answer: |
+    \begin{aligned}
+    &\text{Let } N(x) = \#\{i : X_i \le x\}. \text{ Since each } X_i \le x \text{ independently with probability } F(x)\text{,} \\
+    &N(x) \sim \text{Binomial}(n, F(x)). \\
+    &X_{(k)} \le x \iff \text{at least } k \text{ of the } X_i \text{ are } \le x \iff N(x) \ge k. \text{ Therefore}
+    \end{aligned} \\
+    F_{(k)}(x) = P(N(x) \ge k) = \sum_{j=k}^{n} \binom{n}{j} [F(x)]^j [1-F(x)]^{n-j}
+- id: probability-statistics-order-statistics-3-02
+  category: Probability & Statistics
+  subtopic: Order Statistics
+  level: 3
+  question: |
+    \text{Let } X_1,\ldots,X_n \text{ be iid continuous with CDF } F \text{ and pdf } f. \text{ Derive the pdf of } X_{(k)} \text{ using a} \\
+    \text{combinatorial argument (not by differentiating the CDF sum).}
+  answer: |
+    \begin{aligned}
+    &\text{For } X_{(k)} \text{ to land in a small interval } [x, x+dx]\text{, exactly one of the } n \text{ points must fall in} \\
+    &[x,x+dx]\text{, exactly } k-1 \text{ of the remaining points must fall below } x\text{, and the other } n-k \text{ must} \\
+    &\text{fall above. The number of ways to assign the } n \text{ labeled points to these three roles (1 point} \\
+    &\text{in the interval, } k-1 \text{ below, } n-k \text{ above) is the multinomial coefficient } \frac{n!}{1!\,(k-1)!\,(n-k)!}.
+    \end{aligned} \\
+    \text{Each such assignment has probability } f(x)\,dx \cdot [F(x)]^{k-1} \cdot [1-F(x)]^{n-k}\text{, so} \\
+    f_{(k)}(x) = \frac{n!}{(k-1)!\,(n-k)!}\,[F(x)]^{k-1}[1-F(x)]^{n-k} f(x)
+- id: probability-statistics-order-statistics-3-03
+  category: Probability & Statistics
+  subtopic: Order Statistics
+  level: 3
+  question: |
+    \text{Let } X_1,\ldots,X_n \text{ be iid continuous with pdf } f. \text{ Derive the joint pdf of all } n \text{ order statistics} \\
+    X_{(1)} < X_{(2)} < \cdots < X_{(n)}.
+  answer: |
+    \begin{aligned}
+    &\text{The unordered sample } (X_1,\ldots,X_n) \text{ has joint density } \prod_{i=1}^n f(x_i) \text{ on all of } \R^n\text{.} \\
+    &\text{Because the } X_i \text{ are continuous, ties occur with probability } 0\text{, so for any fixed ordered tuple} \\
+    &x_1 < x_2 < \cdots < x_n\text{, exactly one of the } n! \text{ permutations of labels } (1,\ldots,n) \text{ assigns} \\
+    &(X_1,\ldots,X_n) \text{ to each of the } n! \text{ orderings of } (x_1,\ldots,x_n)\text{, and by exchangeability each} \\
+    &\text{such permutation contributes the same density } \prod_{i=1}^n f(x_i)\text{. Summing the } n! \text{ equal} \\
+    &\text{contributions gives the density of the ordered tuple:}
+    \end{aligned} \\
+    f_{(1),\ldots,(n)}(x_1,\ldots,x_n) = n!\prod_{i=1}^n f(x_i), \qquad x_1 < x_2 < \cdots < x_n
+- id: probability-statistics-order-statistics-3-04
+  category: Probability & Statistics
+  subtopic: Order Statistics
+  level: 3
+  question: |
+    \text{Let } X_1,\ldots,X_n \text{ be iid } \text{Uniform}(0,1). \text{ Show that } X_{(k)} \sim \text{Beta}(k, n-k+1) \text{, and use the Beta} \\
+    \text{mean to find } \E[X_{(k)}].
+  answer: |
+    \begin{aligned}
+    &\text{Specializing the general pdf } f_{(k)}(x) = \frac{n!}{(k-1)!(n-k)!}[F(x)]^{k-1}[1-F(x)]^{n-k}f(x) \text{ to} \\
+    &F(x)=x,\ f(x)=1 \text{ on } [0,1]\text{:}
+    \end{aligned} \\
+    f_{(k)}(x) = \frac{n!}{(k-1)!(n-k)!}\, x^{k-1}(1-x)^{n-k}, \qquad 0 \le x \le 1 \\
+    \begin{aligned}
+    &\text{This is exactly the } \text{Beta}(a,b) \text{ density } \frac{\Gamma(a+b)}{\Gamma(a)\Gamma(b)}x^{a-1}(1-x)^{b-1} \text{ with } a=k,\, b=n-k+1\text{,} \\
+    &\text{since } \frac{\Gamma(n+1)}{\Gamma(k)\Gamma(n-k+1)} = \frac{n!}{(k-1)!(n-k)!}\text{. So } X_{(k)} \sim \text{Beta}(k,n-k+1)\text{, and using the} \\
+    &\text{Beta mean } \frac{a}{a+b}\text{:}
+    \end{aligned} \\
+    \E[X_{(k)}] = \frac{k}{k+(n-k+1)} = \frac{k}{n+1}
+- id: probability-statistics-order-statistics-3-05
+  category: Probability & Statistics
+  subtopic: Order Statistics
+  level: 3
+  question: |
+    \text{Let } X_1,\ldots,X_n \text{ be iid with a continuous, strictly increasing CDF } F\text{. Show that } U_{(k)} = F(X_{(k)}) \\
+    \text{has the same distribution as the } k\text{-th order statistic of } n \text{ iid } \text{Uniform}(0,1) \text{ variables.}
+  answer: |
+    \begin{aligned}
+    &\text{Since } F \text{ is continuous and strictly increasing, } U_i = F(X_i) \sim \text{Uniform}(0,1) \text{ (probability integral} \\
+    &\text{transform), and } U_1,\ldots,U_n \text{ are independent because the } X_i \text{ are.} \\
+    &\text{Since } F \text{ is strictly increasing, it preserves order: } X_i < X_j \iff F(X_i) < F(X_j)\text{. So applying } F\\
+    &\text{to every } X_i \text{ does not change which one is the } k\text{-th smallest — it just relabels values — hence} \\
+    &F(X_{(k)}) = U_{(k)}\text{, the } k\text{-th order statistic of } U_1,\ldots,U_n.
+    \end{aligned} \\
+    \text{Therefore } U_{(k)} = F(X_{(k)}) \sim \text{Beta}(k, n-k+1)\text{, the same distribution as for a uniform sample.}
+- id: probability-statistics-order-statistics-4-01
+  category: Probability & Statistics
+  subtopic: Order Statistics
+  level: 4
+  question: |
+    \text{Components } 1,\ldots,n \text{ have independent failure times } T_i \sim \text{Exponential}(\lambda_i). \text{ Find the} \\
+    \text{distribution of } T = \min(T_1,\ldots,T_n) \text{ and } P(T_i \text{ is the smallest}).
+  answer: |
+    \begin{aligned}
+    P(T > t) &= \prod_{i=1}^n P(T_i > t) = \prod_{i=1}^n e^{-\lambda_i t} = e^{-\left(\sum_i \lambda_i\right)t}
+    \end{aligned} \\
+    \text{so } T \sim \text{Exponential}\Big(\textstyle\sum_i \lambda_i\Big). \\
+    \text{For the probability component } i \text{ fails first, condition on } T_i=t \text{ and integrate over its density:} \\
+    \begin{aligned}
+    P(T_i = \min) &= \int_0^\infty \lambda_i e^{-\lambda_i t} \prod_{j \ne i} P(T_j > t)\,dt = \int_0^\infty \lambda_i e^{-\lambda_i t}\, e^{-\sum_{j\ne i}\lambda_j t}\,dt \\
+    &= \lambda_i \int_0^\infty e^{-(\sum_j \lambda_j)t}\,dt = \frac{\lambda_i}{\sum_j \lambda_j}
+    \end{aligned}
+- id: probability-statistics-order-statistics-4-02
+  category: Probability & Statistics
+  subtopic: Order Statistics
+  level: 4
+  question: |
+    \text{A stick of length 1 is broken at two independent } \text{Uniform}(0,1) \text{ points. Find the probability that} \\
+    \text{the three resulting pieces can form a triangle.}
+  answer: |
+    \begin{aligned}
+    &\text{Let } X_{(1)} \le X_{(2)} \text{ be the order statistics of the two break points, with joint pdf } 2 \text{ on} \\
+    &0<x_1<x_2<1\text{. The three piece lengths are } L_1=X_{(1)},\ L_2=X_{(2)}-X_{(1)},\ L_3=1-X_{(2)}\text{.} \\
+    &\text{A triangle forms iff every piece is shorter than } \tfrac12 \text{ (equivalently, no piece exceeds the sum} \\
+    &\text{of the other two), i.e. } X_{(1)} < \tfrac12,\ X_{(2)} > \tfrac12,\ X_{(2)}-X_{(1)} < \tfrac12.
+    \end{aligned} \\
+    \text{For fixed } x_1 \in (0,\tfrac12)\text{, the condition } \max(x_1,\tfrac12) < x_2 < \min(1,x_1+\tfrac12) \text{ becomes} \\
+    \tfrac12 < x_2 < x_1+\tfrac12\text{, an interval of length } x_1\text{. So} \\
+    \begin{aligned}
+    P(\text{triangle}) = \int_0^{1/2} 2x_1\,dx_1 = \left[x_1^2\right]_0^{1/2} = \frac{1}{4}
+    \end{aligned}
+- id: probability-statistics-order-statistics-4-03
+  category: Probability & Statistics
+  subtopic: Order Statistics
+  level: 4
+  question: |
+    \text{Observe iid continuous } X_1, X_2, \ldots, X_n \text{ one at a time. Call } X_i \text{ a "record" if it exceeds every} \\
+    \text{value observed before it (} X_1 \text{ is automatically a record). Find the expected number of records.}
+  answer: |
+    \begin{aligned}
+    &\text{Let } I_i = \mathbf{1}\{X_i \text{ is a record}\} = \mathbf{1}\{X_i = \max(X_1,\ldots,X_i)\}. \text{ Among the first } i \text{ values,} \\
+    &\text{all } i! \text{ orderings are equally likely by exchangeability, so each of the } i \text{ positions is equally} \\
+    &\text{likely to hold the maximum: } P(I_i=1) = \dfrac{1}{i}\text{, regardless of the } n-i \text{ values not yet seen.}
+    \end{aligned} \\
+    \text{By linearity of expectation, the expected number of records } R = \sum_{i=1}^n I_i \text{ is} \\
+    \E[R] = \sum_{i=1}^n \E[I_i] = \sum_{i=1}^n \frac{1}{i} = H_n
+- id: probability-statistics-order-statistics-4-04
+  category: Probability & Statistics
+  subtopic: Order Statistics
+  level: 4
+  question: |
+    \text{Let } X_1,\ldots,X_n \text{ be iid } \text{Uniform}(0,1). \text{ Find } \E[X_{(n)} - X_{(1)}] \text{, the expected range of the sample.}
+  answer: |
+    \text{Using } \E[X_{(n)}] = \dfrac{n}{n+1} \text{ and } \E[X_{(1)}] = \dfrac{1}{n+1}\text{:} \\
+    \begin{aligned}
+    \E[X_{(n)}-X_{(1)}] = \E[X_{(n)}] - \E[X_{(1)}] = \frac{n}{n+1} - \frac{1}{n+1} = \frac{n-1}{n+1}
+    \end{aligned}
