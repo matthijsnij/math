@@ -2178,3 +2178,363 @@
     \Var(X) &= \dfrac{1}{4}\sum (x_i-\bar{x})^2 = \dfrac{2.25+0.25+0.25+2.25}{4} = 1.25, \qquad \Var(Y) = 1.25 \text{ (same values, permuted)} \\
     \Corr(X,Y) &= \dfrac{\Cov(X,Y)}{\sqrt{\Var(X)}\sqrt{\Var(Y)}} = \dfrac{0.75}{1.25} = 0.6
     \end{aligned}
+- id: probability-statistics-conditional-expectation-and-variance-1-01
+  category: Probability & Statistics
+  subtopic: Conditional Expectation and Variance
+  level: 1
+  question: |
+    \text{For discrete random variables } X,Y \text{ with the joint pmf below, state the definition of} \\
+    \text{the conditional expectation } \E[X \mid Y=y], \text{ and compute } \E[X \mid Y=1].
+    \begin{array}{c|cc}
+     & Y=1 & Y=2 \\
+    \hline
+    X=1 & 0.1 & 0.3 \\
+    X=2 & 0.2 & 0.4
+    \end{array}
+  answer: |
+    \begin{aligned}
+    \E[X \mid Y=y] &= \sum_x x\, \P(X=x \mid Y=y), \qquad \P(X=x\mid Y=y) = \dfrac{\P(X=x,Y=y)}{\P(Y=y)} \\
+    \P(Y=1) &= 0.1+0.2 = 0.3 \\
+    \P(X=1\mid Y=1) &= \dfrac{0.1}{0.3} = \dfrac13, \qquad \P(X=2\mid Y=1) = \dfrac{0.2}{0.3} = \dfrac23 \\
+    \E[X\mid Y=1] &= 1\cdot\dfrac13 + 2\cdot\dfrac23 = \dfrac53
+    \end{aligned}
+- id: probability-statistics-conditional-expectation-and-variance-1-02
+  category: Probability & Statistics
+  subtopic: Conditional Expectation and Variance
+  level: 1
+  question: |
+    \text{For continuous random variables } X,Y \text{ with joint pdf } f(x,y)=x+y \text{ on } [0,1]^2 \text{ (and } 0 \\
+    \text{elsewhere), state the definition of } \E[X\mid Y=y] \text{ via the conditional pdf, and compute it.}
+  answer: |
+    \begin{aligned}
+    f_Y(y) &= \int_0^1 (x+y)\,dx = \dfrac12 + y \\
+    f_{X\mid Y}(x\mid y) &= \dfrac{f(x,y)}{f_Y(y)} = \dfrac{x+y}{\tfrac12+y} \\
+    \E[X\mid Y=y] &= \int_0^1 x\, f_{X\mid Y}(x\mid y)\,dx = \dfrac{\int_0^1 (x^2+xy)\,dx}{\tfrac12+y} = \dfrac{\tfrac13+\tfrac{y}{2}}{\tfrac12+y} = \dfrac{2+3y}{3+6y}
+    \end{aligned}
+- id: probability-statistics-conditional-expectation-and-variance-1-03
+  category: Probability & Statistics
+  subtopic: Conditional Expectation and Variance
+  level: 1
+  question: |
+    \text{Using the joint pmf from the table below, state the tower property } \E[X] = \E\big[\E[X\mid Y]\big], \\
+    \text{and verify it by computing both sides.}
+    \begin{array}{c|cc}
+     & Y=1 & Y=2 \\
+    \hline
+    X=1 & 0.1 & 0.3 \\
+    X=2 & 0.2 & 0.4
+    \end{array}
+  answer: |
+    \begin{aligned}
+    \E[X\mid Y=1] &= \dfrac53 \ (\text{computed above}), \qquad \E[X\mid Y=2] = 1\cdot\dfrac{0.3}{0.7}+2\cdot\dfrac{0.4}{0.7} = \dfrac{11}{7} \\
+    \E\big[\E[X\mid Y]\big] &= \dfrac53(0.3) + \dfrac{11}{7}(0.7) = 0.5+1.1 = 1.6
+    \end{aligned} \\
+    \text{Directly: } \P(X=1)=0.4,\ \P(X=2)=0.6, \text{ so } \E[X] = 1(0.4)+2(0.6) = 1.6. \text{ The two match.}
+- id: probability-statistics-conditional-expectation-and-variance-1-04
+  category: Probability & Statistics
+  subtopic: Conditional Expectation and Variance
+  level: 1
+  question: |
+    \text{Using the same joint pmf (} X,Y \text{ as above), state the definition of } \Var(X\mid Y=y) \text{ and} \\
+    \text{compute } \Var(X\mid Y=1).
+  answer: |
+    \begin{aligned}
+    \Var(X\mid Y=y) &= \E[X^2\mid Y=y] - \big(\E[X\mid Y=y]\big)^2 \\
+    \E[X^2\mid Y=1] &= 1^2\cdot\dfrac13 + 2^2\cdot\dfrac23 = \dfrac13+\dfrac83 = 3 \\
+    \Var(X\mid Y=1) &= 3 - \left(\dfrac53\right)^2 = 3-\dfrac{25}{9} = \dfrac{2}{9}
+    \end{aligned}
+- id: probability-statistics-conditional-expectation-and-variance-1-05
+  category: Probability & Statistics
+  subtopic: Conditional Expectation and Variance
+  level: 1
+  question: |
+    \text{State what } \E[X\mid Y] \text{ and } \Var(X\mid Y) \text{ simplify to when } X \text{ and } Y \text{ are independent.}
+  answer: |
+    \E[X\mid Y] = \E[X], \qquad \Var(X\mid Y) = \Var(X) \\
+    \text{(conditioning on } Y \text{ gives no information about } X \text{ when they're independent, so both the} \\
+    \text{conditional mean and conditional variance collapse to the unconditional ones).}
+- id: probability-statistics-conditional-expectation-and-variance-2-01
+  category: Probability & Statistics
+  subtopic: Conditional Expectation and Variance
+  level: 2
+  question: |
+    \text{For discrete } X,Y \text{ with the joint pmf below, write down the distribution of the random} \\
+    \text{variable } \E[X\mid Y] \text{ — its value and probability for each value of } Y \text{ — then use it to verify} \\
+    \E\big[\E[X\mid Y]\big] = \E[X].
+    \begin{array}{c|cc}
+     & Y=0 & Y=1 \\
+    \hline
+    X=0 & 0.2 & 0.3 \\
+    X=1 & 0.1 & 0.4
+    \end{array}
+  answer: |
+    \begin{aligned}
+    \P(Y=0) &= 0.3, \qquad \P(Y=1) = 0.7 \\
+    \E[X\mid Y=0] &= \dfrac{1\cdot 0.1}{0.3} = \dfrac13, \qquad \E[X\mid Y=1] = \dfrac{1\cdot 0.4}{0.7} = \dfrac47
+    \end{aligned} \\
+    \text{So } \E[X\mid Y] \text{ is the random variable taking value } \tfrac13 \text{ w.p. } 0.3 \text{ and } \tfrac47 \text{ w.p. } 0.7\text{:} \\
+    \begin{aligned}
+    \E\big[\E[X\mid Y]\big] &= \dfrac13(0.3)+\dfrac47(0.7) = 0.1+0.4 = 0.5
+    \end{aligned} \\
+    \text{Directly, } \P(X=1)=0.1+0.4=0.5=\E[X], \text{ matching.}
+- id: probability-statistics-conditional-expectation-and-variance-2-02
+  category: Probability & Statistics
+  subtopic: Conditional Expectation and Variance
+  level: 2
+  question: |
+    \text{Given that } \E[X\mid Y=y] = 3y^2 \text{ for all } y, \text{ use "taking out what's known" to compute} \\
+    \E[5Y\cdot X \mid Y=y].
+  answer: |
+    \E[g(Y)X\mid Y] = g(Y)\,\E[X\mid Y] \text{ with } g(Y)=5Y, \text{ so} \\
+    \E[5Y\cdot X\mid Y=y] = 5y \cdot \E[X\mid Y=y] = 5y\cdot 3y^2 = 15y^3
+- id: probability-statistics-conditional-expectation-and-variance-2-03
+  category: Probability & Statistics
+  subtopic: Conditional Expectation and Variance
+  level: 2
+  question: |
+    \text{Given } \E[X\mid Y=y] = 2y \text{ and } \E[Z\mid Y=y] = y+1, \text{ use linearity of conditional expectation to} \\
+    \text{compute } \E[3X - 2Z \mid Y=y].
+  answer: |
+    \E[3X-2Z\mid Y=y] = 3\,\E[X\mid Y=y] - 2\,\E[Z\mid Y=y] = 3(2y) - 2(y+1) = 4y-2
+- id: probability-statistics-conditional-expectation-and-variance-2-04
+  category: Probability & Statistics
+  subtopic: Conditional Expectation and Variance
+  level: 2
+  question: |
+    \text{A fair coin determines which of two components a part comes from. Given } Y=1 \text{ (prob } \tfrac12 \text{),} \\
+    X \text{ is uniform on } \{0,1,2\}\text{; given } Y=2 \text{ (prob } \tfrac12\text{), } X \text{ is uniform on } \{10,11,12\}. \text{ Use the} \\
+    \text{law of total variance to find } \Var(X).
+  answer: |
+    \begin{aligned}
+    \E[X\mid Y=1] &= 1, \qquad \Var(X\mid Y=1) = \dfrac{(0-1)^2+(1-1)^2+(2-1)^2}{3} = \dfrac23 \\
+    \E[X\mid Y=2] &= 11, \qquad \Var(X\mid Y=2) = \dfrac23 \ (\text{same shape, shifted})
+    \end{aligned} \\
+    \begin{aligned}
+    \E\big[\Var(X\mid Y)\big] &= \dfrac23 \\
+    \Var\big(\E[X\mid Y]\big) &= \dfrac{(1-6)^2+(11-6)^2}{2} = 25 \qquad (\E[X\mid Y] \text{ is } 1 \text{ or } 11, \text{ each w.p. } \tfrac12) \\
+    \Var(X) &= \E\big[\Var(X\mid Y)\big] + \Var\big(\E[X\mid Y]\big) = \dfrac23 + 25 = \dfrac{77}{3}
+    \end{aligned}
+- id: probability-statistics-conditional-expectation-and-variance-2-05
+  category: Probability & Statistics
+  subtopic: Conditional Expectation and Variance
+  level: 2
+  question: |
+    \text{Let } (X,Y) \text{ be uniform on the triangular region } \{0\le x\le y\le 1\}, \text{ with joint pdf } f(x,y)=2 \\
+    \text{on that region. Find } \E[X\mid Y=y].
+  answer: |
+    \begin{aligned}
+    f_Y(y) &= \int_0^y 2\,dx = 2y, \qquad f_{X\mid Y}(x\mid y) = \dfrac{2}{2y} = \dfrac1y \text{ for } 0\le x\le y
+    \end{aligned} \\
+    \text{So } X\mid Y=y \sim \text{Uniform}(0,y), \text{ hence } \E[X\mid Y=y] = \dfrac{y}{2}.
+- id: probability-statistics-conditional-expectation-and-variance-2-06
+  category: Probability & Statistics
+  subtopic: Conditional Expectation and Variance
+  level: 2
+  question: |
+    \text{The number of customers } N \text{ takes values } 1,2,3 \text{ with probabilities } 0.2,0.5,0.3. \text{ Each} \\
+    \text{customer independently spends an amount with mean } \$10, \text{ and } S \text{ is the total amount spent.} \\
+    \text{Use the tower property to find } \E[S].
+  answer: |
+    \begin{aligned}
+    \E[S\mid N=n] &= 10n \quad (\text{sum of } n \text{ iid amounts, each mean } 10) \\
+    \E[N] &= 1(0.2)+2(0.5)+3(0.3) = 2.1 \\
+    \E[S] &= \E\big[\E[S\mid N]\big] = \E[10N] = 10\,\E[N] = 21
+    \end{aligned}
+- id: probability-statistics-conditional-expectation-and-variance-3-01
+  category: Probability & Statistics
+  subtopic: Conditional Expectation and Variance
+  level: 3
+  question: |
+    \text{Prove the tower property for discrete random variables: } \E\big[\E[X\mid Y]\big] = \E[X].
+  answer: |
+    \begin{aligned}
+    \E\big[\E[X\mid Y]\big] &= \sum_y \E[X\mid Y=y]\,\P(Y=y) \\
+    &= \sum_y \left(\sum_x x\,\P(X=x\mid Y=y)\right)\P(Y=y) \\
+    &= \sum_y \sum_x x\,\P(X=x\mid Y=y)\,\P(Y=y) \\
+    &= \sum_y \sum_x x\,\P(X=x,Y=y) \qquad (\text{since } \P(X=x\mid Y=y)\P(Y=y) = \P(X=x,Y=y)) \\
+    &= \sum_x x \sum_y \P(X=x,Y=y) = \sum_x x\,\P(X=x) = \E[X]
+    \end{aligned}
+- id: probability-statistics-conditional-expectation-and-variance-3-02
+  category: Probability & Statistics
+  subtopic: Conditional Expectation and Variance
+  level: 3
+  question: |
+    \text{Prove "taking out what's known": } \E[g(Y)X\mid Y] = g(Y)\,\E[X\mid Y] \text{ for any function } g.
+  answer: |
+    \text{Fix } Y=y. \text{ Since } Y \text{ is given, } g(Y)=g(y) \text{ is just a constant inside the conditional} \\
+    \text{expectation, so by linearity of (conditional) expectation:} \\
+    \begin{aligned}
+    \E[g(Y)X\mid Y=y] &= \E[g(y)X\mid Y=y] = g(y)\,\E[X\mid Y=y]
+    \end{aligned} \\
+    \text{This holds for every value } y, \text{ so as a function of } Y\text{: } \E[g(Y)X\mid Y] = g(Y)\,\E[X\mid Y].
+- id: probability-statistics-conditional-expectation-and-variance-3-03
+  category: Probability & Statistics
+  subtopic: Conditional Expectation and Variance
+  level: 3
+  question: |
+    \text{Prove the law of total variance (Eve's law): } \Var(X) = \E\big[\Var(X\mid Y)\big] + \Var\big(\E[X\mid Y]\big).
+  answer: |
+    \begin{aligned}
+    \E[X^2] &= \E\big[\E[X^2\mid Y]\big] \qquad (\text{tower property applied to } X^2) \\
+    &= \E\Big[\Var(X\mid Y) + \big(\E[X\mid Y]\big)^2\Big] \qquad (\text{since } \Var(X\mid Y)=\E[X^2\mid Y]-(\E[X\mid Y])^2) \\
+    &= \E\big[\Var(X\mid Y)\big] + \E\Big[\big(\E[X\mid Y]\big)^2\Big]
+    \end{aligned} \\
+    \text{Also } (\E[X])^2 = \big(\E[\E[X\mid Y]]\big)^2 \text{ by the tower property. Subtracting:} \\
+    \begin{aligned}
+    \Var(X) &= \E[X^2]-(\E[X])^2 \\
+    &= \E\big[\Var(X\mid Y)\big] + \E\Big[(\E[X\mid Y])^2\Big] - \big(\E[\E[X\mid Y]]\big)^2 \\
+    &= \E\big[\Var(X\mid Y)\big] + \Var\big(\E[X\mid Y]\big)
+    \end{aligned}
+- id: probability-statistics-conditional-expectation-and-variance-3-04
+  category: Probability & Statistics
+  subtopic: Conditional Expectation and Variance
+  level: 3
+  question: |
+    \text{Prove that if } X \text{ and } Y \text{ are independent, then } \E[X\mid Y] = \E[X] \text{ almost surely.}
+  answer: |
+    \text{Independence means } \P(X=x\mid Y=y) = \P(X=x) \text{ for every } x,y \text{ with } \P(Y=y)>0 \text{ (the} \\
+    \text{conditional distribution of } X \text{ given } Y=y \text{ equals its marginal distribution). Then for every} \\
+    \text{such } y\text{:} \\
+    \begin{aligned}
+    \E[X\mid Y=y] &= \sum_x x\,\P(X=x\mid Y=y) = \sum_x x\,\P(X=x) = \E[X]
+    \end{aligned} \\
+    \text{Since this holds for every } y \text{ in the support of } Y, \ \E[X\mid Y] = \E[X] \text{ almost surely.}
+- id: probability-statistics-conditional-expectation-and-variance-3-05
+  category: Probability & Statistics
+  subtopic: Conditional Expectation and Variance
+  level: 3
+  question: |
+    \text{Prove that among all functions } g, \text{ the choice } g(Y)=\E[X\mid Y] \text{ minimizes the mean squared} \\
+    \text{error } \E\big[(X-g(Y))^2\big].
+  answer: |
+    \text{Let } m(Y)=\E[X\mid Y]. \text{ For any function } g\text{:} \\
+    \begin{aligned}
+    \E\big[(X-g(Y))^2\big] &= \E\big[\big((X-m(Y)) + (m(Y)-g(Y))\big)^2\big] \\
+    &= \E\big[(X-m(Y))^2\big] + 2\,\E\big[(X-m(Y))(m(Y)-g(Y))\big] + \E\big[(m(Y)-g(Y))^2\big]
+    \end{aligned} \\
+    \text{The cross term vanishes: conditioning on } Y \text{ and using "taking out what's known" (} m(Y)-g(Y) \\
+    \text{is a function of } Y\text{):} \\
+    \begin{aligned}
+    \E\big[(X-m(Y))(m(Y)-g(Y))\mid Y\big] &= (m(Y)-g(Y))\,\E[X-m(Y)\mid Y] = (m(Y)-g(Y))\big(m(Y)-m(Y)\big) = 0
+    \end{aligned} \\
+    \text{so by the tower property the cross term's unconditional expectation is also } 0. \text{ Hence} \\
+    \begin{aligned}
+    \E\big[(X-g(Y))^2\big] &= \E\big[(X-m(Y))^2\big] + \E\big[(m(Y)-g(Y))^2\big] \ge \E\big[(X-m(Y))^2\big]
+    \end{aligned} \\
+    \text{with equality iff } g(Y)=m(Y) \text{ a.s. So } g(Y)=\E[X\mid Y] \text{ is the MSE-minimizing predictor.}
+- id: probability-statistics-conditional-expectation-and-variance-4-01
+  category: Probability & Statistics
+  subtopic: Conditional Expectation and Variance
+  level: 4
+  question: |
+    \text{An insurance portfolio receives } N\sim\text{Poisson}(\lambda) \text{ claims. Claim sizes } X_1,X_2,\dots \text{ are iid} \\
+    \text{with mean } \mu \text{ and variance } \sigma^2, \text{ independent of } N. \text{ Let } S=\sum_{i=1}^N X_i \text{ be the total claim} \\
+    \text{amount. Find } \E[S] \text{ and } \Var(S).
+  answer: |
+    \begin{aligned}
+    \E[S\mid N=n] &= n\mu, \qquad \Var(S\mid N=n) = n\sigma^2 \qquad (\text{sum of } n \text{ iid terms}) \\
+    \E[S] &= \E\big[\E[S\mid N]\big] = \E[\mu N] = \mu\lambda \qquad (\E[N]=\lambda \text{ for Poisson}) \\
+    \E\big[\Var(S\mid N)\big] &= \E[\sigma^2 N] = \sigma^2\lambda \\
+    \Var\big(\E[S\mid N]\big) &= \Var(\mu N) = \mu^2\Var(N) = \mu^2\lambda \qquad (\Var(N)=\lambda \text{ for Poisson}) \\
+    \Var(S) &= \E\big[\Var(S\mid N)\big] + \Var\big(\E[S\mid N]\big) = \sigma^2\lambda + \mu^2\lambda = \lambda(\sigma^2+\mu^2)
+    \end{aligned}
+- id: probability-statistics-conditional-expectation-and-variance-4-02
+  category: Probability & Statistics
+  subtopic: Conditional Expectation and Variance
+  level: 4
+  question: |
+    \text{Roll a fair die to get } N\in\{1,\dots,6\}, \text{ then flip a fair coin } N \text{ times. Let } H \text{ be the number of} \\
+    \text{heads. Find } \E[H] \text{ and } \Var(H).
+  answer: |
+    \begin{aligned}
+    \E[N] &= \dfrac{1+2+3+4+5+6}{6} = \dfrac72, \qquad \E[N^2] = \dfrac{1+4+9+16+25+36}{6} = \dfrac{91}{6} \\
+    \Var(N) &= \dfrac{91}{6} - \left(\dfrac72\right)^2 = \dfrac{182}{12}-\dfrac{147}{12} = \dfrac{35}{12}
+    \end{aligned} \\
+    \text{Given } N=n, \ H\mid N=n \sim \text{Binomial}(n,\tfrac12), \text{ so } \E[H\mid N]=\dfrac{N}{2}, \ \Var(H\mid N)=\dfrac{N}{4}\text{:} \\
+    \begin{aligned}
+    \E[H] &= \E\left[\dfrac{N}{2}\right] = \dfrac{7}{4} \\
+    \E\big[\Var(H\mid N)\big] &= \E\left[\dfrac{N}{4}\right] = \dfrac{7}{8}, \qquad \Var\big(\E[H\mid N]\big) = \Var\left(\dfrac{N}{2}\right) = \dfrac{\Var(N)}{4} = \dfrac{35}{48} \\
+    \Var(H) &= \dfrac78 + \dfrac{35}{48} = \dfrac{42}{48}+\dfrac{35}{48} = \dfrac{77}{48}
+    \end{aligned}
+- id: probability-statistics-conditional-expectation-and-variance-4-03
+  category: Probability & Statistics
+  subtopic: Conditional Expectation and Variance
+  level: 4
+  question: |
+    \text{A chicken lays } N\sim\text{Poisson}(\lambda) \text{ eggs. Each egg independently hatches with probability } p. \\
+    \text{Let } H \text{ be the number of eggs that hatch. Find } \Var(H).
+  answer: |
+    \text{Given } N=n, \ H\mid N=n \sim \text{Binomial}(n,p), \text{ so } \E[H\mid N]=pN \text{ and } \Var(H\mid N)=N p(1-p)\text{:} \\
+    \begin{aligned}
+    \E\big[\Var(H\mid N)\big] &= p(1-p)\,\E[N] = p(1-p)\lambda \\
+    \Var\big(\E[H\mid N]\big) &= \Var(pN) = p^2\Var(N) = p^2\lambda \qquad (\Var(N)=\lambda) \\
+    \Var(H) &= p(1-p)\lambda + p^2\lambda = \lambda p\big[(1-p)+p\big] = \lambda p
+    \end{aligned} \\
+    \text{(Consistent with the known fact that thinning a Poisson}(\lambda)\text{ process at rate } p \text{ gives a} \\
+    \text{Poisson}(\lambda p) \text{ count, whose variance equals its mean, } \lambda p.\text{)}
+- id: probability-statistics-conditional-expectation-and-variance-4-04
+  category: Probability & Statistics
+  subtopic: Conditional Expectation and Variance
+  level: 4
+  question: |
+    \text{Given the joint pmf of } X,Y \text{ below, find the function } g(Y) \text{ that minimizes } \E[(X-g(Y))^2], \text{ give} \\
+    \text{its values } g(1),g(2), \text{ and verify numerically that this beats the constant predictor } g\equiv\E[X].
+    \begin{array}{c|cc}
+     & Y=1 & Y=2 \\
+    \hline
+    X=1 & 0.3 & 0.2 \\
+    X=2 & 0.1 & 0.4
+    \end{array}
+  answer: |
+    \text{The MSE-minimizing predictor is } g(Y)=\E[X\mid Y]\text{:} \\
+    \begin{aligned}
+    g(1) &= \E[X\mid Y=1] = \dfrac{1(0.3)+2(0.1)}{0.4} = \dfrac{0.5}{0.4} = 1.25 \\
+    g(2) &= \E[X\mid Y=2] = \dfrac{1(0.2)+2(0.4)}{0.6} = \dfrac{1.0}{0.6} = \dfrac53
+    \end{aligned} \\
+    \text{Its MSE is } \E\big[\Var(X\mid Y)\big]\text{:} \\
+    \begin{aligned}
+    \Var(X\mid Y=1) &= \dfrac{1(0.3)+4(0.1)}{0.4} - 1.25^2 = 1.75-1.5625=0.1875 \\
+    \Var(X\mid Y=2) &= \dfrac{1(0.2)+4(0.4)}{0.6} - \left(\dfrac53\right)^2 = 3-\dfrac{25}{9} = \dfrac29 \\
+    \E\big[\Var(X\mid Y)\big] &= 0.1875(0.4) + \dfrac29(0.6) \approx 0.075+0.133 = 0.208
+    \end{aligned} \\
+    \text{Versus the constant predictor } g\equiv\E[X]=1.5\text{:} \\
+    \begin{aligned}
+    \E\big[(X-1.5)^2\big] &= 0.25(0.3)+0.25(0.1)+0.25(0.2)+0.25(0.4) = 0.25
+    \end{aligned} \\
+    \text{Since } 0.208 < 0.25, \text{ conditioning on } Y \text{ gives a strictly better (lower-MSE) predictor.}
+- id: probability-statistics-conditional-expectation-and-variance-4-05
+  category: Probability & Statistics
+  subtopic: Conditional Expectation and Variance
+  level: 4
+  question: |
+    \text{A fair coin is flipped repeatedly until two consecutive heads appear. Find the expected number} \\
+    \text{of flips, using conditioning (first-step analysis) on the early flips.}
+  answer: |
+    \text{Let } E_0 \text{ be the expected number of flips to go from "no useful history" to the first } HH, \text{ and} \\
+    \text{let } E_1 \text{ be the expected number of } \textit{additional} \text{ flips needed given the most recent flip was} \\
+    \text{a head. Condition on the next flip in each state:} \\
+    \begin{aligned}
+    E_0 &= 1 + \tfrac12 E_1 + \tfrac12 E_0 \qquad (\text{next flip is H w.p. } \tfrac12\text{, moving to state } 1\text{; T w.p. } \tfrac12\text{, back to state } 0) \\
+    E_1 &= 1 + \tfrac12(0) + \tfrac12 E_0 \qquad (\text{next flip is H w.p. } \tfrac12\text{, done; T w.p. } \tfrac12\text{, back to state } 0)
+    \end{aligned} \\
+    \text{From the first equation: } \tfrac12 E_0 = 1+\tfrac12 E_1 \Rightarrow E_0 = 2+E_1. \text{ Substituting into the second:} \\
+    \begin{aligned}
+    E_1 &= 1+\tfrac12(2+E_1) = 2+\tfrac12 E_1 \ \Rightarrow\ \tfrac12 E_1 = 2 \ \Rightarrow\ E_1 = 4
+    \end{aligned} \\
+    \text{So } E_0 = 2+4 = 6\text{: it takes } 6 \text{ flips on average to see the first } HH.
+- id: probability-statistics-conditional-expectation-and-variance-4-06
+  category: Probability & Statistics
+  subtopic: Conditional Expectation and Variance
+  level: 4
+  question: |
+    \text{A coin's bias } P \text{ is itself random, } P\sim\text{Uniform}(0,1). \text{ Given } P=p, \text{ the coin is flipped } n \\
+    \text{times independently and } H \text{ is the number of heads. Find } \E[H] \text{ and } \Var(H).
+  answer: |
+    \text{Given } P=p, \ H\mid P=p \sim \text{Binomial}(n,p), \text{ so } \E[H\mid P]=nP, \ \Var(H\mid P)=nP(1-P). \text{ For} \\
+    P\sim\text{Uniform}(0,1)\text{: } \E[P]=\tfrac12, \ \Var(P)=\tfrac{1}{12}, \text{ so } \E[P^2]=\Var(P)+(\E[P])^2 = \tfrac1{12}+\tfrac14=\tfrac13. \\
+    \begin{aligned}
+    \E[H] &= \E\big[\E[H\mid P]\big] = n\,\E[P] = \dfrac{n}{2} \\
+    \E\big[\Var(H\mid P)\big] &= n\,\E[P-P^2] = n\left(\tfrac12-\tfrac13\right) = \dfrac{n}{6} \\
+    \Var\big(\E[H\mid P]\big) &= \Var(nP) = n^2\Var(P) = \dfrac{n^2}{12} \\
+    \Var(H) &= \dfrac{n}{6} + \dfrac{n^2}{12}
+    \end{aligned}
