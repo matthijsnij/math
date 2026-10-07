@@ -6296,3 +6296,269 @@
     &\text{twice the unconditional mean interarrival time } 1/\lambda --- \text{ the waiting-time (inspection) paradox:} \\
     &\text{a randomly inspected interval is length-biased, so it is systematically longer than a "typical" gap.}
     \end{aligned}
+- id: probability-statistics-stochastic-calculus-1-01
+  category: Probability & Statistics
+  subtopic: Stochastic Calculus
+  level: 1
+  question: |
+    \text{State the general form of an Ito process (SDE) driven by a single Brownian motion } W_t\text{,} \\
+    \text{and identify the drift and diffusion terms.}
+  answer: |
+    \begin{aligned}
+    &\text{An Ito process } X_t \text{ satisfies } dX_t = \mu_t\,dt + \sigma_t\,dW_t, \\
+    &\text{where } \mu_t \text{ is the drift coefficient (rate of deterministic change) and } \sigma_t \text{ is the} \\
+    &\text{diffusion coefficient (scale of the random fluctuation). Equivalently,} \\
+    &X_t = X_0 + \int_0^t \mu_s\,ds + \int_0^t \sigma_s\,dW_s.
+    \end{aligned}
+- id: probability-statistics-stochastic-calculus-1-02
+  category: Probability & Statistics
+  subtopic: Stochastic Calculus
+  level: 1
+  question: |
+    \text{State Ito's lemma for a twice-differentiable function } f(t,X_t) \text{ of an Ito process} \\
+    dX_t=\mu_t\,dt+\sigma_t\,dW_t.
+  answer: |
+    \begin{aligned}
+    df(t,X_t) &= \left(\dfrac{\partial f}{\partial t} + \mu_t\dfrac{\partial f}{\partial x} + \dfrac12\sigma_t^2\dfrac{\partial^2 f}{\partial x^2}\right)dt + \sigma_t\dfrac{\partial f}{\partial x}\,dW_t. \\
+    &\text{The extra } \dfrac12\sigma_t^2 f_{xx}\,dt \text{ term (vs. the ordinary chain rule) comes from the} \\
+    &\text{nonzero quadratic variation of } W_t.
+    \end{aligned}
+- id: probability-statistics-stochastic-calculus-1-03
+  category: Probability & Statistics
+  subtopic: Stochastic Calculus
+  level: 1
+  question: |
+    \text{State the Ito multiplication (differential) table: what are } (dW_t)^2\text{, } dW_t\,dt\text{, and } (dt)^2?
+  answer: |
+    \begin{aligned}
+    (dW_t)^2 &= dt, \qquad dW_t\,dt = 0, \qquad (dt)^2 = 0. \\
+    &\text{These follow because } W_t \text{ has quadratic variation } t \text{ (so } (dW_t)^2 \text{ is itself order } dt\text{),} \\
+    &\text{while any term involving } dt \text{ to a power} \geq 2\text{, or a mixed } dt\,dW_t\text{ term, vanishes faster than } dt.
+    \end{aligned}
+- id: probability-statistics-stochastic-calculus-1-04
+  category: Probability & Statistics
+  subtopic: Stochastic Calculus
+  level: 1
+  question: |
+    \text{How is the Ito integral } \int_0^T \sigma_t\,dW_t \text{ defined as a limit of Riemann-type sums, and} \\
+    \text{why is the left endpoint of each subinterval used?}
+  answer: |
+    \begin{aligned}
+    &\int_0^T \sigma_t\,dW_t := \lim_{n\to\infty}\sum_{i=0}^{n-1}\sigma_{t_i}\left(W_{t_{i+1}}-W_{t_i}\right), \\
+    &\text{for a partition } 0=t_0<t_1<\cdots<t_n=T \text{ with mesh} \to 0. \\
+    &\text{The left endpoint } t_i \text{ is used so that } \sigma_{t_i} \text{ is independent of the future increment} \\
+    &W_{t_{i+1}}-W_{t_i}\text{, which is what makes the resulting integral a martingale.}
+    \end{aligned}
+- id: probability-statistics-stochastic-calculus-1-05
+  category: Probability & Statistics
+  subtopic: Stochastic Calculus
+  level: 1
+  question: |
+    \text{Under what condition on its drift is an Ito process } dX_t=\mu_t\,dt+\sigma_t\,dW_t \text{ a martingale?}
+  answer: |
+    \begin{aligned}
+    &X_t \text{ is a martingale (w.r.t. the Brownian filtration) if and only if } \mu_t=0 \text{ for all } t\text{,} \\
+    &\text{i.e. } dX_t = \sigma_t\,dW_t \text{ (a pure Ito integral).} \\
+    &\text{Then } X_t = X_0 + \int_0^t \sigma_s\,dW_s\text{, and } \E[X_t\mid\mathcal{F}_s] = X_s \text{ for } s<t\text{,} \\
+    &\text{since the Ito integral has zero expected future increment.}
+    \end{aligned}
+- id: probability-statistics-stochastic-calculus-1-06
+  category: Probability & Statistics
+  subtopic: Stochastic Calculus
+  level: 1
+  question: |
+    \text{Write the SDE for Geometric Brownian Motion } S_t \text{ with drift } \mu \text{ and volatility } \sigma\text{,} \\
+    \text{and explain why this (rather than } dS_t=\mu\,dt+\sigma\,dW_t\text{) is the standard model for an asset price.}
+  answer: |
+    \begin{aligned}
+    &dS_t = \mu S_t\,dt + \sigma S_t\,dW_t. \\
+    &\text{The coefficients scale with } S_t \text{ itself, so returns } dS_t/S_t \text{ (not absolute changes) are the} \\
+    &\text{i.i.d.-like increments. This keeps } S_t>0 \text{ for all } t \text{ (a price can't go negative), unlike plain} \\
+    &\text{arithmetic Brownian motion } dS_t=\mu\,dt+\sigma\,dW_t\text{, which can go negative.}
+    \end{aligned}
+- id: probability-statistics-stochastic-calculus-2-01
+  category: Probability & Statistics
+  subtopic: Stochastic Calculus
+  level: 2
+  question: |
+    \text{Using Ito's lemma, find } d(W_t^2).
+  answer: |
+    \begin{aligned}
+    &f(x)=x^2,\quad f'(x)=2x,\quad f''(x)=2. \text{ Here } dW_t \text{ has drift } 0 \text{ and diffusion } 1\text{:} \\
+    &d(W_t^2) = f'(W_t)\,dW_t + \dfrac12f''(W_t)\,dt = 2W_t\,dW_t + dt.
+    \end{aligned}
+- id: probability-statistics-stochastic-calculus-2-02
+  category: Probability & Statistics
+  subtopic: Stochastic Calculus
+  level: 2
+  question: |
+    \text{Use the result } d(W_t^2)=2W_t\,dW_t+dt \text{ to evaluate } \int_0^t W_s\,dW_s.
+  answer: |
+    \begin{aligned}
+    &\text{Integrate both sides of } d(W_t^2)=2W_t\,dW_t+dt \text{ from } 0 \text{ to } t\text{:} \\
+    &W_t^2 - W_0^2 = 2\int_0^t W_s\,dW_s + t, \quad W_0=0 \\
+    &\Rightarrow \int_0^t W_s\,dW_s = \dfrac12W_t^2 - \dfrac12t.
+    \end{aligned}
+- id: probability-statistics-stochastic-calculus-2-03
+  category: Probability & Statistics
+  subtopic: Stochastic Calculus
+  level: 2
+  question: |
+    \text{State Ito's product rule for } d(X_tY_t)\text{, then apply it to find } d(tW_t).
+  answer: |
+    \begin{aligned}
+    &d(X_tY_t) = X_t\,dY_t + Y_t\,dX_t + dX_t\,dY_t\text{, where the correction term } dX_t\,dY_t \text{ is found from} \\
+    &\text{the Ito table (zero unless both } X_t,Y_t \text{ have a } dW_t \text{ component).} \\
+    &\text{For } X_t=t \ (dX_t=dt) \text{ and } Y_t=W_t \ (dY_t=dW_t)\text{: } dX_t\,dY_t = dt\,dW_t = 0\text{, so} \\
+    &d(tW_t) = t\,dW_t + W_t\,dt.
+    \end{aligned}
+- id: probability-statistics-stochastic-calculus-2-04
+  category: Probability & Statistics
+  subtopic: Stochastic Calculus
+  level: 2
+  question: |
+    \text{Using Ito's lemma, find } d(e^{W_t}).
+  answer: |
+    \begin{aligned}
+    &f(x)=e^x,\quad f'(x)=e^x,\quad f''(x)=e^x. \\
+    &d(e^{W_t}) = f'(W_t)\,dW_t+\dfrac12f''(W_t)\,dt = e^{W_t}\,dW_t + \dfrac12e^{W_t}\,dt.
+    \end{aligned}
+- id: probability-statistics-stochastic-calculus-2-05
+  category: Probability & Statistics
+  subtopic: Stochastic Calculus
+  level: 2
+  question: |
+    \text{Solve the GBM SDE } dS_t=\mu S_t\,dt+\sigma S_t\,dW_t \text{ for } S_t \text{ in closed form, by applying} \\
+    \text{Ito's lemma to } f(S_t)=\ln S_t.
+  answer: |
+    \begin{aligned}
+    &f(x)=\ln x,\quad f'(x)=\dfrac1x,\quad f''(x)=-\dfrac1{x^2}. \\
+    &d(\ln S_t) = \dfrac1{S_t}\,dS_t - \dfrac1{2S_t^2}(dS_t)^2 \\
+    &= \dfrac1{S_t}(\mu S_t\,dt+\sigma S_t\,dW_t) - \dfrac1{2S_t^2}\sigma^2S_t^2\,dt \quad (\text{since } (dS_t)^2=\sigma^2S_t^2\,dt) \\
+    &= \left(\mu-\dfrac{\sigma^2}2\right)dt + \sigma\,dW_t. \\
+    &\text{Integrating: } \ln S_t - \ln S_0 = \left(\mu-\dfrac{\sigma^2}2\right)t + \sigma W_t \\
+    &\Rightarrow S_t = S_0\exp\!\left(\left(\mu-\dfrac{\sigma^2}2\right)t+\sigma W_t\right).
+    \end{aligned}
+- id: probability-statistics-stochastic-calculus-2-06
+  category: Probability & Statistics
+  subtopic: Stochastic Calculus
+  level: 2
+  question: |
+    \text{Show that } M_t=e^{W_t-t/2} \text{ is a martingale by applying Ito's lemma and checking its drift term.}
+  answer: |
+    \begin{aligned}
+    &f(t,x)=e^{x-t/2}. \text{ Then } f_t=-\dfrac12f,\ f_x=f,\ f_{xx}=f. \\
+    &dM_t = f_t\,dt + f_x\,dW_t + \dfrac12f_{xx}\,dt = \left(-\dfrac12M_t+\dfrac12M_t\right)dt + M_t\,dW_t = M_t\,dW_t. \\
+    &\text{The drift term vanishes, so } M_t = M_0+\int_0^t M_s\,dW_s \text{ is a pure Ito integral, hence a} \\
+    &\text{martingale (by the zero-drift criterion).}
+    \end{aligned}
+- id: probability-statistics-stochastic-calculus-3-01
+  category: Probability & Statistics
+  subtopic: Stochastic Calculus
+  level: 3
+  question: |
+    \text{Give an informal Taylor-expansion argument for why Ito's lemma includes the extra} \\
+    \dfrac12f''(X_t)\sigma_t^2\,dt \text{ term that doesn't appear in the ordinary chain rule.}
+  answer: |
+    \begin{aligned}
+    &\text{Taylor-expand } df = f'(X_t)\,dX_t + \dfrac12f''(X_t)(dX_t)^2 + O\big((dX_t)^3\big). \\
+    &\text{In ordinary calculus } (dX_t)^2 \text{ is second-order and negligible as } dt\to0. \text{ Here} \\
+    &dX_t=\mu_t\,dt+\sigma_t\,dW_t\text{, so} \\
+    &(dX_t)^2 = \mu_t^2(dt)^2 + 2\mu_t\sigma_t\,dt\,dW_t + \sigma_t^2(dW_t)^2 = \sigma_t^2\,dt, \\
+    &\text{using the Ito table } (dt)^2=0,\ dt\,dW_t=0,\ (dW_t)^2=dt \text{ (the last holds because } W_t \text{ has} \\
+    &\text{quadratic variation } t\text{, so } (dW_t)^2 \text{ is itself order } dt\text{, not negligible).} \\
+    &\text{So the } (dX_t)^2 \text{ term survives at order } dt \text{ and must be kept: } df = f'(X_t)\,dX_t + \dfrac12f''(X_t)\sigma_t^2\,dt.
+    \end{aligned}
+- id: probability-statistics-stochastic-calculus-3-02
+  category: Probability & Statistics
+  subtopic: Stochastic Calculus
+  level: 3
+  question: |
+    \text{State the Ito isometry for } \int_0^T \sigma_t\,dW_t\text{, and give a one-line intuition for why it holds.}
+  answer: |
+    \begin{aligned}
+    &\E\!\left[\left(\int_0^T \sigma_t\,dW_t\right)^2\right] = \E\!\left[\int_0^T \sigma_t^2\,dt\right]. \\
+    &\text{Intuition: discretizing, } \E\Big[\big(\textstyle\sum_i \sigma_{t_i}\Delta W_i\big)^2\Big] = \sum_i \E[\sigma_{t_i}^2]\E[(\Delta W_i)^2] \\
+    &\text{since cross terms } i\neq j \text{ vanish (independent, mean-zero increments), and } \E[(\Delta W_i)^2]=\Delta t_i\text{,} \\
+    &\text{leaving } \sum_i \E[\sigma_{t_i}^2]\Delta t_i \to \E\big[\int_0^T\sigma_t^2\,dt\big].
+    \end{aligned}
+- id: probability-statistics-stochastic-calculus-3-03
+  category: Probability & Statistics
+  subtopic: Stochastic Calculus
+  level: 3
+  question: |
+    \text{Two Brownian motions } W_t^1,W_t^2 \text{ have correlation } \rho\text{, meaning } dW_t^1\,dW_t^2=\rho\,dt\text{.} \\
+    \text{For a function } f(X_t,Y_t) \text{ with } dX_t=\mu^X\,dt+\sigma^X\,dW_t^1 \text{ and } dY_t=\mu^Y\,dt+\sigma^Y\,dW_t^2\text{,} \\
+    \text{state the 2D Ito's lemma.}
+  answer: |
+    \begin{aligned}
+    df &= f_x\,dX_t + f_y\,dY_t + \dfrac12f_{xx}(dX_t)^2 + \dfrac12f_{yy}(dY_t)^2 + f_{xy}\,dX_t\,dY_t, \\
+    &\text{where } (dX_t)^2=(\sigma^X)^2dt,\ (dY_t)^2=(\sigma^Y)^2dt,\ dX_t\,dY_t=\sigma^X\sigma^Y\rho\,dt. \\
+    &\text{So the only change from the uncorrelated (} \rho=0\text{) case is the cross term } f_{xy}\,\sigma^X\sigma^Y\rho\,dt\text{,} \\
+    &\text{which vanishes when the driving Brownian motions are independent.}
+    \end{aligned}
+- id: probability-statistics-stochastic-calculus-4-01
+  category: Probability & Statistics
+  subtopic: Stochastic Calculus
+  level: 4
+  question: |
+    \text{A stock follows } dS_t=\mu S_t\,dt+\sigma S_t\,dW_t\text{. Let } V(t,S_t) \text{ be the price of a derivative on } S_t\text{.} \\
+    \text{Using Ito's lemma and a delta-hedged, self-financing portfolio (long the derivative, short } \Delta=\partial V/\partial S \\
+    \text{shares), derive the Black-Scholes PDE. Assume constant risk-free rate } r \text{ and no dividends.}
+  answer: |
+    \begin{aligned}
+    &\text{By Ito's lemma: } dV = \left(V_t+\mu SV_S+\dfrac12\sigma^2S^2V_{SS}\right)dt + \sigma SV_S\,dW_t. \\
+    &\text{Form the portfolio } \Pi = V - V_S\cdot S \text{ (long the option, short } V_S \text{ shares):} \\
+    &d\Pi = dV - V_S\,dS = \left(V_t+\dfrac12\sigma^2S^2V_{SS}\right)dt, \\
+    &\text{since the } \mu SV_S\,dt \text{ and } \sigma SV_S\,dW_t \text{ terms cancel against } V_S\,dS=\mu SV_S\,dt+\sigma SV_S\,dW_t\text{.} \\
+    &\Pi \text{ has no } dW_t \text{ term, so it is instantaneously riskless; to avoid arbitrage it must earn the} \\
+    &\text{risk-free rate: } d\Pi = r\Pi\,dt = r(V-SV_S)\,dt. \\
+    &\text{Equating the two expressions for } d\Pi\text{:} \\
+    &V_t+\dfrac12\sigma^2S^2V_{SS} = r(V-SV_S) \ \Rightarrow\ V_t + rSV_S + \dfrac12\sigma^2S^2V_{SS} - rV = 0.
+    \end{aligned}
+- id: probability-statistics-stochastic-calculus-4-02
+  category: Probability & Statistics
+  subtopic: Stochastic Calculus
+  level: 4
+  question: |
+    \text{Under the risk-neutral measure } \mathbb{Q}\text{, a stock follows } dS_t=rS_t\,dt+\sigma S_t\,dW_t^{\mathbb{Q}} \\
+    \text{(risk-free drift } r\text{). Show that the discounted price } \tilde S_t=e^{-rt}S_t \text{ is a } \mathbb{Q}\text{-martingale.}
+  answer: |
+    \begin{aligned}
+    &\text{By Ito's product rule on } \tilde S_t = e^{-rt}S_t\text{:} \\
+    &d\tilde S_t = e^{-rt}\,dS_t - re^{-rt}S_t\,dt \quad (\text{since } d(e^{-rt})=-re^{-rt}dt\text{ has no } dW_t\text{ term}) \\
+    &= e^{-rt}\big(rS_t\,dt+\sigma S_t\,dW_t^{\mathbb{Q}}\big) - re^{-rt}S_t\,dt = \sigma e^{-rt}S_t\,dW_t^{\mathbb{Q}} = \sigma\tilde S_t\,dW_t^{\mathbb{Q}}. \\
+    &\text{The drift term vanishes, so } \tilde S_t = \tilde S_0+\int_0^t \sigma\tilde S_s\,dW_s^{\mathbb{Q}} \text{ is a pure Ito integral,} \\
+    &\text{hence a } \mathbb{Q}\text{-martingale.}
+    \end{aligned}
+- id: probability-statistics-stochastic-calculus-4-03
+  category: Probability & Statistics
+  subtopic: Stochastic Calculus
+  level: 4
+  question: |
+    \text{The Ornstein-Uhlenbeck process solves } dX_t=\theta(\mu-X_t)\,dt+\sigma\,dW_t \ (\theta>0 \text{ the mean-reversion} \\
+    \text{speed}). \text{ Solve for } X_t \text{ using an integrating factor, and find } \E[X_t] \text{ and } \Var[X_t] \text{ given } X_0.
+  answer: |
+    \begin{aligned}
+    &\text{Let } Y_t=e^{\theta t}X_t. \text{ By Ito's product rule:} \\
+    &dY_t = \theta e^{\theta t}X_t\,dt+e^{\theta t}\,dX_t = \theta e^{\theta t}X_t\,dt+e^{\theta t}\big(\theta(\mu-X_t)\,dt+\sigma\,dW_t\big) = \theta\mu e^{\theta t}\,dt+\sigma e^{\theta t}\,dW_t. \\
+    &\text{Integrating: } Y_t-Y_0 = \mu\big(e^{\theta t}-1\big)+\sigma\int_0^t e^{\theta s}\,dW_s \\
+    &\Rightarrow X_t = X_0e^{-\theta t}+\mu(1-e^{-\theta t})+\sigma e^{-\theta t}\int_0^t e^{\theta s}\,dW_s. \\
+    &\E[X_t] = X_0e^{-\theta t}+\mu(1-e^{-\theta t}) \quad (\text{the stochastic integral has mean } 0). \\
+    &\Var[X_t] = \sigma^2e^{-2\theta t}\,\E\!\left[\left(\int_0^t e^{\theta s}\,dW_s\right)^2\right] = \sigma^2e^{-2\theta t}\int_0^t e^{2\theta s}\,ds \quad (\text{Ito isometry}) \\
+    &= \sigma^2e^{-2\theta t}\cdot\dfrac{e^{2\theta t}-1}{2\theta} = \dfrac{\sigma^2}{2\theta}\big(1-e^{-2\theta t}\big).
+    \end{aligned}
+- id: probability-statistics-stochastic-calculus-4-04
+  category: Probability & Statistics
+  subtopic: Stochastic Calculus
+  level: 4
+  question: |
+    \text{Using } \int_0^T W_t\,dW_t=\dfrac12W_T^2-\dfrac12T\text{, find } \E\!\left[\int_0^T W_t\,dW_t\right] \text{ and } \Var\!\left[\int_0^T W_t\,dW_t\right].
+  answer: |
+    \begin{aligned}
+    &\E\!\left[\int_0^T W_t\,dW_t\right] = \dfrac12\E[W_T^2]-\dfrac12T = \dfrac12T-\dfrac12T = 0 \\
+    &\text{(consistent with it being a martingale started at 0, matching the Ito-integral zero-mean property).} \\
+    &\text{For the variance, apply the Ito isometry directly with } \sigma_t=W_t\text{:} \\
+    &\Var\!\left[\int_0^T W_t\,dW_t\right] = \E\!\left[\left(\int_0^T W_t\,dW_t\right)^2\right] = \E\!\left[\int_0^T W_t^2\,dt\right] \\
+    &= \int_0^T \E[W_t^2]\,dt = \int_0^T t\,dt = \dfrac{T^2}2.
+    \end{aligned}
