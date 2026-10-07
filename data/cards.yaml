@@ -8329,3 +8329,268 @@
     &\text{If every pairwise dot product } \vec v_i\cdot\vec v_j \ (i\neq j) \text{ were positive, their average would be positive too,} \\
     &\text{contradicting that the average is negative. So some pair has } \vec v_i\cdot\vec v_j\le0 \text{ (in fact } <0\text{).}
     \end{aligned}
+- id: mathematics-matrices-and-matrix-operations-1-01
+  category: Mathematics
+  subtopic: Matrices and Matrix Operations
+  level: 1
+  question: |
+    \text{What does it mean for a matrix } A \text{ to have dimensions } m\times n\text{, and what does the entry } a_{23} \text{ refer to in a } 3\times4 \text{ matrix?}
+  answer: |
+    \begin{aligned}
+    &\text{An } m\times n \text{ matrix } A \text{ is a rectangular array of numbers arranged in } m \text{ rows and } n \text{ columns:} \\
+    A &= \begin{pmatrix} a_{11} & a_{12} & \cdots & a_{1n} \\ a_{21} & a_{22} & \cdots & a_{2n} \\ \vdots & \vdots & \ddots & \vdots \\ a_{m1} & a_{m2} & \cdots & a_{mn} \end{pmatrix}, \\
+    &\text{where } a_{ij} \text{ denotes the entry in row } i\text{, column } j\text{.} \\
+    &\text{For a } 3\times4 \text{ matrix, } a_{23} \text{ is the entry in row } 2\text{, column } 3.
+    \end{aligned}
+- id: mathematics-matrices-and-matrix-operations-1-02
+  category: Mathematics
+  subtopic: Matrices and Matrix Operations
+  level: 1
+  question: |
+    \text{Given } A=\begin{pmatrix}1&2\\3&4\end{pmatrix}, B=\begin{pmatrix}0&-1\\5&2\end{pmatrix}\text{, compute } 2A+B\text{. What dimension requirement must } A \text{ and } B \text{ satisfy for } A+B \text{ to be defined?}
+  answer: |
+    \begin{aligned}
+    &\text{Matrix addition and scalar multiplication are both entrywise, so } A+B \text{ requires } A \text{ and } B \text{ to have the same dimensions.} \\
+    2A &= \begin{pmatrix}2&4\\6&8\end{pmatrix}, \qquad 2A+B = \begin{pmatrix}2+0&4-1\\6+5&8+2\end{pmatrix} = \begin{pmatrix}2&3\\11&10\end{pmatrix}
+    \end{aligned}
+- id: mathematics-matrices-and-matrix-operations-1-03
+  category: Mathematics
+  subtopic: Matrices and Matrix Operations
+  level: 1
+  question: |
+    \text{Given } A=\begin{pmatrix}1&2&3\\4&5&6\end{pmatrix} \text{ (a } 2\times3 \text{ matrix) and } B=\begin{pmatrix}1&0\\0&1\\1&1\end{pmatrix} \text{ (a } 3\times2 \text{ matrix), compute } AB \text{ and state why } BA \text{ is also defined but produces a different-sized result.}
+  answer: |
+    \begin{aligned}
+    &\text{For } AB \text{ to be defined, the number of columns of } A \text{ must equal the number of rows of } B\text{; here } 3=3\text{, and the result is } 2\times2\text{:} \\
+    (AB)_{ij} &= \sum_k a_{ik}b_{kj} \\
+    AB &= \begin{pmatrix}1(1)+2(0)+3(1) & 1(0)+2(1)+3(1) \\ 4(1)+5(0)+6(1) & 4(0)+5(1)+6(1)\end{pmatrix} = \begin{pmatrix}4&5\\10&11\end{pmatrix} \\
+    &\text{Since } B \text{ is } 3\times2 \text{ and } A \text{ is } 2\times3\text{, } BA \text{ is also defined (columns of } B=2=\text{rows of } A\text{), but produces a } 3\times3 \text{ result — a different size than } AB\text{, since matrix multiplication's output dimensions come from the outer dimensions } (\text{rows of first})\times(\text{cols of second}).
+    \end{aligned}
+- id: mathematics-matrices-and-matrix-operations-1-04
+  category: Mathematics
+  subtopic: Matrices and Matrix Operations
+  level: 1
+  question: |
+    \text{Let } A=\begin{pmatrix}1&1\\0&1\end{pmatrix}, B=\begin{pmatrix}1&0\\1&1\end{pmatrix}\text{. Compute } AB \text{ and } BA\text{, and state what this shows about matrix multiplication in general.}
+  answer: |
+    \begin{aligned}
+    AB &= \begin{pmatrix}1&1\\0&1\end{pmatrix}\begin{pmatrix}1&0\\1&1\end{pmatrix} = \begin{pmatrix}1+1&0+1\\0+1&0+1\end{pmatrix} = \begin{pmatrix}2&1\\1&1\end{pmatrix} \\
+    BA &= \begin{pmatrix}1&0\\1&1\end{pmatrix}\begin{pmatrix}1&1\\0&1\end{pmatrix} = \begin{pmatrix}1+0&1+0\\1+0&1+1\end{pmatrix} = \begin{pmatrix}1&1\\1&2\end{pmatrix} \\
+    &\text{Since } AB\neq BA\text{, this confirms matrix multiplication is not commutative in general.}
+    \end{aligned}
+- id: mathematics-matrices-and-matrix-operations-1-05
+  category: Mathematics
+  subtopic: Matrices and Matrix Operations
+  level: 1
+  question: |
+    \text{Given } A=\begin{pmatrix}1&2&3\\4&5&6\end{pmatrix}\text{, write out } A^T\text{, and state why } (A^T)^T=A \text{ always holds.}
+  answer: |
+    \begin{aligned}
+    &\text{The transpose } A^T \text{ swaps rows and columns: } (A^T)_{ij}=a_{ji}\text{.} \\
+    A^T &= \begin{pmatrix}1&4\\2&5\\3&6\end{pmatrix} \\
+    &\text{Taking the transpose twice swaps rows/columns and then swaps them back, so } \big((A^T)^T\big)_{ij} = (A^T)_{ji} = a_{ij}\text{, i.e. } (A^T)^T=A\text{.}
+    \end{aligned}
+- id: mathematics-matrices-and-matrix-operations-1-06
+  category: Mathematics
+  subtopic: Matrices and Matrix Operations
+  level: 1
+  question: |
+    \text{What is the } 3\times3 \text{ identity matrix } I_3\text{, and what property does it satisfy for any } 3\times3 \text{ matrix } A?
+  answer: |
+    \begin{aligned}
+    I_3 &= \begin{pmatrix}1&0&0\\0&1&0\\0&0&1\end{pmatrix} \\
+    &\text{For any } 3\times3 \text{ matrix } A\text{, } AI_3 = I_3A = A\text{ — } I_3 \text{ is the multiplicative identity, since each entry of the product picks out } a_{ij} \text{ unchanged.}
+    \end{aligned}
+- id: mathematics-matrices-and-matrix-operations-2-01
+  category: Mathematics
+  subtopic: Matrices and Matrix Operations
+  level: 2
+  question: |
+    \text{Given } A=\begin{pmatrix}1&2\\0&1\end{pmatrix}, B=\begin{pmatrix}2&0\\1&3\end{pmatrix}\text{, verify that } (AB)^T=B^TA^T \text{ by computing both sides.}
+  answer: |
+    \begin{aligned}
+    AB &= \begin{pmatrix}1&2\\0&1\end{pmatrix}\begin{pmatrix}2&0\\1&3\end{pmatrix} = \begin{pmatrix}2+2&0+6\\0+1&0+3\end{pmatrix} = \begin{pmatrix}4&6\\1&3\end{pmatrix}, \qquad (AB)^T = \begin{pmatrix}4&1\\6&3\end{pmatrix} \\
+    B^T &= \begin{pmatrix}2&1\\0&3\end{pmatrix}, \qquad A^T = \begin{pmatrix}1&0\\2&1\end{pmatrix} \\
+    B^TA^T &= \begin{pmatrix}2&1\\0&3\end{pmatrix}\begin{pmatrix}1&0\\2&1\end{pmatrix} = \begin{pmatrix}2+2&0+1\\0+6&0+3\end{pmatrix} = \begin{pmatrix}4&1\\6&3\end{pmatrix} \\
+    &\text{Both sides equal } \begin{pmatrix}4&1\\6&3\end{pmatrix}\text{, confirming } (AB)^T=B^TA^T\text{ — note the order reverses.}
+    \end{aligned}
+- id: mathematics-matrices-and-matrix-operations-2-02
+  category: Mathematics
+  subtopic: Matrices and Matrix Operations
+  level: 2
+  question: |
+    \text{Define the trace of a square matrix, and show that } \tr(A+B)=\tr(A)+\tr(B) \text{ and } \tr(cA)=c\,\tr(A) \text{ for a scalar } c.
+  answer: |
+    \begin{aligned}
+    &\text{The trace of an } n\times n \text{ matrix } A \text{ is the sum of its diagonal entries: } \tr(A)=\sum_{i=1}^n a_{ii}\text{.} \\
+    \tr(A+B) &= \sum_{i=1}^n (a_{ii}+b_{ii}) = \sum_{i=1}^n a_{ii} + \sum_{i=1}^n b_{ii} = \tr(A)+\tr(B) \\
+    \tr(cA) &= \sum_{i=1}^n (ca_{ii}) = c\sum_{i=1}^n a_{ii} = c\,\tr(A)
+    \end{aligned}
+- id: mathematics-matrices-and-matrix-operations-2-03
+  category: Mathematics
+  subtopic: Matrices and Matrix Operations
+  level: 2
+  question: |
+    \text{What does it mean for a square matrix } A \text{ to be invertible, and verify that } A=\begin{pmatrix}2&0\\0&3\end{pmatrix} \text{ has inverse } A^{-1}=\begin{pmatrix}1/2&0\\0&1/3\end{pmatrix}.
+  answer: |
+    \begin{aligned}
+    &A \text{ is invertible if it is square and there exists a matrix } A^{-1} \text{ with } AA^{-1}=A^{-1}A=I\text{ (such } A^{-1}\text{, when it exists, is unique).} \\
+    AA^{-1} &= \begin{pmatrix}2&0\\0&3\end{pmatrix}\begin{pmatrix}1/2&0\\0&1/3\end{pmatrix} = \begin{pmatrix}2(1/2)&0\\0&3(1/3)\end{pmatrix} = \begin{pmatrix}1&0\\0&1\end{pmatrix} = I \\
+    &\text{and similarly } A^{-1}A=I\text{, confirming } A^{-1} \text{ is indeed the inverse.}
+    \end{aligned}
+- id: mathematics-matrices-and-matrix-operations-2-04
+  category: Mathematics
+  subtopic: Matrices and Matrix Operations
+  level: 2
+  question: |
+    \text{Give the general formula for the inverse of a } 2\times2 \text{ matrix } A=\begin{pmatrix}a&b\\c&d\end{pmatrix}\text{, and use it to find the inverse of } \begin{pmatrix}2&1\\5&3\end{pmatrix}.
+  answer: |
+    \begin{aligned}
+    &\text{For } A=\begin{pmatrix}a&b\\c&d\end{pmatrix}\text{ with } ad-bc\neq0\text{, } A^{-1} = \frac{1}{ad-bc}\begin{pmatrix}d&-b\\-c&a\end{pmatrix}\text{.} \\
+    &\text{Here } a=2,b=1,c=5,d=3\text{, so } ad-bc = 2(3)-1(5) = 1\text{:} \\
+    A^{-1} &= \frac{1}{1}\begin{pmatrix}3&-1\\-5&2\end{pmatrix} = \begin{pmatrix}3&-1\\-5&2\end{pmatrix}
+    \end{aligned}
+- id: mathematics-matrices-and-matrix-operations-2-05
+  category: Mathematics
+  subtopic: Matrices and Matrix Operations
+  level: 2
+  question: |
+    \text{Define a symmetric matrix, and show that } A+A^T \text{ is always symmetric for any square matrix } A.
+  answer: |
+    \begin{aligned}
+    &A \text{ is symmetric if } A=A^T\text{, i.e. } a_{ij}=a_{ji} \text{ for all } i,j\text{.} \\
+    &\text{Let } S=A+A^T\text{. Then } S^T = (A+A^T)^T = A^T+(A^T)^T = A^T+A = A+A^T = S\text{,} \\
+    &\text{so } S=S^T\text{, meaning } A+A^T \text{ is symmetric for any square } A\text{.}
+    \end{aligned}
+- id: mathematics-matrices-and-matrix-operations-2-06
+  category: Mathematics
+  subtopic: Matrices and Matrix Operations
+  level: 2
+  question: |
+    \text{Define an orthogonal matrix, and show that } A=\begin{pmatrix}\cos\theta&-\sin\theta\\\sin\theta&\cos\theta\end{pmatrix} \text{ is orthogonal, with } A^{-1}=A^T.
+  answer: |
+    \begin{aligned}
+    &A \text{ is orthogonal if } A^TA=I\text{, which, combined with } A \text{ being square, implies } A^{-1}=A^T\text{ (since } A^T \text{ already satisfies the defining property of the inverse).} \\
+    A^T &= \begin{pmatrix}\cos\theta&\sin\theta\\-\sin\theta&\cos\theta\end{pmatrix} \\
+    A^TA &= \begin{pmatrix}\cos\theta&\sin\theta\\-\sin\theta&\cos\theta\end{pmatrix}\begin{pmatrix}\cos\theta&-\sin\theta\\\sin\theta&\cos\theta\end{pmatrix} = \begin{pmatrix}\cos^2\theta+\sin^2\theta & -\cos\theta\sin\theta+\sin\theta\cos\theta \\ -\sin\theta\cos\theta+\cos\theta\sin\theta & \sin^2\theta+\cos^2\theta\end{pmatrix} = \begin{pmatrix}1&0\\0&1\end{pmatrix} \\
+    &\text{So } A^TA=I\text{, confirming } A \text{ is orthogonal with } A^{-1}=A^T\text{.}
+    \end{aligned}
+- id: mathematics-matrices-and-matrix-operations-3-01
+  category: Mathematics
+  subtopic: Matrices and Matrix Operations
+  level: 3
+  question: |
+    \text{Prove that matrix multiplication is associative: for matrices } A\ (m\times n), B\ (n\times p), C\ (p\times q)\text{, } A(BC)=(AB)C.
+  answer: |
+    \begin{aligned}
+    &\text{Both } A(BC) \text{ and } (AB)C \text{ are } m\times q \text{ matrices. Compare entries using the definition } (XY)_{ij}=\sum_k x_{ik}y_{kj}\text{:} \\
+    \big(A(BC)\big)_{il} &= \sum_j a_{ij}(BC)_{jl} = \sum_j a_{ij}\sum_k b_{jk}c_{kl} = \sum_j\sum_k a_{ij}b_{jk}c_{kl} \\
+    \big((AB)C\big)_{il} &= \sum_k (AB)_{ik}c_{kl} = \sum_k\Big(\sum_j a_{ij}b_{jk}\Big)c_{kl} = \sum_k\sum_j a_{ij}b_{jk}c_{kl} \\
+    &\text{Both double sums range over the same finite index sets and sum the same terms } a_{ij}b_{jk}c_{kl}\text{, just in a different summation order, so they're equal for every } i,l\text{. Hence } A(BC)=(AB)C\text{.}
+    \end{aligned}
+- id: mathematics-matrices-and-matrix-operations-3-02
+  category: Mathematics
+  subtopic: Matrices and Matrix Operations
+  level: 3
+  question: |
+    \text{Prove that if } A \text{ and } B \text{ are invertible } n\times n \text{ matrices, then } AB \text{ is invertible with } (AB)^{-1}=B^{-1}A^{-1}.
+  answer: |
+    \begin{aligned}
+    &\text{It suffices to show } B^{-1}A^{-1} \text{ satisfies the defining property of the inverse of } AB\text{, i.e. that multiplying } AB \text{ by it (on either side) gives } I\text{:} \\
+    (AB)(B^{-1}A^{-1}) &= A(BB^{-1})A^{-1} = AIA^{-1} = AA^{-1} = I \\
+    (B^{-1}A^{-1})(AB) &= B^{-1}(A^{-1}A)B = B^{-1}IB = B^{-1}B = I \\
+    &\text{Since } B^{-1}A^{-1} \text{ multiplies } AB \text{ to } I \text{ on both sides, and the inverse is unique, } (AB)^{-1}=B^{-1}A^{-1}\text{.}
+    \end{aligned}
+- id: mathematics-matrices-and-matrix-operations-3-03
+  category: Mathematics
+  subtopic: Matrices and Matrix Operations
+  level: 3
+  question: |
+    \text{Prove that for an } m\times n \text{ matrix } A \text{ and } n\times m \text{ matrix } B\text{, } \tr(AB)=\tr(BA)\text{, even though } AB\neq BA \text{ in general.}
+  answer: |
+    \begin{aligned}
+    \tr(AB) &= \sum_{i=1}^m (AB)_{ii} = \sum_{i=1}^m\sum_{j=1}^n a_{ij}b_{ji} \\
+    \tr(BA) &= \sum_{j=1}^n (BA)_{jj} = \sum_{j=1}^n\sum_{i=1}^m b_{ji}a_{ij} \\
+    &\text{Both double sums add up the same set of products } a_{ij}b_{ji} \text{ over all } i,j\text{, just with the summation order swapped, so they're equal: } \tr(AB)=\tr(BA)\text{.} \\
+    &\text{Note } AB \ (m\times m) \text{ and } BA \ (n\times n) \text{ can even have different dimensions when } m\neq n\text{, yet their traces still agree.}
+    \end{aligned}
+- id: mathematics-matrices-and-matrix-operations-3-04
+  category: Mathematics
+  subtopic: Matrices and Matrix Operations
+  level: 3
+  question: |
+    \text{Define an idempotent matrix, verify that } P=\begin{pmatrix}1&0\\0&0\end{pmatrix} \text{ is idempotent, and explain why idempotence does not force } P=I.
+  answer: |
+    \begin{aligned}
+    &A \text{ is idempotent if } A^2=A\text{.} \\
+    P^2 &= \begin{pmatrix}1&0\\0&0\end{pmatrix}\begin{pmatrix}1&0\\0&0\end{pmatrix} = \begin{pmatrix}1&0\\0&0\end{pmatrix} = P \\
+    &\text{so } P \text{ is idempotent, but } P\neq I\text{. Idempotence only requires applying } A \text{ twice to equal applying it once — true of any projection onto a subspace (here, projection onto the first coordinate axis), not just the identity, which is just the special case of projecting onto the whole space.}
+    \end{aligned}
+- id: mathematics-matrices-and-matrix-operations-3-05
+  category: Mathematics
+  subtopic: Matrices and Matrix Operations
+  level: 3
+  question: |
+    \text{Define a nilpotent matrix, give an example of a nonzero } 2\times2 \text{ nilpotent matrix, and prove that no nilpotent matrix can be invertible.}
+  answer: |
+    \begin{aligned}
+    &A \text{ is nilpotent if } A^k=0 \text{ for some positive integer } k\text{, with } A\neq0\text{. Example: } N=\begin{pmatrix}0&1\\0&0\end{pmatrix}\text{, since } N^2=\begin{pmatrix}0&1\\0&0\end{pmatrix}\begin{pmatrix}0&1\\0&0\end{pmatrix}=\begin{pmatrix}0&0\\0&0\end{pmatrix}=0\text{.} \\
+    &\text{Suppose for contradiction } A \text{ were both nilpotent (} A^k=0\text{) and invertible. Multiplying } A^k=0 \text{ by } (A^{-1})^k \text{ on the left gives} \\
+    (A^{-1})^kA^k &= (A^{-1})^k0 = 0, \quad\text{but also}\quad (A^{-1})^kA^k = I \\
+    &\text{(since each } A^{-1}A \text{ pair cancels to } I\text{), forcing } I=0\text{ — a contradiction. So no nilpotent matrix is invertible.}
+    \end{aligned}
+- id: mathematics-matrices-and-matrix-operations-4-01
+  category: Mathematics
+  subtopic: Matrices and Matrix Operations
+  level: 4
+  question: |
+    \text{Let } M=\begin{pmatrix}1&1\\1&0\end{pmatrix}\text{. Show by induction that } M^n=\begin{pmatrix}F_{n+1}&F_n\\F_n&F_{n-1}\end{pmatrix} \text{ for } n\ge1 \text{ (where } F_1=F_2=1\text{), and use it to find } F_6.
+  answer: |
+    \begin{aligned}
+    &\text{Base case } n=1\text{: } M^1=\begin{pmatrix}1&1\\1&0\end{pmatrix}=\begin{pmatrix}F_2&F_1\\F_1&F_0\end{pmatrix} \text{ holds with } F_0=0,F_1=F_2=1\text{.} \\
+    &\text{Inductive step: assume } M^n=\begin{pmatrix}F_{n+1}&F_n\\F_n&F_{n-1}\end{pmatrix}\text{. Then} \\
+    M^{n+1} &= M^nM = \begin{pmatrix}F_{n+1}&F_n\\F_n&F_{n-1}\end{pmatrix}\begin{pmatrix}1&1\\1&0\end{pmatrix} = \begin{pmatrix}F_{n+1}+F_n & F_{n+1}\\ F_n+F_{n-1} & F_n\end{pmatrix} = \begin{pmatrix}F_{n+2}&F_{n+1}\\F_{n+1}&F_n\end{pmatrix}\text{,} \\
+    &\text{matching the claimed form for } n+1 \text{ (using } F_{n+2}=F_{n+1}+F_n\text{). This proves the formula for all } n\ge1 \text{ by induction.} \\
+    &\text{To find } F_6\text{, take } n=5 \text{ so that } M^5=\begin{pmatrix}F_6&F_5\\F_5&F_4\end{pmatrix}\text{:} \\
+    M^2&=\begin{pmatrix}2&1\\1&1\end{pmatrix}, \quad M^4=(M^2)^2=\begin{pmatrix}5&3\\3&2\end{pmatrix}, \quad M^5=M^4M=\begin{pmatrix}5&3\\3&2\end{pmatrix}\begin{pmatrix}1&1\\1&0\end{pmatrix}=\begin{pmatrix}8&5\\5&3\end{pmatrix} \\
+    &\text{So } F_6=8\text{ (the top-left entry).}
+    \end{aligned}
+- id: mathematics-matrices-and-matrix-operations-4-02
+  category: Mathematics
+  subtopic: Matrices and Matrix Operations
+  level: 4
+  question: |
+    \text{A graph has 4 nodes labeled } 1,2,3,4 \text{ connected in a path: edges } 1\text{-}2, 2\text{-}3, 3\text{-}4 \text{ (no others). Let } A \text{ be its adjacency matrix. Explain why } (A^k)_{ij} \text{ counts the number of length-}k \text{ walks from } i \text{ to } j\text{, then use this to find the number of length-3 walks from node 1 to node 4.}
+  answer: |
+    \begin{aligned}
+    &\text{By induction on } k\text{: for } k=1\text{, } (A^1)_{ij}=a_{ij}\in\{0,1\} \text{ correctly counts the (0 or 1) walks of length 1 from } i \text{ to } j\text{. Assuming } (A^{k-1})_{il} \text{ counts length-}(k-1) \text{ walks from } i \text{ to } l\text{, a length-}k \text{ walk from } i \text{ to } j \text{ is a length-}(k-1) \text{ walk from } i \text{ to some neighbor } l \text{ of } j\text{, followed by the edge } l\to j\text{. Summing over all such } l \text{ gives exactly} \\
+    (A^k)_{ij} &= \sum_l (A^{k-1})_{il}\,a_{lj}\text{,} \\
+    &\text{which is precisely the matrix-multiplication formula } (A^{k-1}A)_{ij}=(A^k)_{ij}\text{, completing the induction.} \\
+    &\text{For this path graph, node 1 and node 4 are at graph-distance 3 (only route: } 1\to2\to3\to4\text{). Any walk of length exactly 3 between them cannot backtrack (backtracking adds extra steps beyond the minimum distance of 3), so } 1\to2\to3\to4 \text{ is the only length-3 walk. Hence } (A^3)_{14}=1\text{.}
+    \end{aligned}
+- id: mathematics-matrices-and-matrix-operations-4-03
+  category: Mathematics
+  subtopic: Matrices and Matrix Operations
+  level: 4
+  question: |
+    \text{A point starts at } (1,0) \text{ and is repeatedly rotated } 90^\circ \text{ counterclockwise about the origin using } R=\begin{pmatrix}0&-1\\1&0\end{pmatrix}\text{. Find the point's position after 2023 rotations.}
+  answer: |
+    \begin{aligned}
+    &\text{Direct computation shows } R^2=\begin{pmatrix}-1&0\\0&-1\end{pmatrix}=-I\text{, } R^3=R^2R=-R\text{, } R^4=(R^2)^2=(-I)^2=I\text{, so } R \text{ has period 4: } R^{n+4}=R^n \text{ for all } n\text{.} \\
+    &\text{Since } 2023 = 4(505)+3\text{, } R^{2023}=R^3=-R=\begin{pmatrix}0&1\\-1&0\end{pmatrix}\text{.} \\
+    &\text{Applying this to the starting point: } R^{2023}\begin{pmatrix}1\\0\end{pmatrix} = \begin{pmatrix}0&1\\-1&0\end{pmatrix}\begin{pmatrix}1\\0\end{pmatrix} = \begin{pmatrix}0\\-1\end{pmatrix}\text{.} \\
+    &\text{So after 2023 rotations the point is at } (0,-1) \text{ — equivalent to a single } 270^\circ \ (=2023\times90^\circ \bmod 360^\circ) \text{ counterclockwise rotation.}
+    \end{aligned}
+- id: mathematics-matrices-and-matrix-operations-4-04
+  category: Mathematics
+  subtopic: Matrices and Matrix Operations
+  level: 4
+  question: |
+    \text{A relabeling of 5 items is given by the permutation matrix } P \text{ for the permutation } (1\,2\,3)(4\,5) \text{ (cycle notation: } 1\to2\to3\to1\text{, } 4\to5\to4\text{). If } P \text{ is applied repeatedly, after how many applications does every item first return to its original position, and why?}
+  answer: |
+    \begin{aligned}
+    &\text{Applying the permutation matrix } P \text{ once implements the permutation; applying it } k \text{ times implements that permutation composed with itself } k \text{ times, i.e. } P^k \text{ is the matrix of the } k\text{-fold composition. Every item returns to its start exactly when } P^k=I\text{, i.e. when } k \text{ is a multiple of every cycle's length.} \\
+    &\text{The permutation has a 3-cycle } (1\,2\,3) \text{ (period 3) and a 2-cycle } (4\,5) \text{ (period 2), acting on disjoint sets of items, so they cycle independently.} \\
+    &\text{The smallest } k \text{ that is a multiple of both } 3 \text{ and } 2 \text{ is } \operatorname{lcm}(3,2)=6\text{. So } P^6=I\text{, and no smaller power works (} P^3 \text{ fixes items 1,2,3 but not 4,5; } P^2 \text{ fixes 4,5 but not 1,2,3).} \\
+    &\text{Hence every item first returns to its original position after 6 applications.}
+    \end{aligned}
