@@ -11160,3 +11160,195 @@
     &\text{Buybacks also let shareholders choose whether to realize a taxable gain (by selling), whereas a}\\
     &\text{dividend is taxed on all recipients immediately.}
     \end{aligned}
+- id: economics-finance-fixed-income-1-01
+  category: Economics & Finance
+  subtopic: Fixed Income
+  level: 1
+  question: |
+    \text{A bond has face value } F, \text{ pays a fixed coupon } C \text{ at the end of each of } n \text{ remaining periods,}\\
+    \text{and the market requires a per-period yield } y. \text{ What is the bond's price } P?
+  answer: |
+    P = C\cdot\dfrac{1-(1+y)^{-n}}{y} + \dfrac{F}{(1+y)^n}
+- id: economics-finance-fixed-income-1-02
+  category: Economics & Finance
+  subtopic: Fixed Income
+  level: 1
+  question: |
+    \text{Define a bond's Yield to Maturity (YTM).}
+  answer: |
+    \begin{aligned}
+    &\text{YTM is the single discount rate } r \text{ such that discounting all of the bond's remaining cash flows}\\
+    &\text{(coupons and face value) at } r \text{ gives exactly its current market price.}\\
+    &\text{Equivalently, it is the internal rate of return (IRR) an investor earns by holding the bond to}\\
+    &\text{maturity, assuming every coupon is reinvested at that same rate } r.
+    \end{aligned}
+- id: economics-finance-fixed-income-1-03
+  category: Economics & Finance
+  subtopic: Fixed Income
+  level: 1
+  question: |
+    \text{Define a bond's coupon rate and its current yield, and explain when they differ.}
+  answer: |
+    \begin{aligned}
+    &\text{Coupon rate} = \dfrac{\text{Annual Coupon Payment}}{\text{Face Value}}, \text{ fixed at issuance and never changes.}\\
+    &\text{Current yield} = \dfrac{\text{Annual Coupon Payment}}{\text{Current Market Price}}, \text{ which moves as the price moves.}\\
+    &\text{The two coincide only when the bond trades exactly at face value (par). Current yield exceeds}\\
+    &\text{the coupon rate when the bond trades at a discount, and is below it when trading at a premium.}
+    \end{aligned}
+- id: economics-finance-fixed-income-1-04
+  category: Economics & Finance
+  subtopic: Fixed Income
+  level: 1
+  question: |
+    \text{A bond's coupon rate is compared to its YTM. State whether the bond trades at par, at a premium,}\\
+    \text{or at a discount in each case: coupon rate} = YTM, \text{ coupon rate} > YTM, \text{ coupon rate} < YTM.
+  answer: |
+    \begin{aligned}
+    &\text{coupon rate} = YTM \;\Rightarrow\; \text{par (price} = \text{face value)}\\
+    &\text{coupon rate} > YTM \;\Rightarrow\; \text{premium (price} > \text{face value)}\\
+    &\text{coupon rate} < YTM \;\Rightarrow\; \text{discount (price} < \text{face value)}\\
+    &\text{Intuition: if the bond's fixed coupon exceeds what the market currently requires, investors bid}\\
+    &\text{its price above face value until the total return matches YTM, and vice versa.}
+    \end{aligned}
+- id: economics-finance-fixed-income-1-05
+  category: Economics & Finance
+  subtopic: Fixed Income
+  level: 1
+  question: |
+    \text{Define a bond's accrued interest, clean price, and dirty price.}
+  answer: |
+    \begin{aligned}
+    &\text{Accrued interest is the coupon interest that has accumulated since the last coupon payment date}\\
+    &\text{but has not yet been paid out.}\\
+    &\text{Clean price is the bond's quoted price excluding accrued interest.}\\
+    &\text{Dirty price} = \text{clean price} + \text{accrued interest}, \text{ the actual amount a buyer pays, since the}\\
+    &\text{buyer must compensate the seller for the interest the seller has earned since the last coupon.}
+    \end{aligned}
+- id: economics-finance-fixed-income-1-06
+  category: Economics & Finance
+  subtopic: Fixed Income
+  level: 1
+  question: |
+    \text{Explain what a bond credit rating measures, and distinguish "investment grade" from}\\
+    \text{"high-yield" (junk) bonds.}
+  answer: |
+    \begin{aligned}
+    &\text{A credit rating (e.g. from Moody's, S\&P, or Fitch) measures the issuer's default risk: its}\\
+    &\text{ability and likelihood to make timely interest and principal payments — it is not a direct}\\
+    &\text{measure of interest-rate risk or expected return.}\\
+    &\text{Investment-grade bonds (roughly BBB-/Baa3 and above) are judged to have relatively low default}\\
+    &\text{risk. High-yield (junk) bonds, rated below that threshold, carry materially higher default risk}\\
+    &\text{and compensate investors with higher yields.}
+    \end{aligned}
+- id: economics-finance-fixed-income-1-07
+  category: Economics & Finance
+  subtopic: Fixed Income
+  level: 1
+  question: |
+    \text{Define the yield curve (term structure of interest rates), and describe its normal, inverted,}\\
+    \text{and flat shapes.}
+  answer: |
+    \begin{aligned}
+    &\text{The yield curve plots yield to maturity against time to maturity, for bonds of similar credit}\\
+    &\text{quality (e.g. government bonds), at a single point in time.}\\
+    &\text{Normal (upward-sloping): longer maturities have higher yields than shorter ones — the most}\\
+    &\text{common shape.}\\
+    &\text{Inverted (downward-sloping): shorter maturities yield more than longer ones, often viewed as a}\\
+    &\text{recession signal.}\\
+    &\text{Flat: yields are roughly equal across all maturities.}
+    \end{aligned}
+- id: economics-finance-fixed-income-1-08
+  category: Economics & Finance
+  subtopic: Fixed Income
+  level: 1
+  question: |
+    \text{Define a bond's Macaulay duration.}
+  answer: |
+    \begin{aligned}
+    &\text{Macaulay duration is the weighted-average time (in years) until a bond's cash flows are}\\
+    &\text{received, where each cash flow's time } t \text{ is weighted by the fraction of the bond's price that}\\
+    &\text{cash flow's present value represents:}\\
+    &D = \dfrac{\sum_t t\cdot PV(CF_t)}{\text{Price}}\\
+    &\text{It is measured in years and is at most equal to the bond's maturity, with equality only for a}\\
+    &\text{zero-coupon bond (whose single cash flow arrives exactly at maturity).}
+    \end{aligned}
+- id: economics-finance-fixed-income-2-01
+  category: Economics & Finance
+  subtopic: Fixed Income
+  level: 2
+  question: |
+    \text{A bond has face value \$1{,}000, pays an annual coupon rate of 6\% (annually), has 3 years to}\\
+    \text{maturity, and the market requires a YTM of 8\%. What is the bond's price?}
+  answer: |
+    \begin{aligned}
+    C&=60,\quad n=3,\quad y=0.08,\quad F=1000\\
+    P &= 60\cdot\dfrac{1-(1.08)^{-3}}{0.08} + \dfrac{1000}{(1.08)^{3}}\\
+    &\approx 60\cdot 2.5771 + 793.83\\
+    &\approx 154.63 + 793.83 = \$948.46
+    \end{aligned}\\
+    \text{The price is below face value (a discount), consistent with coupon rate (6\%) < YTM (8\%).}
+- id: economics-finance-fixed-income-2-02
+  category: Economics & Finance
+  subtopic: Fixed Income
+  level: 2
+  question: |
+    \text{A bond has an annual coupon of \$70 and currently trades at a market price of \$933. What is}\\
+    \text{its current yield?}
+  answer: |
+    \text{Current yield} = \dfrac{70}{933} \approx 7.50\%
+- id: economics-finance-fixed-income-2-03
+  category: Economics & Finance
+  subtopic: Fixed Income
+  level: 2
+  question: |
+    \text{A bond has an 8\% annual coupon rate paid semiannually (\$40 every 6 months), using a 30/360}\\
+    \text{day count. 50 days have passed since the last coupon payment, out of a 180-day coupon period.}\\
+    \text{If the bond's clean price is \$985, find the accrued interest and the dirty (invoice) price.}
+  answer: |
+    \begin{aligned}
+    \text{Accrued interest} &= 40\cdot\dfrac{50}{180} \approx \$11.11\\
+    \text{Dirty price} &= \text{clean price} + \text{accrued interest} = 985 + 11.11 = \$996.11
+    \end{aligned}
+- id: economics-finance-fixed-income-2-04
+  category: Economics & Finance
+  subtopic: Fixed Income
+  level: 2
+  question: |
+    \text{A 3-year bond has face value \$1{,}000 and pays an annual coupon of \$100, and currently trades}\\
+    \text{exactly at par (so } YTM=10\%\text{). Compute its Macaulay duration.}
+  answer: |
+    \begin{aligned}
+    \text{Cash flows: } t=1&:\ \$100,\quad t=2:\ \$100,\quad t=3:\ \$1{,}100\\
+    PV_1 = \dfrac{100}{1.1} &\approx 90.91,\quad PV_2 = \dfrac{100}{1.1^2} \approx 82.64,\quad PV_3 = \dfrac{1100}{1.1^3} \approx 826.45\\
+    \text{(these sum to \$1{,}000, confirming the par price)}\\
+    D &= \dfrac{1(90.91) + 2(82.64) + 3(826.45)}{1000} = \dfrac{2735.54}{1000} \approx 2.74 \text{ years}
+    \end{aligned}
+- id: economics-finance-fixed-income-2-05
+  category: Economics & Finance
+  subtopic: Fixed Income
+  level: 2
+  question: |
+    \text{Define modified duration in terms of Macaulay duration, and use it to estimate the \% price}\\
+    \text{change of a bond with Macaulay duration 5 years and YTM 6\% (annual compounding) if yields}\\
+    \text{rise by 50 basis points.}
+  answer: |
+    \begin{aligned}
+    D_{mod} &= \dfrac{D_{Mac}}{1+y} = \dfrac{5}{1.06} \approx 4.717\\
+    \%\Delta P &\approx -D_{mod}\cdot\Delta y = -4.717\times 0.005 \approx -2.36\%
+    \end{aligned}\\
+    \text{The bond's price is estimated to fall by about 2.36\%.}
+- id: economics-finance-fixed-income-2-06
+  category: Economics & Finance
+  subtopic: Fixed Income
+  level: 2
+  question: |
+    \text{The 1-year spot rate is 3\% and the 2-year spot rate is 4\% (both annually compounded). What}\\
+    \text{is the implied 1-year forward rate starting in 1 year, } f_{1,2}?
+  answer: |
+    \begin{aligned}
+    (1+s_2)^2 &= (1+s_1)(1+f_{1,2})\\
+    (1.04)^2 &= (1.03)(1+f_{1,2})\\
+    1.0816 &= 1.03(1+f_{1,2})\\
+    1+f_{1,2} &= \dfrac{1.0816}{1.03} \approx 1.0501\\
+    f_{1,2} &\approx 5.01\%
+    \end{aligned}
