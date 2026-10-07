@@ -9120,3 +9120,259 @@
     &\lambda^2-10\lambda+21=0 \implies (\lambda-7)(\lambda-3)=0 \\
     &\lambda=7 \quad \text{or} \quad \lambda=3
     \end{aligned}
+- id: mathematics-determinant-1-01
+  category: Mathematics
+  subtopic: Determinant
+  level: 1
+  question: |
+    \text{Give the formula for the determinant of a } 2\times2 \text{ matrix } \begin{pmatrix}a&b\\c&d\end{pmatrix}\text{, and use it to compute } \det\begin{pmatrix}3&4\\1&2\end{pmatrix}\text{.}
+  answer: |
+    \begin{aligned}
+    &\det\begin{pmatrix}a&b\\c&d\end{pmatrix}=ad-bc \\
+    &\det\begin{pmatrix}3&4\\1&2\end{pmatrix}=3(2)-4(1)=6-4=2
+    \end{aligned}
+- id: mathematics-determinant-1-02
+  category: Mathematics
+  subtopic: Determinant
+  level: 1
+  question: |
+    \text{Compute } \det\begin{pmatrix}1&2&3\\0&1&4\\5&6&0\end{pmatrix} \text{ by cofactor expansion along the first row.}
+  answer: |
+    \begin{aligned}
+    \det(A) &= 1\det\begin{pmatrix}1&4\\6&0\end{pmatrix} - 2\det\begin{pmatrix}0&4\\5&0\end{pmatrix} + 3\det\begin{pmatrix}0&1\\5&6\end{pmatrix} \\
+    &= 1(0-24) - 2(0-20) + 3(0-5) \\
+    &= -24+40-15 = 1
+    \end{aligned}
+- id: mathematics-determinant-1-03
+  category: Mathematics
+  subtopic: Determinant
+  level: 1
+  question: |
+    \text{Compute } \det\begin{pmatrix}2&7&-3\\0&5&9\\0&0&-4\end{pmatrix}\text{, and state the rule that makes this quick.}
+  answer: |
+    \begin{aligned}
+    &\text{The matrix is upper triangular, so its determinant is the product of the diagonal entries.} \\
+    &\det(A) = 2\cdot5\cdot(-4) = -40
+    \end{aligned}
+- id: mathematics-determinant-1-04
+  category: Mathematics
+  subtopic: Determinant
+  level: 1
+  question: |
+    \text{Explain why } \det(I_n)=1 \text{ for the } n\times n \text{ identity matrix, and why any square matrix with a full row (or column) of zeros has determinant } 0\text{.}
+  answer: |
+    \begin{aligned}
+    &I_n \text{ is diagonal with every diagonal entry equal to } 1\text{, so by the triangular-matrix rule } \det(I_n)=1\cdot1\cdots1=1\text{.} \\
+    &\text{If some row consists entirely of zeros, expand the determinant by cofactors along that row: every term in the expansion is a product that includes an entry from that row, so every term is } 0\text{, and } \det=0\text{. The same argument applies along a zero column.}
+    \end{aligned}
+- id: mathematics-determinant-1-05
+  category: Mathematics
+  subtopic: Determinant
+  level: 1
+  question: |
+    \text{Without finding its inverse, determine whether } A=\begin{pmatrix}2&4\\1&2\end{pmatrix} \text{ is invertible.}
+  answer: |
+    \begin{aligned}
+    &\det(A) = 2(2)-4(1) = 4-4 = 0 \\
+    &\text{A square matrix is invertible exactly when its determinant is nonzero, so } \det(A)=0 \text{ means } A \text{ is singular (not invertible).}
+    \end{aligned}
+- id: mathematics-determinant-2-01
+  category: Mathematics
+  subtopic: Determinant
+  level: 2
+  question: |
+    \text{For } A=\begin{pmatrix}1&2\\3&4\end{pmatrix} \text{ and } B=\begin{pmatrix}0&1\\1&0\end{pmatrix}\text{, verify } \det(AB)=\det(A)\det(B)\text{.}
+  answer: |
+    \begin{aligned}
+    AB &= \begin{pmatrix}1&2\\3&4\end{pmatrix}\begin{pmatrix}0&1\\1&0\end{pmatrix} = \begin{pmatrix}2&1\\4&3\end{pmatrix} \\
+    \det(AB) &= 2(3)-1(4) = 2 \\
+    \det(A) &= 1(4)-2(3) = -2, \quad \det(B) = 0(0)-1(1) = -1 \\
+    \det(A)\det(B) &= (-2)(-1) = 2 = \det(AB)
+    \end{aligned}
+- id: mathematics-determinant-2-02
+  category: Mathematics
+  subtopic: Determinant
+  level: 2
+  question: |
+    \text{For } A=\begin{pmatrix}1&2\\3&4\end{pmatrix}\text{, compute } \det(A) \text{ and } \det(A^T)\text{, and confirm they are equal.}
+  answer: |
+    \begin{aligned}
+    &\det(A) = 1(4)-2(3) = -2 \\
+    A^T &= \begin{pmatrix}1&3\\2&4\end{pmatrix}, \quad \det(A^T) = 1(4)-3(2) = -2 \\
+    &\det(A^T)=\det(A)\text{, as expected: transposing swaps rows and columns, which doesn't change which products of entries appear in the determinant's expansion.}
+    \end{aligned}
+- id: mathematics-determinant-2-03
+  category: Mathematics
+  subtopic: Determinant
+  level: 2
+  question: |
+    \text{For } A=\begin{pmatrix}1&2\\3&4\end{pmatrix} \text{ (} \det(A)=-2 \text{) and } c=3\text{, verify } \det(cA)=c^2\det(A)\text{, and state the general rule for an } n\times n \text{ matrix.}
+  answer: |
+    \begin{aligned}
+    cA &= \begin{pmatrix}3&6\\9&12\end{pmatrix}, \quad \det(cA) = 3(12)-6(9) = 36-54 = -18 \\
+    c^2\det(A) &= 9(-2) = -18 = \det(cA) \\
+    &\text{In general, scaling a single row by } c \text{ scales the determinant by } c\text{; scaling all } n \text{ rows (i.e. forming } cA\text{) scales it by } c^n\text{, so } \det(cA)=c^n\det(A)\text{.}
+    \end{aligned}
+- id: mathematics-determinant-2-04
+  category: Mathematics
+  subtopic: Determinant
+  level: 2
+  question: |
+    \text{Compute } \det\begin{pmatrix}2&4&6\\1&0&3\\3&1&2\end{pmatrix} \text{ by row-reducing to triangular form, tracking how each operation changes the determinant.}
+  answer: |
+    \begin{aligned}
+    &\text{Swap rows 1 and 2 (negates the determinant): } \begin{pmatrix}1&0&3\\2&4&6\\3&1&2\end{pmatrix}\text{, so far } \det=-\det(A) \\
+    &R_2\to R_2-2R_1,\ R_3\to R_3-3R_1 \text{ (unchanged by these): } \begin{pmatrix}1&0&3\\0&4&0\\0&1&-7\end{pmatrix} \\
+    &R_3\to R_3-\tfrac14R_2 \text{ (unchanged): } \begin{pmatrix}1&0&3\\0&4&0\\0&0&-7\end{pmatrix} \\
+    &\text{This is triangular with determinant } 1(4)(-7)=-28\text{, and it equals } -\det(A) \\
+    &\text{So } \det(A) = -(-28) = 28
+    \end{aligned}
+- id: mathematics-determinant-2-05
+  category: Mathematics
+  subtopic: Determinant
+  level: 2
+  question: |
+    \text{Given } \det(A)=5 \text{ for an invertible matrix } A\text{, find } \det(A^{-1})\text{, showing the general derivation.}
+  answer: |
+    \begin{aligned}
+    &AA^{-1}=I \implies \det(A)\det(A^{-1}) = \det(I) = 1 \\
+    &\det(A^{-1}) = \frac{1}{\det(A)} = \frac{1}{5}
+    \end{aligned}
+- id: mathematics-determinant-2-06
+  category: Mathematics
+  subtopic: Determinant
+  level: 2
+  question: |
+    \text{Compute } \det\begin{pmatrix}1&0&2&0\\3&1&4&0\\0&0&5&0\\2&1&3&6\end{pmatrix} \text{ by expanding along the row or column with the most zeros.}
+  answer: |
+    \begin{aligned}
+    &\text{Column 4 has three zeros, leaving a single term: the } (4,4) \text{ entry } 6\text{, with sign } (+1)^{4+4}\text{,} \\
+    &\det(A) = 6\det\begin{pmatrix}1&0&2\\3&1&4\\0&0&5\end{pmatrix} \\
+    &\text{That } 3\times3 \text{ minor's last row also has two zeros, leaving a single term at } (3,3)\text{:} \\
+    &\det\begin{pmatrix}1&0&2\\3&1&4\\0&0&5\end{pmatrix} = 5\det\begin{pmatrix}1&0\\3&1\end{pmatrix} = 5(1-0) = 5 \\
+    &\det(A) = 6(5) = 30
+    \end{aligned}
+- id: mathematics-determinant-3-01
+  category: Mathematics
+  subtopic: Determinant
+  level: 3
+  question: |
+    \text{State the Leibniz (permutation) formula for the determinant of an } n\times n \text{ matrix } A\text{, and show it reduces to the familiar } ad-bc \text{ formula for } n=2\text{.}
+  answer: |
+    \begin{aligned}
+    &\det(A) = \sum_{\sigma\in S_n}\operatorname{sgn}(\sigma)\prod_{i=1}^na_{i,\sigma(i)} \\
+    &\text{For } n=2\text{, } S_2 \text{ has two permutations: the identity (} \sigma(1)=1,\sigma(2)=2\text{, sign } +1\text{), contributing } a_{11}a_{22}=ad\text{,} \\
+    &\text{and the transposition (} \sigma(1)=2,\sigma(2)=1\text{, sign } -1\text{), contributing } -a_{12}a_{21}=-bc \\
+    &\text{Summing: } \det(A) = ad-bc\text{, matching the } 2\times2 \text{ formula.}
+    \end{aligned}
+- id: mathematics-determinant-3-02
+  category: Mathematics
+  subtopic: Determinant
+  level: 3
+  question: |
+    \text{Prove that } \det(AB)=\det(A)\det(B) \text{ for any } n\times n \text{ matrices } A,B\text{.}
+  answer: |
+    \begin{aligned}
+    &\textbf{Case 1: } A \text{ singular. Then } \operatorname{rank}(A)<n\text{, and since } \operatorname{rank}(AB)\le\operatorname{rank}(A)<n\text{, } AB \text{ is also singular.} \\
+    &\text{So } \det(AB)=0=\det(A)\det(B) \text{ since } \det(A)=0\text{.} \\
+    &\textbf{Case 2: } A \text{ invertible. Then } A \text{ can be written as a product of elementary matrices } A=E_1E_2\cdots E_k \text{ (row-reducing } A \text{ to } I \text{ is reversible).} \\
+    &\text{Left-multiplying any matrix } M \text{ by an elementary matrix } E \text{ performs the corresponding row operation on } M\text{, and changes } \det(M) \text{ by exactly } \det(E)\text{:} \\
+    &\text{a row swap has } \det(E)=-1\text{, scaling a row by } c \text{ has } \det(E)=c\text{, and adding a multiple of one row to another has } \det(E)=1 \text{ — matching the row-operation rules.} \\
+    &\text{Applying this } k \text{ times gives } \det(E_1\cdots E_kM)=\det(E_1)\cdots\det(E_k)\det(M) \text{ for any } M\text{.} \\
+    &\text{With } M=B: \ \det(AB)=\det(E_1)\cdots\det(E_k)\det(B)\text{. With } M=I: \ \det(A)=\det(E_1)\cdots\det(E_k)\text{.} \\
+    &\text{Substituting: } \det(AB)=\det(A)\det(B)\text{.}
+    \end{aligned}
+- id: mathematics-determinant-3-03
+  category: Mathematics
+  subtopic: Determinant
+  level: 3
+  question: |
+    \text{Prove that a square matrix with two identical rows has determinant } 0\text{, and deduce that any matrix with linearly dependent rows has determinant } 0\text{.}
+  answer: |
+    \begin{aligned}
+    &\text{Let } A \text{ have rows } r_1,\ldots,r_n \text{ with } r_i=r_j \text{ for some } i\neq j\text{. Swapping rows } i,j \text{ gives back the same matrix } A \text{ (the rows are equal),} \\
+    &\text{but swapping two rows negates the determinant: } \det(A)=-\det(A) \implies \det(A)=0 \\
+    &\text{Each term of the Leibniz formula picks exactly one entry from each row, so } \det(A) \text{ is linear in any single row with the others held fixed.} \\
+    &\text{If the rows are linearly dependent, some row } r_k=\sum_{m\neq k}c_mr_m\text{. By linearity in row } k\text{,} \ \det(A)=\sum_{m\neq k}c_m\det(A_m)\text{,} \\
+    &\text{where } A_m \text{ is } A \text{ with row } k \text{ replaced by } r_m\text{. Each } A_m \text{ then has row } m \text{ repeated (rows } k \text{ and } m \text{ both equal } r_m\text{), so } \det(A_m)=0 \text{ by the first part.} \\
+    &\text{Hence } \det(A)=0\text{: linearly dependent rows force a zero determinant.}
+    \end{aligned}
+- id: mathematics-determinant-3-04
+  category: Mathematics
+  subtopic: Determinant
+  level: 3
+  question: |
+    \text{Prove that } A\cdot\operatorname{adj}(A)=\det(A)I\text{, where } \operatorname{adj}(A) \text{ is the adjugate (the transpose of the matrix of cofactors), and use it to derive } A^{-1}=\frac{1}{\det(A)}\operatorname{adj}(A) \text{ for invertible } A\text{.}
+  answer: |
+    \begin{aligned}
+    &\text{Let } C_{ij} \text{ be the } (i,j) \text{ cofactor of } A\text{, so } \operatorname{adj}(A)_{ij}=C_{ji}\text{. The } (i,k) \text{ entry of } A\cdot\operatorname{adj}(A) \text{ is } \sum_ja_{ij}\operatorname{adj}(A)_{jk}=\sum_ja_{ij}C_{kj} \\
+    &\text{When } i=k\text{: } \sum_ja_{ij}C_{ij} \text{ is exactly the cofactor expansion of } \det(A) \text{ along row } i\text{, so this entry equals } \det(A)\text{.} \\
+    &\text{When } i\neq k\text{: } \sum_ja_{ij}C_{kj} \text{ is the cofactor expansion along row } k \text{ of the matrix formed by replacing row } k \text{ of } A \text{ with a copy of row } i \text{ — a matrix with two identical rows, whose determinant is } 0\text{.} \\
+    &\text{So this entry is } 0\text{. Hence } A\cdot\operatorname{adj}(A)=\det(A)I\text{.} \\
+    &\text{If } \det(A)\neq0\text{, dividing by it gives } A\left(\frac{\operatorname{adj}(A)}{\det(A)}\right)=I\text{, so by uniqueness of the inverse, } A^{-1}=\frac{\operatorname{adj}(A)}{\det(A)}\text{.}
+    \end{aligned}
+- id: mathematics-determinant-3-05
+  category: Mathematics
+  subtopic: Determinant
+  level: 3
+  question: |
+    \text{Prove that } \det\begin{pmatrix}1&1&1\\x_1&x_2&x_3\\x_1^2&x_2^2&x_3^2\end{pmatrix} = (x_2-x_1)(x_3-x_1)(x_3-x_2)\text{.}
+  answer: |
+    \begin{aligned}
+    &\text{Replace column 2 with (column 2 } - \text{ column 1) and column 3 with (column 3 } - \text{ column 1); neither changes the determinant:} \\
+    &\begin{pmatrix}1&0&0\\x_1&x_2-x_1&x_3-x_1\\x_1^2&x_2^2-x_1^2&x_3^2-x_1^2\end{pmatrix} \\
+    &\text{Expanding along row 1 (entries } 1,0,0\text{) leaves a single } 2\times2 \text{ determinant:} \\
+    &\det\begin{pmatrix}x_2-x_1&x_3-x_1\\x_2^2-x_1^2&x_3^2-x_1^2\end{pmatrix} = (x_2-x_1)(x_3^2-x_1^2)-(x_3-x_1)(x_2^2-x_1^2) \\
+    &\text{Using } x_2^2-x_1^2=(x_2-x_1)(x_2+x_1) \text{ and } x_3^2-x_1^2=(x_3-x_1)(x_3+x_1)\text{:} \\
+    &= (x_2-x_1)(x_3-x_1)(x_3+x_1) - (x_3-x_1)(x_2-x_1)(x_2+x_1) \\
+    &= (x_2-x_1)(x_3-x_1)\big[(x_3+x_1)-(x_2+x_1)\big] = (x_2-x_1)(x_3-x_1)(x_3-x_2)
+    \end{aligned}
+- id: mathematics-determinant-4-01
+  category: Mathematics
+  subtopic: Determinant
+  level: 4
+  question: |
+    \text{For the block matrix } M=\begin{pmatrix}A&B\\0&D\end{pmatrix} \text{ with square blocks } A,D\text{, recall } \det(M)=\det(A)\det(D)\text{, then use this shortcut to compute } \det\begin{pmatrix}2&3&1&0\\1&4&0&2\\0&0&5&1\\0&0&3&2\end{pmatrix} \text{ without expanding the full } 4\times4\text{.}
+  answer: |
+    \begin{aligned}
+    &\text{The matrix is block upper triangular with blocks } A=\begin{pmatrix}2&3\\1&4\end{pmatrix} \text{ and } D=\begin{pmatrix}5&1\\3&2\end{pmatrix} \text{ (the top-right block doesn't matter).} \\
+    &\det(A) = 2(4)-3(1) = 5, \quad \det(D) = 5(2)-1(3) = 7 \\
+    &\det(M) = \det(A)\det(D) = 5(7) = 35
+    \end{aligned}
+- id: mathematics-determinant-4-02
+  category: Mathematics
+  subtopic: Determinant
+  level: 4
+  question: |
+    \text{Find the value of } x \text{ that makes } \begin{pmatrix}1&2&3\\4&5&6\\7&8&x\end{pmatrix} \text{ singular, by spotting a relationship between the rows rather than expanding the full determinant.}
+  answer: |
+    \begin{aligned}
+    &2(\text{row }2) - \text{row }1 = (8-1,\,10-2,\,12-3) = (7,\,8,\,9) \\
+    &\text{This matches row 3 in its first two entries } (7,8) \text{ for any } x\text{. For row 3 to equal this combination exactly — making the rows linearly dependent, hence } \det=0 \text{ — its third entry must also be } 9\text{, so } x=9\text{.} \\
+    &\text{(Check: with } x=9\text{, } \det = 1(5\cdot9-6\cdot8)-2(4\cdot9-6\cdot7)+3(4\cdot8-5\cdot7) = 1(-3)-2(-6)+3(-3) = -3+12-9=0\text{.)}
+    \end{aligned}
+- id: mathematics-determinant-4-03
+  category: Mathematics
+  subtopic: Determinant
+  level: 4
+  question: |
+    \text{A linear map on } \R^2 \text{ first reflects across the } x\text{-axis, then rotates by } 90^\circ\text{. Without computing a single matrix entry, determine whether the composed map preserves or reverses orientation.}
+  answer: |
+    \begin{aligned}
+    &\text{A reflection has determinant } -1 \text{ (it flips orientation); a rotation always has determinant } +1 \text{ (since } \det(R(\theta))=\cos^2\theta+\sin^2\theta=1\text{).} \\
+    &\text{By multiplicativity, the composed map's determinant is } \det(\text{rotation})\det(\text{reflection}) = (1)(-1) = -1\text{.} \\
+    &\text{A negative determinant means the composed map reverses orientation — the single reflection's sign survives regardless of the rotation angle.}
+    \end{aligned}
+- id: mathematics-determinant-4-04
+  category: Mathematics
+  subtopic: Determinant
+  level: 4
+  question: |
+    \text{A triangle has vertices } (1,1), (4,2), (2,5)\text{. Find its area quickly using a } 2\times2 \text{ determinant.}
+  answer: |
+    \begin{aligned}
+    &\text{The area of a triangle is half the area of the parallelogram spanned by two of its edge vectors, and that parallelogram's area equals the absolute value of the determinant of the matrix whose columns are those two vectors.} \\
+    &\text{Edge vectors from } (1,1)\text{: } (4-1,2-1)=(3,1) \text{ and } (2-1,5-1)=(1,4) \\
+    &\det\begin{pmatrix}3&1\\1&4\end{pmatrix} = 3(4)-1(1) = 11 \\
+    &\text{Area} = \frac{11}{2} = 5.5
+    \end{aligned}
