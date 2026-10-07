@@ -9376,3 +9376,307 @@
     &\det\begin{pmatrix}3&1\\1&4\end{pmatrix} = 3(4)-1(1) = 11 \\
     &\text{Area} = \frac{11}{2} = 5.5
     \end{aligned}
+- id: mathematics-systems-of-linear-equations-1-01
+  category: Mathematics
+  subtopic: Systems of Linear Equations
+  level: 1
+  question: |
+    \text{Write the system } \begin{cases}2x+3y=7\\x-y=1\end{cases} \text{ in the matrix form } A\vec x=\vec b\text{, identifying } A, \vec x, \text{ and } \vec b.
+  answer: |
+    \begin{aligned}
+    &\text{Each row of } A \text{ holds a left-hand side's coefficients, in the same variable order, so that } A\vec x \\
+    &\text{reproduces each equation's left-hand side via matrix multiplication:} \\
+    A &= \begin{pmatrix}2&3\\1&-1\end{pmatrix}, \qquad \vec x = \begin{pmatrix}x\\y\end{pmatrix}, \qquad \vec b = \begin{pmatrix}7\\1\end{pmatrix}
+    \end{aligned}
+- id: mathematics-systems-of-linear-equations-1-02
+  category: Mathematics
+  subtopic: Systems of Linear Equations
+  level: 1
+  question: |
+    \text{Solve the system } \begin{cases}x+2y=5\\3x-y=1\end{cases} \text{ by elimination.}
+  answer: |
+    \begin{aligned}
+    &\text{Multiply the first equation by } 3\text{: } 3x+6y=15\text{. Subtract the second equation from this:} \\
+    (3x+6y)-(3x-y) &= 15-1 \implies 7y=14 \implies y=2 \\
+    &\text{Substitute back into the first equation:} \\
+    x+2(2) &=5 \implies x=1 \\
+    &\text{Solution: } (x,y)=(1,2).
+    \end{aligned}
+- id: mathematics-systems-of-linear-equations-1-03
+  category: Mathematics
+  subtopic: Systems of Linear Equations
+  level: 1
+  question: |
+    \text{For two equations in two unknowns, there are three possible outcomes for the solution set. Classify each of the following pairs:} \\
+    \text{(a) } x+y=1,\ x+y=2 \qquad \text{(b) } x+y=1,\ 2x+2y=2 \qquad \text{(c) } x+y=1,\ x-y=1
+  answer: |
+    \begin{aligned}
+    &\text{(a) The two lines have the same slope but different intercepts — they are parallel and distinct, so they never meet: } \textbf{no solution}\text{.} \\
+    &\text{(b) The second equation is exactly twice the first, so it describes the same line: every point on } x+y=1 \\
+    &\text{satisfies both, giving } \textbf{infinitely many solutions}\text{.} \\
+    &\text{(c) The two lines have different slopes, so they cross at exactly one point. Adding the equations gives } 2x=2 \\
+    &\implies x=1\text{, then } y=0\text{: } \textbf{a unique solution} \ (1,0)\text{.}
+    \end{aligned}
+- id: mathematics-systems-of-linear-equations-1-04
+  category: Mathematics
+  subtopic: Systems of Linear Equations
+  level: 1
+  question: |
+    \text{Explain why the homogeneous system } A\vec x=\vec 0 \text{ always has at least one solution, no matter what } A \text{ is.}
+  answer: |
+    \begin{aligned}
+    &\text{Substituting } \vec x=\vec 0 \text{ gives } A\vec 0=\vec 0\text{, which holds for every matrix } A \text{ since multiplying any matrix by the} \\
+    &\text{zero vector produces the zero vector entrywise. So } \vec x=\vec 0 \text{ (the trivial solution) always satisfies a} \\
+    &\text{homogeneous system, meaning } A\vec x=\vec 0 \text{ is never inconsistent — the only question is whether it has} \\
+    &\text{other, nontrivial solutions too.}
+    \end{aligned}
+- id: mathematics-systems-of-linear-equations-1-05
+  category: Mathematics
+  subtopic: Systems of Linear Equations
+  level: 1
+  question: |
+    \text{What does it mean for a system of linear equations to be consistent versus inconsistent? Give one example of each for a 2-variable system.}
+  answer: |
+    \begin{aligned}
+    &\text{A system is } \textbf{consistent} \text{ if it has at least one solution (unique or infinitely many), and } \textbf{inconsistent} \\
+    &\text{if it has no solution at all.} \\
+    &\text{Consistent example: } x+y=3,\ x-y=1 \text{ (solved by } (2,1)\text{).} \\
+    &\text{Inconsistent example: } x+y=1,\ x+y=2 \text{ (no pair } (x,y) \text{ can make } x+y \text{ equal both } 1 \text{ and } 2\text{).}
+    \end{aligned}
+- id: mathematics-systems-of-linear-equations-2-01
+  category: Mathematics
+  subtopic: Systems of Linear Equations
+  level: 2
+  question: |
+    \text{Solve the system} \\
+    \begin{cases}x+y+z=6\\x-y+z=2\\2x+2z=8\end{cases}
+  answer: |
+    \begin{aligned}
+    &\text{Adding the first two equations: } (x+y+z)+(x-y+z)=6+2 \implies 2x+2z=8\text{, which is exactly the} \\
+    &\text{third equation. So the third equation carries no new information — the system really only has } 2 \\
+    &\text{independent equations in } 3 \text{ unknowns, leaving one free variable.} \\
+    &\text{Subtracting the first two equations: } (x+y+z)-(x-y+z)=6-2 \implies 2y=4 \implies y=2\text{.} \\
+    &\text{From } 2x+2z=8\text{: } x+z=4\text{. Let } z=t \text{ be free:} \\
+    (x,y,z) &= (4-t,\ 2,\ t), \qquad t\in\R.
+    \end{aligned}
+- id: mathematics-systems-of-linear-equations-2-02
+  category: Mathematics
+  subtopic: Systems of Linear Equations
+  level: 2
+  question: |
+    \text{Use } \operatorname{rank}(A) \text{ versus } \operatorname{rank}([A\mid\vec b]) \text{ to determine whether the following system has a solution:} \\
+    \begin{cases}x+y+z=1\\2x+2y+2z=3\\x-y=0\end{cases}
+  answer: |
+    \begin{aligned}
+    A&=\begin{pmatrix}1&1&1\\2&2&2\\1&-1&0\end{pmatrix}, \qquad [A\mid\vec b]=\begin{pmatrix}1&1&1&1\\2&2&2&3\\1&-1&0&0\end{pmatrix} \\
+    &\text{Row 2 of } A \text{ is exactly twice row 1, so } \operatorname{rank}(A)=2 \text{ (rows 1 and 3 are independent).} \\
+    &\text{In the augmented matrix, replace row 2 with } R_2-2R_1\text{:} \ (2,2,2,3)-2(1,1,1,1)=(0,0,0,1)\text{.} \\
+    &\text{This row says } 0=1\text{, a contradiction, and it is independent of every other row (it is the only row with} \\
+    &\text{nonzero entry only in the last column), so } \operatorname{rank}([A\mid\vec b])=3. \\
+    &\text{Since } \operatorname{rank}(A)=2\neq3=\operatorname{rank}([A\mid\vec b])\text{, the system is } \textbf{inconsistent}\text{ (no solution).}
+    \end{aligned}
+- id: mathematics-systems-of-linear-equations-2-03
+  category: Mathematics
+  subtopic: Systems of Linear Equations
+  level: 2
+  question: |
+    \text{Use Cramer's rule to solve} \\
+    \begin{cases}x+y+z=6\\2x-y+z=3\\x+2y-z=2\end{cases}
+  answer: |
+    \begin{aligned}
+    A&=\begin{pmatrix}1&1&1\\2&-1&1\\1&2&-1\end{pmatrix}, \qquad \det(A)=1(1-2)-1(-2-1)+1(4+1)=-1+3+5=7 \\
+    \det(A_x)&=\det\begin{pmatrix}6&1&1\\3&-1&1\\2&2&-1\end{pmatrix}=6(1-2)-1(-3-2)+1(6+2)=-6+5+8=7, \quad x=\frac{7}{7}=1 \\
+    \det(A_y)&=\det\begin{pmatrix}1&6&1\\2&3&1\\1&2&-1\end{pmatrix}=1(-3-2)-6(-2-1)+1(4-3)=-5+18+1=14, \quad y=\frac{14}{7}=2 \\
+    \det(A_z)&=\det\begin{pmatrix}1&1&6\\2&-1&3\\1&2&2\end{pmatrix}=1(-2-6)-1(4-3)+6(4+1)=-8-1+30=21, \quad z=\frac{21}{7}=3 \\
+    &(x,y,z)=(1,2,3).
+    \end{aligned}
+- id: mathematics-systems-of-linear-equations-2-04
+  category: Mathematics
+  subtopic: Systems of Linear Equations
+  level: 2
+  question: |
+    \text{Solve } \begin{cases}x+y+z+w=4\\x-y+z-w=0\end{cases} \text{ and write the general solution as a particular solution plus a combination of homogeneous solutions.}
+  answer: |
+    \begin{aligned}
+    &\text{Adding the two equations: } 2x+2z=4 \implies x+z=2\text{. Subtracting them: } 2y+2w=4 \implies y+w=2\text{.} \\
+    &\text{Let } z=s,\ w=t \text{ be free: } x=2-s,\ y=2-t\text{. The general solution is} \\
+    (x,y,z,w) &= (2-s,\ 2-t,\ s,\ t) = \underbrace{(2,2,0,0)}_{\vec x_p} + s\underbrace{(-1,0,1,0)}_{\vec v_1} + t\underbrace{(0,-1,0,1)}_{\vec v_2}. \\
+    &\text{Check: } \vec v_1 \text{ and } \vec v_2 \text{ both satisfy the homogeneous equations } x+y+z+w=0 \text{ and } x-y+z-w=0 \\
+    &\text{(e.g. for } \vec v_1\text{: } -1+0+1+0=0 \text{ and } -1-0+1-0=0\text{), while } \vec x_p=(2,2,0,0) \text{ satisfies the original} \\
+    &\text{system. So every solution is } \vec x_p \text{ plus some combination of the homogeneous solutions } \vec v_1,\vec v_2.
+    \end{aligned}
+- id: mathematics-systems-of-linear-equations-2-05
+  category: Mathematics
+  subtopic: Systems of Linear Equations
+  level: 2
+  question: |
+    \text{A system has more equations than unknowns:} \\
+    \begin{cases}x+y=2\\x-y=0\\x+2y=5\end{cases} \\
+    \text{Determine whether it is consistent.}
+  answer: |
+    \begin{aligned}
+    &\text{The first two equations alone determine } x \text{ and } y\text{: adding them, } 2x=2\implies x=1\text{, then } y=1\text{.} \\
+    &\text{Check this against the third equation: } x+2y = 1+2(1)=3\text{, but the equation requires } x+2y=5\text{.} \\
+    &\text{Since } 3\neq5\text{, the point } (1,1) \text{ that satisfies the first two equations does not satisfy the third, so the} \\
+    &\text{system is } \textbf{inconsistent}\text{ — with 3 equations in only 2 unknowns, the third equation generically} \\
+    &\text{imposes an extra condition that a generic solution of the first two won't meet.}
+    \end{aligned}
+- id: mathematics-systems-of-linear-equations-3-01
+  category: Mathematics
+  subtopic: Systems of Linear Equations
+  level: 3
+  question: |
+    \text{Prove the Rouché–Capelli theorem: the system } A\vec x=\vec b \text{ (} A \text{ an } m\times n \text{ matrix) is consistent if and only if } \operatorname{rank}(A)=\operatorname{rank}([A\mid\vec b])\text{, and when consistent, the solution is unique if and only if that common rank equals } n.
+  answer: |
+    \begin{aligned}
+    &\text{Write } A \text{ by columns as } A=(\vec a_1\ \cdots\ \vec a_n)\text{. The system } A\vec x=\vec b \text{ means } x_1\vec a_1+\cdots+x_n\vec a_n=\vec b\text{,} \\
+    &\text{i.e. } \vec b \text{ is a linear combination of the columns of } A\text{. This is possible exactly when } \vec b \text{ lies in} \\
+    &\text{the column space of } A\text{, i.e. } \operatorname{span}(\vec a_1,\dots,\vec a_n)=\operatorname{span}(\vec a_1,\dots,\vec a_n,\vec b)\text{.} \\
+    &\text{Adding a vector already in a span never changes the span's dimension, and adding a vector outside} \\
+    &\text{it always increases the dimension by } 1\text{. So } \vec b\in\operatorname{span}(\vec a_1,\dots,\vec a_n) \text{ iff } \operatorname{rank}([A\mid\vec b])=\operatorname{rank}(A)\text{,} \\
+    &\text{which proves the consistency half.} \\
+    &\text{For uniqueness, suppose the system is consistent with } \operatorname{rank}(A)=r\text{. If } r=n\text{, the } n \text{ columns of } A \\
+    &\text{are linearly independent, so the only way to write } \vec b=x_1\vec a_1+\cdots+x_n\vec a_n \text{ is with one specific} \\
+    &\text{choice of coefficients — the solution is unique. If } r<n\text{, the columns are dependent, so some nonzero} \\
+    &\text{combination } c_1\vec a_1+\cdots+c_n\vec a_n=\vec 0 \text{ exists; adding this to any solution } \vec x_0 \text{ gives another solution} \\
+    &\vec x_0+\vec c\neq\vec x_0\text{, so the solution is not unique.}
+    \end{aligned}
+- id: mathematics-systems-of-linear-equations-3-02
+  category: Mathematics
+  subtopic: Systems of Linear Equations
+  level: 3
+  question: |
+    \text{Prove that if a system } A\vec x=\vec b \text{ is consistent with particular solution } \vec x_p\text{, then every solution has the form } \vec x_p+\vec x_h \text{ where } \vec x_h \text{ solves the homogeneous system } A\vec x_h=\vec 0\text{, and conversely every such sum is a solution.}
+  answer: |
+    \begin{aligned}
+    &\text{(Converse direction) If } A\vec x_h=\vec 0\text{, then by linearity of matrix multiplication,} \\
+    A(\vec x_p+\vec x_h) &= A\vec x_p+A\vec x_h = \vec b+\vec 0 = \vec b\text{,} \\
+    &\text{so } \vec x_p+\vec x_h \text{ is indeed a solution for any homogeneous solution } \vec x_h\text{.} \\
+    &\text{(Forward direction) Let } \vec x \text{ be any solution, so } A\vec x=\vec b\text{. Define } \vec x_h=\vec x-\vec x_p\text{. Then} \\
+    A\vec x_h &= A(\vec x-\vec x_p) = A\vec x - A\vec x_p = \vec b-\vec b = \vec 0\text{,} \\
+    &\text{so } \vec x_h \text{ solves the homogeneous system, and } \vec x=\vec x_p+\vec x_h \text{ has the required form.} \\
+    &\text{Together, these show the full solution set of } A\vec x=\vec b \text{ is exactly } \{\vec x_p+\vec x_h : A\vec x_h=\vec 0\}\text{, an} \\
+    &\text{affine translate of the homogeneous solution set (itself a subspace) by } \vec x_p\text{.}
+    \end{aligned}
+- id: mathematics-systems-of-linear-equations-3-03
+  category: Mathematics
+  subtopic: Systems of Linear Equations
+  level: 3
+  question: |
+    \text{Derive Cramer's rule } x_i=\dfrac{\det(A_i)}{\det(A)} \text{ (where } A_i \text{ is } A \text{ with column } i \text{ replaced by } \vec b\text{) from the adjugate formula for } A^{-1}\text{.}
+  answer: |
+    \begin{aligned}
+    &\text{For an invertible } n\times n \text{ matrix } A\text{, the adjugate formula gives } A^{-1}=\dfrac{1}{\det(A)}\operatorname{adj}(A)\text{, where} \\
+    &\operatorname{adj}(A)_{ij}=C_{ji} \text{ and } C_{ji} \text{ is the } (j,i) \text{ cofactor of } A\text{. The unique solution of } A\vec x=\vec b \text{ is} \\
+    \vec x &= A^{-1}\vec b = \frac{1}{\det(A)}\operatorname{adj}(A)\vec b\text{, so componentwise} \\
+    x_i &= \frac{1}{\det(A)}\sum_{j=1}^n \operatorname{adj}(A)_{ij}b_j = \frac{1}{\det(A)}\sum_{j=1}^n C_{ji}b_j\text{.} \\
+    &\text{Now } \sum_{j=1}^n C_{ji}b_j \text{ is exactly the cofactor expansion along column } i \text{ of the matrix } A_i \text{ (} A \text{ with} \\
+    &\text{column } i \text{ replaced by } \vec b\text{), because replacing column } i \text{ doesn't change any cofactor } C_{ji} \text{ (each} \\
+    &\text{cofactor is computed by deleting row } j \text{ and column } i\text{, so it never involves column } i\text{'s original entries).} \\
+    &\text{So } \sum_{j=1}^n C_{ji}b_j=\det(A_i)\text{, giving } x_i=\dfrac{\det(A_i)}{\det(A)}\text{.}
+    \end{aligned}
+- id: mathematics-systems-of-linear-equations-3-04
+  category: Mathematics
+  subtopic: Systems of Linear Equations
+  level: 3
+  question: |
+    \text{Prove that the solution set of the homogeneous system } A\vec x=\vec 0 \text{ (} A \text{ an } m\times n \text{ matrix of rank } r\text{) has exactly } n-r \text{ free variables.}
+  answer: |
+    \begin{aligned}
+    &\text{Row-reduce } A \text{ to reduced row echelon form. The number of nonzero rows in this form is, by} \\
+    &\text{definition, } \operatorname{rank}(A)=r\text{, and each nonzero row has exactly one pivot (leading } 1\text{) in a distinct column.} \\
+    &\text{So there are } r \text{ pivot columns and } n-r \text{ non-pivot columns among the } n \text{ variable columns.} \\
+    &\text{Each pivot variable is expressed by its row as a (possibly empty) linear combination of the non-pivot} \\
+    &\text{variables appearing to its right — row operations on a homogeneous system keep the right-hand side} \\
+    &\text{zero throughout, so this expression has no constant term. Every non-pivot variable, by contrast, is} \\
+    &\text{unconstrained by any row and can be assigned any value freely.} \\
+    &\text{Hence the general solution is parametrized by exactly the } n-r \text{ non-pivot (free) variables, with every} \\
+    &\text{pivot variable determined by them — the solution set has exactly } n-r \text{ free variables (equivalently,} \\
+    &\text{the null space of } A \text{ has dimension } n-r\text{).}
+    \end{aligned}
+- id: mathematics-systems-of-linear-equations-3-05
+  category: Mathematics
+  subtopic: Systems of Linear Equations
+  level: 3
+  question: |
+    \text{Prove that for a square } n\times n \text{ matrix } A\text{, the following are equivalent: (i) } A\vec x=\vec b \text{ has a unique solution for every } \vec b\in\R^n\text{; (ii) } A \text{ is invertible; (iii) } \det(A)\neq0\text{.}
+  answer: |
+    \begin{aligned}
+    &\text{(ii)}\Rightarrow\text{(i): if } A \text{ is invertible, } \vec x=A^{-1}\vec b \text{ is a solution for any } \vec b\text{, and it is the only one: if} \\
+    &A\vec x_1=A\vec x_2=\vec b\text{, left-multiplying by } A^{-1} \text{ gives } \vec x_1=\vec x_2\text{.} \\
+    &\text{(i)}\Rightarrow\text{(ii): if } A\vec x=\vec b \text{ has a unique solution for every } \vec b\text{, in particular } A\vec x=\vec e_i \text{ has a unique} \\
+    &\text{solution } \vec c_i \text{ for each standard basis vector } \vec e_i\text{. The matrix } C \text{ with columns } \vec c_1,\dots,\vec c_n \text{ then} \\
+    &\text{satisfies } AC=I\text{. A square matrix with a right inverse is invertible (and } C=A^{-1}\text{), so } A \text{ is invertible.} \\
+    &\text{(ii)}\Leftrightarrow\text{(iii): } A \text{ is invertible iff its columns are linearly independent (otherwise, as in the rank argument} \\
+    &\text{above, } A\vec x=\vec 0 \text{ would have a nontrivial solution and } A \text{ could not have a two-sided inverse). The} \\
+    &\text{columns of } A \text{ are linearly independent iff row reduction of } A \text{ produces } n \text{ pivots (no free variable} \\
+    &\text{in } A\vec x=\vec 0\text{), which happens iff no row becomes entirely zero, which is exactly the condition} \\
+    &\det(A)\neq0 \text{ (row reduction scales } \det \text{ by nonzero factors and a zero row forces } \det=0\text{).}
+    \end{aligned}
+- id: mathematics-systems-of-linear-equations-4-01
+  category: Mathematics
+  subtopic: Systems of Linear Equations
+  level: 4
+  question: |
+    \text{Three sacks of rice have combined weights } A+B=12\text{kg},\ B+C=14\text{kg},\ A+C=10\text{kg (for sacks } A, B, C\text{). Without solving for each weight individually first, quickly find } A+B+C\text{, then each individual weight.}
+  answer: |
+    \begin{aligned}
+    &\text{Adding all three equations, each sack's weight appears exactly twice:} \\
+    (A+B)+(B+C)+(A+C) &= 2(A+B+C) = 12+14+10 = 36 \implies A+B+C=18\text{.} \\
+    &\text{Each individual weight is then this total minus the one pairwise sum that excludes it:} \\
+    C &= 18-(A+B) = 18-12=6, \qquad A = 18-(B+C) = 18-14=4, \qquad B = 18-(A+C) = 18-10=8.
+    \end{aligned}
+- id: mathematics-systems-of-linear-equations-4-02
+  category: Mathematics
+  subtopic: Systems of Linear Equations
+  level: 4
+  question: |
+    \text{For which value(s) of } k \text{ does the system } \begin{cases}kx+y=1\\x+ky=-1\end{cases} \text{ fail to have a unique solution? For each such } k\text{, determine whether the system then has no solution or infinitely many.}
+  answer: |
+    \begin{aligned}
+    &\text{The coefficient matrix is } \begin{pmatrix}k&1\\1&k\end{pmatrix}\text{, with determinant } k^2-1\text{. A unique solution fails exactly} \\
+    &\text{when } k^2-1=0\text{, i.e. } k=1 \text{ or } k=-1\text{.} \\
+    &\text{At } k=1\text{: the system becomes } x+y=1,\ x+y=-1\text{ — the same left-hand side with different right-hand} \\
+    &\text{sides, so these are parallel, distinct lines: } \textbf{no solution}\text{.} \\
+    &\text{At } k=-1\text{: the system becomes } -x+y=1,\ x-y=-1\text{. Multiplying the first equation by } -1 \text{ gives} \\
+    &x-y=-1\text{, identical to the second equation — the two equations describe the same line:} \\
+    &\textbf{infinitely many solutions}\text{.}
+    \end{aligned}
+- id: mathematics-systems-of-linear-equations-4-03
+  category: Mathematics
+  subtopic: Systems of Linear Equations
+  level: 4
+  question: |
+    \text{Without performing full Gaussian elimination, determine quickly whether the following system has a solution, by spotting a relationship between the equations:} \\
+    \begin{cases}x+2y-z=3\\2x-y+z=1\\4x+3y-z=11\end{cases}
+  answer: |
+    \begin{aligned}
+    &\text{Look for a combination of the first two equations that reproduces the third equation's left-hand side} \\
+    &(4,3,-1)\text{. Taking } 2\times(\text{eq. 1}) + (\text{eq. 2})\text{:} \\
+    2(x+2y-z) + (2x-y+z) &= 4x+3y-z\text{,} \\
+    &\text{which exactly matches the left-hand side of equation 3. So if the system were consistent, equation 3's} \\
+    &\text{right-hand side would have to equal the same combination of the first two right-hand sides:} \\
+    2(3)+1 &= 7\text{.} \\
+    &\text{But equation 3's actual right-hand side is } 11\neq7\text{. This contradiction — found without eliminating a} \\
+    &\text{single variable — shows the system is } \textbf{inconsistent}\text{ (no solution).}
+    \end{aligned}
+- id: mathematics-systems-of-linear-equations-4-04
+  category: Mathematics
+  subtopic: Systems of Linear Equations
+  level: 4
+  question: |
+    \text{Traffic flows one-way around a loop of four intersections } A\to B\to C\to D\to A\text{, with flows } f_1, f_2, f_3, f_4 \text{ on the four connecting streets respectively. External data: } 100 \text{ cars/hr enter at } A\text{, } 50 \text{ exit at } B\text{, } 30 \text{ exit at } C\text{, } 20 \text{ exit at } D\text{. Flow conservation at each intersection gives} \\
+    \begin{cases}f_1-f_4=100\\f_1-f_2=50\\f_2-f_3=30\\f_3-f_4=20\end{cases} \\
+    \text{Show one of these equations is redundant, then find the general solution.}
+  answer: |
+    \begin{aligned}
+    &\text{Adding all four equations: } (f_1-f_4)+(f_1-f_2)+(f_2-f_3)+(f_3-f_4) = 2f_1-2f_4\text{, and the right side sums to} \\
+    &100+50+30+20=200\text{, giving } f_1-f_4=100\text{ — exactly the first equation. So the four equations are not} \\
+    &\text{independent; only 3 of them carry new information, leaving one free variable among the 4 unknowns.} \\
+    &\text{Let } f_4=t \text{ be free. From the equations in order:} \\
+    f_1 &= 100+t, \qquad f_2 = f_1-50 = 50+t, \qquad f_3 = f_2-30 = 20+t\text{,} \\
+    &\text{and checking the last equation: } f_3-f_4 = (20+t)-t=20\ \checkmark\text{. So} \\
+    (f_1,f_2,f_3,f_4) &= (100,\,50,\,20,\,0) + t(1,1,1,1), \qquad t\in\R\text{,} \\
+    &\text{where } t(1,1,1,1) \text{ is a pure circulating flow around the loop — it adds the same amount to every street} \\
+    &\text{and cancels out of every intersection's conservation equation, so it never affects consistency.}
+    \end{aligned}
