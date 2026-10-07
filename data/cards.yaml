@@ -10947,3 +10947,216 @@
     &\text{(it at least retains the time value of deferring the } K \text{ payment), so selling in the market yields strictly}\\
     &\text{more than 40 in cash, with identical risk (none, since the position is closed either way).}
     \end{aligned}
+- id: economics-finance-stocks-bonds-and-mutual-funds-1-01
+  category: Economics & Finance
+  subtopic: Stocks, Bonds and Mutual Funds
+  level: 1
+  question: |
+    \text{Compare common stock and preferred stock: voting rights, dividend priority, and claim on assets in liquidation.}
+  answer: |
+    \begin{aligned}
+    &\text{Voting rights: common stockholders typically get one vote per share at shareholder meetings;}\\
+    &\text{preferred stockholders typically have no voting rights.}\\
+    &\text{Dividends: preferred dividends are fixed and paid before any common dividend; common dividends}\\
+    &\text{are variable/discretionary and paid only after preferred dividends are met.}\\
+    &\text{Liquidation: if the company is liquidated, preferred stockholders are paid out of remaining assets}\\
+    &\text{before common stockholders, but after all bondholders/creditors.}
+    \end{aligned}
+- id: economics-finance-stocks-bonds-and-mutual-funds-1-02
+  category: Economics & Finance
+  subtopic: Stocks, Bonds and Mutual Funds
+  level: 1
+  question: |
+    \text{Define a bond, and identify its four basic components.}
+  answer: |
+    \text{A bond is a debt security in which the issuer borrows money from the bondholder and promises to repay it on specified terms. Its four basic components are: the face value (par value), the amount repaid at maturity; the coupon rate, the stated annual interest rate paid on the face value; the coupon payments, the periodic interest payments themselves; and the maturity date, when the face value is repaid.}
+- id: economics-finance-stocks-bonds-and-mutual-funds-1-03
+  category: Economics & Finance
+  subtopic: Stocks, Bonds and Mutual Funds
+  level: 1
+  question: |
+    \text{Define a mutual fund, and define its Net Asset Value (NAV) per share.}
+  answer: |
+    \begin{aligned}
+    &\text{A mutual fund is a pooled investment vehicle: investor money is combined and professionally managed}\\
+    &\text{in a portfolio of securities, with each investor owning shares representing a proportional claim on the}\\
+    &\text{pool. Its Net Asset Value (NAV) per share is}\\
+    &NAV = \dfrac{\text{Total Assets} - \text{Total Liabilities}}{\text{Shares Outstanding}}
+    \end{aligned}
+- id: economics-finance-stocks-bonds-and-mutual-funds-1-04
+  category: Economics & Finance
+  subtopic: Stocks, Bonds and Mutual Funds
+  level: 1
+  question: |
+    \text{Define a company's market capitalization, and name the typical large-cap / mid-cap / small-cap size buckets.}
+  answer: |
+    \begin{aligned}
+    &\text{Market capitalization is the total market value of a company's outstanding common stock:}\\
+    &\text{Market Cap} = \text{Share Price} \times \text{Shares Outstanding}.\\
+    &\text{Typical size buckets: large-cap (very roughly \$10B+), mid-cap (\$2B-\$10B), and small-cap}\\
+    &\text{(\$300M-\$2B); companies below this are often called micro-cap.}
+    \end{aligned}
+- id: economics-finance-stocks-bonds-and-mutual-funds-1-05
+  category: Economics & Finance
+  subtopic: Stocks, Bonds and Mutual Funds
+  level: 1
+  question: |
+    \text{Define a market order, a limit order, and the bid-ask spread.}
+  answer: |
+    \begin{aligned}
+    &\text{A market order executes immediately at the best available current price.}\\
+    &\text{A limit order executes only at a specified price or better, and may not execute at all if that}\\
+    &\text{price is never reached.}\\
+    &\text{The bid-ask spread is the difference between the highest price a buyer is currently willing to}\\
+    &\text{pay (the bid) and the lowest price a seller is currently willing to accept (the ask).}
+    \end{aligned}
+- id: economics-finance-stocks-bonds-and-mutual-funds-1-06
+  category: Economics & Finance
+  subtopic: Stocks, Bonds and Mutual Funds
+  level: 1
+  question: |
+    \text{Define a cash dividend, and explain what the "ex-dividend date" means for a buyer of the stock.}
+  answer: |
+    \begin{aligned}
+    &\text{A cash dividend is a cash payment a company makes to its shareholders out of its profits, usually}\\
+    &\text{paid per share held.}\\
+    &\text{The ex-dividend date is the first day a share trades without the right to the upcoming dividend: a}\\
+    &\text{buyer who purchases the stock on or after this date will NOT receive the declared dividend, while a}\\
+    &\text{buyer who owned it before this date will.}
+    \end{aligned}
+- id: economics-finance-stocks-bonds-and-mutual-funds-1-07
+  category: Economics & Finance
+  subtopic: Stocks, Bonds and Mutual Funds
+  level: 1
+  question: |
+    \text{Distinguish an Initial Public Offering (IPO) from secondary market trading.}
+  answer: |
+    \begin{aligned}
+    &\text{In an IPO, a company sells newly issued shares to investors for the first time, raising new capital}\\
+    &\text{directly for the company (the primary market).}\\
+    &\text{Secondary market trading is all subsequent trading of already-issued shares between investors (e.g.}\\
+    &\text{on an exchange); the company itself receives no proceeds from these trades.}
+    \end{aligned}
+- id: economics-finance-stocks-bonds-and-mutual-funds-2-01
+  category: Economics & Finance
+  subtopic: Stocks, Bonds and Mutual Funds
+  level: 2
+  question: |
+    \text{A company executes a 3-for-1 stock split. What happens to the share price, the number of shares outstanding, and the total market capitalization? What about a 1-for-5 reverse split?}
+  answer: |
+    \begin{aligned}
+    &\text{3-for-1 split: shares outstanding} \times 3, \text{ share price} \div 3, \text{ market cap unchanged}\\
+    &\text{(each investor holds 3x as many shares, each worth 1/3 as much).}\\
+    &\text{1-for-5 reverse split: shares outstanding} \div 5, \text{ share price} \times 5, \text{ market cap unchanged.}\\
+    &\text{Neither type of split changes the company's fundamental value or an investor's proportional}\\
+    &\text{ownership stake.}
+    \end{aligned}
+- id: economics-finance-stocks-bonds-and-mutual-funds-2-02
+  category: Economics & Finance
+  subtopic: Stocks, Bonds and Mutual Funds
+  level: 2
+  question: |
+    \text{Explain the difference between an open-end mutual fund and a closed-end fund, including how shares are created/redeemed and how each is priced.}
+  answer: |
+    \begin{aligned}
+    &\text{An open-end fund continuously issues new shares to incoming investors and redeems shares from}\\
+    &\text{exiting investors directly, at NAV; the number of shares outstanding grows and shrinks over time.}\\
+    &\text{A closed-end fund issues a fixed number of shares once (via an IPO) and does not create or redeem}\\
+    &\text{shares afterward; investors instead buy/sell existing shares from each other on an exchange, at a}\\
+    &\text{market price that can trade at a premium or discount to NAV.}
+    \end{aligned}
+- id: economics-finance-stocks-bonds-and-mutual-funds-2-03
+  category: Economics & Finance
+  subtopic: Stocks, Bonds and Mutual Funds
+  level: 2
+  question: |
+    \text{Define a mutual fund's "load," its expense ratio, and a 12b-1 fee.}
+  answer: |
+    \begin{aligned}
+    &\text{A load is a sales charge paid when buying (front-end load) or selling (back-end load) fund shares,}\\
+    &\text{going to the broker/distributor; a no-load fund charges neither.}\\
+    &\text{The expense ratio is the fund's annual operating costs (management fees, admin costs, etc.)}\\
+    &\text{expressed as a percentage of assets under management, deducted continuously from fund assets.}\\
+    &\text{A 12b-1 fee is an annual marketing/distribution fee, included within the expense ratio, charged to}\\
+    &\text{cover the fund's promotional and distribution costs.}
+    \end{aligned}
+- id: economics-finance-stocks-bonds-and-mutual-funds-2-04
+  category: Economics & Finance
+  subtopic: Stocks, Bonds and Mutual Funds
+  level: 2
+  question: |
+    \text{Give three key differences between an ETF (exchange-traded fund) and a traditional open-end mutual fund.}
+  answer: |
+    \begin{aligned}
+    &\text{1. Trading: ETF shares trade continuously on an exchange at intraday market prices; mutual fund}\\
+    &\text{shares are bought/sold only once per day at the end-of-day NAV.}\\
+    &\text{2. Creation/redemption: ETF shares are created/redeemed in bulk by authorized participants via}\\
+    &\text{in-kind swaps of securities, which keeps the market price close to NAV; mutual fund shares are}\\
+    &\text{created/redeemed directly by the fund for cash.}\\
+    &\text{3. Tax efficiency: the in-kind ETF creation/redemption mechanism lets ETFs generally avoid}\\
+    &\text{triggering capital gains distributions to all shareholders, making them more tax-efficient than}\\
+    &\text{most actively-traded mutual funds.}
+    \end{aligned}
+- id: economics-finance-stocks-bonds-and-mutual-funds-2-05
+  category: Economics & Finance
+  subtopic: Stocks, Bonds and Mutual Funds
+  level: 2
+  question: |
+    \text{Classify bonds by issuer (government, municipal, corporate), and explain the difference between secured and unsecured corporate bonds.}
+  answer: |
+    \begin{aligned}
+    &\text{By issuer: government bonds are issued by a national government (e.g. U.S. Treasuries); municipal}\\
+    &\text{bonds are issued by state/local governments (often tax-exempt); corporate bonds are issued by}\\
+    &\text{companies to raise capital.}\\
+    &\text{A secured bond is backed by specific collateral (e.g. property, equipment) that bondholders can}\\
+    &\text{claim if the issuer defaults. An unsecured bond (debenture) is backed only by the issuer's general}\\
+    &\text{creditworthiness, with no specific collateral pledged, and so typically carries higher risk/yield.}
+    \end{aligned}
+- id: economics-finance-stocks-bonds-and-mutual-funds-2-06
+  category: Economics & Finance
+  subtopic: Stocks, Bonds and Mutual Funds
+  level: 2
+  question: |
+    \text{Define a callable bond, a convertible bond, and a zero-coupon bond.}
+  answer: |
+    \begin{aligned}
+    &\text{A callable bond gives the issuer the right to redeem the bond before maturity at a specified call}\\
+    &\text{price, typically used by issuers to refinance if interest rates fall.}\\
+    &\text{A convertible bond gives the bondholder the right to convert the bond into a predetermined number}\\
+    &\text{of shares of the issuer's common stock, combining debt income with equity upside.}\\
+    &\text{A zero-coupon bond pays no periodic coupons; it is sold at a discount to face value and the}\\
+    &\text{investor's entire return comes from the difference between the purchase price and the face value}\\
+    &\text{received at maturity.}
+    \end{aligned}
+- id: economics-finance-stocks-bonds-and-mutual-funds-2-07
+  category: Economics & Finance
+  subtopic: Stocks, Bonds and Mutual Funds
+  level: 2
+  question: |
+    \text{Explain the mechanics of short selling a stock, including the role of margin.}
+  answer: |
+    \begin{aligned}
+    &\text{To short a stock, an investor borrows shares (typically from a broker), sells them immediately at}\\
+    &\text{the current market price, and must later buy identical shares back ("cover") to return them to the}\\
+    &\text{lender.}\\
+    &\text{The investor profits if the price falls (buying back cheaper than the sale price) and loses if the}\\
+    &\text{price rises (losses are theoretically unlimited, since price can rise without bound).}\\
+    &\text{Because of this unlimited-loss risk, short sales require a margin account: the investor must post}\\
+    &\text{collateral and maintain a minimum margin, and can face a margin call (forced to post more collateral}\\
+    &\text{or buy back shares) if the price moves against them.}
+    \end{aligned}
+- id: economics-finance-stocks-bonds-and-mutual-funds-2-08
+  category: Economics & Finance
+  subtopic: Stocks, Bonds and Mutual Funds
+  level: 2
+  question: |
+    \text{Compare a share buyback (repurchase) to a cash dividend as a way for a company to return capital to shareholders, including the effect on shares outstanding and EPS.}
+  answer: |
+    \begin{aligned}
+    &\text{A cash dividend pays cash directly to all shareholders pro rata; shares outstanding and EPS}\\
+    &\text{(Net Income / Shares Outstanding) are unchanged.}\\
+    &\text{A buyback has the company repurchase its own shares on the open market and retire them, reducing}\\
+    &\text{shares outstanding; with net income unchanged, the lower share count raises EPS.}\\
+    &\text{Buybacks also let shareholders choose whether to realize a taxable gain (by selling), whereas a}\\
+    &\text{dividend is taxed on all recipients immediately.}
+    \end{aligned}
