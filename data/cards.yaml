@@ -9680,3 +9680,283 @@
     &\text{where } t(1,1,1,1) \text{ is a pure circulating flow around the loop — it adds the same amount to every street} \\
     &\text{and cancels out of every intersection's conservation equation, so it never affects consistency.}
     \end{aligned}
+- id: mathematics-inequalities-1-01
+  category: Mathematics
+  subtopic: Inequalities
+  level: 1
+  question: |
+    \text{Solve for } x: \quad -3x+7 \ge 1.
+  answer: |
+    \begin{aligned}
+    -3x+7 &\ge 1 \\
+    -3x &\ge -6 \\
+    x &\le 2 \qquad \text{(dividing by } -3 \text{ flips the inequality)}
+    \end{aligned}
+- id: mathematics-inequalities-1-02
+  category: Mathematics
+  subtopic: Inequalities
+  level: 1
+  question: |
+    \text{Solve } x^2-5x+6 < 0.
+  answer: |
+    \begin{aligned}
+    x^2-5x+6 &< 0 \\
+    (x-2)(x-3) &< 0 \\
+    &\text{The roots } x=2,3 \text{ split } \R \text{ into three intervals; the product is negative only between the roots:} \\
+    x &\in (2,3)
+    \end{aligned}
+- id: mathematics-inequalities-1-03
+  category: Mathematics
+  subtopic: Inequalities
+  level: 1
+  question: |
+    \text{Solve } |x-3| \le 5.
+  answer: |
+    \begin{aligned}
+    |x-3| &\le 5 \\
+    -5 &\le x-3 \le 5 \\
+    -2 &\le x \le 8
+    \end{aligned}
+- id: mathematics-inequalities-1-04
+  category: Mathematics
+  subtopic: Inequalities
+  level: 1
+  question: |
+    \text{State the AM-GM inequality for two nonnegative numbers } a,b\text{, and verify it for } a=4,\ b=9.
+  answer: |
+    \begin{aligned}
+    &\text{For } a,b\ge0: \quad \frac{a+b}{2} \ge \sqrt{ab}, \text{ with equality iff } a=b. \\
+    &\text{For } a=4,\ b=9: \quad \frac{4+9}{2} = 6.5, \qquad \sqrt{4\cdot9} = \sqrt{36} = 6. \\
+    &\text{Since } 6.5 \ge 6\text{, the inequality holds.}
+    \end{aligned}
+- id: mathematics-inequalities-1-05
+  category: Mathematics
+  subtopic: Inequalities
+  level: 1
+  question: |
+    \text{State Bernoulli's inequality for } (1+x)^n \text{ with } x\ge-1 \text{ and integer } n\ge0\text{, and verify it for } x=0.1,\ n=3.
+  answer: |
+    \begin{aligned}
+    &\text{For } x\ge-1 \text{ and integer } n\ge0: \quad (1+x)^n \ge 1+nx. \\
+    &\text{For } x=0.1,\ n=3: \quad (1.1)^3 = 1.331, \qquad 1+3(0.1) = 1.3. \\
+    &\text{Since } 1.331 \ge 1.3\text{, the inequality holds.}
+    \end{aligned}
+- id: mathematics-inequalities-2-01
+  category: Mathematics
+  subtopic: Inequalities
+  level: 2
+  question: |
+    \text{Solve } \dfrac{x-1}{x+2} \ge 0.
+  answer: |
+    \begin{aligned}
+    &\text{Critical points: numerator zero at } x=1, \text{ denominator zero (excluded) at } x=-2. \\
+    &\text{Sign chart on } (-\infty,-2),\ (-2,1),\ (1,\infty)\text{:} \\
+    &x=-3:\ \frac{-4}{-1}=4>0, \qquad x=0:\ \frac{-1}{2}=-0.5<0, \qquad x=2:\ \frac{1}{4}=0.25>0 \\
+    &\text{So the expression is } \ge0 \text{ on } (-\infty,-2)\cup[1,\infty)\text{, excluding } x=-2 \text{ where it's undefined.}
+    \end{aligned}
+- id: mathematics-inequalities-2-02
+  category: Mathematics
+  subtopic: Inequalities
+  level: 2
+  question: |
+    \text{For } x>0\text{, use AM-GM to find the minimum value of } x+\dfrac1x \text{ and the } x \text{ at which it's attained.}
+  answer: |
+    \begin{aligned}
+    &\text{By AM-GM on } x \text{ and } \frac1x: \quad \frac{x+\frac1x}{2} \ge \sqrt{x\cdot\frac1x} = 1 \ \Rightarrow\ x+\frac1x \ge 2. \\
+    &\text{Equality holds iff } x=\frac1x\text{, i.e. } x=1 \text{ (since } x>0\text{).} \\
+    &\text{So the minimum value is } 2\text{, attained at } x=1.
+    \end{aligned}
+- id: mathematics-inequalities-2-03
+  category: Mathematics
+  subtopic: Inequalities
+  level: 2
+  question: |
+    \text{For } x,y,z>0 \text{ with } x+y+z=12\text{, use AM-GM to find the maximum possible value of } xyz.
+  answer: |
+    \begin{aligned}
+    &\text{By AM-GM: } \frac{x+y+z}{3} \ge \sqrt[3]{xyz} \ \Rightarrow\ \sqrt[3]{xyz} \le \frac{12}{3}=4 \ \Rightarrow\ xyz\le 4^3=64. \\
+    &\text{Equality holds iff } x=y=z\text{, i.e. } x=y=z=4\text{, giving } xyz=64. \\
+    &\text{So the maximum value of } xyz \text{ is } 64.
+    \end{aligned}
+- id: mathematics-inequalities-2-04
+  category: Mathematics
+  subtopic: Inequalities
+  level: 2
+  question: |
+    \text{State the power-mean inequality chain } QM\ge AM\ge GM\ge HM \text{ for positive numbers, and verify it for } 2,4,8.
+  answer: |
+    \begin{aligned}
+    &\text{For positive } a_1,\dots,a_n: \quad \sqrt{\frac{\sum a_i^2}{n}} \ \ge\ \frac{\sum a_i}{n} \ \ge\ \sqrt[n]{\prod a_i} \ \ge\ \frac{n}{\sum \frac1{a_i}} \\
+    &\text{For } 2,4,8: \quad QM=\sqrt{\frac{4+16+64}{3}}=\sqrt{28}\approx5.292, \qquad AM=\frac{14}{3}\approx4.667\text{,} \\
+    &GM=\sqrt[3]{64}=4, \qquad HM=\frac{3}{\frac12+\frac14+\frac18}=\frac{3}{0.875}\approx3.429 \\
+    &\text{Since } 5.292 \ge 4.667 \ge 4 \ge 3.429\text{, the chain is confirmed.}
+    \end{aligned}
+- id: mathematics-inequalities-2-05
+  category: Mathematics
+  subtopic: Inequalities
+  level: 2
+  question: |
+    \text{For } x,y>0 \text{ with } 2x+y=12\text{, use weighted AM-GM (weights } \tfrac23,\tfrac13\text{) to find the maximum value of } x^2y.
+  answer: |
+    \begin{aligned}
+    &\text{Weighted AM-GM: } \quad \frac23 x + \frac13 y \ \ge\ x^{2/3}y^{1/3}\text{, with equality iff } x=y. \\
+    &\text{The constraint rewrites as } \frac23x+\frac13y = \frac{2x+y}{3} = \frac{12}{3} = 4. \\
+    &\text{So } 4 \ge x^{2/3}y^{1/3} \ \Rightarrow\ 4^3 \ge x^2y \ \Rightarrow\ x^2y \le 64. \\
+    &\text{Equality at } x=y\text{; combined with } 2x+y=12 \text{ gives } x=y=4\text{, so the maximum value of } x^2y \text{ is } 64.
+    \end{aligned}
+- id: mathematics-inequalities-2-06
+  category: Mathematics
+  subtopic: Inequalities
+  level: 2
+  question: |
+    \text{Solve } \sqrt{x+2} < x.
+  answer: |
+    \begin{aligned}
+    &\text{Domain: } x+2\ge0 \Rightarrow x\ge-2. \text{ Since } \sqrt{x+2}\ge0\text{, the inequality } \sqrt{x+2}<x \text{ forces } x>0. \\
+    &\text{For } x>0 \text{ both sides are nonnegative, so squaring preserves the direction:} \\
+    x+2 &< x^2 \ \Rightarrow\ x^2-x-2>0 \ \Rightarrow\ (x-2)(x+1)>0 \ \Rightarrow\ x<-1 \text{ or } x>2. \\
+    &\text{Intersecting with } x>0: \quad x>2.
+    \end{aligned}
+- id: mathematics-inequalities-3-01
+  category: Mathematics
+  subtopic: Inequalities
+  level: 3
+  question: |
+    \text{Prove the general } n\text{-variable AM-GM inequality } \dfrac{a_1+\cdots+a_n}{n} \ge \sqrt[n]{a_1\cdots a_n} \text{ for } a_i>0\text{, using Cauchy's forward-backward induction.}
+  answer: |
+    \begin{aligned}
+    &\textbf{Base case } (n=2)\text{: } (\sqrt{a_1}-\sqrt{a_2})^2\ge0 \ \Rightarrow\ a_1+a_2\ge2\sqrt{a_1a_2} \ \Rightarrow\ \tfrac{a_1+a_2}{2}\ge\sqrt{a_1a_2}. \\
+    &\textbf{Forward step } (n\Rightarrow2n)\text{: assume the } n\text{-term AM-GM holds. Split } 2n \text{ terms into two groups of } n \\
+    &\text{with averages } A,B. \text{ By the } n\text{-term case, } A^n\ge\prod(\text{group 1}) \text{ and } B^n\ge\prod(\text{group 2}); \text{ multiplying,} \\
+    &(AB)^n \ge a_1\cdots a_{2n} \ \Rightarrow\ AB \ge \sqrt[n]{a_1\cdots a_{2n}}. \text{ By the base case, } \tfrac{A+B}{2}\ge\sqrt{AB} \ge \sqrt[2n]{a_1\cdots a_{2n}}\text{,} \\
+    &\text{and } \tfrac{A+B}{2} \text{ is exactly the average of all } 2n \text{ terms. So AM-GM holds for } 2n\text{; iterating, it holds for every } n=2^k. \\
+    &\textbf{Backward step } (n\Rightarrow n-1)\text{: assume the } n\text{-term AM-GM holds. Given } a_1,\dots,a_{n-1}>0\text{, let} \\
+    &A=\tfrac{a_1+\cdots+a_{n-1}}{n-1}\text{, and apply the } n\text{-term case to } a_1,\dots,a_{n-1},A \text{ (whose average is still } A \\
+    &\text{since } A \text{ is already the average of the first } n-1\text{):} \\
+    &A \ge \sqrt[n]{a_1\cdots a_{n-1}\cdot A} \ \Rightarrow\ A^n \ge (a_1\cdots a_{n-1})A \ \Rightarrow\ A^{n-1}\ge a_1\cdots a_{n-1} \ \Rightarrow\ A\ge\sqrt[n-1]{a_1\cdots a_{n-1}}. \\
+    &\textbf{Conclusion: } \text{for any } n\text{, pick a power of two } m\ge n\text{; the forward step gives AM-GM for } m\text{, and the} \\
+    &\text{backward step steps down from } m \text{ to } n \text{ one term at a time, so AM-GM holds for every } n\ge1.
+    \end{aligned}
+- id: mathematics-inequalities-3-02
+  category: Mathematics
+  subtopic: Inequalities
+  level: 3
+  question: |
+    \text{Prove Jensen's inequality for a convex function } f\text{: for weights } \lambda_i\ge0 \text{ with } \sum_{i=1}^n\lambda_i=1 \text{ and points } x_i\text{,} \\
+    f\Big(\sum_{i=1}^n \lambda_i x_i\Big) \le \sum_{i=1}^n \lambda_i f(x_i)\text{. Prove this by induction on } n.
+  answer: |
+    \begin{aligned}
+    &\textbf{Base case } (n=2)\text{: this is exactly the definition of convexity:} \\
+    &f(\lambda_1x_1+\lambda_2x_2) \le \lambda_1f(x_1)+\lambda_2f(x_2) \text{ for } \lambda_1+\lambda_2=1,\ \lambda_i\ge0. \\
+    &\textbf{Inductive step: } \text{assume the claim holds for } n \text{ terms; prove it for } n+1 \text{ terms } \lambda_1,\dots,\lambda_{n+1} \\
+    &\text{(if } \lambda_{n+1}=1 \text{ the claim is trivial, so assume } \lambda_{n+1}<1\text{). Let } S=\sum_{i=1}^n\lambda_i = 1-\lambda_{n+1} \text{ and} \\
+    &\mu_i=\lambda_i/S \text{ for } i=1,\dots,n\text{, so } \sum_{i=1}^n\mu_i=1. \text{ Let } y=\sum_{i=1}^n\mu_ix_i\text{. Then} \\
+    &\sum_{i=1}^{n+1}\lambda_ix_i = S\sum_{i=1}^n\mu_ix_i + \lambda_{n+1}x_{n+1} = Sy+\lambda_{n+1}x_{n+1}\text{, with } S+\lambda_{n+1}=1\text{.} \\
+    &\text{By the base case (convexity, applied to } y,x_{n+1}\text{):} \quad f(Sy+\lambda_{n+1}x_{n+1}) \le Sf(y)+\lambda_{n+1}f(x_{n+1}). \\
+    &\text{By the inductive hypothesis (applied to } \mu_i,x_i\text{):} \quad f(y) \le \sum_{i=1}^n\mu_if(x_i)\text{, so} \\
+    &Sf(y) \le S\sum_{i=1}^n\mu_if(x_i) = \sum_{i=1}^n(S\mu_i)f(x_i) = \sum_{i=1}^n\lambda_if(x_i) \quad (\text{since } S\mu_i=\lambda_i). \\
+    &\text{Combining: } f\Big(\sum_{i=1}^{n+1}\lambda_ix_i\Big) \le \sum_{i=1}^n\lambda_if(x_i)+\lambda_{n+1}f(x_{n+1}) = \sum_{i=1}^{n+1}\lambda_if(x_i)\text{, completing the induction.}
+    \end{aligned}
+- id: mathematics-inequalities-3-03
+  category: Mathematics
+  subtopic: Inequalities
+  level: 3
+  question: |
+    \text{For sorted sequences } a_1\le\cdots\le a_n \text{ and } b_1\le\cdots\le b_n\text{, prove the rearrangement inequality: } \sum_{i=1}^n a_ib_{\sigma(i)} \text{ is maximized} \\
+    \text{over all permutations } \sigma \text{ when } \sigma \text{ is the identity (pairing largest with largest).}
+  answer: |
+    \begin{aligned}
+    &\text{Take any permutation } \sigma \text{ that is not the identity. Then there exist indices } i<j \text{ with } \sigma(i)>\sigma(j) \\
+    &\text{(an "inversion"). Compare the sum before and after swapping the values paired with } i,j\text{:} \\
+    &\big(a_ib_{\sigma(i)}+a_jb_{\sigma(j)}\big) - \big(a_ib_{\sigma(j)}+a_jb_{\sigma(i)}\big) = (a_i-a_j)\big(b_{\sigma(i)}-b_{\sigma(j)}\big). \\
+    &\text{Since } i<j\text{, } a_i\le a_j \text{ so } (a_i-a_j)\le0\text{. Since } \sigma(i)>\sigma(j) \text{ and } b \text{ is sorted ascending, } b_{\sigma(i)}\ge b_{\sigma(j)}\text{,} \\
+    &\text{so } (b_{\sigma(i)}-b_{\sigma(j)})\ge0\text{. The product of a non-positive and a non-negative term is } \le0\text{, so} \\
+    &a_ib_{\sigma(i)}+a_jb_{\sigma(j)} \ \le\ a_ib_{\sigma(j)}+a_jb_{\sigma(i)}\text{: swapping to remove the inversion never decreases the total sum.} \\
+    &\text{Every inversion can be removed this way without decreasing the sum, and repeating eventually reaches the} \\
+    &\text{identity permutation. So the identity (same-order pairing) attains the maximum possible sum.}
+    \end{aligned}
+- id: mathematics-inequalities-3-04
+  category: Mathematics
+  subtopic: Inequalities
+  level: 3
+  question: |
+    \text{Prove Bernoulli's inequality } (1+x)^n \ge 1+nx \text{ for } x\ge-1 \text{ and integer } n\ge0\text{, by induction on } n.
+  answer: |
+    \begin{aligned}
+    &\textbf{Base case } (n=0)\text{: } (1+x)^0 = 1 = 1+0\cdot x\text{, so equality holds.} \\
+    &\textbf{Inductive step: } \text{assume } (1+x)^n \ge 1+nx \text{ for some } n\ge0\text{. Since } x\ge-1\text{, } 1+x\ge0\text{, so multiplying} \\
+    &\text{both sides of the hypothesis by } (1+x) \text{ preserves the inequality direction:} \\
+    (1+x)^{n+1} &\ge (1+nx)(1+x) = 1+x+nx+nx^2 = 1+(n+1)x+nx^2. \\
+    &\text{Since } nx^2\ge0\text{, } 1+(n+1)x+nx^2 \ge 1+(n+1)x\text{, so } (1+x)^{n+1} \ge 1+(n+1)x\text{.} \\
+    &\text{By induction, } (1+x)^n\ge1+nx \text{ holds for all integers } n\ge0.
+    \end{aligned}
+- id: mathematics-inequalities-3-05
+  category: Mathematics
+  subtopic: Inequalities
+  level: 3
+  question: |
+    \text{For sequences similarly sorted } a_1\le\cdots\le a_n \text{ and } b_1\le\cdots\le b_n\text{, prove Chebyshev's sum inequality: } n\sum_{i=1}^n a_ib_i \ge \Big(\sum_{i=1}^n a_i\Big)\Big(\sum_{i=1}^n b_i\Big).
+  answer: |
+    \begin{aligned}
+    &\text{Since both sequences are sorted the same way, } (a_i-a_j) \text{ and } (b_i-b_j) \text{ always have the same sign (or one is} \\
+    &\text{zero), so } (a_i-a_j)(b_i-b_j) \ge 0 \text{ for every pair } i,j. \text{ Summing this over all } i,j\in\{1,\dots,n\}\text{:} \\
+    0 &\le \sum_{i,j}(a_i-a_j)(b_i-b_j) = \sum_{i,j}\big(a_ib_i - a_ib_j - a_jb_i + a_jb_j\big) \\
+    &= n\sum_i a_ib_i - \Big(\sum_i a_i\Big)\Big(\sum_j b_j\Big) - \Big(\sum_j a_j\Big)\Big(\sum_i b_i\Big) + n\sum_j a_jb_j \\
+    &= 2n\sum_i a_ib_i - 2\Big(\sum_i a_i\Big)\Big(\sum_i b_i\Big). \\
+    &\text{Dividing by } 2\text{: } \quad n\sum_{i=1}^n a_ib_i \ge \Big(\sum_{i=1}^n a_i\Big)\Big(\sum_{i=1}^n b_i\Big).
+    \end{aligned}
+- id: mathematics-inequalities-4-01
+  category: Mathematics
+  subtopic: Inequalities
+  level: 4
+  question: |
+    \text{Prove that for } a,b,c>0: \quad (a+b+c)\left(\dfrac1a+\dfrac1b+\dfrac1c\right) \ge 9.
+  answer: |
+    \begin{aligned}
+    &\text{By AM-GM on } a,b,c: \quad a+b+c \ge 3\sqrt[3]{abc}. \\
+    &\text{By AM-GM on } \tfrac1a,\tfrac1b,\tfrac1c: \quad \frac1a+\frac1b+\frac1c \ge 3\sqrt[3]{\frac{1}{abc}}. \\
+    &\text{Multiplying the two (both sides positive):} \\
+    (a+b+c)\left(\frac1a+\frac1b+\frac1c\right) &\ge 9\sqrt[3]{abc}\cdot\sqrt[3]{\frac{1}{abc}} = 9. \\
+    &\text{Equality holds iff } a=b=c.
+    \end{aligned}
+- id: mathematics-inequalities-4-02
+  category: Mathematics
+  subtopic: Inequalities
+  level: 4
+  question: |
+    \text{Given } a+b=1 \text{ with } a,b>0\text{, find } \min\left(\dfrac1a+\dfrac1b\right).
+  answer: |
+    \begin{aligned}
+    \frac1a+\frac1b &= \frac{a+b}{ab} = \frac{1}{ab}. \\
+    &\text{Minimizing } \frac{1}{ab} \text{ means maximizing } ab\text{. By AM-GM, } ab \le \left(\frac{a+b}{2}\right)^2 = \frac14\text{, with equality at } a=b=\tfrac12. \\
+    &\text{So the minimum of } \frac1a+\frac1b \text{ is } \dfrac{1}{1/4} = 4\text{, attained at } a=b=\tfrac12.
+    \end{aligned}
+- id: mathematics-inequalities-4-03
+  category: Mathematics
+  subtopic: Inequalities
+  level: 4
+  question: |
+    \text{Using AM-GM on } 1,2,\dots,n\text{, prove } n! \le \left(\dfrac{n+1}{2}\right)^n.
+  answer: |
+    \begin{aligned}
+    &\text{By AM-GM on the } n \text{ numbers } 1,2,\dots,n\text{:} \quad \frac{1+2+\cdots+n}{n} \ge \sqrt[n]{1\cdot2\cdots n} = \sqrt[n]{n!}. \\
+    &\text{The sum } 1+2+\cdots+n = \dfrac{n(n+1)}{2}\text{, so the average is } \dfrac{n+1}{2}\text{. Thus} \\
+    \frac{n+1}{2} &\ge \sqrt[n]{n!} \quad \Rightarrow \quad \left(\frac{n+1}{2}\right)^n \ge n!.
+    \end{aligned}
+- id: mathematics-inequalities-4-04
+  category: Mathematics
+  subtopic: Inequalities
+  level: 4
+  question: |
+    \text{A desk manager has } 3 \text{ traders with skill scores } 2,5,9 \text{ and } 3 \text{ desks with difficulty scores } 1,3,8. \text{ Output from assigning a trader of skill } s \text{ to a} \\
+    \text{desk of difficulty } d \text{ is } s\cdot d. \text{ Using the rearrangement inequality, which pairing maximizes total output, and what is the maximum?}
+  answer: |
+    \begin{aligned}
+    &\text{The rearrangement inequality says } \sum_i a_ib_{\sigma(i)} \text{ is maximized when both sequences are paired in the same sorted} \\
+    &\text{order (largest with largest), and minimized when paired in opposite order.} \\
+    &\text{Sort both ascending: skills } 2<5<9\text{, difficulties } 1<3<8\text{. Pairing same-order: } (2,1),(5,3),(9,8)\text{:} \\
+    &\text{Total} = 2\cdot1+5\cdot3+9\cdot8 = 2+15+72 = 89. \\
+    &\text{Any other pairing gives a smaller total, e.g. reversing: } (2,8),(5,3),(9,1): 16+15+9=40\text{, or} \\
+    &(2,3),(5,1),(9,8): 6+5+72=83 \text{ — both } <89. \\
+    &\text{So matching the most-skilled trader to the hardest desk (and so on) maximizes total output, at } 89.
+    \end{aligned}
