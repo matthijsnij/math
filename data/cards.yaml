@@ -10515,3 +10515,435 @@
     &\text{Past that threshold, there is enough extra capacity that many different parameter settings interpolate the training data exactly. The fitting procedure's implicit regularization (e.g. what gradient descent tends to converge to) favors the smoothest/lowest-complexity interpolating solution among them, which lowers variance again even as the raw parameter count keeps growing — so test error can fall a second time.} \\
     &\text{The lesson: raw parameter count ("model complexity") and the effective complexity the fitting procedure actually selects are not the same thing, which the classical bias-variance story implicitly conflates.}
     \end{aligned}
+- id: economics-finance-derivatives-basics-1-01
+  category: Economics & Finance
+  subtopic: Derivatives Basics
+  level: 1
+  question: |
+    \text{Define a financial derivative.}
+  answer: |
+    \text{A financial derivative is a contract whose value is derived from (depends on) the price of an underlying asset, rate, or index (e.g. a stock, bond, commodity, interest rate, or exchange rate), rather than having independent value of its own.}
+- id: economics-finance-derivatives-basics-1-02
+  category: Economics & Finance
+  subtopic: Derivatives Basics
+  level: 1
+  question: |
+    \text{Define a forward contract.}
+  answer: |
+    \text{A forward contract is a private (OTC) agreement between two parties to buy/sell a specified asset at a fixed price } K \text{ (the forward price) on a specified future date } T. \text{ No money changes hands until } T.
+- id: economics-finance-derivatives-basics-1-03
+  category: Economics & Finance
+  subtopic: Derivatives Basics
+  level: 1
+  question: |
+    \text{Define a futures contract.}
+  answer: |
+    \text{A futures contract is a standardized, exchange-traded agreement to buy/sell a specified asset at a fixed price on a specified future date. Unlike a forward, it is marked to market daily: gains/losses are settled each day through a margin account held with a clearinghouse, which guarantees performance and eliminates counterparty risk.}
+- id: economics-finance-derivatives-basics-1-04
+  category: Economics & Finance
+  subtopic: Derivatives Basics
+  level: 1
+  question: |
+    \text{State three key differences between a forward contract and a futures contract.}
+  answer: |
+    \begin{aligned}
+    &\text{1. Trading venue: forwards are OTC (private, customized terms); futures are exchange-traded (standardized terms).}\\
+    &\text{2. Settlement: forwards settle once, at maturity; futures are marked to market and settled daily via a margin account.}\\
+    &\text{3. Counterparty risk: forwards carry direct counterparty risk; futures have this risk absorbed by a central clearinghouse.}
+    \end{aligned}
+- id: economics-finance-derivatives-basics-1-05
+  category: Economics & Finance
+  subtopic: Derivatives Basics
+  level: 1
+  question: |
+    \text{Define a call option.}
+  answer: |
+    \text{A call option gives its holder the right, but not the obligation, to buy the underlying asset at a fixed strike price } K \text{ on or before expiration, in exchange for paying a premium upfront. The writer (seller) of the call is obligated to sell if the holder exercises.}
+- id: economics-finance-derivatives-basics-1-06
+  category: Economics & Finance
+  subtopic: Derivatives Basics
+  level: 1
+  question: |
+    \text{Define a put option.}
+  answer: |
+    \text{A put option gives its holder the right, but not the obligation, to sell the underlying asset at a fixed strike price } K \text{ on or before expiration, in exchange for paying a premium upfront. The writer (seller) of the put is obligated to buy if the holder exercises.}
+- id: economics-finance-derivatives-basics-1-07
+  category: Economics & Finance
+  subtopic: Derivatives Basics
+  level: 1
+  question: |
+    \text{What is the "premium" of an option?}
+  answer: |
+    \text{The premium is the price the buyer pays the writer upfront for the option contract. It is non-refundable regardless of whether the option is exercised; it is the writer's maximum possible profit and the long holder's maximum possible loss.}
+- id: economics-finance-derivatives-basics-1-08
+  category: Economics & Finance
+  subtopic: Derivatives Basics
+  level: 1
+  question: |
+    \text{What is the "strike price" (or exercise price) of an option?}
+  answer: |
+    \text{The strike price } K \text{ is the fixed price at which the option holder may buy (call) or sell (put) the underlying asset if they choose to exercise the option.}
+- id: economics-finance-derivatives-basics-1-09
+  category: Economics & Finance
+  subtopic: Derivatives Basics
+  level: 1
+  question: |
+    \text{What is the "expiration date" (maturity) of an option?}
+  answer: |
+    \text{The expiration date } T \text{ is the last date on which the option can be exercised. After this date the option ceases to exist and expires worthless if not exercised.}
+- id: economics-finance-derivatives-basics-1-10
+  category: Economics & Finance
+  subtopic: Derivatives Basics
+  level: 1
+  question: |
+    \text{What is the difference between an American option and a European option?}
+  answer: |
+    \text{A European option can only be exercised on its expiration date. An American option can be exercised at any time up to and including the expiration date. (The names refer to exercise style, not geography.)}
+- id: economics-finance-derivatives-basics-1-11
+  category: Economics & Finance
+  subtopic: Derivatives Basics
+  level: 1
+  question: |
+    \text{In the context of derivatives, what does it mean to hold a "long" position versus a "short" position?}
+  answer: |
+    \text{A long position is the side that owns/benefits from an increase in the value of the underlying (e.g. the buyer of a forward, call, or futures contract). A short position is the side that benefits from a decrease in the underlying's value (e.g. the seller/writer of that same contract).}
+- id: economics-finance-derivatives-basics-1-12
+  category: Economics & Finance
+  subtopic: Derivatives Basics
+  level: 1
+  question: |
+    \text{What is the "notional amount" (or notional principal) of a derivative contract?}
+  answer: |
+    \text{The notional amount is the nominal quantity of the underlying (e.g. number of shares, face value of bonds, or principal of a swap) used to compute payments or payoffs under the contract. For a swap, the notional itself is typically never exchanged; it is only used to calculate the cash flows.}
+- id: economics-finance-derivatives-basics-1-13
+  category: Economics & Finance
+  subtopic: Derivatives Basics
+  level: 1
+  question: |
+    \text{Define a plain-vanilla interest rate swap.}
+  answer: |
+    \text{A plain-vanilla interest rate swap is an OTC agreement between two parties to exchange, over a set of future dates, a stream of fixed-rate interest payments for a stream of floating-rate interest payments, both computed on the same notional principal (which is never itself exchanged).}
+- id: economics-finance-derivatives-basics-1-14
+  category: Economics & Finance
+  subtopic: Derivatives Basics
+  level: 1
+  question: |
+    \text{Define "in-the-money" (ITM), "at-the-money" (ATM), and "out-of-the-money" (OTM) for a call option with strike } K \text{ and spot price } S, \text{ and state how the definitions change for a put.}
+  answer: |
+    \begin{aligned}
+    &\text{Call: ITM if } S>K,\ \text{ATM if } S=K,\ \text{OTM if } S<K.\\
+    &\text{Put: ITM if } S<K,\ \text{ATM if } S=K,\ \text{OTM if } S>K.\\
+    &\text{(Moneyness compares spot to strike; it says nothing about the premium paid.)}
+    \end{aligned}
+- id: economics-finance-derivatives-basics-1-15
+  category: Economics & Finance
+  subtopic: Derivatives Basics
+  level: 1
+  question: |
+    \text{Define the intrinsic value of a call option and of a put option.}
+  answer: |
+    \begin{aligned}
+    &\text{Call intrinsic value} = \max(S-K,\,0)\\
+    &\text{Put intrinsic value} = \max(K-S,\,0)\\
+    &\text{This is the payoff from exercising immediately; it is never negative.}
+    \end{aligned}
+- id: economics-finance-derivatives-basics-1-16
+  category: Economics & Finance
+  subtopic: Derivatives Basics
+  level: 1
+  question: |
+    \text{Define the time value (extrinsic value) of an option.}
+  answer: |
+    \text{Time value is the portion of an option's premium beyond its intrinsic value: } \text{Time value} = \text{Premium} - \text{Intrinsic value}. \text{ It reflects the possibility that the option becomes more valuable before expiration, and decays to zero as expiration approaches.}
+- id: economics-finance-derivatives-basics-1-17
+  category: Economics & Finance
+  subtopic: Derivatives Basics
+  level: 1
+  question: |
+    \text{What is the difference between cash settlement and physical settlement for a derivative contract?}
+  answer: |
+    \text{Physical settlement requires actual delivery of the underlying asset in exchange for the agreed price. Cash settlement instead pays the net cash value of the contract's payoff (the difference between the contract price and the underlying's market price) with no delivery of the underlying itself.}
+- id: economics-finance-derivatives-basics-2-01
+  category: Economics & Finance
+  subtopic: Derivatives Basics
+  level: 2
+  question: |
+    \text{A trader buys a call option with strike } K=50 \text{ for a premium of } 4. \text{ At expiration the stock price is } S_T=61. \text{ Find the payoff and the profit.}
+  answer: |
+    \begin{aligned}
+    \text{Payoff} &= \max(S_T-K,0) = \max(61-50,0) = 11\\
+    \text{Profit} &= \text{Payoff} - \text{Premium} = 11 - 4 = 7
+    \end{aligned}
+- id: economics-finance-derivatives-basics-2-02
+  category: Economics & Finance
+  subtopic: Derivatives Basics
+  level: 2
+  question: |
+    \text{A trader buys a put option with strike } K=50 \text{ for a premium of } 3. \text{ At expiration the stock price is } S_T=42. \text{ Find the payoff and the profit.}
+  answer: |
+    \begin{aligned}
+    \text{Payoff} &= \max(K-S_T,0) = \max(50-42,0) = 8\\
+    \text{Profit} &= \text{Payoff} - \text{Premium} = 8 - 3 = 5
+    \end{aligned}
+- id: economics-finance-derivatives-basics-2-03
+  category: Economics & Finance
+  subtopic: Derivatives Basics
+  level: 2
+  question: |
+    \text{A trader writes (sells) a call option with strike } K=50 \text{ and receives a premium of } 4. \text{ At expiration the stock price is } S_T=61. \text{ Find the writer's payoff and profit.}
+  answer: |
+    \begin{aligned}
+    \text{Writer's payoff} &= -\max(S_T-K,0) = -\max(61-50,0) = -11\\
+    \text{Writer's profit} &= \text{Premium received} + \text{Payoff} = 4 + (-11) = -7
+    \end{aligned}
+    \text{(The writer's profit is the mirror image of the long holder's: a loss of 7 here, matching the buyer's gain of 7 in the long-call example.)}
+- id: economics-finance-derivatives-basics-2-04
+  category: Economics & Finance
+  subtopic: Derivatives Basics
+  level: 2
+  question: |
+    \text{A trader writes (sells) a put option with strike } K=50 \text{ and receives a premium of } 3. \text{ At expiration the stock price is } S_T=42. \text{ Find the writer's payoff and profit.}
+  answer: |
+    \begin{aligned}
+    \text{Writer's payoff} &= -\max(K-S_T,0) = -\max(50-42,0) = -8\\
+    \text{Writer's profit} &= \text{Premium received} + \text{Payoff} = 3 + (-8) = -5
+    \end{aligned}
+- id: economics-finance-derivatives-basics-2-05
+  category: Economics & Finance
+  subtopic: Derivatives Basics
+  level: 2
+  question: |
+    \text{A trader enters a long forward contract to buy a stock at forward price } F=100. \text{ At maturity, the spot price is } S_T=107. \text{ Find the trader's profit. (A forward has no upfront premium.)}
+  answer: |
+    \text{Profit} = S_T - F = 107 - 100 = 7. \text{ (Unlike an option, a forward has no premium and no floor — a long forward can also lose money if } S_T<F.)
+- id: economics-finance-derivatives-basics-2-06
+  category: Economics & Finance
+  subtopic: Derivatives Basics
+  level: 2
+  question: |
+    \text{A call with strike } K=50 \text{ costs a premium of } 4, \text{ and a put with the same strike costs a premium of } 3. \text{ Find the breakeven stock price at expiration for each position.}
+  answer: |
+    \begin{aligned}
+    \text{Call breakeven: } S_T = K + \text{premium} &= 50+4 = 54\\
+    \text{Put breakeven: } S_T = K - \text{premium} &= 50-3 = 47
+    \end{aligned}
+    \text{(Beyond these prices the position is profitable; a long call needs the stock to rise enough to cover the premium, a long put needs it to fall enough.)}
+- id: economics-finance-derivatives-basics-2-07
+  category: Economics & Finance
+  subtopic: Derivatives Basics
+  level: 2
+  question: |
+    \text{Using put-call parity } C + Ke^{-rT} = P + S_0, \text{ a stock trades at } S_0=100, \text{ the risk-free rate is } r=5\% \text{ (continuously compounded)}, T=1 \text{ year, } K=100, \text{ and the call premium is } C=8. \text{ Find the put premium } P.
+  answer: |
+    \begin{aligned}
+    P &= C + Ke^{-rT} - S_0\\
+    &= 8 + 100e^{-0.05} - 100\\
+    &= 8 + 95.12 - 100\\
+    &= 3.12
+    \end{aligned}
+- id: economics-finance-derivatives-basics-2-08
+  category: Economics & Finance
+  subtopic: Derivatives Basics
+  level: 2
+  question: |
+    \text{A non-dividend-paying stock trades at } S_0=100. \text{ The continuously compounded risk-free rate is } r=4\%. \text{ Find the 1-year forward price } F.
+  answer: |
+    F = S_0 e^{rT} = 100e^{0.04\times 1} = 100 \times 1.0408 = 104.08
+- id: economics-finance-derivatives-basics-2-09
+  category: Economics & Finance
+  subtopic: Derivatives Basics
+  level: 2
+  question: |
+    \text{A stock trades at } S_0=100 \text{ and pays a continuous dividend yield } q=2\%. \text{ The risk-free rate is } r=5\%. \text{ Find the 1-year forward price } F.
+  answer: |
+    F = S_0 e^{(r-q)T} = 100e^{(0.05-0.02)\times 1} = 100e^{0.03} = 103.05
+- id: economics-finance-derivatives-basics-2-10
+  category: Economics & Finance
+  subtopic: Derivatives Basics
+  level: 2
+  question: |
+    \text{A trader opens a long futures position on 100 units with an initial margin of } \$2{,}000 \text{ and a maintenance margin of } \$1{,}500. \text{ The futures price falls by } \$6 \text{ per unit the next day. By how much does the margin account fall, and is a margin call triggered?}
+  answer: |
+    \begin{aligned}
+    \text{Loss} &= 100 \times \$6 = \$600\\
+    \text{New balance} &= \$2{,}000 - \$600 = \$1{,}400\\
+    \$1{,}400 &< \$1{,}500 \ (\text{maintenance margin})
+    \end{aligned}
+    \text{A margin call is triggered: the trader must deposit funds to bring the account back up to the initial margin level of } \$2{,}000.
+- id: economics-finance-derivatives-basics-2-11
+  category: Economics & Finance
+  subtopic: Derivatives Basics
+  level: 2
+  question: |
+    \text{Two parties enter a 1-year interest rate swap on a notional of } \$1{,}000{,}000\text{: Party A pays a fixed rate of } 4\% \text{ and receives floating; Party B pays floating and receives fixed. At the payment date, the floating rate for the period is } 5.5\%. \text{ Find the net cash flow and state who pays whom.}
+  answer: |
+    \begin{aligned}
+    \text{Fixed leg (A pays)} &= 1{,}000{,}000 \times 4\% = \$40{,}000\\
+    \text{Floating leg (B pays)} &= 1{,}000{,}000 \times 5.5\% = \$55{,}000\\
+    \text{Net} &= \$55{,}000 - \$40{,}000 = \$15{,}000
+    \end{aligned}
+    \text{Only the net amount is exchanged: Party B pays Party A } \$15{,}000.
+- id: economics-finance-derivatives-basics-3-01
+  category: Economics & Finance
+  subtopic: Derivatives Basics
+  level: 3
+  question: |
+    \text{Derive the put-call parity relationship } C + Ke^{-rT} = P + S_0 \text{ for European options on a non-dividend-paying stock, via a no-arbitrage replication argument.}
+  answer: |
+    \begin{aligned}
+    &\text{Consider two portfolios, both built today:}\\
+    &\text{Portfolio A: one long call (strike } K\text{, maturity } T\text{) + cash of } Ke^{-rT} \text{ invested at the risk-free rate.}\\
+    &\text{Portfolio B: one long put (strike } K\text{, maturity } T\text{) + one share of the stock.}\\[4pt]
+    &\text{At maturity, Portfolio A is worth: } \max(S_T-K,0) + K = \max(S_T,K).\\
+    &\text{At maturity, Portfolio B is worth: } \max(K-S_T,0) + S_T = \max(S_T,K).\\[4pt]
+    &\text{Both portfolios have identical payoffs in every state of the world at } T, \text{ so by no-arbitrage they must have}\\
+    &\text{the same value today:}\\
+    &C + Ke^{-rT} = P + S_0.
+    \end{aligned}
+- id: economics-finance-derivatives-basics-3-02
+  category: Economics & Finance
+  subtopic: Derivatives Basics
+  level: 3
+  question: |
+    \text{Extend the put-call parity derivation to a stock paying a continuous dividend yield } q, \text{ giving the relationship } C + Ke^{-rT} = P + S_0e^{-qT}.
+  answer: |
+    \begin{aligned}
+    &\text{With a continuous dividend yield } q, \text{ dividends are continuously reinvested into the stock, so holding}\\
+    &e^{-qT} \text{ shares today grows (via reinvested dividends) into exactly 1 share at time } T.\\[4pt]
+    &\text{Replace Portfolio B's "one share today" with "} e^{-qT} \text{ shares today":}\\
+    &\text{Portfolio B: one long put + } e^{-qT} \text{ shares, costing } P + S_0e^{-qT} \text{ today.}\\[4pt]
+    &\text{At maturity, the } e^{-qT} \text{ shares (with reinvested dividends) have grown into exactly 1 share worth } S_T,\\
+    &\text{so Portfolio B's payoff is still } \max(K-S_T,0)+S_T=\max(S_T,K), \text{ identical to Portfolio A's.}\\[4pt]
+    &\text{Equal payoffs} \Rightarrow \text{equal values today: } C + Ke^{-rT} = P + S_0e^{-qT}.
+    \end{aligned}
+- id: economics-finance-derivatives-basics-3-03
+  category: Economics & Finance
+  subtopic: Derivatives Basics
+  level: 3
+  question: |
+    \text{For a European call on a non-dividend-paying stock, prove the no-arbitrage bounds } 0 \le C \le S_0 \text{ and } C \ge \max(S_0 - Ke^{-rT},\,0).
+  answer: |
+    \begin{aligned}
+    &\textbf{Lower bound } C\ge 0: \text{ the holder can always let the option expire worthless, so its payoff is never}\\
+    &\text{negative; a contract with a never-negative payoff cannot have negative value.}\\[4pt]
+    &\textbf{Upper bound } C\le S_0: \text{ if } C>S_0, \text{ sell the call and buy the stock for } S_0, \text{ pocketing } C-S_0>0 \text{ today.}\\
+    &\text{At maturity, deliver the stock if exercised (payoff 0) or keep it (payoff } \ge 0\text{); either way this is a riskless}\\
+    &\text{profit, contradicting no-arbitrage. So } C\le S_0.\\[4pt]
+    &\textbf{Lower bound } C\ge S_0-Ke^{-rT}: \text{ suppose instead } C<S_0-Ke^{-rT}. \text{ Buy the call, short the stock, and}\\
+    &\text{invest } Ke^{-rT} \text{ at the risk-free rate; net cost today is } C - S_0 + Ke^{-rT} < 0, \text{ i.e. a riskless cash inflow}\\
+    &\text{today. At } T, \text{ the invested cash grows to } K. \text{ If } S_T>K, \text{ exercise the call for } K, \text{ closing the short; if}\\
+    &S_T\le K, \text{ buy the stock in the market for } S_T\le K \text{ to close the short, keeping } K-S_T\ge 0. \text{ Either way the}\\
+    &\text{position is closed with no further cost, so this is riskless profit — a contradiction. Combined with } C\ge 0,\\
+    &C \ge \max(S_0-Ke^{-rT},0).
+    \end{aligned}
+- id: economics-finance-derivatives-basics-3-04
+  category: Economics & Finance
+  subtopic: Derivatives Basics
+  level: 3
+  question: |
+    \text{Prove that it is never optimal to exercise an American call option early on a non-dividend-paying stock.}
+  answer: |
+    \begin{aligned}
+    &\text{From the bound above, at any time } t<T \text{ the call's market value satisfies } C_t \ge S_t - Ke^{-r(T-t)} > S_t - K.\\[4pt]
+    &\text{Exercising early at time } t \text{ yields only the intrinsic value } S_t - K.\\
+    &\text{Since } C_t > S_t-K, \text{ selling the option in the market always yields strictly more than exercising it.}\\[4pt]
+    &\text{Therefore a rational holder is always better off selling the option (or simply holding it) than exercising}\\
+    &\text{early, so early exercise is never optimal. (This relies on } K>0 \text{ so } Ke^{-r(T-t)}<K, \text{ i.e. it fails if there}\\
+    &\text{are dividends, since then holding the stock itself has an extra benefit the option-holder forgoes.)}
+    \end{aligned}
+- id: economics-finance-derivatives-basics-3-05
+  category: Economics & Finance
+  subtopic: Derivatives Basics
+  level: 3
+  question: |
+    \text{Derive the forward price } F_0 = S_0e^{rT} \text{ for a non-dividend-paying asset via cash-and-carry / reverse cash-and-carry no-arbitrage arguments.}
+  answer: |
+    \begin{aligned}
+    &\textbf{If } F_0 > S_0e^{rT} \text{ (cash-and-carry): borrow } S_0 \text{ at rate } r, \text{ buy the asset, and simultaneously sell it}\\
+    &\text{forward at } F_0. \text{ At } T, \text{ deliver the asset for } F_0 \text{ and repay the loan } S_0e^{rT}. \text{ Riskless profit } = F_0-S_0e^{rT}>0,\\
+    &\text{a contradiction, so } F_0\le S_0e^{rT}.\\[4pt]
+    &\textbf{If } F_0 < S_0e^{rT} \text{ (reverse cash-and-carry): short-sell the asset for } S_0, \text{ invest the proceeds at rate } r,\\
+    &\text{and simultaneously buy it forward at } F_0. \text{ At } T, \text{ the investment has grown to } S_0e^{rT}; \text{ use } F_0 \text{ of it to}\\
+    &\text{buy the asset forward and close the short, keeping } S_0e^{rT}-F_0>0 \text{ riskless profit, a contradiction. So}\\
+    &F_0\ge S_0e^{rT}.\\[4pt]
+    &\text{Both inequalities together force } F_0 = S_0e^{rT}.
+    \end{aligned}
+- id: economics-finance-derivatives-basics-3-06
+  category: Economics & Finance
+  subtopic: Derivatives Basics
+  level: 3
+  question: |
+    \text{Explain why, unlike an American call, an American put on a non-dividend-paying stock can be optimal to exercise early.}
+  answer: |
+    \begin{aligned}
+    &\text{The deep-ITM bound for a put is } P_t \ge Ke^{-r(T-t)} - S_t, \text{ not } P_t\ge K-S_t. \text{ Since } Ke^{-r(T-t)}<K, \text{ this}\\
+    &\text{bound is } \textit{weaker} \text{ than the intrinsic value } K-S_t \text{ when the put is deep in-the-money (} S_t \text{ close to } 0\text{):}\\[4pt]
+    &K - S_t \text{ (intrinsic value) can exceed } Ke^{-r(T-t)} - S_t \text{ (the no-early-exercise-implied value), because the}\\
+    &\text{put's maximum possible payoff is capped at } K \text{ (when } S_t=0\text{), so there is no analogous "sell instead"}\\
+    &\text{argument protecting against early exercise.}\\[4pt]
+    &\text{Intuition: exercising a deep-ITM put now locks in } K \text{ and lets that cash earn interest } r \text{ immediately,}\\
+    &\text{rather than waiting until } T \text{ to receive at most } K \text{ with no interest in between. This time-value-of-money}\\
+    &\text{gain can outweigh the remaining time value of the put, making early exercise optimal — unlike the call,}\\
+    &\text{where no such benefit exists.}
+    \end{aligned}
+- id: economics-finance-derivatives-basics-4-01
+  category: Economics & Finance
+  subtopic: Derivatives Basics
+  level: 4
+  question: |
+    \text{A non-dividend stock trades at } S_0=50. \text{ A European call and put, both with strike } K=50 \text{ and maturity } T=1 \text{ year, trade at } C=7 \text{ and } P=4. \text{ The risk-free rate is } r=5\% \text{ (continuously compounded). Does an arbitrage opportunity exist, and if so, what trade captures it and for how much riskless profit?}
+  answer: |
+    \begin{aligned}
+    &\text{Parity requires } C + Ke^{-rT} = P + S_0:\\
+    &\text{LHS} = 7 + 50e^{-0.05} = 7+47.56 = 54.56\\
+    &\text{RHS} = 4 + 50 = 54\\
+    &\text{LHS} > \text{RHS}: \text{ the call side is overpriced relative to the put side.}\\[4pt]
+    &\text{Trade: sell the call, buy the put, buy the stock, and borrow } Ke^{-rT}=47.56 \text{ (sell the overpriced side,}\\
+    &\text{buy the replicating portfolio for the underpriced side).}\\
+    &\text{Cash today} = C - P - S_0 + Ke^{-rT} = 7-4-50+47.56 = 0.56 \text{ received today.}\\[4pt]
+    &\text{At } T, \text{ the long put + stock and short call + loan repayment exactly offset in every state (same}\\
+    &\text{argument as the parity proof), for zero net cash flow at } T.\\
+    &\text{Riskless profit} = \$0.56 \text{ per unit, captured entirely today.}
+    \end{aligned}
+- id: economics-finance-derivatives-basics-4-02
+  category: Economics & Finance
+  subtopic: Derivatives Basics
+  level: 4
+  question: |
+    \text{An American call on a non-dividend-paying stock has strike } K=50 \text{ and the stock trades at } S_0=80, \text{ so its intrinsic value is } 30. \text{ The call itself trades at } C=25. \text{ Construct an arbitrage trade and compute the riskless profit.}
+  answer: |
+    \begin{aligned}
+    &\text{The call trades below its intrinsic value } (C=25 < S_0-K=30), \text{ which violates } C\ge\max(S_0-K,0).\\[4pt]
+    &\text{Trade: buy the call for } 25, \text{ immediately exercise it by paying } K=50 \text{ to receive the stock, then sell}\\
+    &\text{the stock in the market for } S_0=80.\\[4pt]
+    &\text{Total cost} = 25+50 = 75, \quad \text{Proceeds} = 80\\
+    &\text{Riskless profit} = 80-75 = \$5 \text{ per unit, captured instantly with no exposure to future prices.}
+    \end{aligned}
+- id: economics-finance-derivatives-basics-4-03
+  category: Economics & Finance
+  subtopic: Derivatives Basics
+  level: 4
+  question: |
+    \text{A stock trades at } \$100. \text{ You believe it will rise to } \$115 \text{ at expiration. Compare the percentage return of (a) buying the stock outright, versus (b) buying a call with strike } K=110 \text{ for a premium of } \$3. \text{ Which offers the better return, and why?}
+  answer: |
+    \begin{aligned}
+    \text{(a) Stock: profit} &= 115-100=15, \quad \text{return} = \frac{15}{100}=15\%\\
+    \text{(b) Call: profit} &= \max(115-110,0)-3 = 5-3=2, \quad \text{return} = \frac{2}{3}\approx 66.7\%\\[4pt]
+    &\text{The call offers the far better percentage return (66.7\% vs 15\%), because the premium is a much smaller}\\
+    &\text{outlay than the full stock price — the option's embedded leverage amplifies the percentage gain even}\\
+    &\text{though its dollar profit (2) is smaller than the stock's (15).}
+    \end{aligned}
+- id: economics-finance-derivatives-basics-4-04
+  category: Economics & Finance
+  subtopic: Derivatives Basics
+  level: 4
+  question: |
+    \text{A trader holds an American call option on a non-dividend-paying stock, strike } K=50, \text{ with the stock currently at } S=90 \text{ and 2 weeks left to expiration. The option is deep in-the-money and the trader needs cash now. Should they exercise the option early or sell it in the market? Justify your answer in one line.}
+  answer: |
+    \begin{aligned}
+    &\text{Sell it — never exercise early.}\\
+    &\text{Intrinsic value if exercised} = S-K = 90-50 = 40.\\
+    &\text{Since the stock pays no dividend, the option's market value is always strictly above its intrinsic value}\\
+    &\text{(it at least retains the time value of deferring the } K \text{ payment), so selling in the market yields strictly}\\
+    &\text{more than 40 in cash, with identical risk (none, since the position is closed either way).}
+    \end{aligned}
