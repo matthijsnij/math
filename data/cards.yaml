@@ -6562,3 +6562,243 @@
     &\Var\!\left[\int_0^T W_t\,dW_t\right] = \E\!\left[\left(\int_0^T W_t\,dW_t\right)^2\right] = \E\!\left[\int_0^T W_t^2\,dt\right] \\
     &= \int_0^T \E[W_t^2]\,dt = \int_0^T t\,dt = \dfrac{T^2}2.
     \end{aligned}
+- id: mathematics-limits-1-01
+  category: Mathematics
+  subtopic: Limits
+  level: 1
+  question: |
+    \text{What does the notation } \lim_{x\to a} f(x) = L \text{ mean, informally?}
+  answer: |
+    \text{As } x \text{ gets arbitrarily close to } a \text{ (but not necessarily equal to } a\text{), the values } f(x) \text{ get arbitrarily close to } L.
+- id: mathematics-limits-1-02
+  category: Mathematics
+  subtopic: Limits
+  level: 1
+  question: |
+    \text{Evaluate: } \lim_{x\to 2}\left(3x^{2}-4x+1\right)
+  answer: |
+    \text{Since } 3x^2-4x+1 \text{ is a polynomial (continuous everywhere), substitute } x=2 \text{ directly:} \\
+    3(2)^2-4(2)+1 = 12-8+1 = 5
+- id: mathematics-limits-1-03
+  category: Mathematics
+  subtopic: Limits
+  level: 1
+  question: |
+    \text{Let } f(x) = \begin{cases} x+1 & x<1 \\ 3-x & x\ge 1 \end{cases}. \text{ Find } \lim_{x\to1^-}f(x), \ \lim_{x\to1^+}f(x), \text{ and state whether } \lim_{x\to1}f(x) \text{ exists.}
+  answer: |
+    \begin{aligned}
+    &\lim_{x\to1^-}f(x) = \lim_{x\to1^-}(x+1) = 2 \\
+    &\lim_{x\to1^+}f(x) = \lim_{x\to1^+}(3-x) = 2 \\
+    &\text{Since both one-sided limits equal } 2\text{, } \lim_{x\to1}f(x) = 2 \text{ exists.}
+    \end{aligned}
+- id: mathematics-limits-1-04
+  category: Mathematics
+  subtopic: Limits
+  level: 1
+  question: |
+    \text{Let } f(x) = \begin{cases} x & x<0 \\ x+1 & x\ge 0 \end{cases}. \text{ Does } \lim_{x\to0}f(x) \text{ exist?}
+  answer: |
+    \begin{aligned}
+    &\lim_{x\to0^-}f(x) = \lim_{x\to0^-} x = 0 \\
+    &\lim_{x\to0^+}f(x) = \lim_{x\to0^+} (x+1) = 1 \\
+    &\text{The one-sided limits disagree } (0\neq1)\text{, so } \lim_{x\to0}f(x) \text{ does not exist.}
+    \end{aligned}
+- id: mathematics-limits-1-05
+  category: Mathematics
+  subtopic: Limits
+  level: 1
+  question: |
+    \text{Given } \lim_{x\to a} f(x) = 3 \text{ and } \lim_{x\to a} g(x) = -2\text{, evaluate } \lim_{x\to a} \dfrac{f(x)g(x)+1}{f(x)-g(x)}.
+  answer: |
+    \text{By the product, sum/difference, and quotient limit laws (denominator limit} \neq 0\text{):} \\
+    \lim_{x\to a} \dfrac{f(x)g(x)+1}{f(x)-g(x)} = \dfrac{(3)(-2)+1}{3-(-2)} = \dfrac{-5}{5} = -1
+- id: mathematics-limits-2-01
+  category: Mathematics
+  subtopic: Limits
+  level: 2
+  question: |
+    \text{Evaluate: } \lim_{x\to3} \dfrac{x^2-9}{x-3}
+  answer: |
+    \text{Direct substitution gives } \tfrac00\text{, so factor and cancel:} \\
+    \lim_{x\to3} \dfrac{(x-3)(x+3)}{x-3} = \lim_{x\to3}(x+3) = 6
+- id: mathematics-limits-2-02
+  category: Mathematics
+  subtopic: Limits
+  level: 2
+  question: |
+    \text{Evaluate: } \lim_{x\to0} \dfrac{\sqrt{x+4}-2}{x}
+  answer: |
+    \text{Direct substitution gives } \tfrac00\text{, so multiply by the conjugate:} \\
+    \lim_{x\to0} \dfrac{\sqrt{x+4}-2}{x}\cdot\dfrac{\sqrt{x+4}+2}{\sqrt{x+4}+2} = \lim_{x\to0} \dfrac{(x+4)-4}{x\left(\sqrt{x+4}+2\right)} = \lim_{x\to0} \dfrac{1}{\sqrt{x+4}+2} = \dfrac14
+- id: mathematics-limits-2-03
+  category: Mathematics
+  subtopic: Limits
+  level: 2
+  question: |
+    \text{Evaluate: } \lim_{x\to\infty} \dfrac{3x^3-2x+1}{5x^3+7x^2-4}
+  answer: |
+    \text{Numerator and denominator have the same degree (3), so divide every term by } x^3\text{:} \\
+    \lim_{x\to\infty} \dfrac{3-2/x^2+1/x^3}{5+7/x-4/x^3} = \dfrac{3}{5} \quad \text{(the ratio of the leading coefficients).}
+- id: mathematics-limits-2-04
+  category: Mathematics
+  subtopic: Limits
+  level: 2
+  question: |
+    \text{Use the squeeze theorem to evaluate: } \lim_{x\to0} x^2\sin\!\left(\dfrac1x\right)
+  answer: |
+    \text{Since } -1\le \sin(1/x)\le 1 \text{ for all } x\neq0\text{, multiplying by } x^2\ge0 \text{ gives} \\
+    -x^2 \le x^2\sin\!\left(\dfrac1x\right) \le x^2. \\
+    \text{Since } \lim_{x\to0}(-x^2)=\lim_{x\to0}x^2=0\text{, by the squeeze theorem } \lim_{x\to0} x^2\sin\!\left(\dfrac1x\right) = 0.
+- id: mathematics-limits-2-05
+  category: Mathematics
+  subtopic: Limits
+  level: 2
+  question: |
+    \text{Using } \lim_{x\to0}\dfrac{\sin x}{x}=1\text{, evaluate: } \lim_{x\to0} \dfrac{\sin(5x)}{x}
+  answer: |
+    \lim_{x\to0} \dfrac{\sin(5x)}{x} = \lim_{x\to0} 5\cdot\dfrac{\sin(5x)}{5x} = 5\lim_{u\to0}\dfrac{\sin u}{u} = 5(1) = 5 \quad (u=5x\to0)
+- id: mathematics-limits-2-06
+  category: Mathematics
+  subtopic: Limits
+  level: 2
+  question: |
+    \text{Does } \lim_{x\to0} \dfrac{|x|}{x} \text{ exist?}
+  answer: |
+    \begin{aligned}
+    &\lim_{x\to0^+} \dfrac{|x|}{x} = \lim_{x\to0^+} \dfrac{x}{x} = 1 \\
+    &\lim_{x\to0^-} \dfrac{|x|}{x} = \lim_{x\to0^-} \dfrac{-x}{x} = -1 \\
+    &\text{The one-sided limits disagree, so } \lim_{x\to0} \dfrac{|x|}{x} \text{ does not exist.}
+    \end{aligned}
+- id: mathematics-limits-3-01
+  category: Mathematics
+  subtopic: Limits
+  level: 3
+  question: |
+    \text{Using the } \varepsilon\text{-}\delta \text{ definition of a limit, prove that } \lim_{x\to2}(3x-1) = 5.
+  answer: |
+    \begin{aligned}
+    &\text{Let } \varepsilon>0 \text{ be given. We must find } \delta>0 \text{ such that } 0<|x-2|<\delta \implies |(3x-1)-5|<\varepsilon. \\
+    &\text{Note } |(3x-1)-5| = |3x-6| = 3|x-2|. \\
+    &\text{Choose } \delta = \varepsilon/3. \text{ Then } 0<|x-2|<\delta \implies 3|x-2| < 3\delta = \varepsilon. \\
+    &\text{So } |(3x-1)-5|<\varepsilon \text{ whenever } 0<|x-2|<\delta\text{, proving } \lim_{x\to2}(3x-1)=5.
+    \end{aligned}
+- id: mathematics-limits-3-02
+  category: Mathematics
+  subtopic: Limits
+  level: 3
+  question: |
+    \text{Using the } \varepsilon\text{-}\delta \text{ definition, prove the sum rule for limits: if } \lim_{x\to a} f(x)=L \text{ and } \lim_{x\to a} g(x)=M\text{, then } \lim_{x\to a}[f(x)+g(x)] = L+M.
+  answer: |
+    \begin{aligned}
+    &\text{Let } \varepsilon>0. \text{ Since } \lim_{x\to a}f(x)=L\text{, there is } \delta_1>0 \text{ with } 0<|x-a|<\delta_1 \implies |f(x)-L|<\varepsilon/2. \\
+    &\text{Since } \lim_{x\to a}g(x)=M\text{, there is } \delta_2>0 \text{ with } 0<|x-a|<\delta_2 \implies |g(x)-M|<\varepsilon/2. \\
+    &\text{Let } \delta=\min(\delta_1,\delta_2). \text{ Then for } 0<|x-a|<\delta\text{, by the triangle inequality:} \\
+    &|(f(x)+g(x))-(L+M)| = |(f(x)-L)+(g(x)-M)| \le |f(x)-L|+|g(x)-M| < \varepsilon/2+\varepsilon/2 = \varepsilon. \\
+    &\text{So } \lim_{x\to a}[f(x)+g(x)] = L+M.
+    \end{aligned}
+- id: mathematics-limits-3-03
+  category: Mathematics
+  subtopic: Limits
+  level: 3
+  question: |
+    \text{Prove } \lim_{x\to0}\dfrac{\sin x}{x}=1 \text{ using a geometric squeeze-theorem argument.}
+  answer: |
+    \begin{aligned}
+    &\text{For } 0<x<\pi/2\text{, compare the areas of: triangle } OAB \text{ (area } \tfrac12\sin x\text{), circular sector } OAB \text{ (area } \tfrac12 x\text{),} \\
+    &\text{and triangle } OAC \text{ (area } \tfrac12\tan x\text{), where } A,B \text{ are on the unit circle and } C \text{ is where the tangent at } A \text{ meets } OB \text{ extended.} \\
+    &\text{These areas satisfy } \tfrac12\sin x < \tfrac12 x < \tfrac12\tan x\text{, i.e. } \sin x < x < \tan x. \\
+    &\text{Dividing through by } \sin x>0\text{: } 1 < \dfrac{x}{\sin x} < \dfrac1{\cos x}\text{, so taking reciprocals: } \cos x < \dfrac{\sin x}{x} < 1. \\
+    &\text{As } x\to0^+\text{, } \cos x\to1\text{, so by the squeeze theorem } \lim_{x\to0^+}\dfrac{\sin x}{x}=1. \\
+    &\text{Since } \dfrac{\sin x}{x} \text{ is an even function (} \sin(-x)/(-x)=\sin x/x\text{), the same limit holds from the left,} \\
+    &\text{so } \lim_{x\to0}\dfrac{\sin x}{x}=1.
+    \end{aligned}
+- id: mathematics-limits-3-04
+  category: Mathematics
+  subtopic: Limits
+  level: 3
+  question: |
+    \text{State L'Hôpital's rule and justify it via Cauchy's Mean Value Theorem. Then show what goes wrong if you apply it to } \lim_{x\to0}\dfrac{x+1}{x+2} \text{ without first checking the form is indeterminate.}
+  answer: |
+    \begin{aligned}
+    &\textbf{Statement: } \text{If } \lim_{x\to a}f(x)=\lim_{x\to a}g(x)=0 \text{ (or both } \pm\infty\text{), } f,g \text{ are differentiable near } a \text{ with } g'\neq0 \text{ near } a\text{,} \\
+    &\text{and } \lim_{x\to a}\dfrac{f'(x)}{g'(x)} \text{ exists, then } \lim_{x\to a}\dfrac{f(x)}{g(x)} = \lim_{x\to a}\dfrac{f'(x)}{g'(x)}. \\
+    &\textbf{Justification (0/0 case): } \text{By Cauchy's MVT, for } x \text{ near } a \text{ there is } c \text{ between } a \text{ and } x \text{ with} \\
+    &\dfrac{f(x)-f(a)}{g(x)-g(a)} = \dfrac{f'(c)}{g'(c)}. \text{ Since } f(a)=g(a)=0\text{, this is } \dfrac{f(x)}{g(x)}=\dfrac{f'(c)}{g'(c)}. \text{ As } x\to a\text{, } c\to a \text{ too,} \\
+    &\text{so } \lim_{x\to a}\dfrac{f(x)}{g(x)} = \lim_{c\to a}\dfrac{f'(c)}{g'(c)}. \\
+    &\textbf{Misapplication: } \lim_{x\to0}\dfrac{x+1}{x+2} \text{ is } \textbf{not} \text{ an indeterminate form — direct substitution gives } \dfrac{0+1}{0+2}=\dfrac12\text{, the correct answer.} \\
+    &\text{Incorrectly applying L'Hôpital anyway (differentiating numerator and denominator) gives } \lim_{x\to0}\dfrac{1}{1}=1\text{, which is wrong.} \\
+    &\text{L'Hôpital's rule only applies to } \tfrac00 \text{ or } \tfrac{\pm\infty}{\pm\infty} \text{ forms; checking this first is essential.}
+    \end{aligned}
+- id: mathematics-limits-3-05
+  category: Mathematics
+  subtopic: Limits
+  level: 3
+  question: |
+    \text{Using the sequential criterion for limits, prove that } \lim_{x\to0}\sin\!\left(\dfrac1x\right) \text{ does not exist.}
+  answer: |
+    \begin{aligned}
+    &\text{The sequential criterion: } \lim_{x\to a}f(x)=L \text{ iff for every sequence } x_n\to a \ (x_n\neq a)\text{, } f(x_n)\to L. \\
+    &\text{So if two such sequences give different limits for } f(x_n)\text{, the limit does not exist.} \\
+    &\text{Let } x_n = \dfrac{1}{n\pi}\to0. \text{ Then } \sin\!\left(\dfrac1{x_n}\right) = \sin(n\pi) = 0 \text{ for all } n\text{, so } f(x_n)\to0. \\
+    &\text{Let } y_n = \dfrac{1}{\pi/2+2n\pi}\to0. \text{ Then } \sin\!\left(\dfrac1{y_n}\right) = \sin(\pi/2+2n\pi) = 1 \text{ for all } n\text{, so } f(y_n)\to1. \\
+    &\text{Since } x_n\to0 \text{ and } y_n\to0 \text{ give different limits for } f\text{, } \lim_{x\to0}\sin(1/x) \text{ does not exist.}
+    \end{aligned}
+- id: mathematics-limits-4-01
+  category: Mathematics
+  subtopic: Limits
+  level: 4
+  question: |
+    \text{Evaluate } \lim_{n\to\infty}\left(1+\dfrac{r}{n}\right)^n \text{ for a constant } r\text{, and interpret the result in terms of continuous compounding.}
+  answer: |
+    \begin{aligned}
+    &\text{Substitute } x=r/n\text{, so } x\to0 \text{ as } n\to\infty \text{ and } n=r/x\text{:} \\
+    &\left(1+\dfrac{r}{n}\right)^n = (1+x)^{r/x} = \left[(1+x)^{1/x}\right]^r. \\
+    &\text{First show } \lim_{x\to0}(1+x)^{1/x}=e\text{: let } L=\lim_{x\to0}(1+x)^{1/x}\text{. Then } \ln L = \lim_{x\to0}\dfrac{\ln(1+x)}{x}\text{, a } \tfrac00 \text{ form.} \\
+    &\text{By L'Hôpital: } \lim_{x\to0}\dfrac{\ln(1+x)}{x} = \lim_{x\to0}\dfrac{1/(1+x)}{1} = 1\text{, so } \ln L=1\text{, } L=e. \\
+    &\text{Therefore } \lim_{n\to\infty}\left(1+\dfrac{r}{n}\right)^n = e^r. \\
+    &\text{Interpretation: compounding interest at annual rate } r \text{ over } n \text{ periods per year, as } n\to\infty \text{ (continuous compounding),} \\
+    &\text{a principal of } 1 \text{ grows to } e^r \text{ after one year.}
+    \end{aligned}
+- id: mathematics-limits-4-02
+  category: Mathematics
+  subtopic: Limits
+  level: 4
+  question: |
+    \text{Evaluate: } \lim_{x\to\infty}\left(x-\sqrt{x^2+x}\right)
+  answer: |
+    \begin{aligned}
+    &\text{This is an } \infty-\infty \text{ indeterminate form. Multiply and divide by the conjugate:} \\
+    &x-\sqrt{x^2+x} = \dfrac{\left(x-\sqrt{x^2+x}\right)\left(x+\sqrt{x^2+x}\right)}{x+\sqrt{x^2+x}} = \dfrac{x^2-(x^2+x)}{x+\sqrt{x^2+x}} = \dfrac{-x}{x+\sqrt{x^2+x}}. \\
+    &\text{Divide numerator and denominator by } x>0\text{:} \\
+    &= \dfrac{-1}{1+\sqrt{1+1/x}} \xrightarrow{x\to\infty} \dfrac{-1}{1+1} = -\dfrac12.
+    \end{aligned}
+- id: mathematics-limits-4-03
+  category: Mathematics
+  subtopic: Limits
+  level: 4
+  question: |
+    \text{Let } a_1=1 \text{ and } a_{n+1}=\sqrt{2+a_n} \text{ for } n\ge1. \text{ Prove the sequence converges and find its limit.}
+  answer: |
+    \begin{aligned}
+    &\textbf{Bounded above by 2: } \text{By induction, } a_1=1<2\text{. If } a_n<2\text{, then } a_{n+1}=\sqrt{2+a_n}<\sqrt{2+2}=2. \\
+    &\textbf{Increasing: } \text{By induction, } a_2=\sqrt3>1=a_1\text{. If } a_{n+1}>a_n\text{, then since } a_n<2 \text{ (so } 2+a_n>0 \text{ and } \sqrt{\cdot} \text{ is increasing):} \\
+    &a_{n+2}=\sqrt{2+a_{n+1}} > \sqrt{2+a_n} = a_{n+1}. \\
+    &\text{So } (a_n) \text{ is increasing and bounded above by 2; by the Monotone Convergence Theorem it converges to some limit } L\le2. \\
+    &\text{Taking } n\to\infty \text{ in } a_{n+1}=\sqrt{2+a_n} \text{ gives } L=\sqrt{2+L}\text{, so } L^2=2+L\text{, i.e. } L^2-L-2=0\text{, i.e. } (L-2)(L+1)=0. \\
+    &\text{Since } a_n>0 \text{ for all } n\text{, } L\ge0\text{, so } L=-1 \text{ is rejected. Thus } L=2.
+    \end{aligned}
+- id: mathematics-limits-4-04
+  category: Mathematics
+  subtopic: Limits
+  level: 4
+  question: |
+    \text{For } a>0\text{, evaluate: } \lim_{n\to\infty} n\left(\sqrt[n]{a}-1\right)
+  answer: |
+    \begin{aligned}
+    &\text{Substitute } x=1/n\text{, so } x\to0^+ \text{ as } n\to\infty \text{ and } n=1/x\text{:} \\
+    &n\left(\sqrt[n]{a}-1\right) = \dfrac{a^{x}-1}{x} = \dfrac{a^x-a^0}{x-0}. \\
+    &\text{This is exactly the difference quotient defining the derivative of } f(x)=a^x \text{ at } x=0\text{:} \\
+    &\lim_{x\to0}\dfrac{a^x-a^0}{x-0} = f'(0). \\
+    &\text{Since } f(x)=a^x=e^{x\ln a}\text{, } f'(x)=\ln a\cdot a^x\text{, so } f'(0)=\ln a. \\
+    &\text{Therefore } \lim_{n\to\infty} n\left(\sqrt[n]{a}-1\right) = \ln a.
+    \end{aligned}
