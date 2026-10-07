@@ -3945,3 +3945,426 @@
     &\text{converge to. In fact } \bar X_n \text{ stays stochastically large and does not settle down to any constant,} \\
     &\text{no matter how many rounds are played.}
     \end{aligned}
+- id: probability-statistics-linear-regression-1-01
+  category: Probability & Statistics
+  subtopic: Linear Regression
+  level: 1
+  question: |
+    \begin{aligned}
+    &\text{Write down the simple linear regression model relating a dependent variable } y \text{ to a single} \\
+    &\text{independent variable } x, \text{ and state what each term represents.}
+    \end{aligned}
+  answer: |
+    \begin{aligned}
+    &y_i = \beta_0 + \beta_1 x_i + \varepsilon_i, \\
+    &\text{where } y_i \text{ is the observed response, } x_i \text{ is the predictor, } \beta_0 \text{ is the intercept} \\
+    &\text{(expected } y \text{ when } x=0\text{), } \beta_1 \text{ is the slope (expected change in } y \text{ per unit} \\
+    &\text{increase in } x\text{), and } \varepsilon_i \text{ is the error term capturing all other influences on } y_i.
+    \end{aligned}
+- id: probability-statistics-linear-regression-1-02
+  category: Probability & Statistics
+  subtopic: Linear Regression
+  level: 1
+  question: |
+    \begin{aligned}
+    &\text{What quantity does Ordinary Least Squares (OLS) minimize when fitting } \hat y = \hat\beta_0+\hat\beta_1 x, \\
+    &\text{and why square the residuals rather than, say, sum them directly?}
+    \end{aligned}
+  answer: |
+    \begin{aligned}
+    &\text{OLS chooses } \hat\beta_0,\hat\beta_1 \text{ to minimize the sum of squared residuals} \\
+    &SS_{res} = \sum_{i=1}^n \left(y_i - \hat\beta_0 - \hat\beta_1 x_i\right)^2. \\
+    &\text{Squaring (instead of summing raw residuals) penalizes large errors more heavily, treats positive} \\
+    &\text{and negative residuals symmetrically, and keeps residuals from canceling out --- a line could have} \\
+    &\text{zero net residual sum while fitting terribly, which } SS_{res}=0 \text{ would not allow.}
+    \end{aligned}
+- id: probability-statistics-linear-regression-1-03
+  category: Probability & Statistics
+  subtopic: Linear Regression
+  level: 1
+  question: |
+    \begin{aligned}
+    &\text{State the closed-form OLS estimators for the slope } \hat\beta_1 \text{ and intercept } \hat\beta_0 \text{ of the simple} \\
+    &\text{linear regression model, in terms of sample covariance and variance.}
+    \end{aligned}
+  answer: |
+    \begin{aligned}
+    &\hat\beta_1 = \frac{\Cov(X,Y)}{\Var(X)} = \frac{\sum_i (x_i-\bar x)(y_i-\bar y)}{\sum_i (x_i-\bar x)^2}, \qquad \hat\beta_0 = \bar y - \hat\beta_1 \bar x. \\
+    &\text{The slope is the sample covariance between } X \text{ and } Y \text{ scaled by the sample variance of } X\text{; the} \\
+    &\text{intercept is set so the fitted line passes through the point of means } (\bar x, \bar y).
+    \end{aligned}
+- id: probability-statistics-linear-regression-1-04
+  category: Probability & Statistics
+  subtopic: Linear Regression
+  level: 1
+  question: |
+    \begin{aligned}
+    &\text{Given the fitted values } \hat y_i = \hat\beta_0 + \hat\beta_1 x_i, \text{ define the residual } e_i \text{ for observation } i, \text{ and} \\
+    &\text{state what } \sum_{i=1}^n e_i \text{ equals when the model includes an intercept.}
+    \end{aligned}
+  answer: |
+    \begin{aligned}
+    &e_i = y_i - \hat y_i \quad \text{(the gap between the observed and fitted value for observation } i\text{).} \\
+    &\text{When the model includes an intercept } \hat\beta_0, \text{ OLS forces } \sum_{i=1}^n e_i = 0\text{: the fitted line} \\
+    &\text{passes through } (\bar x,\bar y), \text{ so positive and negative residuals exactly cancel on average.}
+    \end{aligned}
+- id: probability-statistics-linear-regression-1-05
+  category: Probability & Statistics
+  subtopic: Linear Regression
+  level: 1
+  question: |
+    \begin{aligned}
+    &\text{Define } SS_{total}, SS_{reg} \text{ and } SS_{res} \text{ for a fitted simple linear regression, and use them to} \\
+    &\text{define the coefficient of determination } R^2. \text{ What does } R^2 \text{ measure?}
+    \end{aligned}
+  answer: |
+    \begin{aligned}
+    &SS_{total} = \sum_i (y_i-\bar y)^2, \qquad SS_{reg} = \sum_i (\hat y_i - \bar y)^2, \qquad SS_{res} = \sum_i (y_i-\hat y_i)^2 = \sum_i e_i^2. \\
+    &R^2 = \frac{SS_{reg}}{SS_{total}} = 1 - \frac{SS_{res}}{SS_{total}}. \\
+    &R^2 \in [0,1] \text{ is the proportion of the total variation in } y \text{ explained by the fitted regression;} \\
+    &R^2=1 \text{ means every point lies exactly on the fitted line, } R^2=0 \text{ means the model explains none} \\
+    &\text{of the variation in } y \text{ beyond its mean.}
+    \end{aligned}
+- id: probability-statistics-linear-regression-1-06
+  category: Probability & Statistics
+  subtopic: Linear Regression
+  level: 1
+  question: |
+    \begin{aligned}
+    &\text{List the classical assumptions of the linear regression model.}
+    \end{aligned}
+  answer: |
+    \begin{aligned}
+    &1.\ \text{Linearity: the model is linear in the parameters, } y_i=\beta_0+\beta_1 x_i+\varepsilon_i. \\
+    &2.\ \text{Random sampling: the observations } (x_i,y_i) \text{ are drawn independently from the same population.} \\
+    &3.\ \text{No perfect multicollinearity: no regressor is an exact linear combination of the others (and, in} \\
+    &\quad\ \text{simple regression, } x \text{ is not constant).} \\
+    &4.\ \text{Zero conditional mean (exogeneity): } \E[\varepsilon_i \mid x_i] = 0, \text{ so the error is uncorrelated with } x_i. \\
+    &5.\ \text{Homoskedasticity: } \Var(\varepsilon_i \mid x_i) = \sigma^2 \text{ is constant across observations.} \\
+    &6.\ \text{No autocorrelation: } \Cov(\varepsilon_i,\varepsilon_j \mid x_i,x_j) = 0 \text{ for } i\neq j. \\
+    &7.\ \text{Normality: } \varepsilon_i \mid x_i \sim \mathcal N(0,\sigma^2), \text{ needed for exact (small-sample) inference, not for} \\
+    &\quad\ \text{OLS estimation itself.}
+    \end{aligned}
+- id: probability-statistics-linear-regression-2-01
+  category: Probability & Statistics
+  subtopic: Linear Regression
+  level: 2
+  question: |
+    \begin{aligned}
+    &\text{Using the OLS formulas, compute } \hat\beta_1 \text{ and } \hat\beta_0 \text{ for the data} \\
+    &(x,y) \in \{(1,2),(2,3),(3,5),(4,6)\}.
+    \end{aligned}
+  answer: |
+    \begin{aligned}
+    &\bar x = \frac{1+2+3+4}{4}=2.5, \qquad \bar y = \frac{2+3+5+6}{4}=4. \\
+    &x_i-\bar x: -1.5,-0.5,0.5,1.5 \qquad y_i-\bar y: -2,-1,1,2 \\
+    &\sum (x_i-\bar x)(y_i-\bar y) = 3+0.5+0.5+3 = 7, \qquad \sum (x_i-\bar x)^2 = 2.25+0.25+0.25+2.25 = 5. \\
+    &\hat\beta_1 = \frac{7}{5} = 1.4, \qquad \hat\beta_0 = \bar y - \hat\beta_1\bar x = 4 - 1.4(2.5) = 0.5. \\
+    &\text{Fitted line: } \hat y = 0.5 + 1.4x.
+    \end{aligned}
+- id: probability-statistics-linear-regression-2-02
+  category: Probability & Statistics
+  subtopic: Linear Regression
+  level: 2
+  question: |
+    \begin{aligned}
+    &\text{For the fitted line } \hat y = 0.5+1.4x \text{ from the dataset } (x,y)\in\{(1,2),(2,3),(3,5),(4,6)\}, \text{ compute} \\
+    &SS_{total}, SS_{reg} \text{ and } SS_{res}, \text{ and verify } SS_{total}=SS_{reg}+SS_{res}.
+    \end{aligned}
+  answer: |
+    \begin{aligned}
+    &\text{Fitted values: } \hat y = 1.9,\,3.3,\,4.7,\,6.1 \text{ for } x=1,2,3,4\text{; residuals: } e = 0.1,\,-0.3,\,0.3,\,-0.1. \\
+    &SS_{total} = \sum (y_i-\bar y)^2 = (-2)^2+(-1)^2+1^2+2^2 = 10, \qquad \bar y = 4. \\
+    &SS_{res} = \sum e_i^2 = 0.01+0.09+0.09+0.01 = 0.2. \\
+    &SS_{reg} = \sum (\hat y_i - \bar y)^2 = (-2.1)^2+(-0.7)^2+0.7^2+2.1^2 = 9.8. \\
+    &SS_{reg} + SS_{res} = 9.8+0.2 = 10 = SS_{total}. \checkmark
+    \end{aligned}
+- id: probability-statistics-linear-regression-2-03
+  category: Probability & Statistics
+  subtopic: Linear Regression
+  level: 2
+  question: |
+    \begin{aligned}
+    &\text{Using the sum-of-squares values from the previous dataset } (SS_{total}=10,\ SS_{res}=0.2), \text{ compute} \\
+    &R^2 \text{ and interpret its value.}
+    \end{aligned}
+  answer: |
+    \begin{aligned}
+    &R^2 = 1 - \frac{SS_{res}}{SS_{total}} = 1 - \frac{0.2}{10} = 0.98. \\
+    &\text{The regression line explains 98\% of the variation in } y\text{; only 2\% is left unexplained (residual} \\
+    &\text{scatter around the line) --- a very tight linear fit.}
+    \end{aligned}
+- id: probability-statistics-linear-regression-2-04
+  category: Probability & Statistics
+  subtopic: Linear Regression
+  level: 2
+  question: |
+    \begin{aligned}
+    &\text{Write the multiple linear regression model with } p \text{ predictors in matrix form, and state the} \\
+    &\text{dimensions of each matrix/vector. How does it differ conceptually from simple linear regression?}
+    \end{aligned}
+  answer: |
+    \begin{aligned}
+    &y = X\beta + \varepsilon, \quad y\in\R^n,\ X\in\R^{n\times(p+1)},\ \beta\in\R^{p+1},\ \varepsilon\in\R^n, \\
+    &\text{where each row of } X \text{ is } (1, x_{i1},\dots,x_{ip}) \text{ (the leading 1 column gives the intercept } \beta_0\text{).} \\
+    &\text{Simple regression is the special case } p=1. \text{ Conceptually, multiple regression estimates each} \\
+    &\text{slope } \beta_j \text{ holding the other predictors fixed (a partial effect), whereas the single slope in} \\
+    &\text{simple regression mixes in the effect of any predictor left out of the model.}
+    \end{aligned}
+- id: probability-statistics-linear-regression-2-05
+  category: Probability & Statistics
+  subtopic: Linear Regression
+  level: 2
+  question: |
+    \begin{aligned}
+    &\text{Using the fitted line } \hat y = 0.5+1.4x \text{ (fit on } x\in\{1,2,3,4\}\text{), predict } \hat y \text{ at } x=3.5 \text{ and at} \\
+    &x=50. \text{ Which prediction should you trust less, and why?}
+    \end{aligned}
+  answer: |
+    \begin{aligned}
+    &\hat y(3.5) = 0.5+1.4(3.5) = 5.4, \qquad \hat y(50) = 0.5+1.4(50) = 70.5. \\
+    &x=3.5 \text{ is an interpolation (inside the observed range } [1,4]\text{), so the linear fit is being used where} \\
+    &\text{it was actually tested against data. } x=50 \text{ is a large extrapolation far outside } [1,4]\text{: there is no} \\
+    &\text{evidence the relationship stays linear out there, so the prediction at } x=50 \text{ should be trusted} \\
+    &\text{far less.}
+    \end{aligned}
+- id: probability-statistics-linear-regression-2-06
+  category: Probability & Statistics
+  subtopic: Linear Regression
+  level: 2
+  question: |
+    \begin{aligned}
+    &\text{The points } (1,2),(2,3),(3,4),(4,5) \text{ lie exactly on the line } y=x+1 \text{ (so } \hat\beta_1=1\text{). A fifth point} \\
+    &(5,1) \text{ is added. Recompute } \hat\beta_1 \text{ for the five-point dataset and comment on the effect of the} \\
+    &\text{single outlier.}
+    \end{aligned}
+  answer: |
+    \begin{aligned}
+    &\bar x = 3, \qquad \bar y = \frac{2+3+4+5+1}{5} = 3. \\
+    &x_i-\bar x: -2,-1,0,1,2 \qquad y_i-\bar y: -1,0,1,2,-2 \\
+    &\sum (x_i-\bar x)(y_i-\bar y) = 2+0+0+2-4 = 0, \qquad \sum (x_i-\bar x)^2 = 4+1+0+1+4 = 10. \\
+    &\hat\beta_1 = \frac{0}{10} = 0. \\
+    &\text{A single outlier at } x=5 \text{ (far from } \bar x\text{, hence high leverage) collapsed the slope from a perfect} \\
+    &1 \text{ down to } 0\text{: OLS is highly sensitive to outliers at extreme } x \text{ values.}
+    \end{aligned}
+- id: probability-statistics-linear-regression-3-01
+  category: Probability & Statistics
+  subtopic: Linear Regression
+  level: 3
+  question: |
+    \begin{aligned}
+    &\text{Derive the OLS estimators } \hat\beta_0,\hat\beta_1 \text{ for simple linear regression by minimizing} \\
+    &SS_{res}(\beta_0,\beta_1) = \sum_{i=1}^n (y_i-\beta_0-\beta_1 x_i)^2 \text{ via calculus.}
+    \end{aligned}
+  answer: |
+    \begin{aligned}
+    &\text{Set the partial derivatives to zero:} \\
+    &\frac{\partial SS_{res}}{\partial \beta_0} = -2\sum_i (y_i-\beta_0-\beta_1 x_i) = 0 \ \Rightarrow\ \sum_i y_i = n\beta_0 + \beta_1 \sum_i x_i, \\
+    &\frac{\partial SS_{res}}{\partial \beta_1} = -2\sum_i x_i(y_i-\beta_0-\beta_1 x_i) = 0 \ \Rightarrow\ \sum_i x_iy_i = \beta_0\sum_i x_i + \beta_1\sum_i x_i^2. \\
+    &\text{The first equation gives } \hat\beta_0 = \bar y - \hat\beta_1\bar x. \text{ Substituting into the second and} \\
+    &\text{simplifying (using } \sum_i x_i = n\bar x\text{):} \\
+    &\sum_i x_iy_i - n\bar x\bar y = \hat\beta_1\left(\sum_i x_i^2 - n\bar x^2\right) \\
+    &\Rightarrow\ \hat\beta_1 = \frac{\sum_i x_iy_i - n\bar x\bar y}{\sum_i x_i^2 - n\bar x^2} = \frac{\sum_i (x_i-\bar x)(y_i-\bar y)}{\sum_i (x_i-\bar x)^2} = \frac{\Cov(X,Y)}{\Var(X)}. \\
+    &\text{These two equations (the normal equations) are exactly the closed-form estimators used in practice.}
+    \end{aligned}
+- id: probability-statistics-linear-regression-3-02
+  category: Probability & Statistics
+  subtopic: Linear Regression
+  level: 3
+  question: |
+    \begin{aligned}
+    &\text{For the multiple regression model } y=X\beta+\varepsilon, \text{ derive the OLS estimator } \hat\beta \text{ by} \\
+    &\text{minimizing } SS_{res}(\beta) = (y-X\beta)^T(y-X\beta) \text{ with respect to } \beta.
+    \end{aligned}
+  answer: |
+    \begin{aligned}
+    &\text{Expand: } SS_{res}(\beta) = y^Ty - 2\beta^TX^Ty + \beta^TX^TX\beta. \\
+    &\text{Differentiate with respect to } \beta \text{ and set to zero:} \\
+    &\frac{\partial SS_{res}}{\partial \beta} = -2X^Ty + 2X^TX\beta = 0 \ \Rightarrow\ X^TX\beta = X^Ty \quad \text{(the normal equations).} \\
+    &\text{Provided } X^TX \text{ is invertible (equivalent to no perfect multicollinearity), left-multiply by} \\
+    &(X^TX)^{-1}: \qquad \hat\beta = (X^TX)^{-1}X^Ty. \\
+    &\text{The Hessian } 2X^TX \text{ is positive semi-definite, so this critical point is indeed the minimizer.}
+    \end{aligned}
+- id: probability-statistics-linear-regression-3-03
+  category: Probability & Statistics
+  subtopic: Linear Regression
+  level: 3
+  question: |
+    \begin{aligned}
+    &\text{Under the model } y=X\beta+\varepsilon \text{ with } \E[\varepsilon\mid X]=0, \text{ prove that the OLS estimator} \\
+    &\hat\beta = (X^TX)^{-1}X^Ty \text{ is unbiased: } \E[\hat\beta\mid X]=\beta.
+    \end{aligned}
+  answer: |
+    \begin{aligned}
+    &\text{Substitute } y = X\beta+\varepsilon \text{ into } \hat\beta\text{:} \\
+    &\hat\beta = (X^TX)^{-1}X^T(X\beta+\varepsilon) = (X^TX)^{-1}X^TX\beta + (X^TX)^{-1}X^T\varepsilon = \beta + (X^TX)^{-1}X^T\varepsilon. \\
+    &\text{Taking conditional expectation given } X \text{ (so } X \text{ is treated as fixed):} \\
+    &\E[\hat\beta\mid X] = \beta + (X^TX)^{-1}X^T\E[\varepsilon\mid X] = \beta + (X^TX)^{-1}X^T\cdot 0 = \beta. \\
+    &\text{So } \hat\beta \text{ is unbiased --- it relies only on exogeneity } \E[\varepsilon\mid X]=0, \text{ not on homoskedasticity} \\
+    &\text{or normality.}
+    \end{aligned}
+- id: probability-statistics-linear-regression-3-04
+  category: Probability & Statistics
+  subtopic: Linear Regression
+  level: 3
+  question: |
+    \begin{aligned}
+    &\text{Prove that the OLS residual vector } e = y - X\hat\beta \text{ satisfies } X^Te = 0, \text{ and deduce that} \\
+    &\sum_i e_i = 0 \text{ whenever the design matrix } X \text{ includes a column of 1's (an intercept).}
+    \end{aligned}
+  answer: |
+    \begin{aligned}
+    &\text{The normal equations from minimizing } SS_{res} \text{ are exactly } X^T(y-X\hat\beta) = 0, \text{ i.e. } X^Te=0\text{:} \\
+    &\text{this is the first-order condition itself, so it holds for any OLS fit by construction.} \\
+    &\text{If the first column of } X \text{ is a column of 1's (call it } \mathbf 1\text{), then } X^Te=0 \text{ in particular} \\
+    &\text{includes the row } \mathbf 1^Te = \sum_i e_i = 0. \\
+    &\text{Geometrically, } X^Te=0 \text{ says the residual vector is orthogonal to every column of } X \text{ (every} \\
+    &\text{regressor, and the fitted values } \hat y=X\hat\beta\text{, since } \hat y \text{ is a linear combination of those columns).}
+    \end{aligned}
+- id: probability-statistics-linear-regression-3-05
+  category: Probability & Statistics
+  subtopic: Linear Regression
+  level: 3
+  question: |
+    \begin{aligned}
+    &\text{Under } y=X\beta+\varepsilon \text{ with } \E[\varepsilon\mid X]=0 \text{ and } \Var(\varepsilon\mid X)=\sigma^2 I \text{ (homoskedastic,} \\
+    &\text{uncorrelated errors), derive } \Var(\hat\beta\mid X), \text{ and state the Gauss--Markov conclusion.}
+    \end{aligned}
+  answer: |
+    \begin{aligned}
+    &\text{From } \hat\beta = \beta + (X^TX)^{-1}X^T\varepsilon, \text{ the only random part given } X \text{ is } (X^TX)^{-1}X^T\varepsilon. \\
+    &\Var(\hat\beta\mid X) = (X^TX)^{-1}X^T\,\Var(\varepsilon\mid X)\,X(X^TX)^{-1} = (X^TX)^{-1}X^T(\sigma^2 I)X(X^TX)^{-1} \\
+    &= \sigma^2 (X^TX)^{-1}X^TX(X^TX)^{-1} = \sigma^2(X^TX)^{-1}. \\
+    &\text{Gauss--Markov theorem: under these assumptions (plus linearity and no perfect multicollinearity),} \\
+    &\hat\beta \text{ is BLUE --- the Best Linear Unbiased Estimator, i.e. it has the smallest variance among all} \\
+    &\text{estimators that are linear in } y \text{ and unbiased.}
+    \end{aligned}
+- id: probability-statistics-linear-regression-3-06
+  category: Probability & Statistics
+  subtopic: Linear Regression
+  level: 3
+  question: |
+    \begin{aligned}
+    &\text{Prove that in simple linear regression, } R^2 \text{ equals the squared sample correlation coefficient} \\
+    &\Corr(X,Y)^2.
+    \end{aligned}
+  answer: |
+    \begin{aligned}
+    &\text{Since } \hat y_i = \bar y + \hat\beta_1(x_i-\bar x), \text{ the fitted values deviate from } \bar y \text{ by } \hat\beta_1(x_i-\bar x), \text{ so} \\
+    &SS_{reg} = \sum_i (\hat y_i-\bar y)^2 = \hat\beta_1^2\sum_i (x_i-\bar x)^2 = \hat\beta_1^2\, S_{xx}, \quad \text{where } S_{xx}=\sum_i(x_i-\bar x)^2. \\
+    &\text{Using } \hat\beta_1 = S_{xy}/S_{xx} \text{ (with } S_{xy}=\sum_i(x_i-\bar x)(y_i-\bar y)\text{):} \\
+    &SS_{reg} = \frac{S_{xy}^2}{S_{xx}^2}\,S_{xx} = \frac{S_{xy}^2}{S_{xx}}. \\
+    &R^2 = \frac{SS_{reg}}{SS_{total}} = \frac{S_{xy}^2}{S_{xx}\,S_{yy}} = \left(\frac{S_{xy}}{\sqrt{S_{xx}S_{yy}}}\right)^2 = \Corr(X,Y)^2, \\
+    &\text{where } S_{yy}=\sum_i(y_i-\bar y)^2=SS_{total}, \text{ since } \Corr(X,Y)=S_{xy}/\sqrt{S_{xx}S_{yy}} \text{ by definition.}
+    \end{aligned}
+- id: probability-statistics-linear-regression-4-01
+  category: Probability & Statistics
+  subtopic: Linear Regression
+  level: 4
+  question: |
+    \begin{aligned}
+    &\text{Parents' and children's heights have the same mean and standard deviation, and are correlated} \\
+    &\text{with } \Corr(X,Y)=0.5\ (X=\text{parent's height}, Y=\text{child's height}). \text{ A parent is 2 standard} \\
+    &\text{deviations above the mean. Using the OLS regression line, what is the expected height of their} \\
+    &\text{child, in standard deviations above the mean? Explain why this is called ``regression to the mean''.}
+    \end{aligned}
+  answer: |
+    \begin{aligned}
+    &\text{For standardized variables (equal means and standard deviations), the OLS slope reduces to} \\
+    &\hat\beta_1 = \frac{\Cov(X,Y)}{\Var(X)} = \frac{\Corr(X,Y)\,\sigma_X\sigma_Y}{\sigma_X^2} = \Corr(X,Y)\frac{\sigma_Y}{\sigma_X} = \Corr(X,Y) = 0.5 \quad (\sigma_X=\sigma_Y). \\
+    &\text{So the predicted child height (in SDs from the mean) is } \hat y = 0.5\, x. \text{ For } x=2: \ \hat y = 0.5(2) = 1. \\
+    &\text{The child is predicted to be only 1 SD above the mean --- less extreme than the 2-SD parent, since} \\
+    &|\Corr(X,Y)|<1. \text{ Whenever the correlation is imperfect, predictions for an extreme } x \text{ pull back} \\
+    &\text{toward the mean by a factor of } \Corr(X,Y)\text{; this pullback is ``regression to the mean,'' not a} \\
+    &\text{real generational effect.}
+    \end{aligned}
+- id: probability-statistics-linear-regression-4-02
+  category: Probability & Statistics
+  subtopic: Linear Regression
+  level: 4
+  question: |
+    \begin{aligned}
+    &\text{The true model is } y=\beta_0+\beta_1 x_1+\beta_2 x_2+\varepsilon, \text{ but a researcher fits the short regression} \\
+    &y=\gamma_0+\gamma_1 x_1+u, \text{ omitting } x_2. \text{ Derive a formula for } \plim \hat\gamma_1 \text{ in terms of } \beta_1,\beta_2 \text{ and} \\
+    &\Cov(x_1,x_2),\Var(x_1), \text{ then use it to sign the bias when } x_1=\text{education}, x_2=\text{ability}, \beta_2>0, \\
+    &\text{and } \Cov(x_1,x_2)>0.
+    \end{aligned}
+  answer: |
+    \begin{aligned}
+    &\hat\gamma_1 = \frac{\Cov(x_1,y)}{\Var(x_1)}. \text{ Substituting } y=\beta_0+\beta_1x_1+\beta_2x_2+\varepsilon \text{ and using bilinearity of} \\
+    &\text{covariance:} \\
+    &\Cov(x_1,y) = \beta_1\Var(x_1) + \beta_2\Cov(x_1,x_2) + \Cov(x_1,\varepsilon) = \beta_1\Var(x_1)+\beta_2\Cov(x_1,x_2), \\
+    &\text{since } \Cov(x_1,\varepsilon)=0 \text{ under exogeneity of the true model. Dividing by } \Var(x_1)\text{:} \\
+    &\plim \hat\gamma_1 = \beta_1 + \beta_2\,\frac{\Cov(x_1,x_2)}{\Var(x_1)}. \\
+    &\text{The omitted-variable bias is } \beta_2\,\Cov(x_1,x_2)/\Var(x_1). \text{ With } x_1=\text{education}, x_2=\text{ability}, \\
+    &\beta_2>0 \text{ (ability raises wages) and } \Cov(x_1,x_2)>0 \text{ (more educated people tend to be more able),} \\
+    &\text{the bias is positive: the short regression overstates the return to education, attributing part of} \\
+    &\text{ability's effect on wages to education.}
+    \end{aligned}
+- id: probability-statistics-linear-regression-4-03
+  category: Probability & Statistics
+  subtopic: Linear Regression
+  level: 4
+  question: |
+    \begin{aligned}
+    &\text{The true relationship is } y=\beta_1 x^\ast+\varepsilon \text{ (mean-zero, uncorrelated } \varepsilon\text{), but } x^\ast \text{ is not} \\
+    &\text{observed directly --- instead we observe } x=x^\ast+u, \text{ classical measurement error with } u \text{ mean} \\
+    &\text{zero, independent of } x^\ast \text{ and } \varepsilon. \text{ Derive } \plim \hat\beta_1 \text{ from regressing } y \text{ on } x, \text{ and evaluate it} \\
+    &\text{for } \Var(x^\ast)=4,\ \Var(u)=1,\ \beta_1=2.
+    \end{aligned}
+  answer: |
+    \begin{aligned}
+    &\hat\beta_1^{obs} = \frac{\Cov(x,y)}{\Var(x)}. \text{ Since } y=\beta_1x^\ast+\varepsilon \text{ and } x=x^\ast+u\text{:} \\
+    &\Cov(x,y) = \Cov(x^\ast+u,\ \beta_1x^\ast+\varepsilon) = \beta_1\Var(x^\ast) \quad \text{(cross terms vanish by independence),} \\
+    &\Var(x) = \Var(x^\ast) + \Var(u) \quad \text{(independence of } x^\ast,u\text{).} \\
+    &\plim \hat\beta_1^{obs} = \beta_1\,\frac{\Var(x^\ast)}{\Var(x^\ast)+\Var(u)}. \\
+    &\text{The factor } \frac{\Var(x^\ast)}{\Var(x^\ast)+\Var(u)}<1 \text{ always shrinks the estimate toward zero --- ``attenuation} \\
+    &\text{bias.'' Here: } \plim \hat\beta_1^{obs} = 2\cdot\frac{4}{4+1} = 2(0.8) = 1.6, \text{ so measurement error in } x \text{ shrinks the} \\
+    &\text{estimated slope from 2 down to 1.6.}
+    \end{aligned}
+- id: probability-statistics-linear-regression-4-04
+  category: Probability & Statistics
+  subtopic: Linear Regression
+  level: 4
+  question: |
+    \begin{aligned}
+    &\text{Consider multiple regression with two predictors } x_1,x_2 \text{ that are (nearly) identical: } x_2=x_1+\delta_i \\
+    &\text{for a tiny } \delta_i. \text{ Suppose the true relationship is } y=x_1+x_2+\varepsilon. \text{ First show that if } x_2=x_1 \\
+    &\text{exactly, } \hat\beta \text{ is not unique; then explain why, with } x_2\approx x_1, \text{ the individual } \hat\beta_1,\hat\beta_2 \text{ become} \\
+    &\text{wildly unstable even though the fit } \hat y \text{ stays accurate.}
+    \end{aligned}
+  answer: |
+    \begin{aligned}
+    &\text{If } x_2=x_1 \text{ exactly, the two columns of } X \text{ are identical, so } X^TX \text{ is singular (rank-deficient)} \\
+    &\text{and has no inverse: the normal equations } X^TX\hat\beta=X^Ty \text{ have infinitely many solutions. E.g.} \\
+    &\hat\beta=(1,1), (2,0), (0,2), (1.5,0.5), \dots \text{ all give the identical fitted value } \hat y_i=2x_{1i}, \text{ since} \\
+    &\hat\beta_1x_{1i}+\hat\beta_2x_{2i}=(\hat\beta_1+\hat\beta_2)x_{1i} \text{ only depends on the sum } \hat\beta_1+\hat\beta_2. \\
+    &\text{With } x_2\approx x_1 \ (\delta_i \text{ tiny but nonzero), } X^TX \text{ is invertible but nearly singular: } (X^TX)^{-1} \text{ has} \\
+    &\text{huge entries, so } \Var(\hat\beta\mid X)=\sigma^2(X^TX)^{-1} \text{ is enormous for the individual coefficients --- a tiny} \\
+    &\text{change in the data can swing } \hat\beta_1,\hat\beta_2 \text{ between very different splits of the same total effect} \\
+    &(\hat\beta_1+\hat\beta_2\approx 2), \text{ even though the overall fit } \hat y \text{ barely changes.}
+    \end{aligned}
+- id: probability-statistics-linear-regression-4-05
+  category: Probability & Statistics
+  subtopic: Linear Regression
+  level: 4
+  question: |
+    \begin{aligned}
+    &\text{Group A has } (x,y)\in\{(1,8),(2,9),(3,10)\} \text{ and Group B has } (x,y)\in\{(4,3),(5,4),(6,5)\}. \text{ Verify} \\
+    &\text{that the within-group OLS slope is } +1 \text{ for both groups, then compute the pooled OLS slope} \\
+    &\text{ignoring group membership, and explain the sign reversal.}
+    \end{aligned}
+  answer: |
+    \begin{aligned}
+    &\text{Within each group, } y \text{ increases by exactly 1 per unit increase in } x \text{ (consecutive integers), so} \\
+    &\text{both groups individually have slope } +1 \text{ (Group A: intercept 7; Group B: intercept } -1\text{).} \\
+    &\text{Pooling all six points: } \bar x=3.5,\ \bar y=6.5. \text{ Deviations } x-\bar x: -2.5,-1.5,-0.5,0.5,1.5,2.5, \\
+    &y-\bar y: 1.5,2.5,3.5,-3.5,-2.5,-1.5. \\
+    &\sum (x_i-\bar x)(y_i-\bar y) = -3.75-3.75-1.75-1.75-3.75-3.75 = -18.5, \qquad \sum (x_i-\bar x)^2 = 17.5. \\
+    &\hat\beta_1^{pooled} = \frac{-18.5}{17.5} \approx -1.06. \\
+    &\text{The pooled slope is negative even though both groups individually have positive slope: Group B has} \\
+    &\text{both higher } x \text{ and systematically lower } y \text{ (a lower intercept) than Group A. Ignoring group} \\
+    &\text{membership, the between-group pattern (high } x\leftrightarrow\text{low } y\text{) swamps the within-group trend ---} \\
+    &\text{this sign reversal is Simpson's paradox. Group membership is a confounder omitted from the pooled} \\
+    &\text{regression.}
+    \end{aligned}

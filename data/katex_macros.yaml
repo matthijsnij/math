@@ -8,3 +8,4 @@
 \N: \mathbb{N}
 \argmax: \operatorname*{argmax}
 \argmin: \operatorname*{argmin}
+\plim: \operatorname{plim}
