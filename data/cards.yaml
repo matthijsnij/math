@@ -8063,3 +8063,269 @@
     &\text{If } \alpha a=1 \text{ (i.e. } \alpha=1/a\text{), then } e_{n+1}=(1-1)e_n=0: \text{ gradient descent reaches } x^* \text{ in a single step,} \\
     &\text{the optimal step size for a quadratic loss (equivalent to one Newton step, since } 1/a = 1/L''(x)\text{).}
     \end{aligned}
+- id: mathematics-vectors-and-vector-operations-1-01
+  category: Mathematics
+  subtopic: Vectors and Vector Operations
+  level: 1
+  question: |
+    \text{Given points } A(2,-1,3) \text{ and } B(5,4,-2) \text{ in } \R^3 \text{, write the vector } \vec{AB} \text{ in component form.}
+  answer: |
+    \vec{AB} = B - A = (5-2,\ 4-(-1),\ -2-3) = (3,\ 5,\ -5)
+- id: mathematics-vectors-and-vector-operations-1-02
+  category: Mathematics
+  subtopic: Vectors and Vector Operations
+  level: 1
+  question: |
+    \text{Given } \vec u=(2,-3,1) \text{ and } \vec v=(-1,4,2), \text{ compute } \vec u+\vec v \text{ and } \vec u-\vec v.
+  answer: |
+    \begin{aligned}
+    \vec u+\vec v &= (2+(-1),\ -3+4,\ 1+2) = (1,\ 1,\ 3) \\
+    \vec u-\vec v &= (2-(-1),\ -3-4,\ 1-2) = (3,\ -7,\ -1)
+    \end{aligned}
+- id: mathematics-vectors-and-vector-operations-1-03
+  category: Mathematics
+  subtopic: Vectors and Vector Operations
+  level: 1
+  question: |
+    \text{Given } \vec v=(3,-2,5) \text{ and scalar } c=-2 \text{, compute } c\vec v \text{ and describe geometrically what multiplying by a negative scalar does to a vector.}
+  answer: |
+    \begin{aligned}
+    c\vec v &= -2(3,-2,5) = (-6,\ 4,\ -10) \\
+    &\text{A negative scalar reverses the vector's direction (points the opposite way)} \\
+    &\text{and scales its magnitude by } |c|.
+    \end{aligned}
+- id: mathematics-vectors-and-vector-operations-1-04
+  category: Mathematics
+  subtopic: Vectors and Vector Operations
+  level: 1
+  question: |
+    \text{Compute the magnitude (Euclidean norm) of } \vec v=(3,-4,12).
+  answer: |
+    |\vec v| = \sqrt{3^2+(-4)^2+12^2} = \sqrt{9+16+144} = \sqrt{169} = 13
+- id: mathematics-vectors-and-vector-operations-1-05
+  category: Mathematics
+  subtopic: Vectors and Vector Operations
+  level: 1
+  question: |
+    \text{Find the unit vector in the direction of } \vec v=(1,2,2).
+  answer: |
+    \begin{aligned}
+    |\vec v| &= \sqrt{1^2+2^2+2^2} = \sqrt9 = 3 \\
+    \hat v &= \frac{\vec v}{|\vec v|} = \left(\tfrac13,\ \tfrac23,\ \tfrac23\right)
+    \end{aligned}
+- id: mathematics-vectors-and-vector-operations-1-06
+  category: Mathematics
+  subtopic: Vectors and Vector Operations
+  level: 1
+  question: |
+    \text{Compute the dot product of } \vec u=(1,2,-3) \text{ and } \vec v=(4,0,5).
+  answer: |
+    \vec u\cdot\vec v = (1)(4)+(2)(0)+(-3)(5) = 4+0-15 = -11
+- id: mathematics-vectors-and-vector-operations-2-01
+  category: Mathematics
+  subtopic: Vectors and Vector Operations
+  level: 2
+  question: |
+    \text{Find the angle (to the nearest degree) between } \vec u=(1,1,0) \text{ and } \vec v=(1,0,1).
+  answer: |
+    \begin{aligned}
+    \vec u\cdot\vec v &= 1, \quad |\vec u|=\sqrt2,\quad |\vec v|=\sqrt2 \\
+    \cos\theta &= \frac{\vec u\cdot\vec v}{|\vec u||\vec v|} = \frac12 \\
+    \theta &= \cos^{-1}\!\left(\tfrac12\right) = 60^\circ
+    \end{aligned}
+- id: mathematics-vectors-and-vector-operations-2-02
+  category: Mathematics
+  subtopic: Vectors and Vector Operations
+  level: 2
+  question: |
+    \text{Determine whether } \vec u=(2,-1,3) \text{ and } \vec v=(1,5,1) \text{ are orthogonal.}
+  answer: |
+    \vec u\cdot\vec v = (2)(1)+(-1)(5)+(3)(1) = 2-5+3 = 0 \quad\Rightarrow\quad \text{orthogonal.}
+- id: mathematics-vectors-and-vector-operations-2-03
+  category: Mathematics
+  subtopic: Vectors and Vector Operations
+  level: 2
+  question: |
+    \text{Find the scalar projection and vector projection of } \vec u=(4,3) \text{ onto } \vec v=(2,2).
+  answer: |
+    \begin{aligned}
+    \vec u\cdot\vec v &= 8+6 = 14, \qquad |\vec v| = 2\sqrt2,\qquad |\vec v|^2 = 8 \\
+    \text{scalar projection} &= \frac{\vec u\cdot\vec v}{|\vec v|} = \frac{14}{2\sqrt2} = \frac{7\sqrt2}{2} \\
+    \text{vector projection} &= \frac{\vec u\cdot\vec v}{|\vec v|^2}\,\vec v = \frac{14}{8}(2,2) = (3.5,\ 3.5)
+    \end{aligned}
+- id: mathematics-vectors-and-vector-operations-2-04
+  category: Mathematics
+  subtopic: Vectors and Vector Operations
+  level: 2
+  question: |
+    \text{Compute } \vec u\times\vec v \text{ for } \vec u=(1,2,3),\ \vec v=(4,5,6), \text{ and state what the magnitude of this cross product represents geometrically.}
+  answer: |
+    \begin{aligned}
+    \vec u\times\vec v &= \big(2(6)-3(5),\ \ 3(4)-1(6),\ \ 1(5)-2(4)\big) = (-3,\ 6,\ -3) \\
+    &\text{Its magnitude } |\vec u\times\vec v| \text{ equals the area of the parallelogram spanned by } \vec u,\vec v.
+    \end{aligned}
+- id: mathematics-vectors-and-vector-operations-2-05
+  category: Mathematics
+  subtopic: Vectors and Vector Operations
+  level: 2
+  question: |
+    \text{Express } \vec w=(7,4) \text{ as a linear combination of } \vec u=(1,1) \text{ and } \vec v=(2,-1).
+  answer: |
+    \begin{aligned}
+    a\vec u + b\vec v &= \vec w \quad\Rightarrow\quad a+2b=7,\ \ a-b=4 \\
+    \text{Subtracting: } 3b&=3 \ \Rightarrow\ b=1,\ \ a=5 \\
+    \vec w &= 5\vec u + 1\vec v
+    \end{aligned}
+- id: mathematics-vectors-and-vector-operations-2-06
+  category: Mathematics
+  subtopic: Vectors and Vector Operations
+  level: 2
+  question: |
+    \text{Describe the span of } S=\{(1,0,0),(0,1,0)\} \text{ in } \R^3 \text{, geometrically.}
+  answer: |
+    \text{span}(S) = \{(x,y,0) : x,y\in\R\}, \text{ the } xy\text{-plane: a 2-dimensional plane through the origin in } \R^3.
+- id: mathematics-vectors-and-vector-operations-2-07
+  category: Mathematics
+  subtopic: Vectors and Vector Operations
+  level: 2
+  question: |
+    \text{Are } \vec u=(2,3) \text{ and } \vec v=(-4,-6) \text{ linearly independent? Justify using the definition.}
+  answer: |
+    \begin{aligned}
+    \vec v &= (-4,-6) = -2(2,3) = -2\vec u \\
+    &\text{so } \vec v \text{ is a scalar multiple of } \vec u,\text{ giving } 2\vec u+\vec v=\vec 0 \text{ with } (2,1)\neq(0,0). \\
+    &\text{The vectors are linearly dependent (not independent); geometrically they lie on the same line through the origin.}
+    \end{aligned}
+- id: mathematics-vectors-and-vector-operations-3-01
+  category: Mathematics
+  subtopic: Vectors and Vector Operations
+  level: 3
+  question: |
+    \text{Prove the Cauchy–Schwarz inequality: } |\vec u\cdot\vec v|\le|\vec u||\vec v| \text{ for } \vec u,\vec v\in\R^n.
+  answer: |
+    \begin{aligned}
+    &\text{If } \vec v=\vec 0 \text{ both sides are } 0 \text{, so assume } \vec v\neq\vec 0. \text{ For any } t\in\R \text{ define} \\
+    f(t) &= |\vec u-t\vec v|^2 = (\vec u-t\vec v)\cdot(\vec u-t\vec v) = |\vec u|^2 - 2t(\vec u\cdot\vec v) + t^2|\vec v|^2 \ge 0. \\
+    &\text{This is a quadratic in } t \text{ opening upward (coefficient } |\vec v|^2>0\text{), and it is } \ge 0 \text{ for every } t, \\
+    &\text{so its discriminant cannot be positive:} \\
+    4(\vec u\cdot\vec v)^2 - 4|\vec v|^2|\vec u|^2 &\le 0 \\
+    (\vec u\cdot\vec v)^2 &\le |\vec u|^2|\vec v|^2 \\
+    |\vec u\cdot\vec v| &\le |\vec u||\vec v|.
+    \end{aligned}
+- id: mathematics-vectors-and-vector-operations-3-02
+  category: Mathematics
+  subtopic: Vectors and Vector Operations
+  level: 3
+  question: |
+    \text{Prove the triangle inequality } |\vec u+\vec v|\le|\vec u|+|\vec v| \text{, using the Cauchy–Schwarz inequality.}
+  answer: |
+    \begin{aligned}
+    |\vec u+\vec v|^2 &= (\vec u+\vec v)\cdot(\vec u+\vec v) = |\vec u|^2 + 2(\vec u\cdot\vec v) + |\vec v|^2 \\
+    &\le |\vec u|^2 + 2|\vec u\cdot\vec v| + |\vec v|^2 \\
+    &\le |\vec u|^2 + 2|\vec u||\vec v| + |\vec v|^2 \qquad \text{(Cauchy–Schwarz)} \\
+    &= (|\vec u|+|\vec v|)^2. \\
+    &\text{Both sides of } |\vec u+\vec v|^2\le(|\vec u|+|\vec v|)^2 \text{ are nonnegative, so taking square roots gives} \\
+    |\vec u+\vec v| &\le |\vec u|+|\vec v|.
+    \end{aligned}
+- id: mathematics-vectors-and-vector-operations-3-03
+  category: Mathematics
+  subtopic: Vectors and Vector Operations
+  level: 3
+  question: |
+    \text{Show that the scalar triple product } \vec u\cdot(\vec v\times\vec w) \text{ equals the determinant of the matrix with rows } \vec u,\vec v,\vec w, \text{ and that its absolute value is the volume of the parallelepiped spanned by } \vec u,\vec v,\vec w.
+  answer: |
+    \begin{aligned}
+    \vec v\times\vec w &= (v_2w_3-v_3w_2,\ v_3w_1-v_1w_3,\ v_1w_2-v_2w_1) \\
+    \vec u\cdot(\vec v\times\vec w) &= u_1(v_2w_3-v_3w_2) - u_2(v_1w_3-v_3w_1) + u_3(v_1w_2-v_2w_1) \\
+    &= \det\begin{pmatrix} u_1 & u_2 & u_3 \\ v_1 & v_2 & v_3 \\ w_1 & w_2 & w_3 \end{pmatrix}, \\
+    &\text{which is exactly the cofactor expansion of this determinant along its first row.} \\
+    &\text{Geometrically, } |\vec v\times\vec w| \text{ is the area of the parallelogram base spanned by } \vec v,\vec w, \\
+    &\text{and the height of the parallelepiped is the component of } \vec u \text{ along the normal } \vec v\times\vec w, \\
+    &\text{i.e. } |\vec u|\cos\theta \text{ where } \theta \text{ is the angle between } \vec u \text{ and } \vec v\times\vec w. \text{ So} \\
+    \text{Volume} &= (\text{base area})\times(\text{height}) = |\vec v\times\vec w|\cdot|\vec u|\cos\theta = |\vec u\cdot(\vec v\times\vec w)|.
+    \end{aligned}
+- id: mathematics-vectors-and-vector-operations-3-04
+  category: Mathematics
+  subtopic: Vectors and Vector Operations
+  level: 3
+  question: |
+    \text{Prove that any set of } m>n \text{ vectors in } \R^n \text{ is linearly dependent.}
+  answer: |
+    \begin{aligned}
+    &\text{Let } \vec v_1,\dots,\vec v_m\in\R^n \text{ with } m>n. \text{ Consider the homogeneous equation} \\
+    c_1\vec v_1 + \cdots + c_m\vec v_m &= \vec 0, \\
+    &\text{which, written coordinate-by-coordinate, is a system of } n \text{ linear equations in the } m \text{ unknowns } c_1,\dots,c_m. \\
+    &\text{The coefficient matrix has only } n \text{ rows, so its rank is at most } n < m. \text{ A homogeneous linear system} \\
+    &\text{whose rank is less than its number of unknowns always has a free variable, hence a nontrivial solution} \\
+    &(c_1,\dots,c_m)\neq(0,\dots,0). \\
+    &\text{That nontrivial solution is a nontrivial linear combination of } \vec v_1,\dots,\vec v_m \text{ equal to } \vec 0\text{, so the} \\
+    &\text{vectors are, by definition, linearly dependent.}
+    \end{aligned}
+- id: mathematics-vectors-and-vector-operations-3-05
+  category: Mathematics
+  subtopic: Vectors and Vector Operations
+  level: 3
+  question: |
+    \text{Using the determinant formula } \vec u\times\vec v = \det\!\begin{pmatrix}\vec i & \vec j & \vec k \\ u_1 & u_2 & u_3 \\ v_1 & v_2 & v_3\end{pmatrix}, \text{ show that } \vec v\times\vec u=-(\vec u\times\vec v) \text{ and } \vec u\cdot(\vec u\times\vec v)=0.
+  answer: |
+    \begin{aligned}
+    &\text{(a) The matrix for } \vec v\times\vec u \text{ is the one for } \vec u\times\vec v \text{ with its last two rows swapped. Swapping two} \\
+    &\text{rows of a determinant negates it, so } \vec v\times\vec u = -(\vec u\times\vec v). \\[4pt]
+    &\text{(b) } \vec u\cdot(\vec u\times\vec v) \text{ is, by the scalar-triple-product/determinant identity, the determinant of the matrix} \\
+    &\text{with rows } \vec u,\vec u,\vec v\text{. This determinant has two identical rows (both } \vec u\text{), and any determinant with} \\
+    &\text{two identical rows is } 0\text{. Hence } \vec u\cdot(\vec u\times\vec v)=0\text{, i.e. } \vec u\times\vec v \text{ is orthogonal to } \vec u.
+    \end{aligned}
+- id: mathematics-vectors-and-vector-operations-4-01
+  category: Mathematics
+  subtopic: Vectors and Vector Operations
+  level: 4
+  question: |
+    \text{A trader's position has historical returns } \vec x=(2,-1,3,0)\% \text{ over 4 periods; a candidate hedging instrument has returns } \vec y=(1,1,1,1)\%. \text{ Find the hedge ratio } h \text{ minimizing the variance (sum of squares) of the residual } \vec x-h\vec y\text{, and compute that residual.}
+  answer: |
+    \begin{aligned}
+    &\text{Minimizing } |\vec x-h\vec y|^2 \text{ over } h \text{ is exactly the orthogonal-projection problem: the minimizing } h \\
+    &\text{makes the residual } \vec x-h\vec y \text{ orthogonal to } \vec y\text{, i.e. } (\vec x-h\vec y)\cdot\vec y=0 \ \Rightarrow\ h=\frac{\vec x\cdot\vec y}{\vec y\cdot\vec y}. \\
+    \vec x\cdot\vec y &= 2-1+3+0 = 4, \qquad \vec y\cdot\vec y = 1+1+1+1 = 4 \\
+    h &= \frac44 = 1 \\
+    \vec x-h\vec y &= (2-1,\ -1-1,\ 3-1,\ 0-1) = (1,\ -2,\ 2,\ -1)
+    \end{aligned}
+- id: mathematics-vectors-and-vector-operations-4-02
+  category: Mathematics
+  subtopic: Vectors and Vector Operations
+  level: 4
+  question: |
+    \text{Find the area of the triangle with vertices } A(1,0,0),\ B(0,1,0),\ C(0,0,1).
+  answer: |
+    \begin{aligned}
+    \vec{AB} &= (-1,1,0), \qquad \vec{AC} = (-1,0,1) \\
+    \vec{AB}\times\vec{AC} &= \big(1(1)-0(0),\ \ 0(-1)-(-1)(1),\ \ (-1)(0)-1(-1)\big) = (1,\ 1,\ 1) \\
+    \text{Area} &= \tfrac12\big|\vec{AB}\times\vec{AC}\big| = \tfrac12\sqrt{1^2+1^2+1^2} = \frac{\sqrt3}{2}
+    \end{aligned}
+- id: mathematics-vectors-and-vector-operations-4-03
+  category: Mathematics
+  subtopic: Vectors and Vector Operations
+  level: 4
+  question: |
+    \text{Using the Cauchy–Schwarz inequality, find the maximum value of } 2x+3y+6z \text{ subject to } x^2+y^2+z^2=1\text{, and the point } (x,y,z) \text{ achieving it.}
+  answer: |
+    \begin{aligned}
+    &\text{Let } \vec a=(2,3,6) \text{ and } \vec r=(x,y,z) \text{ with } |\vec r|=1\text{. By Cauchy–Schwarz,} \\
+    2x+3y+6z &= \vec a\cdot\vec r \le |\vec a||\vec r| = |\vec a| = \sqrt{4+9+36} = \sqrt{49} = 7, \\
+    &\text{with equality exactly when } \vec r \text{ points in the same direction as } \vec a\text{, i.e. } \vec r=\dfrac{\vec a}{|\vec a|}=\left(\tfrac27,\tfrac37,\tfrac67\right). \\
+    &\text{Maximum value: } 7, \text{ achieved at } (x,y,z)=\left(\tfrac27,\tfrac37,\tfrac67\right).
+    \end{aligned}
+- id: mathematics-vectors-and-vector-operations-4-04
+  category: Mathematics
+  subtopic: Vectors and Vector Operations
+  level: 4
+  question: |
+    \text{There are } n\ (n\ge2) \text{ unit vectors in the plane whose sum is the zero vector. Show that at least one pair of them has a non-positive dot product.}
+  answer: |
+    \begin{aligned}
+    0 = |\vec 0|^2 &= \Big|\sum_{i=1}^n \vec v_i\Big|^2 = \sum_{i=1}^n|\vec v_i|^2 + \sum_{i\neq j}\vec v_i\cdot\vec v_j = n + \sum_{i\neq j}\vec v_i\cdot\vec v_j \\
+    &\Rightarrow \sum_{i\neq j}\vec v_i\cdot\vec v_j = -n. \\
+    &\text{There are } n(n-1) \text{ ordered pairs } (i,j),\ i\neq j\text{, so their average value is} \\
+    \frac{-n}{n(n-1)} &= \frac{-1}{n-1} < 0 \quad (\text{since } n\ge2). \\
+    &\text{If every pairwise dot product } \vec v_i\cdot\vec v_j \ (i\neq j) \text{ were positive, their average would be positive too,} \\
+    &\text{contradicting that the average is negative. So some pair has } \vec v_i\cdot\vec v_j\le0 \text{ (in fact } <0\text{).}
+    \end{aligned}
