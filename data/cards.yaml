@@ -3119,3 +3119,370 @@
     F_L(l) &= P(\max(X,1-X)\le l) = P(X\le l \text{ and } 1-X\le l) = P(1-l \le X \le l) = l-(1-l) = 2l-1
     \end{aligned} \\
     \text{for } l \in [\tfrac12,1]\text{. Differentiating, } f_L(l) = 2 \text{ on } [\tfrac12,1] \text{ — i.e. } L \sim \text{Uniform}(\tfrac12,1).
+- id: probability-statistics-probability-distributions-1-01
+  category: Probability & Statistics
+  subtopic: Probability Distributions
+  level: 1
+  question: |
+    \text{State the pmf, } \E[X], \text{ and } \Var(X) \text{ for } X \sim \text{Bernoulli}(p).
+  answer: |
+    \begin{aligned}
+    \P(X=x) &= p^{x}(1-p)^{1-x}, \quad x \in \{0,1\} \\
+    \E[X] &= p \\
+    \Var(X) &= p(1-p)
+    \end{aligned}
+- id: probability-statistics-probability-distributions-1-02
+  category: Probability & Statistics
+  subtopic: Probability Distributions
+  level: 1
+  question: |
+    \text{State the pmf, } \E[X], \text{ and } \Var(X) \text{ for } X \sim \text{Binomial}(n,p).
+  answer: |
+    \begin{aligned}
+    \P(X=k) &= \binom{n}{k}p^{k}(1-p)^{n-k}, \quad k=0,1,\dots,n \\
+    \E[X] &= np \\
+    \Var(X) &= np(1-p)
+    \end{aligned}
+- id: probability-statistics-probability-distributions-1-03
+  category: Probability & Statistics
+  subtopic: Probability Distributions
+  level: 1
+  question: |
+    X \text{ counts the number of iid trials, each with success probability } p\text{, up to and including the} \\
+    \text{first success. State the pmf, } \E[X], \text{ and } \Var(X) \text{ for } X \sim \text{Geometric}(p).
+  answer: |
+    \begin{aligned}
+    \P(X=k) &= (1-p)^{k-1}p, \quad k=1,2,3,\dots \\
+    \E[X] &= \dfrac{1}{p} \\
+    \Var(X) &= \dfrac{1-p}{p^{2}}
+    \end{aligned}
+- id: probability-statistics-probability-distributions-1-04
+  category: Probability & Statistics
+  subtopic: Probability Distributions
+  level: 1
+  question: |
+    \text{State the pmf, } \E[X], \text{ and } \Var(X) \text{ for } X \sim \text{Poisson}(\lambda).
+  answer: |
+    \begin{aligned}
+    \P(X=k) &= \dfrac{e^{-\lambda}\lambda^{k}}{k!}, \quad k=0,1,2,\dots \\
+    \E[X] &= \lambda \\
+    \Var(X) &= \lambda
+    \end{aligned}
+- id: probability-statistics-probability-distributions-1-05
+  category: Probability & Statistics
+  subtopic: Probability Distributions
+  level: 1
+  question: |
+    \text{State the pmf, } \E[X], \text{ and } \Var(X) \text{ for } X \sim \text{DiscreteUniform}\{1,2,\dots,n\}.
+  answer: |
+    \begin{aligned}
+    \P(X=k) &= \dfrac{1}{n}, \quad k=1,2,\dots,n \\
+    \E[X] &= \dfrac{n+1}{2} \\
+    \Var(X) &= \dfrac{n^{2}-1}{12}
+    \end{aligned}
+- id: probability-statistics-probability-distributions-1-06
+  category: Probability & Statistics
+  subtopic: Probability Distributions
+  level: 1
+  question: |
+    \text{State the pdf, } \E[X], \text{ and } \Var(X) \text{ for } X \sim \text{Uniform}(a,b).
+  answer: |
+    \begin{aligned}
+    f(x) &= \dfrac{1}{b-a}, \quad x \in [a,b] \\
+    \E[X] &= \dfrac{a+b}{2} \\
+    \Var(X) &= \dfrac{(b-a)^{2}}{12}
+    \end{aligned}
+- id: probability-statistics-probability-distributions-1-07
+  category: Probability & Statistics
+  subtopic: Probability Distributions
+  level: 1
+  question: |
+    \text{State the pdf, } \E[X], \text{ and } \Var(X) \text{ for } X \sim \text{Exponential}(\lambda).
+  answer: |
+    \begin{aligned}
+    f(x) &= \lambda e^{-\lambda x}, \quad x \ge 0 \\
+    \E[X] &= \dfrac{1}{\lambda} \\
+    \Var(X) &= \dfrac{1}{\lambda^{2}}
+    \end{aligned}
+- id: probability-statistics-probability-distributions-1-08
+  category: Probability & Statistics
+  subtopic: Probability Distributions
+  level: 1
+  question: |
+    \text{State the pdf, } \E[X], \text{ and } \Var(X) \text{ for } X \sim \text{Normal}(\mu,\sigma^{2})\text{, and describe one} \\
+    \text{symmetry property of its pdf.}
+  answer: |
+    \begin{aligned}
+    f(x) &= \dfrac{1}{\sigma\sqrt{2\pi}}\,e^{-(x-\mu)^{2}/(2\sigma^{2})}, \quad x \in \R \\
+    \E[X] &= \mu, \qquad \Var(X) = \sigma^{2}
+    \end{aligned} \\
+    \text{The pdf is symmetric about } x=\mu\text{: } f(\mu+t) = f(\mu-t) \text{ for all } t.
+- id: probability-statistics-probability-distributions-1-09
+  category: Probability & Statistics
+  subtopic: Probability Distributions
+  level: 1
+  question: |
+    \text{Define the moment generating function (MGF) } M_X(t) \text{ of a random variable } X\text{, and compute it} \\
+    \text{directly from the definition for } X \sim \text{Bernoulli}(p).
+  answer: |
+    \begin{aligned}
+    M_X(t) &= \E[e^{tX}] \\
+    \text{For } X \sim \text{Bernoulli}(p): \quad M_X(t) &= (1-p)e^{t\cdot 0} + p\,e^{t\cdot 1} = (1-p) + pe^{t}
+    \end{aligned}
+- id: probability-statistics-probability-distributions-2-01
+  category: Probability & Statistics
+  subtopic: Probability Distributions
+  level: 2
+  question: |
+    \text{A biased coin lands heads with probability } p \text{ on each independent flip. In terms of } p \text{ and } n\text{,} \\
+    \text{find the probability of at least one head in } n \text{ flips.}
+  answer: |
+    \begin{aligned}
+    \P(\text{at least one head}) &= 1 - \P(\text{no heads}) \\
+    &= 1 - (1-p)^{n}
+    \end{aligned}
+- id: probability-statistics-probability-distributions-2-02
+  category: Probability & Statistics
+  subtopic: Probability Distributions
+  level: 2
+  question: |
+    \text{Calls arrive at a help desk according to a Poisson distribution with mean } 4 \text{ calls per minute. Find} \\
+    \text{the probability that exactly } 2 \text{ calls arrive in a given minute.}
+  answer: |
+    \begin{aligned}
+    X &\sim \text{Poisson}(\lambda=4) \\
+    \P(X=2) &= \dfrac{e^{-4}4^{2}}{2!} = 8e^{-4} \approx 0.1465
+    \end{aligned}
+- id: probability-statistics-probability-distributions-2-03
+  category: Probability & Statistics
+  subtopic: Probability Distributions
+  level: 2
+  question: |
+    X \sim \text{Normal}(50, 10^{2}). \text{ Using } \Phi(1)=0.8413 \text{ and } \Phi(1.5)=0.9332\text{, find } \P(40 < X < 65).
+  answer: |
+    \begin{aligned}
+    \P(40<X<65) &= \P\!\left(\dfrac{40-50}{10} < Z < \dfrac{65-50}{10}\right) = \P(-1<Z<1.5) \\
+    &= \Phi(1.5) - \Phi(-1) = \Phi(1.5) - \big(1-\Phi(1)\big) \\
+    &= 0.9332 - (1-0.8413) = 0.9332 - 0.1587 = 0.7745
+    \end{aligned}
+- id: probability-statistics-probability-distributions-2-04
+  category: Probability & Statistics
+  subtopic: Probability Distributions
+  level: 2
+  question: |
+    \text{For } X \sim \text{Normal}(\mu,\sigma^{2})\text{, state the approximate probability that } X \text{ falls within } 1, 2\text{,} \\
+    \text{and } 3 \text{ standard deviations of } \mu \text{ (the empirical rule).}
+  answer: |
+    \begin{aligned}
+    \P(|X-\mu|<\sigma) &\approx 0.68 \\
+    \P(|X-\mu|<2\sigma) &\approx 0.95 \\
+    \P(|X-\mu|<3\sigma) &\approx 0.997
+    \end{aligned}
+- id: probability-statistics-probability-distributions-2-05
+  category: Probability & Statistics
+  subtopic: Probability Distributions
+  level: 2
+  question: |
+    X \sim \text{Exponential}(\lambda=0.5) \text{ models a component's lifetime. Given that it has survived past time } 4\text{,} \\
+    \text{find the probability it survives past time } 10.
+  answer: |
+    \begin{aligned}
+    \P(X>10 \mid X>4) &= \P(X > 10-4) = \P(X>6) \quad \text{(memoryless property)} \\
+    &= e^{-0.5 \times 6} = e^{-3}
+    \end{aligned}
+- id: probability-statistics-probability-distributions-2-06
+  category: Probability & Statistics
+  subtopic: Probability Distributions
+  level: 2
+  question: |
+    X \text{ counts the number of iid trials, each with success probability } p\text{, up to and including the} \\
+    r\text{-th success. State the pmf, } \E[X], \text{ and } \Var(X) \text{ for } X \sim \text{NegativeBinomial}(r,p).
+  answer: |
+    \begin{aligned}
+    \P(X=k) &= \binom{k-1}{r-1}p^{r}(1-p)^{k-r}, \quad k=r,r+1,r+2,\dots \\
+    \E[X] &= \dfrac{r}{p} \\
+    \Var(X) &= \dfrac{r(1-p)}{p^{2}}
+    \end{aligned}
+- id: probability-statistics-probability-distributions-2-07
+  category: Probability & Statistics
+  subtopic: Probability Distributions
+  level: 2
+  question: |
+    \text{Using } M_X(t) = (1-p)+pe^{t} \text{ for } X \sim \text{Bernoulli}(p)\text{, differentiate to recover } \E[X] \text{ and } \Var(X).
+  answer: |
+    \begin{aligned}
+    M_X'(t) &= pe^{t} \quad \Rightarrow \quad \E[X] = M_X'(0) = p \\
+    M_X''(t) &= pe^{t} \quad \Rightarrow \quad \E[X^{2}] = M_X''(0) = p \\
+    \Var(X) &= \E[X^{2}] - \big(\E[X]\big)^{2} = p - p^{2} = p(1-p)
+    \end{aligned}
+- id: probability-statistics-probability-distributions-2-08
+  category: Probability & Statistics
+  subtopic: Probability Distributions
+  level: 2
+  question: |
+    \text{Using } M_X(t) = e^{\mu t + \sigma^{2}t^{2}/2} \text{ for } X \sim \text{Normal}(\mu,\sigma^{2})\text{, differentiate to recover} \\
+    \E[X] \text{ and } \Var(X).
+  answer: |
+    \begin{aligned}
+    M_X'(t) &= (\mu+\sigma^{2}t)\,M_X(t) \quad \Rightarrow \quad \E[X] = M_X'(0) = \mu \\
+    M_X''(t) &= \sigma^{2}M_X(t) + (\mu+\sigma^{2}t)^{2}M_X(t) \quad \Rightarrow \quad \E[X^{2}] = M_X''(0) = \sigma^{2}+\mu^{2} \\
+    \Var(X) &= \E[X^{2}] - \big(\E[X]\big)^{2} = \sigma^{2}+\mu^{2} - \mu^{2} = \sigma^{2}
+    \end{aligned}
+- id: probability-statistics-probability-distributions-3-01
+  category: Probability & Statistics
+  subtopic: Probability Distributions
+  level: 3
+  question: |
+    \text{Let } X \sim \text{Binomial}(n,p)\text{. Writing } X \text{ as a sum of indicator variables, derive } \E[X] \text{ and } \Var(X).
+  answer: |
+    \begin{aligned}
+    &\text{Write } X = \sum_{i=1}^{n} I_i \text{, where } I_i = 1 \text{ if trial } i \text{ succeeds and } I_i \sim \text{Bernoulli}(p) \text{, iid.} \\
+    &\text{By linearity of expectation: } \E[X] = \sum_{i=1}^{n}\E[I_i] = np\text{.} \\
+    &\text{Since the } I_i \text{ are independent, variances add: } \Var(X) = \sum_{i=1}^{n}\Var(I_i) = np(1-p)\text{.}
+    \end{aligned}
+- id: probability-statistics-probability-distributions-3-02
+  category: Probability & Statistics
+  subtopic: Probability Distributions
+  level: 3
+  question: |
+    \text{Prove that } X \sim \text{Exponential}(\lambda) \text{ is memoryless, i.e. } \P(X>s+t \mid X>s) = \P(X>t) \text{ for all } s,t\ge 0.
+  answer: |
+    \begin{aligned}
+    \P(X>s+t \mid X>s) &= \dfrac{\P(X>s+t,\ X>s)}{\P(X>s)} = \dfrac{\P(X>s+t)}{\P(X>s)} \quad \text{(since } s+t \ge s \text{)} \\
+    &= \dfrac{e^{-\lambda(s+t)}}{e^{-\lambda s}} = e^{-\lambda t} = \P(X>t)
+    \end{aligned} \\
+    \text{Exponential is in fact the unique continuous distribution with this property: letting } g(t)=\P(X>t)\text{,} \\
+    \text{memorylessness means } g(s+t)=g(s)g(t) \text{ for all } s,t\ge 0\text{; together with } g \text{ monotone decreasing and} \\
+    g(0)=1\text{, the only solutions are } g(t)=e^{-\lambda t}\text{, i.e. exactly the Exponential survival functions.}
+- id: probability-statistics-probability-distributions-3-03
+  category: Probability & Statistics
+  subtopic: Probability Distributions
+  level: 3
+  question: |
+    \text{Let } X_n \sim \text{Binomial}(n,p_n) \text{ with } p_n = \lambda/n \text{ so the mean } np_n=\lambda \text{ is fixed. Show that as} \\
+    n\to\infty\text{, } \P(X_n=k) \to \dfrac{e^{-\lambda}\lambda^{k}}{k!} \text{ for fixed } k.
+  answer: |
+    \begin{aligned}
+    \P(X_n=k) &= \binom{n}{k}\left(\dfrac{\lambda}{n}\right)^{k}\left(1-\dfrac{\lambda}{n}\right)^{n-k} \\
+    &= \underbrace{\dfrac{n(n-1)\cdots(n-k+1)}{n^{k}}}_{\to\ 1}\cdot \dfrac{\lambda^{k}}{k!}\cdot \underbrace{\left(1-\dfrac{\lambda}{n}\right)^{n}}_{\to\ e^{-\lambda}}\cdot \underbrace{\left(1-\dfrac{\lambda}{n}\right)^{-k}}_{\to\ 1} \\
+    &\to \dfrac{\lambda^{k}}{k!}e^{-\lambda}
+    \end{aligned}
+- id: probability-statistics-probability-distributions-3-04
+  category: Probability & Statistics
+  subtopic: Probability Distributions
+  level: 3
+  question: |
+    \text{For independent random variables } X,Y\text{, prove that } M_{X+Y}(t) = M_X(t)\,M_Y(t)\text{, and state the} \\
+    \text{generalization to } n \text{ independent random variables.}
+  answer: |
+    \begin{aligned}
+    M_{X+Y}(t) &= \E\!\left[e^{t(X+Y)}\right] = \E\!\left[e^{tX}e^{tY}\right] \\
+    &= \E\!\left[e^{tX}\right]\E\!\left[e^{tY}\right] \quad \text{(independence: expectation of a product factors)} \\
+    &= M_X(t)\,M_Y(t)
+    \end{aligned} \\
+    \text{For independent } X_1,\dots,X_n\text{: } M_{X_1+\cdots+X_n}(t) = \prod_{i=1}^{n} M_{X_i}(t).
+- id: probability-statistics-probability-distributions-3-05
+  category: Probability & Statistics
+  subtopic: Probability Distributions
+  level: 3
+  question: |
+    \text{Derive the MGF of } X \sim \text{Exponential}(\lambda) \text{ from the definition (for } t<\lambda\text{), then use it to find} \\
+    \E[X] \text{ and } \Var(X).
+  answer: |
+    \begin{aligned}
+    M_X(t) &= \int_{0}^{\infty} e^{tx}\lambda e^{-\lambda x}\,dx = \lambda\int_{0}^{\infty} e^{-(\lambda-t)x}\,dx = \dfrac{\lambda}{\lambda-t}, \quad t<\lambda \\
+    M_X'(t) &= \dfrac{\lambda}{(\lambda-t)^{2}} \quad \Rightarrow \quad \E[X] = M_X'(0) = \dfrac{1}{\lambda} \\
+    M_X''(t) &= \dfrac{2\lambda}{(\lambda-t)^{3}} \quad \Rightarrow \quad \E[X^{2}] = M_X''(0) = \dfrac{2}{\lambda^{2}} \\
+    \Var(X) &= \E[X^{2}]-\big(\E[X]\big)^{2} = \dfrac{2}{\lambda^{2}} - \dfrac{1}{\lambda^{2}} = \dfrac{1}{\lambda^{2}}
+    \end{aligned}
+- id: probability-statistics-probability-distributions-3-06
+  category: Probability & Statistics
+  subtopic: Probability Distributions
+  level: 3
+  question: |
+    \text{Let } X \sim \text{Poisson}(\lambda_1) \text{ and } Y \sim \text{Poisson}(\lambda_2) \text{ be independent. Using convolution of} \\
+    \text{pmfs, show that } X+Y \sim \text{Poisson}(\lambda_1+\lambda_2).
+  answer: |
+    \begin{aligned}
+    \P(X+Y=k) &= \sum_{i=0}^{k} \P(X=i)\P(Y=k-i) = \sum_{i=0}^{k} \dfrac{e^{-\lambda_1}\lambda_1^{i}}{i!}\cdot\dfrac{e^{-\lambda_2}\lambda_2^{k-i}}{(k-i)!} \\
+    &= \dfrac{e^{-(\lambda_1+\lambda_2)}}{k!}\sum_{i=0}^{k}\binom{k}{i}\lambda_1^{i}\lambda_2^{k-i} \\
+    &= \dfrac{e^{-(\lambda_1+\lambda_2)}}{k!}(\lambda_1+\lambda_2)^{k} \quad \text{(binomial theorem)}
+    \end{aligned} \\
+    \text{This is the } \text{Poisson}(\lambda_1+\lambda_2) \text{ pmf, so } X+Y \sim \text{Poisson}(\lambda_1+\lambda_2).
+- id: probability-statistics-probability-distributions-3-07
+  category: Probability & Statistics
+  subtopic: Probability Distributions
+  level: 3
+  question: |
+    \text{Let } X_1,\dots,X_n \text{ be iid } \text{Exponential}(\lambda)\text{. Using the MGF product rule, find the MGF of} \\
+    S=X_1+\cdots+X_n \text{ and identify its distribution.}
+  answer: |
+    M_S(t) = \prod_{i=1}^{n} M_{X_i}(t) = \left(\dfrac{\lambda}{\lambda-t}\right)^{n}, \quad t<\lambda \\
+    \text{This is the MGF of a } \text{Gamma}(n,\lambda) \text{ random variable (shape } n\text{, rate } \lambda\text{), with pdf} \\
+    f_S(x) = \dfrac{\lambda^{n}x^{n-1}e^{-\lambda x}}{(n-1)!}, \quad x \ge 0\text{; since the MGF uniquely determines the distribution,} \\
+    S \sim \text{Gamma}(n,\lambda).
+- id: probability-statistics-probability-distributions-4-01
+  category: Probability & Statistics
+  subtopic: Probability Distributions
+  level: 4
+  question: |
+    \text{A fair die is rolled repeatedly. Find the expected number of rolls needed until all } 6 \text{ faces have} \\
+    \text{appeared at least once (the coupon collector problem).}
+  answer: |
+    \begin{aligned}
+    &\text{After collecting } i-1 \text{ distinct faces, the number of rolls to see a new face is } \text{Geometric}\left(\dfrac{6-i+1}{6}\right)\text{,} \\
+    &\text{with mean } \dfrac{6}{6-i+1}\text{. By linearity of expectation,} \\
+    \E[T] &= \sum_{i=1}^{6}\dfrac{6}{6-i+1} = 6\left(1+\dfrac12+\dfrac13+\dfrac14+\dfrac15+\dfrac16\right) = 6\cdot\dfrac{49}{20} = \dfrac{147}{10} = 14.7
+    \end{aligned}
+- id: probability-statistics-probability-distributions-4-02
+  category: Probability & Statistics
+  subtopic: Probability Distributions
+  level: 4
+  question: |
+    \text{A factory produces } 1000 \text{ items; each is independently defective with probability } 0.002\text{. Using the} \\
+    \text{Poisson approximation to the Binomial, estimate the probability that exactly } 3 \text{ items are defective.}
+  answer: |
+    \begin{aligned}
+    &\text{Since } n=1000 \text{ is large and } p=0.002 \text{ is small, approximate with } \text{Poisson}(\lambda) \text{ where} \\
+    \lambda &= np = 1000 \times 0.002 = 2 \\
+    \P(X=3) &\approx \dfrac{e^{-2}2^{3}}{3!} = \dfrac{8e^{-2}}{6} = \dfrac{4e^{-2}}{3} \approx 0.180
+    \end{aligned}
+- id: probability-statistics-probability-distributions-4-03
+  category: Probability & Statistics
+  subtopic: Probability Distributions
+  level: 4
+  question: |
+    \text{Buses arrive at a stop according to a Poisson process, so the waiting time for the next bus is} \\
+    X \sim \text{Exponential}(\lambda = 0.1 \text{ per minute}). \text{ You have already waited } 15 \text{ minutes with no bus. Find} \\
+    \text{the probability you wait at least another } 5 \text{ minutes.}
+  answer: |
+    \begin{aligned}
+    \P(X>15+5 \mid X>15) &= \P(X>5) \quad \text{(memoryless — the } 15 \text{ minutes already waited is irrelevant)} \\
+    &= e^{-0.1\times 5} = e^{-0.5} \approx 0.6065
+    \end{aligned}
+- id: probability-statistics-probability-distributions-4-04
+  category: Probability & Statistics
+  subtopic: Probability Distributions
+  level: 4
+  question: |
+    \text{A system has } 5 \text{ independent components, each with lifetime } \text{Exponential}(\lambda=0.1 \text{ per year})\text{.} \\
+    \text{The system fails as soon as the first component fails. Find the distribution and expected time of system} \\
+    \text{failure.}
+  answer: |
+    \begin{aligned}
+    \text{Let } M &= \min(X_1,\dots,X_5)\text{. Since the } X_i \text{ are independent,} \\
+    \P(M>t) &= \P(X_1>t,\dots,X_5>t) = \prod_{i=1}^{5}\P(X_i>t) = \prod_{i=1}^{5} e^{-\lambda t} = e^{-5\lambda t}
+    \end{aligned} \\
+    \text{So } M \sim \text{Exponential}(5\lambda)\text{, and } \E[M] = \dfrac{1}{5\lambda} = \dfrac{1}{5\times 0.1} = 2 \text{ years.}
+- id: probability-statistics-probability-distributions-4-05
+  category: Probability & Statistics
+  subtopic: Probability Distributions
+  level: 4
+  question: |
+    \text{A stock's daily return } R \text{ is modeled as } R \sim \text{Normal}(0, 0.02^{2})\text{. Using } \Phi(2)=0.9772\text{, find the} \\
+    \text{probability of a loss greater than } 4\% \text{ (i.e. } \P(R<-0.04)\text{).}
+  answer: |
+    \begin{aligned}
+    \P(R<-0.04) &= \P\!\left(Z < \dfrac{-0.04-0}{0.02}\right) = \P(Z<-2) = 1-\Phi(2) \\
+    &= 1-0.9772 = 0.0228
+    \end{aligned}
