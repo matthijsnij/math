@@ -7082,3 +7082,295 @@
     C'(20) &= 0.03(400) - 1.2(20) + 20 = 12 - 24 + 20 = 8 \\
     &\text{At a production level of } 20 \text{ units, producing one additional unit costs approximately } \$8.
     \end{aligned}
+- id: mathematics-integrals-1-01
+  category: Mathematics
+  subtopic: Integrals
+  level: 1
+  question: |
+    \text{Evaluate: } \int (3x^2 - 4x + 5)\,dx
+  answer: |
+    \int (3x^2 - 4x + 5)\,dx = x^3 - 2x^2 + 5x + C
+- id: mathematics-integrals-1-02
+  category: Mathematics
+  subtopic: Integrals
+  level: 1
+  question: |
+    \text{Evaluate: } \int \left(e^x + \dfrac{1}{x} + \sin x\right)dx
+  answer: |
+    \int \left(e^x + \dfrac{1}{x} + \sin x\right)dx = e^x + \ln|x| - \cos x + C
+- id: mathematics-integrals-1-03
+  category: Mathematics
+  subtopic: Integrals
+  level: 1
+  question: |
+    \text{Evaluate: } \int_1^3 (2x+1)\,dx
+  answer: |
+    \begin{aligned}
+    \int_1^3 (2x+1)\,dx &= \left[x^2 + x\right]_1^3 \\
+    &= (9+3) - (1+1) = 12 - 2 = 10
+    \end{aligned}
+- id: mathematics-integrals-1-04
+  category: Mathematics
+  subtopic: Integrals
+  level: 1
+  question: |
+    \text{Express the area between } y=x \text{ and the } x\text{-axis on } [0,4] \text{ as a definite integral, and evaluate it.}
+  answer: |
+    \begin{aligned}
+    \text{Area} &= \int_0^4 x\,dx = \left[\dfrac{x^2}{2}\right]_0^4 \\
+    &= \dfrac{16}{2} - 0 = 8
+    \end{aligned}
+- id: mathematics-integrals-1-05
+  category: Mathematics
+  subtopic: Integrals
+  level: 1
+  question: |
+    \text{Evaluate: } \int 2x(x^2+1)^3\,dx
+  answer: |
+    \begin{aligned}
+    &\text{Let } u = x^2+1,\ du = 2x\,dx. \\
+    \int 2x(x^2+1)^3\,dx &= \int u^3\,du = \dfrac{u^4}{4} + C = \dfrac{(x^2+1)^4}{4} + C
+    \end{aligned}
+- id: mathematics-integrals-2-01
+  category: Mathematics
+  subtopic: Integrals
+  level: 2
+  question: |
+    \text{Evaluate: } \int x e^x\,dx
+  answer: |
+    \begin{aligned}
+    &\text{Let } u = x,\ dv = e^x\,dx \implies du = dx,\ v = e^x. \\
+    \int x e^x\,dx &= x e^x - \int e^x\,dx = x e^x - e^x + C
+    \end{aligned}
+- id: mathematics-integrals-2-02
+  category: Mathematics
+  subtopic: Integrals
+  level: 2
+  question: |
+    \text{Evaluate: } \int \sin x \cos^3 x\,dx
+  answer: |
+    \begin{aligned}
+    &\text{Let } u = \cos x,\ du = -\sin x\,dx. \\
+    \int \sin x \cos^3 x\,dx &= -\int u^3\,du = -\dfrac{u^4}{4} + C = -\dfrac{\cos^4 x}{4} + C
+    \end{aligned}
+- id: mathematics-integrals-2-03
+  category: Mathematics
+  subtopic: Integrals
+  level: 2
+  question: |
+    \text{Find the area of the region bounded by } y = x+2 \text{ and } y = x^2.
+  answer: |
+    \begin{aligned}
+    &\text{Intersections: } x^2 = x+2 \implies x^2-x-2=0 \implies (x-2)(x+1)=0 \implies x=-1,\,2. \\
+    \text{Area} &= \int_{-1}^{2} \left[(x+2)-x^2\right]dx = \left[\dfrac{x^2}{2}+2x-\dfrac{x^3}{3}\right]_{-1}^{2} \\
+    &= \left(2+4-\dfrac{8}{3}\right) - \left(\dfrac{1}{2}-2+\dfrac{1}{3}\right) = \dfrac{10}{3} + \dfrac{7}{6} = \dfrac{9}{2}
+    \end{aligned}
+- id: mathematics-integrals-2-04
+  category: Mathematics
+  subtopic: Integrals
+  level: 2
+  question: |
+    \text{Find the average value of } f(x)=x^2 \text{ on } [0,3].
+  answer: |
+    \begin{aligned}
+    f_{avg} &= \dfrac{1}{3-0}\int_0^3 x^2\,dx = \dfrac{1}{3}\left[\dfrac{x^3}{3}\right]_0^3 \\
+    &= \dfrac{1}{3}\cdot 9 = 3
+    \end{aligned}
+- id: mathematics-integrals-2-05
+  category: Mathematics
+  subtopic: Integrals
+  level: 2
+  question: |
+    \text{Find the volume of the solid formed by revolving } y=\sqrt{x} \text{ on } [0,4] \text{ about the } x\text{-axis.}
+  answer: |
+    \begin{aligned}
+    V &= \pi\int_0^4 \left(\sqrt{x}\right)^2 dx = \pi\int_0^4 x\,dx \\
+    &= \pi\left[\dfrac{x^2}{2}\right]_0^4 = \pi \cdot 8 = 8\pi
+    \end{aligned}
+- id: mathematics-integrals-2-06
+  category: Mathematics
+  subtopic: Integrals
+  level: 2
+  question: |
+    \text{Evaluate: } \int_1^\infty \dfrac{1}{x^2}\,dx
+  answer: |
+    \begin{aligned}
+    \int_1^\infty \dfrac{1}{x^2}\,dx &= \lim_{b\to\infty}\int_1^b x^{-2}\,dx = \lim_{b\to\infty}\left[-\dfrac{1}{x}\right]_1^b \\
+    &= \lim_{b\to\infty}\left(-\dfrac{1}{b}+1\right) = 1
+    \end{aligned}
+- id: mathematics-integrals-3-01
+  category: Mathematics
+  subtopic: Integrals
+  level: 3
+  question: |
+    \text{State and prove both parts of the Fundamental Theorem of Calculus.}
+  answer: |
+    \begin{aligned}
+    &\textbf{Part 1: } \text{Let } f \text{ be continuous on } [a,b],\ F(x) = \int_a^x f(t)\,dt. \text{ Then } F'(x)=f(x). \\
+    &\text{Proof: } F(x+h)-F(x) = \int_x^{x+h} f(t)\,dt. \text{ By the Mean Value Theorem for integrals,} \\
+    &\text{there is } c \text{ between } x \text{ and } x+h \text{ with } \int_x^{x+h} f(t)\,dt = f(c)\,h. \\
+    &\text{So } \dfrac{F(x+h)-F(x)}{h} = f(c). \text{ As } h\to 0,\ c\to x, \text{ and } f \text{ continuous gives } F'(x)=f(x). \\[4pt]
+    &\textbf{Part 2: } \text{If } G'=f \text{ on } [a,b], \text{ then } \int_a^b f(x)\,dx = G(b)-G(a). \\
+    &\text{Proof: Let } F(x)=\int_a^x f(t)\,dt \text{ as in Part 1, so } F'=f=G'. \text{ Hence } F-G \text{ is constant, } F(x)=G(x)+k. \\
+    &\text{Since } F(a)=0,\ k=-G(a), \text{ so } F(b) = G(b)-G(a), \text{ i.e. } \int_a^b f(t)\,dt = G(b)-G(a).
+    \end{aligned}
+- id: mathematics-integrals-3-02
+  category: Mathematics
+  subtopic: Integrals
+  level: 3
+  question: |
+    \text{Derive the integration by parts formula } \int u\,dv = uv - \int v\,du \text{ from the product rule.}
+  answer: |
+    \begin{aligned}
+    &\text{Product rule: } \dfrac{d}{dx}\left[u(x)v(x)\right] = u'(x)v(x) + u(x)v'(x). \\
+    &\text{Integrate both sides over } x: \quad u(x)v(x) = \int u'(x)v(x)\,dx + \int u(x)v'(x)\,dx. \\
+    &\text{Writing } du=u'(x)\,dx,\ dv=v'(x)\,dx: \quad uv = \int v\,du + \int u\,dv. \\
+    &\text{Rearranging: } \int u\,dv = uv - \int v\,du.
+    \end{aligned}
+- id: mathematics-integrals-3-03
+  category: Mathematics
+  subtopic: Integrals
+  level: 3
+  question: |
+    \text{Derive the substitution rule } \int f(g(x))g'(x)\,dx = \int f(u)\,du \text{ (with } u=g(x)\text{) from the chain rule.}
+  answer: |
+    \begin{aligned}
+    &\text{Let } F \text{ be an antiderivative of } f,\text{ so } F'=f. \text{ By the chain rule,} \\
+    &\dfrac{d}{dx}F(g(x)) = F'(g(x))g'(x) = f(g(x))g'(x). \\
+    &\text{So } F(g(x)) \text{ is an antiderivative of } f(g(x))g'(x), \text{ giving } \int f(g(x))g'(x)\,dx = F(g(x))+C. \\
+    &\text{Setting } u=g(x): \quad F(g(x))+C = F(u)+C = \int f(u)\,du, \text{ which proves the rule.}
+    \end{aligned}
+- id: mathematics-integrals-3-04
+  category: Mathematics
+  subtopic: Integrals
+  level: 3
+  question: |
+    \text{Decompose } \dfrac{1}{(x-1)^2(x+1)} \text{ into partial fractions and hence evaluate } \int \dfrac{dx}{(x-1)^2(x+1)}.
+  answer: |
+    \begin{aligned}
+    &\text{Write } \dfrac{1}{(x-1)^2(x+1)} = \dfrac{A}{x-1} + \dfrac{B}{(x-1)^2} + \dfrac{C}{x+1}. \\
+    &\text{Multiply through: } 1 = A(x-1)(x+1) + B(x+1) + C(x-1)^2. \\
+    &x=1: \ 1 = 2B \implies B=\tfrac12. \qquad x=-1: \ 1=4C \implies C=\tfrac14. \\
+    &\text{Matching } x^2 \text{ coefficients: } 0 = A+C \implies A=-\tfrac14. \\
+    \int \dfrac{dx}{(x-1)^2(x+1)} &= \int \left[-\dfrac{1/4}{x-1} + \dfrac{1/2}{(x-1)^2} + \dfrac{1/4}{x+1}\right]dx \\
+    &= -\dfrac14\ln|x-1| - \dfrac{1}{2(x-1)} + \dfrac14\ln|x+1| + C
+    \end{aligned}
+- id: mathematics-integrals-3-05
+  category: Mathematics
+  subtopic: Integrals
+  level: 3
+  question: |
+    \text{Derive a general formula for } \int \sqrt{a^2-x^2}\,dx \text{ using the substitution } x=a\sin\theta, \text{ for constant } a>0.
+  answer: |
+    \begin{aligned}
+    &\text{Let } x=a\sin\theta,\ dx=a\cos\theta\,d\theta,\ \theta\in\left[-\tfrac{\pi}{2},\tfrac{\pi}{2}\right], \text{ so } \sqrt{a^2-x^2}=a\cos\theta. \\
+    \int \sqrt{a^2-x^2}\,dx &= \int a\cos\theta \cdot a\cos\theta\,d\theta = a^2\int \cos^2\theta\,d\theta \\
+    &= a^2\int \dfrac{1+\cos 2\theta}{2}\,d\theta = \dfrac{a^2}{2}\left(\theta + \sin\theta\cos\theta\right) + C. \\
+    &\text{Back-substitute } \theta=\arcsin(x/a),\ \cos\theta=\dfrac{\sqrt{a^2-x^2}}{a}: \\
+    \int \sqrt{a^2-x^2}\,dx &= \dfrac{a^2}{2}\arcsin\!\left(\dfrac{x}{a}\right) + \dfrac{x\sqrt{a^2-x^2}}{2} + C
+    \end{aligned}
+- id: mathematics-integrals-3-06
+  category: Mathematics
+  subtopic: Integrals
+  level: 3
+  question: |
+    \text{State and prove the comparison test for improper integrals: if } 0\le f(x)\le g(x) \text{ for } x\ge a \text{ and } \int_a^\infty g(x)\,dx \text{ converges, then } \int_a^\infty f(x)\,dx \text{ converges.}
+  answer: |
+    \begin{aligned}
+    &\text{Let } F(b)=\int_a^b f(x)\,dx. \text{ Since } f\ge 0,\ F \text{ is nondecreasing in } b. \\
+    &\text{Since } f\le g,\ F(b) \le \int_a^b g(x)\,dx \le \int_a^\infty g(x)\,dx =: M < \infty \text{ for all } b. \\
+    &F \text{ is nondecreasing and bounded above by } M, \text{ so } \lim_{b\to\infty}F(b) \text{ exists (Monotone Convergence).} \\
+    &\text{Therefore } \int_a^\infty f(x)\,dx \text{ converges (and is} \le M\text{).}
+    \end{aligned}
+- id: mathematics-integrals-3-07
+  category: Mathematics
+  subtopic: Integrals
+  level: 3
+  question: |
+    \text{State the Leibniz rule for differentiation under the integral sign, } \dfrac{d}{dt}\int_a^b f(x,t)\,dx, \text{ and derive it assuming } f,\ \partial f/\partial t \text{ are continuous.}
+  answer: |
+    \begin{aligned}
+    &\text{Claim: } \dfrac{d}{dt}\int_a^b f(x,t)\,dx = \int_a^b \dfrac{\partial f}{\partial t}(x,t)\,dx \quad (a,b \text{ fixed, not depending on } t). \\
+    &\text{Proof: Let } I(t)=\int_a^b f(x,t)\,dx. \text{ Then } \dfrac{I(t+h)-I(t)}{h} = \int_a^b \dfrac{f(x,t+h)-f(x,t)}{h}\,dx. \\
+    &\text{By the Mean Value Theorem, } \dfrac{f(x,t+h)-f(x,t)}{h} = \dfrac{\partial f}{\partial t}(x,\xi) \text{ for some } \xi \text{ between } t,t+h. \\
+    &\text{As } h\to 0, \text{ continuity of } \partial f/\partial t \text{ lets the limit pass inside the integral:} \\
+    &\lim_{h\to 0}\int_a^b \dfrac{\partial f}{\partial t}(x,\xi)\,dx = \int_a^b \dfrac{\partial f}{\partial t}(x,t)\,dx = I'(t).
+    \end{aligned}
+- id: mathematics-integrals-4-01
+  category: Mathematics
+  subtopic: Integrals
+  level: 4
+  question: |
+    \text{Evaluate } I=\int_{-\infty}^{\infty} e^{-x^2}\,dx \text{ using polar coordinates.}
+  answer: |
+    \begin{aligned}
+    &\text{Consider } I^2 = \left(\int_{-\infty}^\infty e^{-x^2}dx\right)\left(\int_{-\infty}^\infty e^{-y^2}dy\right) = \iint_{\R^2} e^{-(x^2+y^2)}\,dx\,dy. \\
+    &\text{Switch to polar: } x=r\cos\theta,\ y=r\sin\theta,\ dx\,dy = r\,dr\,d\theta,\ x^2+y^2=r^2. \\
+    I^2 &= \int_0^{2\pi}\int_0^\infty e^{-r^2} r\,dr\,d\theta = 2\pi \int_0^\infty e^{-r^2} r\,dr. \\
+    &\text{Let } s=r^2,\ ds=2r\,dr: \quad \int_0^\infty e^{-r^2}r\,dr = \dfrac{1}{2}\int_0^\infty e^{-s}\,ds = \dfrac{1}{2}. \\
+    I^2 &= 2\pi\cdot\dfrac{1}{2} = \pi \implies I = \sqrt{\pi} \quad (I>0 \text{ since the integrand is positive}).
+    \end{aligned}
+- id: mathematics-integrals-4-02
+  category: Mathematics
+  subtopic: Integrals
+  level: 4
+  question: |
+    \text{Evaluate } \int_{-\pi/2}^{\pi/2} \dfrac{x^2\sin x}{1+\cos^2 x}\,dx \text{ using symmetry.}
+  answer: |
+    \begin{aligned}
+    &\text{The integrand } h(x)=\dfrac{x^2\sin x}{1+\cos^2 x} \text{ satisfies } h(-x) = \dfrac{x^2(-\sin x)}{1+\cos^2 x} = -h(x), \text{ so } h \text{ is odd.} \\
+    &\text{For any odd function, } \int_{-a}^a h(x)\,dx = 0 \text{ (area on } [-a,0] \text{ cancels area on } [0,a]\text{).} \\
+    &\text{Hence } \int_{-\pi/2}^{\pi/2} \dfrac{x^2\sin x}{1+\cos^2 x}\,dx = 0.
+    \end{aligned}
+- id: mathematics-integrals-4-03
+  category: Mathematics
+  subtopic: Integrals
+  level: 4
+  question: |
+    \text{Use differentiation under the integral sign (Feynman's trick) to evaluate } I=\int_0^\infty \dfrac{e^{-x}-e^{-2x}}{x}\,dx.
+  answer: |
+    \begin{aligned}
+    &\text{Generalize: } I(a) = \int_0^\infty \dfrac{e^{-x}-e^{-ax}}{x}\,dx, \text{ so } I=I(2),\ I(1)=0. \\
+    I'(a) &= \int_0^\infty \dfrac{\partial}{\partial a}\left[\dfrac{e^{-x}-e^{-ax}}{x}\right]dx = \int_0^\infty e^{-ax}\,dx = \dfrac{1}{a}. \\
+    &\text{Integrating: } I(a) = \ln a + C. \text{ Since } I(1)=0,\ C=0, \text{ so } I(a)=\ln a. \\
+    &\text{Therefore } I = I(2) = \ln 2.
+    \end{aligned}
+- id: mathematics-integrals-4-04
+  category: Mathematics
+  subtopic: Integrals
+  level: 4
+  question: |
+    \text{A cable is shaped like } y=\cosh x \text{ between } x=-1 \text{ and } x=1. \text{ Find the length of the cable using the arc length formula.}
+  answer: |
+    \begin{aligned}
+    &\text{Arc length: } L = \int_{-1}^1 \sqrt{1+\left(y'\right)^2}\,dx, \quad y'=\sinh x. \\
+    &1+(\sinh x)^2 = \cosh^2 x \quad(\cosh^2 x - \sinh^2 x = 1), \text{ so } \sqrt{1+\sinh^2 x} = \cosh x \ (\cosh x>0). \\
+    L &= \int_{-1}^1 \cosh x\,dx = \left[\sinh x\right]_{-1}^1 = \sinh(1) - \sinh(-1) = 2\sinh(1)
+    \end{aligned}
+- id: mathematics-integrals-4-05
+  category: Mathematics
+  subtopic: Integrals
+  level: 4
+  question: |
+    \text{For a nonnegative random variable } X \text{ with survival function } \bar F(x)=\P(X>x), \text{ derive } \E[X] = \int_0^\infty \P(X>x)\,dx, \text{ then use it to compute } \E[X] \text{ for } X\sim\text{Exponential}(\lambda).
+  answer: |
+    \begin{aligned}
+    &\text{Write } x = \int_0^x dt, \text{ so } \E[X] = \int_0^\infty x f(x)\,dx = \int_0^\infty \left(\int_0^x dt\right) f(x)\,dx = \int_0^\infty\int_t^\infty f(x)\,dx\,dt \\
+    &\text{(swapping the order of integration over } \{0\le t\le x\}\text{)} = \int_0^\infty \P(X>t)\,dt. \\[4pt]
+    &\text{Application: for } X\sim\text{Exponential}(\lambda),\ \P(X>t) = e^{-\lambda t}. \\
+    \E[X] &= \int_0^\infty e^{-\lambda t}\,dt = \left[-\dfrac{1}{\lambda}e^{-\lambda t}\right]_0^\infty = \dfrac{1}{\lambda}
+    \end{aligned}
+- id: mathematics-integrals-4-06
+  category: Mathematics
+  subtopic: Integrals
+  level: 4
+  question: |
+    \text{Describe how to estimate } \pi \text{ via Monte Carlo integration using random points in } [-1,1]^2, \text{ and state the rate at which the estimate's error shrinks as the number of samples } n \text{ grows.}
+  answer: |
+    \begin{aligned}
+    &\text{The area of the unit disk } \{x^2+y^2\le 1\} \text{ is } \pi = \iint_{[-1,1]^2} \mathbf{1}\{x^2+y^2\le 1\}\,dx\,dy. \\
+    &\text{Sample } n \text{ i.i.d. uniform points } (X_i,Y_i) \text{ in } [-1,1]^2 \text{ and let } Z_i = \mathbf{1}\{X_i^2+Y_i^2\le 1\}. \\
+    &\text{Since the square has area 4, } \E[Z_i] = \P(\text{point in disk}) = \pi/4, \text{ so } \hat\pi = \dfrac{4}{n}\sum_{i=1}^n Z_i \text{ is unbiased for } \pi. \\
+    &\text{By the CLT, the standard error of } \hat\pi \text{ scales as } O(1/\sqrt{n}) \text{ — independent of dimension,} \\
+    &\text{which is why Monte Carlo integration is preferred over grid-based quadrature in high dimensions.}
+    \end{aligned}
