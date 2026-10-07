@@ -7374,3 +7374,242 @@
     &\text{By the CLT, the standard error of } \hat\pi \text{ scales as } O(1/\sqrt{n}) \text{ — independent of dimension,} \\
     &\text{which is why Monte Carlo integration is preferred over grid-based quadrature in high dimensions.}
     \end{aligned}
+- id: mathematics-multivariate-calculus-1-01
+  category: Mathematics
+  subtopic: Multivariate Calculus
+  level: 1
+  question: |
+    \text{Let } f(x,y) = x^3y^2 + 4xy. \text{ Compute } \dfrac{\partial f}{\partial x} \text{ and } \dfrac{\partial f}{\partial y}.
+  answer: |
+    \begin{aligned}
+    \dfrac{\partial f}{\partial x} &= 3x^2y^2 + 4y \\
+    \dfrac{\partial f}{\partial y} &= 2x^3y + 4x
+    \end{aligned}
+- id: mathematics-multivariate-calculus-1-02
+  category: Mathematics
+  subtopic: Multivariate Calculus
+  level: 1
+  question: |
+    \text{For } f(x,y) = x^2y - y^3, \text{ compute the gradient } \nabla f(x,y) \text{ and evaluate it at } (1,2).
+  answer: |
+    \begin{aligned}
+    \nabla f(x,y) &= \left(\dfrac{\partial f}{\partial x}, \dfrac{\partial f}{\partial y}\right) = (2xy,\ x^2 - 3y^2) \\
+    \nabla f(1,2) &= (2\cdot1\cdot2,\ 1 - 3\cdot4) = (4, -11)
+    \end{aligned}
+- id: mathematics-multivariate-calculus-1-03
+  category: Mathematics
+  subtopic: Multivariate Calculus
+  level: 1
+  question: |
+    \text{Let } z = x^2y, \text{ with } x=\cos t, \ y=\sin t. \text{ Use the chain rule to find } \dfrac{dz}{dt}.
+  answer: |
+    \begin{aligned}
+    \dfrac{dz}{dt} &= \dfrac{\partial z}{\partial x}\dfrac{dx}{dt} + \dfrac{\partial z}{\partial y}\dfrac{dy}{dt} = (2xy)(-\sin t) + (x^2)(\cos t) \\
+    &= 2\cos t\sin t(-\sin t) + \cos^2 t\cos t = \cos^3 t - 2\cos t\sin^2 t
+    \end{aligned}
+- id: mathematics-multivariate-calculus-1-04
+  category: Mathematics
+  subtopic: Multivariate Calculus
+  level: 1
+  question: |
+    \text{Evaluate } \iint_R (x+y)\,dA \text{ where } R=[0,1]\times[0,2].
+  answer: |
+    \begin{aligned}
+    \iint_R (x+y)\,dA &= \int_0^2\int_0^1 (x+y)\,dx\,dy = \int_0^2 \left[\dfrac{x^2}{2}+xy\right]_0^1 dy = \int_0^2 \left(\dfrac12+y\right)dy \\
+    &= \left[\dfrac{y}{2}+\dfrac{y^2}{2}\right]_0^2 = 1+2 = 3
+    \end{aligned}
+- id: mathematics-multivariate-calculus-1-05
+  category: Mathematics
+  subtopic: Multivariate Calculus
+  level: 1
+  question: |
+    \text{For } f(x,y)=x^2+y^2, \text{ find the directional derivative at } (1,1) \text{ in the direction of } \mathbf{v}=(1,1).
+  answer: |
+    \begin{aligned}
+    &\text{Unit vector: } \hat u = \dfrac{1}{\sqrt2}(1,1). \quad \nabla f(x,y) = (2x,2y),\ \nabla f(1,1) = (2,2). \\
+    D_{\hat u}f(1,1) &= \nabla f(1,1)\cdot\hat u = (2,2)\cdot\left(\dfrac{1}{\sqrt2},\dfrac{1}{\sqrt2}\right) = \dfrac{2}{\sqrt2}+\dfrac{2}{\sqrt2} = 2\sqrt2
+    \end{aligned}
+- id: mathematics-multivariate-calculus-2-01
+  category: Mathematics
+  subtopic: Multivariate Calculus
+  level: 2
+  question: |
+    \text{For } f(x,y) = x^3y^2 + e^{xy}, \text{ compute } \dfrac{\partial^2 f}{\partial y\,\partial x} \text{ and } \dfrac{\partial^2 f}{\partial x\,\partial y}, \text{ and verify Clairaut's theorem.}
+  answer: |
+    \begin{aligned}
+    f_x &= 3x^2y^2 + ye^{xy}, \quad f_{xy} = \dfrac{\partial}{\partial y}f_x = 6x^2y + e^{xy} + xye^{xy} = 6x^2y + (1+xy)e^{xy} \\
+    f_y &= 2x^3y + xe^{xy}, \quad f_{yx} = \dfrac{\partial}{\partial x}f_y = 6x^2y + e^{xy} + xye^{xy} = 6x^2y + (1+xy)e^{xy} \\
+    &\text{Since } f_{xy}=f_{yx}, \text{ this confirms Clairaut's theorem (the mixed partials agree since } f \text{ has continuous second partials).}
+    \end{aligned}
+- id: mathematics-multivariate-calculus-2-02
+  category: Mathematics
+  subtopic: Multivariate Calculus
+  level: 2
+  question: |
+    \text{Let } D \text{ be the region bounded by } y=x^2 \text{ and } y=x \text{ for } 0\le x\le1. \text{ Set up and evaluate } \iint_D xy\,dA.
+  answer: |
+    \begin{aligned}
+    \iint_D xy\,dA &= \int_0^1\int_{x^2}^{x} xy\,dy\,dx = \int_0^1 x\left[\dfrac{y^2}{2}\right]_{x^2}^{x}dx = \int_0^1 x\cdot\dfrac{x^2-x^4}{2}\,dx \\
+    &= \dfrac12\int_0^1 (x^3-x^5)\,dx = \dfrac12\left[\dfrac{x^4}{4}-\dfrac{x^6}{6}\right]_0^1 = \dfrac12\left(\dfrac14-\dfrac16\right) = \dfrac{1}{24}
+    \end{aligned}
+- id: mathematics-multivariate-calculus-2-03
+  category: Mathematics
+  subtopic: Multivariate Calculus
+  level: 2
+  question: |
+    \text{Evaluate } \int_0^1\int_y^1 e^{x^2}\,dx\,dy \text{ by first switching the order of integration.}
+  answer: |
+    \begin{aligned}
+    &\text{The region } \{0\le y\le1,\ y\le x\le1\} \text{ is the same as } \{0\le x\le1,\ 0\le y\le x\}. \\
+    \int_0^1\int_y^1 e^{x^2}\,dx\,dy &= \int_0^1\int_0^x e^{x^2}\,dy\,dx = \int_0^1 x e^{x^2}\,dx = \left[\dfrac12 e^{x^2}\right]_0^1 = \dfrac12(e-1)
+    \end{aligned}
+- id: mathematics-multivariate-calculus-2-04
+  category: Mathematics
+  subtopic: Multivariate Calculus
+  level: 2
+  question: |
+    \text{For } F(x,y) = (x^2-y^2,\ 2xy), \text{ compute the Jacobian matrix } J_F(x,y).
+  answer: |
+    J_F(x,y) = \begin{pmatrix} 2x & -2y \\ 2y & 2x \end{pmatrix}
+- id: mathematics-multivariate-calculus-2-05
+  category: Mathematics
+  subtopic: Multivariate Calculus
+  level: 2
+  question: |
+    \text{Let } E \text{ be the tetrahedron } \{x,y,z\ge0,\ x+y+z\le1\}. \text{ Evaluate } \iiint_E dV \text{ via an iterated integral.}
+  answer: |
+    \begin{aligned}
+    \iiint_E dV &= \int_0^1\int_0^{1-x}\int_0^{1-x-y} dz\,dy\,dx = \int_0^1\int_0^{1-x}(1-x-y)\,dy\,dx \\
+    &= \int_0^1 \left[(1-x)y-\dfrac{y^2}{2}\right]_0^{1-x}dx = \int_0^1 \dfrac{(1-x)^2}{2}\,dx = \dfrac12\left[-\dfrac{(1-x)^3}{3}\right]_0^1 = \dfrac16
+    \end{aligned}
+- id: mathematics-multivariate-calculus-2-06
+  category: Mathematics
+  subtopic: Multivariate Calculus
+  level: 2
+  question: |
+    \text{Evaluate the line integral } \int_C xy\,ds \text{ where } C \text{ is the quarter circle } \mathbf r(t)=(\cos t,\sin t),\ 0\le t\le \pi/2.
+  answer: |
+    \begin{aligned}
+    &\mathbf r'(t) = (-\sin t,\cos t), \quad |\mathbf r'(t)| = \sqrt{\sin^2t+\cos^2t} = 1, \quad ds = |\mathbf r'(t)|\,dt = dt \\
+    \int_C xy\,ds &= \int_0^{\pi/2} (\cos t)(\sin t)\,dt = \left[\dfrac{\sin^2 t}{2}\right]_0^{\pi/2} = \dfrac12
+    \end{aligned}
+- id: mathematics-multivariate-calculus-2-07
+  category: Mathematics
+  subtopic: Multivariate Calculus
+  level: 2
+  question: |
+    \text{For } f(x,y)=x^2+xy+y^2-3x, \text{ find the critical point and use the Hessian to classify it.}
+  answer: |
+    \begin{aligned}
+    &\nabla f = (2x+y-3,\ x+2y) = (0,0) \ \Rightarrow\ x=-2y,\ 2(-2y)+y-3=0 \ \Rightarrow\ y=-1,\ x=2. \\
+    &\text{Critical point: } (2,-1). \quad H=\begin{pmatrix}f_{xx}&f_{xy}\\f_{xy}&f_{yy}\end{pmatrix} = \begin{pmatrix}2&1\\1&2\end{pmatrix} \\
+    &\det H = 4-1=3>0 \text{ and } f_{xx}=2>0, \text{ so } H \text{ is positive definite: } (2,-1) \text{ is a local minimum.}
+    \end{aligned}
+- id: mathematics-multivariate-calculus-3-01
+  category: Mathematics
+  subtopic: Multivariate Calculus
+  level: 3
+  question: |
+    \text{Derive the multivariable chain rule: for } z=f(x,y) \text{ with } x=x(t),\,y=y(t) \text{ differentiable, show } \dfrac{dz}{dt} = \dfrac{\partial f}{\partial x}\dfrac{dx}{dt}+\dfrac{\partial f}{\partial y}\dfrac{dy}{dt}.
+  answer: |
+    \begin{aligned}
+    &\text{Differentiability of } f \text{ at } (x,y) \text{ means } \Delta z = f(x+\Delta x,y+\Delta y)-f(x,y) = f_x\Delta x + f_y\Delta y + \varepsilon_1\Delta x+\varepsilon_2\Delta y, \\
+    &\text{where } \varepsilon_1,\varepsilon_2\to0 \text{ as } (\Delta x,\Delta y)\to(0,0). \\
+    &\text{Divide by } \Delta t: \dfrac{\Delta z}{\Delta t} = f_x\dfrac{\Delta x}{\Delta t}+f_y\dfrac{\Delta y}{\Delta t}+\varepsilon_1\dfrac{\Delta x}{\Delta t}+\varepsilon_2\dfrac{\Delta y}{\Delta t}. \\
+    &\text{As } \Delta t\to0: \dfrac{\Delta x}{\Delta t}\to\dfrac{dx}{dt},\ \dfrac{\Delta y}{\Delta t}\to\dfrac{dy}{dt} \text{ (bounded, since } x,y \text{ are differentiable)}, \text{ and } \varepsilon_1,\varepsilon_2\to0. \\
+    &\text{So the last two terms vanish, leaving } \dfrac{dz}{dt} = f_x\dfrac{dx}{dt}+f_y\dfrac{dy}{dt}.
+    \end{aligned}
+- id: mathematics-multivariate-calculus-3-02
+  category: Mathematics
+  subtopic: Multivariate Calculus
+  level: 3
+  question: |
+    \text{State Clairaut's theorem and prove it using the mixed difference quotient } \Delta(h,k)=f(x+h,y+k)-f(x+h,y)-f(x,y+k)+f(x,y).
+  answer: |
+    \begin{aligned}
+    &\textbf{Clairaut's theorem: } \text{if } f_{xy} \text{ and } f_{yx} \text{ exist and are continuous near } (x,y), \text{ then } f_{xy}(x,y)=f_{yx}(x,y). \\
+    &\text{Proof: let } g(x)=f(x,y+k)-f(x,y). \text{ Then } \Delta(h,k)=g(x+h)-g(x). \text{ By the MVT, } \Delta(h,k) = h\,g'(c) = h\left[f_x(c,y+k)-f_x(c,y)\right] \\
+    &\text{for some } c \text{ between } x,x+h. \text{ Applying the MVT again (in } y\text{) to } f_x(c,\cdot): \Delta(h,k) = hk\,f_{xy}(c,d) \text{ for some } d \text{ between } y,y+k. \\
+    &\text{Symmetrically, defining } \tilde g(y)=f(x+h,y)-f(x,y), \text{ the same } \Delta(h,k) = hk\,f_{yx}(\tilde c,\tilde d) \text{ for some other point } (\tilde c,\tilde d). \\
+    &\text{Dividing by } hk \text{ and letting } (h,k)\to(0,0), \text{ continuity of } f_{xy},f_{yx} \text{ forces both right-hand sides to } f_{xy}(x,y) \text{ and } f_{yx}(x,y), \\
+    &\text{and since they equal the same quantity } \Delta(h,k)/(hk) \text{ in the limit, } f_{xy}(x,y)=f_{yx}(x,y).
+    \end{aligned}
+- id: mathematics-multivariate-calculus-3-03
+  category: Mathematics
+  subtopic: Multivariate Calculus
+  level: 3
+  question: |
+    \text{Derive the polar-coordinates change-of-variables formula } \iint_R f(x,y)\,dA = \iint_{R'} f(r\cos\theta,r\sin\theta)\,r\,dr\,d\theta \text{ by computing the Jacobian determinant of } x=r\cos\theta,\ y=r\sin\theta.
+  answer: |
+    \begin{aligned}
+    &\text{General change-of-variables: if } x=x(r,\theta),\,y=y(r,\theta) \text{ is a bijection from } R' \text{ to } R, \text{ then } dA = |\det J|\,dr\,d\theta, \\
+    &\text{where } J = \begin{pmatrix}\partial x/\partial r & \partial x/\partial\theta\\ \partial y/\partial r&\partial y/\partial\theta\end{pmatrix}. \\
+    &\text{For } x=r\cos\theta,\ y=r\sin\theta: J = \begin{pmatrix}\cos\theta & -r\sin\theta\\ \sin\theta & r\cos\theta\end{pmatrix}, \quad \det J = r\cos^2\theta+r\sin^2\theta = r. \\
+    &\text{Since } r\ge0, |\det J|=r, \text{ so } dA = r\,dr\,d\theta \text{ and } \iint_R f(x,y)\,dA = \iint_{R'} f(r\cos\theta,r\sin\theta)\,r\,dr\,d\theta.
+    \end{aligned}
+- id: mathematics-multivariate-calculus-3-04
+  category: Mathematics
+  subtopic: Multivariate Calculus
+  level: 3
+  question: |
+    \text{At a critical point of } f(x,y), \text{ use the second-order Taylor expansion to explain why the Hessian } H \text{ being positive definite, negative definite, or indefinite classifies the point as a local min, local max, or saddle.}
+  answer: |
+    \begin{aligned}
+    &\text{Near a critical point } (x_0,y_0) \text{ (where } \nabla f(x_0,y_0)=0\text{), the second-order Taylor expansion gives} \\
+    &f(x_0+h,y_0+k) = f(x_0,y_0) + \dfrac12\begin{pmatrix}h&k\end{pmatrix}H\begin{pmatrix}h\\k\end{pmatrix} + o(h^2+k^2), \quad H=\begin{pmatrix}f_{xx}&f_{xy}\\f_{xy}&f_{yy}\end{pmatrix}. \\
+    &\text{So the sign of } f(x_0+h,y_0+k)-f(x_0,y_0) \text{ is (to leading order) the sign of the quadratic form } Q(h,k)=(h,k)H(h,k)^T. \\
+    &\text{If } H \text{ is positive definite, } Q(h,k)>0 \text{ for all } (h,k)\neq(0,0), \text{ so } f \text{ increases in every direction: a local min.} \\
+    &\text{If } H \text{ is negative definite, } Q(h,k)<0 \text{ always: a local max. If } H \text{ is indefinite, } Q \text{ is positive in some} \\
+    &\text{directions and negative in others, so } f \text{ increases one way and decreases another: a saddle point.} \\
+    &\text{(For } 2\times2 \text{ } H, \text{ this reduces to the familiar test: } \det H>0,\,f_{xx}>0\Rightarrow\text{min}; \det H>0,\,f_{xx}<0\Rightarrow\text{max}; \det H<0\Rightarrow\text{saddle.)}
+    \end{aligned}
+- id: mathematics-multivariate-calculus-4-01
+  category: Mathematics
+  subtopic: Multivariate Calculus
+  level: 4
+  question: |
+    \text{A portfolio holds two uncorrelated assets with variances } \sigma_1^2=4,\ \sigma_2^2=1, \text{ and weights } w_1,w_2 \text{ with } w_1+w_2=1. \text{ Use Lagrange multipliers to find the weights that minimize the portfolio variance } f(w_1,w_2)=4w_1^2+w_2^2, \text{ and compute the minimum variance.}
+  answer: |
+    \begin{aligned}
+    &\text{Lagrangian: } \mathcal L(w_1,w_2,\lambda) = 4w_1^2+w_2^2-\lambda(w_1+w_2-1). \\
+    &\dfrac{\partial\mathcal L}{\partial w_1}=8w_1-\lambda=0, \quad \dfrac{\partial\mathcal L}{\partial w_2}=2w_2-\lambda=0 \ \Rightarrow\ 8w_1=2w_2 \ \Rightarrow\ w_2=4w_1. \\
+    &\text{Constraint: } w_1+4w_1=1 \ \Rightarrow\ w_1=\dfrac15,\ w_2=\dfrac45. \\
+    &\text{Minimum variance: } f\!\left(\dfrac15,\dfrac45\right) = 4\cdot\dfrac{1}{25}+\dfrac{16}{25} = \dfrac{20}{25} = \dfrac45. \\
+    &\text{Note: this matches the inverse-variance weighting rule } w_i \propto 1/\sigma_i^2.
+    \end{aligned}
+- id: mathematics-multivariate-calculus-4-02
+  category: Mathematics
+  subtopic: Multivariate Calculus
+  level: 4
+  question: |
+    \text{A joint density is } f(x,y)=c(x+y) \text{ for } 0\le x\le1,\ 0\le y\le1 \text{ (zero elsewhere). Find } c, \text{ then compute } \P(X+Y<1).
+  answer: |
+    \begin{aligned}
+    &\text{Normalize: } \int_0^1\int_0^1 c(x+y)\,dx\,dy = c\int_0^1\left[\dfrac{x^2}{2}+xy\right]_0^1dy = c\int_0^1\left(\dfrac12+y\right)dy = c\left(\dfrac12+\dfrac12\right)=c \overset{!}{=} 1 \ \Rightarrow\ c=1. \\
+    &\P(X+Y<1) = \iint_{\{x+y<1\}} (x+y)\,dA = \int_0^1\int_0^{1-x}(x+y)\,dy\,dx = \int_0^1\left[xy+\dfrac{y^2}{2}\right]_0^{1-x}dx \\
+    &= \int_0^1\left[x(1-x)+\dfrac{(1-x)^2}{2}\right]dx = \int_0^1\left(\dfrac12-\dfrac{x^2}{2}\right)dx = \left[\dfrac{x}{2}-\dfrac{x^3}{6}\right]_0^1 = \dfrac12-\dfrac16 = \dfrac13.
+    \end{aligned}
+- id: mathematics-multivariate-calculus-4-03
+  category: Mathematics
+  subtopic: Multivariate Calculus
+  level: 4
+  question: |
+    \text{Use Green's theorem's area formula } A=\dfrac12\oint_C (x\,dy-y\,dx) \text{ to find the area enclosed by the ellipse } x=a\cos t,\ y=b\sin t,\ 0\le t\le2\pi.
+  answer: |
+    \begin{aligned}
+    &dx=-a\sin t\,dt,\quad dy=b\cos t\,dt \\
+    x\,dy-y\,dx &= (a\cos t)(b\cos t\,dt)-(b\sin t)(-a\sin t\,dt) = ab\cos^2t\,dt+ab\sin^2t\,dt = ab\,dt \\
+    A &= \dfrac12\int_0^{2\pi} ab\,dt = \dfrac12\cdot ab\cdot2\pi = \pi ab
+    \end{aligned}
+- id: mathematics-multivariate-calculus-4-04
+  category: Mathematics
+  subtopic: Multivariate Calculus
+  level: 4
+  question: |
+    \text{A trader's P\&L as a function of two risk factors is } P(x,y) = 100-(x-2)^2-2(y-1)^2. \text{ At the current position } (x,y)=(1,0), \text{ find the direction of steepest increase in P\&L and the rate of increase in that direction.}
+  answer: |
+    \begin{aligned}
+    \nabla P(x,y) &= \left(-2(x-2),\ -4(y-1)\right), \quad \nabla P(1,0) = \left(-2(-1),\ -4(-1)\right) = (2,4) \\
+    &\text{The direction of steepest increase is } \nabla P(1,0) \text{ itself (normalized): } \hat u = \dfrac{(2,4)}{\|(2,4)\|} = \dfrac{1}{\sqrt{5}}(1,2). \\
+    &\text{The rate of increase in that direction is } \|\nabla P(1,0)\| = \sqrt{2^2+4^2} = \sqrt{20} = 2\sqrt5.
+    \end{aligned}
