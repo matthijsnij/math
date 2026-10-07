@@ -8594,3 +8594,257 @@
     &\text{The smallest } k \text{ that is a multiple of both } 3 \text{ and } 2 \text{ is } \operatorname{lcm}(3,2)=6\text{. So } P^6=I\text{, and no smaller power works (} P^3 \text{ fixes items 1,2,3 but not 4,5; } P^2 \text{ fixes 4,5 but not 1,2,3).} \\
     &\text{Hence every item first returns to its original position after 6 applications.}
     \end{aligned}
+- id: mathematics-matrix-decompositions-1-01
+  category: Mathematics
+  subtopic: Matrix Decompositions
+  level: 1
+  question: |
+    \text{What does it mean to decompose a matrix as } A=LU\text{, where } L \text{ is lower triangular and } U \text{ is upper triangular? Verify that } A=\begin{pmatrix}2&1\\4&3\end{pmatrix} \text{ equals } LU \text{ for } L=\begin{pmatrix}1&0\\2&1\end{pmatrix}, U=\begin{pmatrix}2&1\\0&1\end{pmatrix}.
+  answer: |
+    \begin{aligned}
+    &\text{An LU decomposition writes a square matrix } A \text{ as the product of a lower triangular matrix } L \text{ (zeros above the diagonal) and an upper triangular matrix } U \text{ (zeros below the diagonal); it packages the steps of Gaussian elimination into two triangular factors.} \\
+    LU &= \begin{pmatrix}1&0\\2&1\end{pmatrix}\begin{pmatrix}2&1\\0&1\end{pmatrix} = \begin{pmatrix}1(2)+0(0) & 1(1)+0(1) \\ 2(2)+1(0) & 2(1)+1(1)\end{pmatrix} = \begin{pmatrix}2&1\\4&3\end{pmatrix} = A
+    \end{aligned}
+- id: mathematics-matrix-decompositions-1-02
+  category: Mathematics
+  subtopic: Matrix Decompositions
+  level: 1
+  question: |
+    \text{What does it mean to decompose a matrix as } A=QR\text{, where } Q \text{ is orthogonal and } R \text{ is upper triangular? Verify that } A=\begin{pmatrix}3&-4\\4&3\end{pmatrix} \text{ equals } QR \text{ for } Q=\frac{1}{5}\begin{pmatrix}3&-4\\4&3\end{pmatrix}, R=\begin{pmatrix}5&0\\0&5\end{pmatrix}.
+  answer: |
+    \begin{aligned}
+    &\text{A QR decomposition writes a matrix } A \text{ as the product of an orthogonal matrix } Q \text{ (} Q^TQ=I\text{, its columns are orthonormal) and an upper triangular matrix } R\text{.} \\
+    &\text{Columns of } Q \text{ have norm } \sqrt{(3/5)^2+(4/5)^2}=1 \text{ and dot product } (3/5)(-4/5)+(4/5)(3/5)=0\text{, so } Q \text{ is indeed orthogonal.} \\
+    QR &= \frac{1}{5}\begin{pmatrix}3&-4\\4&3\end{pmatrix}\begin{pmatrix}5&0\\0&5\end{pmatrix} = \frac{1}{5}\begin{pmatrix}15&-20\\20&15\end{pmatrix} = \begin{pmatrix}3&-4\\4&3\end{pmatrix} = A
+    \end{aligned}
+- id: mathematics-matrix-decompositions-1-03
+  category: Mathematics
+  subtopic: Matrix Decompositions
+  level: 1
+  question: |
+    \text{What does it mean to decompose a diagonalizable matrix as } A=PDP^{-1}\text{, where } D \text{ is diagonal? Verify that } A=\begin{pmatrix}2&1\\1&2\end{pmatrix} \text{ equals } PDP^{-1} \text{ for } P=\begin{pmatrix}1&1\\-1&1\end{pmatrix}, D=\diag(1,3).
+  answer: |
+    \begin{aligned}
+    &\text{An eigendecomposition writes } A \text{ as } PDP^{-1}\text{, where the columns of } P \text{ are eigenvectors of } A \text{ and } D \text{ is the diagonal matrix of the corresponding eigenvalues — it exists whenever } A \text{ has a full set of } n \text{ linearly independent eigenvectors.} \\
+    &\text{Since } \det(P) = 1(1)-1(-1)=2\text{, } P^{-1} = \frac{1}{2}\begin{pmatrix}1&-1\\1&1\end{pmatrix}\text{.} \\
+    PD &= \begin{pmatrix}1&1\\-1&1\end{pmatrix}\begin{pmatrix}1&0\\0&3\end{pmatrix} = \begin{pmatrix}1&3\\-1&3\end{pmatrix} \\
+    PDP^{-1} &= \begin{pmatrix}1&3\\-1&3\end{pmatrix}\cdot\frac{1}{2}\begin{pmatrix}1&-1\\1&1\end{pmatrix} = \frac{1}{2}\begin{pmatrix}1+3&-1+3\\-1+3&1+3\end{pmatrix} = \frac{1}{2}\begin{pmatrix}4&2\\2&4\end{pmatrix} = \begin{pmatrix}2&1\\1&2\end{pmatrix} = A
+    \end{aligned}
+- id: mathematics-matrix-decompositions-1-04
+  category: Mathematics
+  subtopic: Matrix Decompositions
+  level: 1
+  question: |
+    \text{What does it mean to decompose a symmetric positive-definite matrix as } A=LL^T\text{ (Cholesky decomposition), where } L \text{ is lower triangular? Verify that } A=\begin{pmatrix}4&2\\2&5\end{pmatrix} \text{ equals } LL^T \text{ for } L=\begin{pmatrix}2&0\\1&2\end{pmatrix}.
+  answer: |
+    \begin{aligned}
+    &\text{A Cholesky decomposition writes a symmetric positive-definite matrix } A \text{ as } LL^T\text{, where } L \text{ is lower triangular with positive diagonal entries — it is the "square root" of } A\text{, and exists for every symmetric positive-definite matrix.} \\
+    L^T &= \begin{pmatrix}2&1\\0&2\end{pmatrix} \\
+    LL^T &= \begin{pmatrix}2&0\\1&2\end{pmatrix}\begin{pmatrix}2&1\\0&2\end{pmatrix} = \begin{pmatrix}4&2\\2&1+4\end{pmatrix} = \begin{pmatrix}4&2\\2&5\end{pmatrix} = A
+    \end{aligned}
+- id: mathematics-matrix-decompositions-2-01
+  category: Mathematics
+  subtopic: Matrix Decompositions
+  level: 2
+  question: |
+    \text{Find the LU decomposition of } A=\begin{pmatrix}2&1&1\\4&3&3\\8&7&9\end{pmatrix} \text{ using Gaussian elimination (no row swaps needed).}
+  answer: |
+    \begin{aligned}
+    &\text{Eliminate below the first pivot: } R_2\to R_2-2R_1 \text{ (multiplier } 2\text{), } R_3\to R_3-4R_1 \text{ (multiplier } 4\text{):} \\
+    &\begin{pmatrix}2&1&1\\0&1&1\\0&3&5\end{pmatrix} \\
+    &\text{Eliminate below the second pivot: } R_3\to R_3-3R_2 \text{ (multiplier } 3\text{):} \\
+    U&=\begin{pmatrix}2&1&1\\0&1&1\\0&0&2\end{pmatrix} \\
+    &\text{The multipliers used, recorded below the diagonal of a matrix with unit diagonal, give } L\text{:} \\
+    L&=\begin{pmatrix}1&0&0\\2&1&0\\4&3&1\end{pmatrix}
+    \end{aligned}
+- id: mathematics-matrix-decompositions-2-02
+  category: Mathematics
+  subtopic: Matrix Decompositions
+  level: 2
+  question: |
+    \text{Use Gram-Schmidt to find the QR decomposition of } A=\begin{pmatrix}1&1\\1&0\\0&1\end{pmatrix} \text{ (columns } a_1=(1,1,0), a_2=(1,0,1)\text{).}
+  answer: |
+    \begin{aligned}
+    e_1 &= \frac{a_1}{\lVert a_1\rVert} = \frac{1}{\sqrt2}(1,1,0) \\
+    a_2\cdot e_1 &= \frac{1}{\sqrt2}, \qquad u_2 = a_2-(a_2\cdot e_1)e_1 = (1,0,1) - \frac{1}{2}(1,1,0) = \left(\tfrac12,-\tfrac12,1\right) \\
+    \lVert u_2\rVert &= \sqrt{\tfrac14+\tfrac14+1} = \sqrt{\tfrac32} = \frac{\sqrt6}{2}, \qquad e_2 = \frac{u_2}{\lVert u_2\rVert} = \left(\frac{1}{\sqrt6},-\frac{1}{\sqrt6},\frac{2}{\sqrt6}\right) \\
+    Q &= \begin{pmatrix}1/\sqrt2 & 1/\sqrt6 \\ 1/\sqrt2 & -1/\sqrt6 \\ 0 & 2/\sqrt6\end{pmatrix}, \qquad R = \begin{pmatrix}\lVert a_1\rVert & a_2\cdot e_1 \\ 0 & \lVert u_2\rVert\end{pmatrix} = \begin{pmatrix}\sqrt2 & 1/\sqrt2 \\ 0 & \sqrt6/2\end{pmatrix}
+    \end{aligned}
+- id: mathematics-matrix-decompositions-2-03
+  category: Mathematics
+  subtopic: Matrix Decompositions
+  level: 2
+  question: |
+    \text{Diagonalize } A=\begin{pmatrix}4&1\\2&3\end{pmatrix}\text{: find its eigenvalues and eigenvectors, and write } P \text{ and } D \text{ such that } A=PDP^{-1}.
+  answer: |
+    \begin{aligned}
+    &\text{Characteristic equation: } \det(A-\lambda I) = (4-\lambda)(3-\lambda)-2 = \lambda^2-7\lambda+10=0 \implies \lambda=5,2\text{.} \\
+    &\text{For } \lambda=5\text{: } (A-5I)v=0 \implies \begin{pmatrix}-1&1\\2&-2\end{pmatrix}v=0 \implies v_1=v_2\text{, take } v=(1,1)\text{.} \\
+    &\text{For } \lambda=2\text{: } (A-2I)v=0 \implies \begin{pmatrix}2&1\\2&1\end{pmatrix}v=0 \implies 2v_1+v_2=0\text{, take } v=(1,-2)\text{.} \\
+    P &= \begin{pmatrix}1&1\\1&-2\end{pmatrix}, \qquad D = \diag(5,2)
+    \end{aligned}
+- id: mathematics-matrix-decompositions-2-04
+  category: Mathematics
+  subtopic: Matrix Decompositions
+  level: 2
+  question: |
+    \text{Find the Cholesky factor } L \text{ of } A=\begin{pmatrix}4&2&2\\2&5&3\\2&3&6\end{pmatrix}.
+  answer: |
+    \begin{aligned}
+    L_{11} &= \sqrt{4}=2 \\
+    L_{21} &= \frac{A_{21}}{L_{11}} = \frac{2}{2}=1, \qquad L_{31} = \frac{A_{31}}{L_{11}} = \frac{2}{2}=1 \\
+    L_{22} &= \sqrt{A_{22}-L_{21}^2} = \sqrt{5-1}=2 \\
+    L_{32} &= \frac{A_{32}-L_{31}L_{21}}{L_{22}} = \frac{3-1}{2}=1 \\
+    L_{33} &= \sqrt{A_{33}-L_{31}^2-L_{32}^2} = \sqrt{6-1-1}=2 \\
+    L &= \begin{pmatrix}2&0&0\\1&2&0\\1&1&2\end{pmatrix}
+    \end{aligned}
+- id: mathematics-matrix-decompositions-2-05
+  category: Mathematics
+  subtopic: Matrix Decompositions
+  level: 2
+  question: |
+    \text{Using the LU decomposition } A=\begin{pmatrix}2&1&1\\4&3&3\\8&7&9\end{pmatrix}=LU \text{ with } L=\begin{pmatrix}1&0&0\\2&1&0\\4&3&1\end{pmatrix}, U=\begin{pmatrix}2&1&1\\0&1&1\\0&0&2\end{pmatrix}\text{, solve } Ax=b \text{ for } b=(7,19,49) \text{ via forward then back substitution.}
+  answer: |
+    \begin{aligned}
+    &\text{Forward-substitute } Ly=b\text{:} \\
+    y_1 &= 7 \\
+    2y_1+y_2 &= 19 \implies y_2 = 19-14=5 \\
+    4y_1+3y_2+y_3 &= 49 \implies y_3 = 49-28-15=6 \\
+    &\text{Back-substitute } Ux=y\text{:} \\
+    2x_3 &= 6 \implies x_3=3 \\
+    x_2+x_3 &= 5 \implies x_2 = 5-3=2 \\
+    2x_1+x_2+x_3 &= 7 \implies x_1 = \frac{7-2-3}{2}=1 \\
+    &\text{So } x=(1,2,3)\text{.}
+    \end{aligned}
+- id: mathematics-matrix-decompositions-2-06
+  category: Mathematics
+  subtopic: Matrix Decompositions
+  level: 2
+  question: |
+    \text{Find the singular value decomposition } A=U\Sigma V^T \text{ of } A=\begin{pmatrix}2&2\\-1&1\end{pmatrix}.
+  answer: |
+    \begin{aligned}
+    A^TA &= \begin{pmatrix}2&-1\\2&1\end{pmatrix}\begin{pmatrix}2&2\\-1&1\end{pmatrix} = \begin{pmatrix}5&3\\3&5\end{pmatrix}, \qquad \text{eigenvalues } 8,2 \text{ with eigenvectors } \tfrac{1}{\sqrt2}(1,1),\ \tfrac{1}{\sqrt2}(1,-1) \\
+    \Sigma &= \diag(2\sqrt2,\sqrt2), \qquad V = \frac{1}{\sqrt2}\begin{pmatrix}1&1\\1&-1\end{pmatrix} \\
+    u_1 &= \frac{Av_1}{\sigma_1} = \frac{1}{2\sqrt2}\cdot\frac{1}{\sqrt2}\begin{pmatrix}2&2\\-1&1\end{pmatrix}\begin{pmatrix}1\\1\end{pmatrix} = \frac{1}{4}\begin{pmatrix}4\\0\end{pmatrix} = \begin{pmatrix}1\\0\end{pmatrix} \\
+    u_2 &= \frac{Av_2}{\sigma_2} = \frac{1}{\sqrt2}\cdot\frac{1}{\sqrt2}\begin{pmatrix}2&2\\-1&1\end{pmatrix}\begin{pmatrix}1\\-1\end{pmatrix} = \frac{1}{2}\begin{pmatrix}0\\-2\end{pmatrix} = \begin{pmatrix}0\\-1\end{pmatrix} \\
+    U &= \begin{pmatrix}1&0\\0&-1\end{pmatrix}, \qquad A = U\Sigma V^T \text{ with the factors above}
+    \end{aligned}
+- id: mathematics-matrix-decompositions-3-01
+  category: Mathematics
+  subtopic: Matrix Decompositions
+  level: 3
+  question: |
+    \text{Prove that if an invertible matrix } A \text{ has an LU decomposition with } L \text{ unit lower triangular (diagonal entries all } 1\text{), that decomposition is unique.}
+  answer: |
+    \begin{aligned}
+    &\text{Suppose } A=L_1U_1=L_2U_2 \text{ with } L_1,L_2 \text{ unit lower triangular and } U_1,U_2 \text{ upper triangular. Since } A \text{ is invertible, so are } U_1,U_2 \text{ (their determinants multiply with } L_1,L_2\text{'s determinant of } 1 \text{ to give } \det A\neq0\text{).} \\
+    &\text{Rearranging: } L_2^{-1}L_1 = U_2U_1^{-1}\text{.} \\
+    &\text{The left side is a product/inverse of unit lower triangular matrices, hence unit lower triangular. The right side is a product/inverse of upper triangular matrices, hence upper triangular.} \\
+    &\text{A matrix that is simultaneously lower and upper triangular is diagonal; combined with the unit diagonal from the left side, } L_2^{-1}L_1 = I\text{.} \\
+    &\text{Hence } L_1=L_2\text{, and then } U_1=L_1^{-1}A=L_2^{-1}A=U_2\text{. The decomposition is unique.}
+    \end{aligned}
+- id: mathematics-matrix-decompositions-3-02
+  category: Mathematics
+  subtopic: Matrix Decompositions
+  level: 3
+  question: |
+    \text{Prove that every matrix } A \text{ with linearly independent columns } a_1,\dots,a_n \text{ has a QR decomposition } A=QR \text{ with } Q \text{ having orthonormal columns and } R \text{ upper triangular with positive diagonal entries.}
+  answer: |
+    \begin{aligned}
+    &\text{Apply Gram-Schmidt to } a_1,\dots,a_n\text{: define } u_1=a_1 \text{ and, for } k\ge2\text{,} \\
+    u_k &= a_k - \sum_{j=1}^{k-1}(a_k\cdot e_j)e_j, \qquad e_j = \frac{u_j}{\lVert u_j\rVert}\text{.} \\
+    &\text{Linear independence of } a_1,\dots,a_n \text{ guarantees } u_k\neq0 \text{ at every step (otherwise } a_k \text{ would lie in } \mathrm{span}(a_1,\dots,a_{k-1})\text{), so each } e_k \text{ is well-defined, and } e_1,\dots,e_n \text{ are orthonormal by construction.} \\
+    &\text{Rearranging the definition of } u_k\text{: } a_k = \lVert u_k\rVert e_k + \sum_{j=1}^{k-1}(a_k\cdot e_j)e_j\text{, i.e. } a_k \text{ is a combination of only } e_1,\dots,e_k\text{.} \\
+    &\text{Setting } Q=[e_1\ \cdots\ e_n] \text{ and } R_{jk}=a_k\cdot e_j \text{ for } j<k\text{, } R_{kk}=\lVert u_k\rVert>0\text{, } R_{jk}=0 \text{ for } j>k \text{ gives exactly } A=QR \text{ with } R \text{ upper triangular, positive diagonal.}
+    \end{aligned}
+- id: mathematics-matrix-decompositions-3-03
+  category: Mathematics
+  subtopic: Matrix Decompositions
+  level: 3
+  question: |
+    \text{Prove that eigenvectors of a real symmetric matrix corresponding to distinct eigenvalues are orthogonal, and explain how this leads to the spectral theorem (} A=Q\diag(\lambda_1,\dots,\lambda_n)Q^T \text{ for orthogonal } Q\text{).}
+  answer: |
+    \begin{aligned}
+    &\text{Let } Av_1=\lambda_1v_1, Av_2=\lambda_2v_2 \text{ with } \lambda_1\neq\lambda_2\text{, and } A=A^T\text{. Then} \\
+    \lambda_1(v_1\cdot v_2) &= (Av_1)\cdot v_2 = v_1^T A^T v_2 = v_1^T A v_2 = v_1\cdot(Av_2) = \lambda_2(v_1\cdot v_2) \\
+    &\implies (\lambda_1-\lambda_2)(v_1\cdot v_2)=0 \implies v_1\cdot v_2=0 \text{ since } \lambda_1\neq\lambda_2\text{.} \\
+    &\text{A real symmetric } n\times n \text{ matrix has } n \text{ real eigenvalues (counted with multiplicity) and is always diagonalizable, with an eigenvector basis that can be chosen orthonormal within each eigenspace (via Gram-Schmidt, for repeated eigenvalues) and orthogonal across distinct eigenvalues by the result above.} \\
+    &\text{Collecting these } n \text{ orthonormal eigenvectors as the columns of } Q \text{ gives an orthogonal matrix (} Q^TQ=I\text{) with } A=Q\diag(\lambda_1,\dots,\lambda_n)Q^T\text{ — the spectral theorem.}
+    \end{aligned}
+- id: mathematics-matrix-decompositions-3-04
+  category: Mathematics
+  subtopic: Matrix Decompositions
+  level: 3
+  question: |
+    \text{Given the SVD } A=U\Sigma V^T \text{ with } U,V \text{ orthogonal and } \Sigma \text{ diagonal with nonnegative entries, prove that the columns of } V \text{ are eigenvectors of } A^TA \text{ and that the singular values are the square roots of the corresponding eigenvalues.}
+  answer: |
+    \begin{aligned}
+    A^TA &= (U\Sigma V^T)^T(U\Sigma V^T) = V\Sigma^T U^TU\Sigma V^T = V\Sigma^T\Sigma V^T = V\Sigma^2V^T \\
+    &\text{(using } U^TU=I \text{ and } \Sigma^T\Sigma=\Sigma^2 \text{ since } \Sigma \text{ is diagonal).} \\
+    &\text{Right-multiplying by } V \text{ (and using } V^TV=I\text{ since } V \text{ is orthogonal):} \\
+    (A^TA)V &= V\Sigma^2V^TV = V\Sigma^2 \\
+    &\text{Column } k \text{ of this equation reads } (A^TA)v_k = \sigma_k^2 v_k\text{, i.e. each column } v_k \text{ of } V \text{ is an eigenvector of } A^TA \text{ with eigenvalue } \sigma_k^2\text{.} \\
+    &\text{Hence the singular values satisfy } \sigma_k=\sqrt{\lambda_k(A^TA)}\text{, the nonnegative square root of the corresponding eigenvalue of } A^TA\text{ (nonnegative since } \Sigma\text{'s entries are defined to be} \ge0\text{).}
+    \end{aligned}
+- id: mathematics-matrix-decompositions-3-05
+  category: Mathematics
+  subtopic: Matrix Decompositions
+  level: 3
+  question: |
+    \text{Show that } A=\begin{pmatrix}2&1\\0&2\end{pmatrix} \text{ is not diagonalizable, by comparing its eigenvalue's algebraic and geometric multiplicity.}
+  answer: |
+    \begin{aligned}
+    &\text{Characteristic polynomial: } \det(A-\lambda I) = (2-\lambda)^2=0\text{, so } \lambda=2 \text{ is the only eigenvalue, with algebraic multiplicity } 2\text{.} \\
+    &\text{Eigenvectors: } (A-2I)v=0 \implies \begin{pmatrix}0&1\\0&0\end{pmatrix}v=0 \implies v_2=0\text{, } v_1 \text{ free.} \\
+    &\text{The eigenspace is } \mathrm{span}\{(1,0)\}\text{, one-dimensional — geometric multiplicity } 1\text{, strictly less than the algebraic multiplicity } 2\text{.} \\
+    &\text{Diagonalizing a } 2\times2 \text{ matrix requires 2 linearly independent eigenvectors to form an invertible } P\text{; since } A \text{ has only 1, no such } P \text{ exists, so } A \text{ is not diagonalizable (a "defective" matrix).}
+    \end{aligned}
+- id: mathematics-matrix-decompositions-4-01
+  category: Mathematics
+  subtopic: Matrix Decompositions
+  level: 4
+  question: |
+    \text{The Fibonacci recursion } F_{n+1}=F_n+F_{n-1} \text{ can be written as } \begin{pmatrix}F_{n+1}\\F_n\end{pmatrix}=M\begin{pmatrix}F_n\\F_{n-1}\end{pmatrix} \text{ for } M=\begin{pmatrix}1&1\\1&0\end{pmatrix}\text{. Without computing any } F_n \text{ directly, use the eigenvalues of } M \text{ to find } \lim_{n\to\infty}\frac{F_{n+1}}{F_n}.
+  answer: |
+    \begin{aligned}
+    &\text{Eigenvalues solve } \det(M-\lambda I)=\lambda^2-\lambda-1=0 \implies \lambda=\frac{1\pm\sqrt5}{2}\text{, i.e. } \lambda_1=\varphi\approx1.618 \text{ and } \lambda_2=1-\varphi\approx-0.618\text{, with } |\lambda_2|<1<\lambda_1\text{.} \\
+    &\text{Any starting vector is a combination of the two eigenvectors; applying } M^n \text{ scales those components by } \lambda_1^n \text{ and } \lambda_2^n\text{. Since } |\lambda_2|<\lambda_1\text{, the } \lambda_1 \text{ component dominates as } n\to\infty\text{, so } (F_{n+1},F_n) \text{ becomes proportional to } \lambda_1\text{'s eigenvector and both } F_{n+1},F_n \text{ scale like } \lambda_1^n\text{.} \\
+    &\text{Hence } \lim_{n\to\infty}\frac{F_{n+1}}{F_n} = \lambda_1 = \varphi = \frac{1+\sqrt5}{2}\text{ — the golden ratio.}
+    \end{aligned}
+- id: mathematics-matrix-decompositions-4-02
+  category: Mathematics
+  subtopic: Matrix Decompositions
+  level: 4
+  question: |
+    \text{You need two standard normals with correlation } \rho=0.6\text{, built from independent standard normals } Z_1,Z_2\text{. Using the Cholesky factor of } \begin{pmatrix}1&0.6\\0.6&1\end{pmatrix}\text{, write them down directly, and verify the correlation in one line.}
+  answer: |
+    \begin{aligned}
+    &\text{The Cholesky factor of } \begin{pmatrix}1&\rho\\\rho&1\end{pmatrix} \text{ is } L=\begin{pmatrix}1&0\\\rho&\sqrt{1-\rho^2}\end{pmatrix}\text{, so } X=Z_1\text{, } Y=\rho Z_1+\sqrt{1-\rho^2}\,Z_2\text{.} \\
+    &\text{With } \rho=0.6\text{, } \sqrt{1-0.36}=\sqrt{0.64}=0.8 \text{ — a clean number — so } Y=0.6Z_1+0.8Z_2\text{.} \\
+    &\text{Check: } \mathrm{Cov}(X,Y)=\mathrm{Cov}(Z_1,0.6Z_1+0.8Z_2)=0.6\,\mathrm{Var}(Z_1)=0.6=\rho\text{, and } \mathrm{Var}(Y)=0.6^2+0.8^2=1\text{, confirming } X,Y \text{ are standard normal with correlation } 0.6\text{.}
+    \end{aligned}
+- id: mathematics-matrix-decompositions-4-03
+  category: Mathematics
+  subtopic: Matrix Decompositions
+  level: 4
+  question: |
+    \text{A } 5\times5 \text{ matrix has singular values } 10,6,3,1,0.2\text{. What is the Frobenius-norm error of its best rank-2 approximation, and why don't you need to know } U\text{, } \Sigma\text{'s eigenvectors, or } V \text{ to answer?}
+  answer: |
+    \begin{aligned}
+    &\text{By the Eckart-Young theorem, truncating the SVD to the top } k \text{ singular values gives the best rank-}k\text{ approximation in Frobenius norm, with error } \sqrt{\sum \text{(dropped singular values)}^2}\text{ — a fact about the singular values alone, independent of } U,V\text{.} \\
+    &\text{Keeping the top 2 singular values (} 10,6\text{) drops } 3,1,0.2\text{:} \\
+    \lVert A-A_2\rVert_F &= \sqrt{3^2+1^2+0.2^2} = \sqrt{9+1+0.04} = \sqrt{10.04} \approx 3.17
+    \end{aligned}
+- id: mathematics-matrix-decompositions-4-04
+  category: Mathematics
+  subtopic: Matrix Decompositions
+  level: 4
+  question: |
+    \text{A design matrix } A \text{ has condition number } \kappa(A)=10^4\text{. What is } \kappa(A^TA)\text{ (the matrix solved in the normal equations), and why does solving least squares via QR instead (} Rx=Q^Tb\text{) avoid this blow-up?}
+  answer: |
+    \begin{aligned}
+    &\text{Singular values of } A^TA \text{ are the squares of } A\text{'s singular values (seen from } A^TA=V\Sigma^2V^T\text{), so } \kappa(A^TA)=\kappa(A)^2=(10^4)^2=10^8\text{.} \\
+    &\text{Forming and solving the normal equations } A^TAx=A^Tb \text{ therefore amplifies rounding error by a condition number of } 10^8\text{.} \\
+    &\text{QR avoids this: } A=QR \text{ with } Q \text{ orthogonal (} \kappa(Q)=1\text{) and } R \text{ sharing } A\text{'s own singular values, so } \kappa(R)=\kappa(A)=10^4\text{. Solving } Rx=Q^Tb \text{ by back substitution only ever amplifies error by } 10^4\text{, four orders of magnitude better than the normal equations.}
+    \end{aligned}
