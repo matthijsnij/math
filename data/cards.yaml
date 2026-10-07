@@ -7613,3 +7613,216 @@
     &\text{The direction of steepest increase is } \nabla P(1,0) \text{ itself (normalized): } \hat u = \dfrac{(2,4)}{\|(2,4)\|} = \dfrac{1}{\sqrt{5}}(1,2). \\
     &\text{The rate of increase in that direction is } \|\nabla P(1,0)\| = \sqrt{2^2+4^2} = \sqrt{20} = 2\sqrt5.
     \end{aligned}
+- id: mathematics-taylor-expansion-1-01
+  category: Mathematics
+  subtopic: Taylor Expansion
+  level: 1
+  question: |
+    \text{State the Taylor series of } f(x) \text{ centered at } x=a, \text{ assuming } f \text{ is infinitely differentiable at } a.
+  answer: |
+    f(x) = \sum_{n=0}^{\infty} \dfrac{f^{(n)}(a)}{n!}(x-a)^n
+- id: mathematics-taylor-expansion-1-02
+  category: Mathematics
+  subtopic: Taylor Expansion
+  level: 1
+  question: |
+    \text{What is the Taylor polynomial of degree } n, \ P_n(x), \text{ for } f \text{ centered at } a, \text{ and how does it relate to the full Taylor series?}
+  answer: |
+    \begin{aligned}
+    &P_n(x) = \sum_{k=0}^{n} \dfrac{f^{(k)}(a)}{k!}(x-a)^k \\
+    &\text{This is the finite sum of the first } n+1 \text{ terms of the Taylor series — a degree-} n \text{ polynomial approximation of } f \text{ near } a. \\
+    &\text{The full Taylor series is the limit } \lim_{n\to\infty} P_n(x), \text{ which equals } f(x) \text{ only when the series converges to } f \text{ at that } x.
+    \end{aligned}
+- id: mathematics-taylor-expansion-1-03
+  category: Mathematics
+  subtopic: Taylor Expansion
+  level: 1
+  question: |
+    \text{What is a Maclaurin series, and how does it relate to a Taylor series?}
+  answer: |
+    \begin{aligned}
+    &\text{A Maclaurin series is the special case of a Taylor series centered at } a=0: \\
+    &f(x) = \sum_{n=0}^{\infty} \dfrac{f^{(n)}(0)}{n!}x^n
+    \end{aligned}
+- id: mathematics-taylor-expansion-1-04
+  category: Mathematics
+  subtopic: Taylor Expansion
+  level: 1
+  question: |
+    \text{Use the first-order (linear) Taylor approximation of } f(x)=\sqrt{x} \text{ at } a=4 \text{ to estimate } \sqrt{4.1}.
+  answer: |
+    \begin{aligned}
+    &f(a) = \sqrt4 = 2, \quad f'(x) = \dfrac{1}{2\sqrt x}, \quad f'(4) = \dfrac14 \\
+    &L(x) = f(a) + f'(a)(x-a) = 2 + \dfrac14(x-4) \\
+    &\sqrt{4.1} \approx L(4.1) = 2 + \dfrac14(0.1) = 2.025
+    \end{aligned}
+- id: mathematics-taylor-expansion-2-01
+  category: Mathematics
+  subtopic: Taylor Expansion
+  level: 2
+  question: |
+    \text{Derive the Maclaurin series for } f(x)=e^x.
+  answer: |
+    \begin{aligned}
+    &f^{(n)}(x) = e^x \text{ for every } n, \text{ so } f^{(n)}(0) = 1 \text{ for every } n. \\
+    &e^x = \sum_{n=0}^{\infty} \dfrac{f^{(n)}(0)}{n!}x^n = \sum_{n=0}^{\infty} \dfrac{x^n}{n!}
+    \end{aligned}
+- id: mathematics-taylor-expansion-2-02
+  category: Mathematics
+  subtopic: Taylor Expansion
+  level: 2
+  question: |
+    \text{Derive the Maclaurin series for } \sin x \text{ and } \cos x, \text{ using the pattern of their derivatives.}
+  answer: |
+    \begin{aligned}
+    &\text{The derivatives of } \sin x \text{ cycle with period 4: } \sin x,\ \cos x,\ -\sin x,\ -\cos x,\ \sin x,\dots \\
+    &\text{Evaluated at } 0: \ 0,\ 1,\ 0,\ -1,\ 0,\ 1,\dots \text{ — only odd-order derivatives are nonzero, alternating in sign.} \\
+    &\sin x = \sum_{n=0}^{\infty} (-1)^n\dfrac{x^{2n+1}}{(2n+1)!} = x - \dfrac{x^3}{3!} + \dfrac{x^5}{5!} - \cdots \\
+    &\cos x \text{ is the derivative of } \sin x, \text{ so differentiate the series term by term:} \\
+    &\cos x = \sum_{n=0}^{\infty} (-1)^n\dfrac{x^{2n}}{(2n)!} = 1 - \dfrac{x^2}{2!} + \dfrac{x^4}{4!} - \cdots
+    \end{aligned}
+- id: mathematics-taylor-expansion-2-03
+  category: Mathematics
+  subtopic: Taylor Expansion
+  level: 2
+  question: |
+    \text{Derive the Maclaurin series for } \ln(1+x) \text{ by integrating a geometric series.}
+  answer: |
+    \begin{aligned}
+    &\dfrac{1}{1+x} = \sum_{n=0}^{\infty} (-1)^n x^n, \quad |x|<1 \quad \text{(geometric series with ratio } -x\text{)} \\
+    &\ln(1+x) = \int_0^x \dfrac{1}{1+t}\,dt = \sum_{n=0}^{\infty} (-1)^n \int_0^x t^n\,dt = \sum_{n=0}^{\infty} (-1)^n \dfrac{x^{n+1}}{n+1} \\
+    &\ln(1+x) = x - \dfrac{x^2}{2} + \dfrac{x^3}{3} - \cdots, \quad -1<x\le1
+    \end{aligned}
+- id: mathematics-taylor-expansion-2-04
+  category: Mathematics
+  subtopic: Taylor Expansion
+  level: 2
+  question: |
+    \text{Write } \dfrac{1}{1-x} \text{ as its Maclaurin series directly (without computing derivatives), and state its radius of convergence.}
+  answer: |
+    \begin{aligned}
+    &\dfrac{1}{1-x} \text{ is already a geometric series with first term } 1 \text{ and ratio } x: \quad \dfrac{1}{1-x} = \sum_{n=0}^{\infty} x^n \\
+    &\text{This matches the Maclaurin series exactly, since } f^{(n)}(0) = n! \text{ for } f(x)=\dfrac{1}{1-x}, \text{ giving coefficient } \dfrac{f^{(n)}(0)}{n!}=1. \\
+    &\text{The series converges for } |x|<1, \text{ so the radius of convergence is } R=1 \text{ — matching the singularity of } f \text{ at } x=1.
+    \end{aligned}
+- id: mathematics-taylor-expansion-2-05
+  category: Mathematics
+  subtopic: Taylor Expansion
+  level: 2
+  question: |
+    \text{Use the second-order (quadratic) Taylor approximation of } f(x)=\cos x \text{ at } a=0 \text{ to estimate } \cos(0.1), \text{ and compare it to the first-order approximation.}
+  answer: |
+    \begin{aligned}
+    &f(0)=1,\ f'(0)=-\sin 0=0,\ f''(0)=-\cos 0=-1 \\
+    &P_2(x) = 1 + 0\cdot x - \dfrac{1}{2}x^2 = 1 - \dfrac{x^2}{2} \\
+    &\cos(0.1) \approx P_2(0.1) = 1 - \dfrac{0.01}{2} = 0.995 \quad (\text{true value} \approx 0.995004) \\
+    &\text{The first-order approximation is } P_1(x) = f(0)+f'(0)x = 1, \text{ a constant — it misses the curvature entirely since } f'(0)=0. \\
+    &\text{The quadratic term is needed here to capture any change at all.}
+    \end{aligned}
+- id: mathematics-taylor-expansion-3-01
+  category: Mathematics
+  subtopic: Taylor Expansion
+  level: 3
+  question: |
+    \text{Derive the Taylor formula with Lagrange remainder: } f(x) = P_n(x) + R_n(x) \text{ where } R_n(x) = \dfrac{f^{(n+1)}(c)}{(n+1)!}(x-a)^{n+1} \text{ for some } c \text{ between } a \text{ and } x.
+  answer: |
+    \begin{aligned}
+    &\text{Start from the Fundamental Theorem of Calculus: } f(x) = f(a) + \int_a^x f'(t)\,dt. \\
+    &\text{Integrate by parts with } u=f'(t),\ dv=dt,\ v=-(x-t): \\
+    &\int_a^x f'(t)\,dt = \Big[-f'(t)(x-t)\Big]_a^x + \int_a^x f''(t)(x-t)\,dt = f'(a)(x-a) + \int_a^x f''(t)(x-t)\,dt. \\
+    &\text{Repeating integration by parts } n \text{ times gives the integral (Cauchy) remainder form:} \\
+    &f(x) = \sum_{k=0}^{n} \dfrac{f^{(k)}(a)}{k!}(x-a)^k + \dfrac{1}{n!}\int_a^x f^{(n+1)}(t)(x-t)^n\,dt. \\
+    &\text{Since } (x-t)^n \text{ does not change sign on } [a,x], \text{ the Mean Value Theorem for integrals gives some } c \text{ between } a,x \text{ with} \\
+    &\dfrac{1}{n!}\int_a^x f^{(n+1)}(t)(x-t)^n\,dt = \dfrac{f^{(n+1)}(c)}{n!}\int_a^x(x-t)^n\,dt = \dfrac{f^{(n+1)}(c)}{(n+1)!}(x-a)^{n+1}.
+    \end{aligned}
+- id: mathematics-taylor-expansion-3-02
+  category: Mathematics
+  subtopic: Taylor Expansion
+  level: 3
+  question: |
+    \text{Using the Lagrange remainder } R_n(x) = \dfrac{f^{(n+1)}(c)}{(n+1)!}(x-a)^{n+1}, \text{ derive a bound on the error } |R_n(x)| \text{ of the degree-}n\text{ Taylor polynomial for } f \text{ on an interval } I \text{ containing } a, \text{ in terms of } M = \sup_{c\in I}|f^{(n+1)}(c)|.
+  answer: |
+    \begin{aligned}
+    &\text{For any } x\in I, \text{ the } c \text{ in the Lagrange remainder lies between } a \text{ and } x, \text{ hence } c\in I, \text{ so } |f^{(n+1)}(c)|\le M. \\
+    &|R_n(x)| = \dfrac{|f^{(n+1)}(c)|}{(n+1)!}|x-a|^{n+1} \le \dfrac{M}{(n+1)!}|x-a|^{n+1} \\
+    &\text{This bound holds uniformly for every } x\in I \text{ (the same } M \text{ works for whatever } c\in I \text{ results), and is the standard Taylor error/remainder bound.}
+    \end{aligned}
+- id: mathematics-taylor-expansion-3-03
+  category: Mathematics
+  subtopic: Taylor Expansion
+  level: 3
+  question: |
+    \text{Show that } f(x)=e^{-1/x^2} \text{ for } x\neq0, \ f(0)=0, \text{ has } f^{(n)}(0)=0 \text{ for every } n, \text{ yet } f \text{ does not equal its Maclaurin series on any neighborhood of } 0.
+  answer: |
+    \begin{aligned}
+    &\text{For } x\neq0, \text{ every derivative of } f \text{ has the form } f^{(n)}(x) = Q(1/x)\,e^{-1/x^2} \text{ for some polynomial } Q, \text{ by the chain/product rule.} \\
+    &\text{Substituting } u=1/x, \text{ as } x\to0 \text{ we need } \lim_{u\to\pm\infty} Q(u)e^{-u^2} = 0, \text{ which holds since } e^{-u^2} \text{ decays faster than any polynomial grows.} \\
+    &\text{So every difference quotient defining } f^{(n)}(0) \text{ (built from lower derivatives, which } \to0 \text{ as } x\to0\text{) itself } \to0, \text{ giving } f^{(n)}(0)=0 \text{ for all } n \text{ by induction.} \\
+    &\text{The Maclaurin series is therefore } \sum_{n=0}^{\infty} \dfrac{0}{n!}x^n = 0 \text{ for all } x. \\
+    &\text{But } f(x) = e^{-1/x^2} \neq 0 \text{ for every } x\neq0, \text{ so the series (identically } 0\text{) disagrees with } f \text{ everywhere except at } x=0 \text{ itself.} \\
+    &f \text{ is } C^\infty \text{ but not analytic at } 0: \text{ infinite differentiability alone does not guarantee the Taylor series converges to the function.}
+    \end{aligned}
+- id: mathematics-taylor-expansion-3-04
+  category: Mathematics
+  subtopic: Taylor Expansion
+  level: 3
+  question: |
+    \text{Derive the binomial series } (1+x)^\alpha = \sum_{n=0}^{\infty} \binom{\alpha}{n}x^n \text{ for real } \alpha, \text{ and state its radius of convergence.}
+  answer: |
+    \begin{aligned}
+    &f(x) = (1+x)^\alpha, \quad f^{(n)}(x) = \alpha(\alpha-1)\cdots(\alpha-n+1)(1+x)^{\alpha-n} \\
+    &f^{(n)}(0) = \alpha(\alpha-1)\cdots(\alpha-n+1), \quad \text{so the Taylor coefficient is } \dfrac{f^{(n)}(0)}{n!} =: \binom{\alpha}{n} \text{ (the generalized binomial coefficient).} \\
+    &(1+x)^\alpha = \sum_{n=0}^{\infty} \binom{\alpha}{n}x^n \\
+    &\text{By the ratio test, } \left|\dfrac{\binom{\alpha}{n}x^n}{\binom{\alpha}{n-1}x^{n-1}}\right| = \left|\dfrac{\alpha-n+1}{n}\right||x| \to |x| \text{ as } n\to\infty, \text{ so the series converges for } |x|<1: \ R=1. \\
+    &\text{(If } \alpha \text{ is a non-negative integer, the series terminates and reduces to the ordinary binomial theorem, valid for all } x.)
+    \end{aligned}
+- id: mathematics-taylor-expansion-4-01
+  category: Mathematics
+  subtopic: Taylor Expansion
+  level: 4
+  question: |
+    \text{How many terms of the Maclaurin series for } e^x \text{ are needed to approximate } e^{0.1} \text{ with error less than } 10^{-6}? \text{ Use the Lagrange remainder bound.}
+  answer: |
+    \begin{aligned}
+    &R_n(0.1) = \dfrac{e^c}{(n+1)!}(0.1)^{n+1} \text{ for some } c\in(0,0.1), \text{ so } e^c < e^{0.1} < 2 =: M. \\
+    &\text{Need } \dfrac{M(0.1)^{n+1}}{(n+1)!} < 10^{-6}: \\
+    &n=3: \ \dfrac{2(0.1)^4}{4!} = \dfrac{2(0.0001)}{24} \approx 8.3\times10^{-6} \ (\text{too large}) \\
+    &n=4: \ \dfrac{2(0.1)^5}{5!} = \dfrac{2(0.00001)}{120} \approx 1.7\times10^{-7} \ (\text{within tolerance}) \\
+    &\text{So the degree-4 Taylor polynomial (the terms } n=0,\dots,4, \text{ i.e. 5 terms) is needed to guarantee error below } 10^{-6}.
+    \end{aligned}
+- id: mathematics-taylor-expansion-4-02
+  category: Mathematics
+  subtopic: Taylor Expansion
+  level: 4
+  question: |
+    \text{Evaluate } \lim_{x\to0}\dfrac{\sin x - x}{x^3} \text{ using a Taylor series expansion.}
+  answer: |
+    \begin{aligned}
+    &\sin x = x - \dfrac{x^3}{6} + \dfrac{x^5}{120} - \cdots \\
+    &\sin x - x = -\dfrac{x^3}{6} + O(x^5) \\
+    &\dfrac{\sin x - x}{x^3} = -\dfrac16 + O(x^2) \ \xrightarrow{x\to0}\ -\dfrac16
+    \end{aligned}
+- id: mathematics-taylor-expansion-4-03
+  category: Mathematics
+  subtopic: Taylor Expansion
+  level: 4
+  question: |
+    \text{A random variable } X \text{ has mean } \mu \text{ and variance small relative to the curvature of } g. \text{ Use a first-order Taylor expansion of } g(X) \text{ around } \mu \text{ to derive the delta-method approximation } \Var(g(X)) \approx [g'(\mu)]^2\Var(X).
+  answer: |
+    \begin{aligned}
+    &g(X) \approx g(\mu) + g'(\mu)(X-\mu) \quad \text{(first-order Taylor expansion of } g \text{ around } \mu\text{)} \\
+    &\Var(g(X)) \approx \Var\big(g(\mu) + g'(\mu)(X-\mu)\big) = [g'(\mu)]^2\Var(X-\mu) = [g'(\mu)]^2\Var(X) \\
+    &\text{since } g(\mu) \text{ and } g'(\mu) \text{ are constants and } \Var(X-\mu)=\Var(X). \text{ This is the delta method, accurate when } X \text{ concentrates near } \mu.
+    \end{aligned}
+- id: mathematics-taylor-expansion-4-04
+  category: Mathematics
+  subtopic: Taylor Expansion
+  level: 4
+  question: |
+    \text{A derivative's price } V \text{ is a function of the underlying price } S. \text{ Use a second-order Taylor expansion of } V(S) \text{ around } S_0 \text{ to derive the delta-gamma approximation for the change in value, } \Delta V, \text{ in terms of } \Delta=\partial V/\partial S \text{ and } \Gamma=\partial^2V/\partial S^2.
+  answer: |
+    \begin{aligned}
+    &V(S) \approx V(S_0) + V'(S_0)(S-S_0) + \dfrac12 V''(S_0)(S-S_0)^2 \quad \text{(second-order Taylor expansion around } S_0\text{)} \\
+    &\text{Let } \Delta = V'(S_0), \ \Gamma=V''(S_0), \ \Delta S = S-S_0: \\
+    &\Delta V = V(S)-V(S_0) \approx \Delta\cdot\Delta S + \dfrac12\Gamma(\Delta S)^2
+    \end{aligned}
