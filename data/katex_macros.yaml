@@ -1,5 +1,6 @@
 \E: \mathbb{E}
 \Var: \operatorname{Var}
+\Bias: \operatorname{Bias}
 \P: \mathbb{P}
 \Cov: \operatorname{Cov}
 \Corr: \operatorname{Corr}

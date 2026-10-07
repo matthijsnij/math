@@ -10266,3 +10266,252 @@
     &\text{The second product telescopes: } \dfrac32\cdot\dfrac43\cdots\dfrac{N+1}{N} = \dfrac{N+1}{2}. \\
     &\text{So the product equals } \dfrac1N\cdot\dfrac{N+1}{2} = \dfrac{N+1}{2N} \xrightarrow{N\to\infty} \dfrac12.
     \end{aligned}
+- id: machine-learning-bias-variance-tradeoff-1-01
+  category: Machine Learning
+  subtopic: Bias-Variance Tradeoff
+  level: 1
+  question: |
+    \text{Define the bias of a model } \hat f \text{ used to estimate a true function } f \text{ at a point } x.
+  answer: |
+    \Bias(\hat f(x)) = \E[\hat f(x)] - f(x) \quad \text{the gap between the model's average prediction (over many training sets) and the true value.}
+- id: machine-learning-bias-variance-tradeoff-1-02
+  category: Machine Learning
+  subtopic: Bias-Variance Tradeoff
+  level: 1
+  question: |
+    \text{Define the variance of a model } \hat f \text{ at a point } x.
+  answer: |
+    \Var(\hat f(x)) = \E\Big[\big(\hat f(x) - \E[\hat f(x)]\big)^2\Big] \quad \text{how much the model's prediction fluctuates across different training sets.}
+- id: machine-learning-bias-variance-tradeoff-1-03
+  category: Machine Learning
+  subtopic: Bias-Variance Tradeoff
+  level: 1
+  question: |
+    \text{For squared-error loss, state how the expected test error at a point } x \text{ decomposes into three terms.}
+  answer: |
+    \E\big[(y-\hat f(x))^2\big] = \underbrace{\Bias(\hat f(x))^2}_{\text{bias}^2} + \underbrace{\Var(\hat f(x))}_{\text{variance}} + \underbrace{\sigma^2}_{\text{irreducible noise}}
+- id: machine-learning-bias-variance-tradeoff-1-04
+  category: Machine Learning
+  subtopic: Bias-Variance Tradeoff
+  level: 1
+  question: |
+    \text{In terms of bias and variance, distinguish an underfit model from an overfit model.}
+  answer: |
+    \begin{aligned}
+    &\text{Underfit: high bias, low variance — the model is too simple to capture the true pattern, so it is consistently wrong in the same way across training sets.} \\
+    &\text{Overfit: low bias, high variance — the model is flexible enough to fit the noise in the training data, so its predictions swing a lot from one training set to another.}
+    \end{aligned}
+- id: machine-learning-bias-variance-tradeoff-1-05
+  category: Machine Learning
+  subtopic: Bias-Variance Tradeoff
+  level: 1
+  question: |
+    \begin{aligned}
+    &\text{The figure plots bias}^2\text{ (A), variance (B), and total expected test error (C) against model complexity.} \\
+    &\text{Which curve is the total test error, and where is the best complexity to choose?} \\
+    &\includegraphics[width=8cm,height=6.4cm]{/static/graphs/machine-learning-bias-variance-tradeoff-1-05.png}
+    \end{aligned}
+  answer: |
+    \begin{aligned}
+    &\text{C is the total test error — it equals the sum of curve A (bias}^2\text{) and curve B (variance).} \\
+    &\text{The best complexity is at the dashed line, the minimum of curve C: before it, bias dominates (underfitting); after it, variance dominates (overfitting).}
+    \end{aligned}
+- id: machine-learning-bias-variance-tradeoff-2-01
+  category: Machine Learning
+  subtopic: Bias-Variance Tradeoff
+  level: 2
+  question: |
+    \text{With model complexity held fixed, how does increasing the training-set size affect bias and variance?}
+  answer: |
+    \begin{aligned}
+    &\text{Bias is essentially unchanged — a model's capacity to represent the true function doesn't depend on how much data it was trained on.} \\
+    &\text{Variance decreases — parameter estimates computed from more data vary less from one training set to another.} \\
+    &\text{This is why a high-variance (overfitting) problem is often fixed by collecting more data, while a high-bias (underfitting) problem is not.}
+    \end{aligned}
+- id: machine-learning-bias-variance-tradeoff-2-02
+  category: Machine Learning
+  subtopic: Bias-Variance Tradeoff
+  level: 2
+  question: |
+    \text{How does increasing the regularization strength } \lambda \text{ in ridge/lasso regression affect a model's bias and variance?}
+  answer: |
+    \begin{aligned}
+    &\text{Increasing } \lambda \text{ shrinks the coefficient estimates toward zero (lasso can set them exactly to zero), pulling the fit away from the unconstrained best fit.} \\
+    &\text{This increases bias but decreases variance, since the shrunk estimates are less sensitive to noise in the training sample.} \\
+    &\lambda=0 \text{ recovers the unconstrained (higher-variance) estimator; too large a } \lambda \text{ eventually causes underfitting (bias dominates).}
+    \end{aligned}
+- id: machine-learning-bias-variance-tradeoff-2-03
+  category: Machine Learning
+  subtopic: Bias-Variance Tradeoff
+  level: 2
+  question: |
+    \text{How does the choice of } k \text{ in } k\text{-nearest-neighbors affect bias and variance?}
+  answer: |
+    \begin{aligned}
+    &\text{Small } k \text{ (e.g. } k=1\text{): the prediction depends on very few nearby points, so it can capture fine local structure (low bias) but is highly sensitive to noise in those points (high variance).} \\
+    &\text{Large } k\text{: the prediction averages over many neighbors, smoothing out noise (low variance) but blurring over local structure (higher bias).}
+    \end{aligned}
+- id: machine-learning-bias-variance-tradeoff-2-04
+  category: Machine Learning
+  subtopic: Bias-Variance Tradeoff
+  level: 2
+  question: |
+    \text{How does decision-tree depth (equivalently, the amount of pruning) affect bias and variance?}
+  answer: |
+    \begin{aligned}
+    &\text{A deep, unpruned tree keeps splitting until it fits the training data very closely: low bias, but high variance, since a small change in the training data can produce a very different tree.} \\
+    &\text{A shallow, heavily pruned tree makes few splits: high bias (misses structure), but low variance (stable across training sets).}
+    \end{aligned}
+- id: machine-learning-bias-variance-tradeoff-2-05
+  category: Machine Learning
+  subtopic: Bias-Variance Tradeoff
+  level: 2
+  question: |
+    \text{If } B \text{ independent models each have prediction variance } \sigma^2 \text{ and the same bias, what is the variance of their average, and why does this motivate bagging?}
+  answer: |
+    \begin{aligned}
+    &\Var\left(\dfrac1B\sum_{i=1}^B \hat f_i(x)\right) = \dfrac{1}{B^2}\sum_{i=1}^B \Var(\hat f_i(x)) = \dfrac{\sigma^2}{B} \quad \text{(independence makes the cross-covariance terms vanish).} \\
+    &\text{Averaging } B \text{ independent, equally-biased models leaves the bias unchanged (the average's bias equals a single model's bias) while driving the variance toward } 0 \text{ as } B \text{ grows.} \\
+    &\text{This is the mechanism behind bagging: train many models on bootstrap resamples and average their predictions to cut variance without increasing bias.}
+    \end{aligned}
+- id: machine-learning-bias-variance-tradeoff-2-06
+  category: Machine Learning
+  subtopic: Bias-Variance Tradeoff
+  level: 2
+  question: |
+    \text{Contrast how bagging and boosting each primarily address the bias-variance tradeoff.}
+  answer: |
+    \begin{aligned}
+    &\text{Bagging trains models independently in parallel on bootstrap resamples and averages them: the average's bias equals a single base model's bias, so bagging mainly reduces variance — best applied to low-bias, high-variance base learners (e.g. deep trees).} \\
+    &\text{Boosting trains models sequentially, each one correcting the errors (residuals) of the current ensemble: it mainly reduces bias by iteratively driving down training error — typically applied to high-bias, low-variance base learners (e.g. shallow trees/stumps), though running it too long can increase variance (overfitting).}
+    \end{aligned}
+- id: machine-learning-bias-variance-tradeoff-2-07
+  category: Machine Learning
+  subtopic: Bias-Variance Tradeoff
+  level: 2
+  question: |
+    \text{A plot of training error and validation error against training-set size shows both curves converging to a similarly high error level. Is this high bias or high variance, and what would the plot look like under the other diagnosis?}
+  answer: |
+    \begin{aligned}
+    &\text{Both curves converging to a high, similar error level is high bias (underfitting): the model lacks the capacity to fit the data even with more examples, so collecting more data will not help — a more flexible model or more features is needed.} \\
+    &\text{High variance (overfitting) instead shows a persistent gap between a low training error and a much higher validation error, a gap that narrows (but does not close) as training-set size grows — there, more data (or regularization) does help.}
+    \end{aligned}
+- id: machine-learning-bias-variance-tradeoff-3-01
+  category: Machine Learning
+  subtopic: Bias-Variance Tradeoff
+  level: 3
+  question: |
+    \text{Let } y = f(x) + \varepsilon \text{ with } \E[\varepsilon]=0,\ \Var(\varepsilon)=\sigma^2\text{, and } \varepsilon \text{ independent of the training data used to fit } \hat f. \text{ Derive the bias-variance decomposition of } \E\big[(y-\hat f(x))^2\big].
+  answer: |
+    \begin{aligned}
+    \E\big[(y-\hat f(x))^2\big] &= \E\big[(f(x)+\varepsilon-\hat f(x))^2\big] \\
+    &= \E\big[(f(x)-\hat f(x))^2\big] + 2\,\E[\varepsilon]\,\E[f(x)-\hat f(x)] + \E[\varepsilon^2] \\
+    &= \E\big[(f(x)-\hat f(x))^2\big] + \sigma^2 \quad (\text{cross term vanishes since } \E[\varepsilon]=0 \text{ and } \varepsilon \text{ is independent of } \hat f) \\[4pt]
+    \text{Write } f(x)-\hat f(x) &= \big(f(x)-\E[\hat f(x)]\big) + \big(\E[\hat f(x)]-\hat f(x)\big)\text{, square, and take expectations:} \\
+    \E\big[(f(x)-\hat f(x))^2\big] &= \big(f(x)-\E[\hat f(x)]\big)^2 + \E\big[(\hat f(x)-\E[\hat f(x)])^2\big] \\
+    &\quad + 2\big(f(x)-\E[\hat f(x)]\big)\,\E\big[\E[\hat f(x)]-\hat f(x)\big] \\
+    &= \Bias(\hat f(x))^2 + \Var(\hat f(x)) \quad (\text{the cross term vanishes since } \E\big[\E[\hat f(x)]-\hat f(x)\big]=0) \\[4pt]
+    \text{Therefore: }\quad \E\big[(y-\hat f(x))^2\big] &= \Bias(\hat f(x))^2 + \Var(\hat f(x)) + \sigma^2
+    \end{aligned}
+- id: machine-learning-bias-variance-tradeoff-3-02
+  category: Machine Learning
+  subtopic: Bias-Variance Tradeoff
+  level: 3
+  question: |
+    \text{Suppose } B \text{ models } \hat f_1,\dots,\hat f_B \text{ each have variance } \sigma^2 \text{ and pairwise correlation } \rho \text{ (the same for every pair). Derive the variance of the average } \bar f = \dfrac1B\sum_{i=1}^B \hat f_i\text{, and find its limit as } B\to\infty.
+  answer: |
+    \begin{aligned}
+    \Var(\bar f) &= \dfrac{1}{B^2}\Var\left(\sum_{i=1}^B \hat f_i\right) = \dfrac{1}{B^2}\left(\sum_{i=1}^B \Var(\hat f_i) + \sum_{i\neq j} \Cov(\hat f_i,\hat f_j)\right) \\
+    &= \dfrac{1}{B^2}\Big(B\sigma^2 + B(B-1)\,\rho\sigma^2\Big) = \dfrac{\sigma^2}{B} + \dfrac{B-1}{B}\,\rho\sigma^2 \\[4pt]
+    \lim_{B\to\infty} \Var(\bar f) &= \rho\sigma^2 \\[4pt]
+    &\text{Averaging drives the uncorrelated part of the noise to } 0\text{, but leaves a floor of } \rho\sigma^2 \text{ set by the correlation between models.} \\
+    &\text{This is why random forests randomly subsample features at each split — to decorrelate the trees (lower } \rho\text{) — rather than relying on adding more trees alone.}
+    \end{aligned}
+- id: machine-learning-bias-variance-tradeoff-3-03
+  category: Machine Learning
+  subtopic: Bias-Variance Tradeoff
+  level: 3
+  question: |
+    \text{Consider the no-intercept model } y_i = \beta x_i + \varepsilon_i,\ i=1,\dots,n\text{, with } x_i \text{ fixed and } \varepsilon_i \text{ iid with mean } 0 \text{ and variance } \sigma^2. \text{ The ridge estimator is } \hat\beta_\lambda = \dfrac{\sum_i x_i y_i}{S+\lambda}\text{, where } S=\sum_i x_i^2. \text{ Derive } \Bias(\hat\beta_\lambda) \text{ and } \Var(\hat\beta_\lambda) \text{ as functions of } \lambda\text{, and describe how each behaves as } \lambda \text{ grows.}
+  answer: |
+    \begin{aligned}
+    \E[\hat\beta_\lambda] &= \dfrac{\sum_i x_i\,\E[y_i]}{S+\lambda} = \dfrac{\beta\sum_i x_i^2}{S+\lambda} = \beta\cdot\dfrac{S}{S+\lambda} \\
+    \Bias(\hat\beta_\lambda) &= \E[\hat\beta_\lambda]-\beta = \beta\left(\dfrac{S}{S+\lambda}-1\right) = \dfrac{-\lambda\beta}{S+\lambda} \\[4pt]
+    \Var(\hat\beta_\lambda) &= \dfrac{1}{(S+\lambda)^2}\sum_i x_i^2\,\Var(\varepsilon_i) = \dfrac{S\sigma^2}{(S+\lambda)^2} \\[4pt]
+    &\text{As } \lambda \text{ grows from } 0\text{: } \Bias(\hat\beta_\lambda)^2=\dfrac{\lambda^2\beta^2}{(S+\lambda)^2} \text{ increases monotonically from } 0\text{,} \\
+    &\text{while } \Var(\hat\beta_\lambda) \text{ decreases monotonically from its OLS value } \sigma^2/S \text{ toward } 0 \text{ — the two move in opposite directions, the tradeoff made explicit.}
+    \end{aligned}
+- id: machine-learning-bias-variance-tradeoff-3-04
+  category: Machine Learning
+  subtopic: Bias-Variance Tradeoff
+  level: 3
+  question: |
+    \text{Why doesn't the additive decomposition } \E\big[(y-\hat f(x))^2\big]=\Bias(\hat f(x))^2+\Var(\hat f(x))+\sigma^2 \text{ carry over cleanly to classification with 0-1 loss?}
+  answer: |
+    \begin{aligned}
+    &\text{The squared-error derivation relies on expanding a square of a real-valued error, } (y-\hat f(x))^2\text{, into a sum where the cross term vanishes under independence and zero-mean noise.} \\
+    &\text{0-1 loss, } \mathbb{1}[\hat y(x)\neq y]\text{, is a discrete indicator rather than a quadratic form in a real-valued error, so there is no analogous algebraic expansion isolating a clean, always-nonnegative bias}^2\text{+variance+noise sum.} \\
+    &\text{Instead (e.g. the Kong-Dietterich/Domingos decomposition), a classifier errs at } x \text{ when its majority-vote prediction (bias) is wrong, but prediction variance can either increase or decrease the expected error depending on whether that majority vote is itself correct.} \\
+    &\text{So "variance always hurts" is a squared-error-specific intuition, not a fact that holds for every loss function.}
+    \end{aligned}
+- id: machine-learning-bias-variance-tradeoff-4-01
+  category: Machine Learning
+  subtopic: Bias-Variance Tradeoff
+  level: 4
+  question: |
+    \text{Model A has bias } 1 \text{ and variance } 4\text{; Model B has bias } 2 \text{ and variance } 1. \text{ The irreducible error is } \sigma^2=0.5. \text{ Which model has the lower expected test MSE?}
+  answer: |
+    \begin{aligned}
+    \text{MSE}_A &= 1^2+4+0.5 = 5.5 \\
+    \text{MSE}_B &= 2^2+1+0.5 = 5.5 \\
+    &\text{They tie exactly despite very different bias/variance splits — choose between them on other grounds (simplicity, interpretability, training cost), not on expected MSE alone.}
+    \end{aligned}
+- id: machine-learning-bias-variance-tradeoff-4-02
+  category: Machine Learning
+  subtopic: Bias-Variance Tradeoff
+  level: 4
+  question: |
+    \text{Under } y=f(x)+\varepsilon \text{ with iid noise of variance } \sigma^2\text{, suppose the } k \text{ nearest neighbors of } x \text{ all share (approximately) the same true value } f(x). \text{ Derive } \Var(\hat f_k(x)) \text{ for the } k\text{-NN average prediction, and state how doubling } k \text{ changes it.}
+  answer: |
+    \begin{aligned}
+    \hat f_k(x) &= \dfrac1k\sum_{i=1}^k y_i, \quad y_i \text{ independent across the } k \text{ neighbors} \\
+    \Var(\hat f_k(x)) &= \dfrac{1}{k^2}\sum_{i=1}^k \Var(y_i) = \dfrac{k\sigma^2}{k^2} = \dfrac{\sigma^2}{k} \\
+    &\text{Doubling } k \text{ halves the variance, to } \dfrac{\sigma^2}{2k}\text{ — the general "average of } k \text{ iid estimators" result, applied directly to } k\text{-NN.}
+    \end{aligned}
+- id: machine-learning-bias-variance-tradeoff-4-03
+  category: Machine Learning
+  subtopic: Bias-Variance Tradeoff
+  level: 4
+  question: |
+    \text{A random forest's individual trees each have prediction variance } \sigma^2=4\text{, with pairwise correlation } \rho=0.25 \text{ between any two trees. As more and more trees are added, what variance does the forest's averaged prediction approach?}
+  answer: |
+    \begin{aligned}
+    &\text{As } B\to\infty\text{, } \Var(\bar f) = \dfrac{\sigma^2}{B}+\dfrac{B-1}{B}\rho\sigma^2 \to \rho\sigma^2 = 0.25\times4 = 1. \\
+    &\text{No matter how many trees are added, the variance can't be driven below } 1\text{: the only way to go lower is to decorrelate the trees further (reduce } \rho\text{, e.g. via random feature subsampling), not just add more of them.}
+    \end{aligned}
+- id: machine-learning-bias-variance-tradeoff-4-04
+  category: Machine Learning
+  subtopic: Bias-Variance Tradeoff
+  level: 4
+  question: |
+    \text{A model's squared bias and variance as functions of regularization strength } \lambda\ge0 \text{ are } \Bias(\lambda)^2=\lambda^2 \text{ and } \Var(\lambda)=\dfrac{36}{\lambda+1}. \text{ Ignoring irreducible error, find the } \lambda \text{ that minimizes the expected test error.}
+  answer: |
+    \begin{aligned}
+    g(\lambda) &= \lambda^2 + \dfrac{36}{\lambda+1} \\
+    g'(\lambda) &= 2\lambda - \dfrac{36}{(\lambda+1)^2} = 0 \;\Longrightarrow\; \lambda(\lambda+1)^2 = 18 \\
+    &\text{Try } \lambda=2\text{: } 2\cdot3^2 = 18\text{, a match.} \\
+    g''(\lambda) &= 2+\dfrac{72}{(\lambda+1)^3} > 0 \text{ for } \lambda\ge0\text{, confirming a minimum.} \\
+    &\text{So } \lambda^* = 2.
+    \end{aligned}
+- id: machine-learning-bias-variance-tradeoff-4-05
+  category: Machine Learning
+  subtopic: Bias-Variance Tradeoff
+  level: 4
+  question: |
+    \text{Classical bias-variance theory predicts a single U-shaped test-error curve in model complexity: error falls, bottoms out, then rises as the model overfits. Many modern over-parameterized models (e.g. deep nets with far more parameters than training examples) instead show error rise and then fall again past a certain complexity. What is this phenomenon called, and what causes the second descent?}
+  answer: |
+    \begin{aligned}
+    &\text{This is "double descent." The first descent and the rise near the interpolation threshold (where the model has just enough capacity to fit the training data exactly) match the classical story: forced to fit noise in essentially one way, variance spikes.} \\
+    &\text{Past that threshold, there is enough extra capacity that many different parameter settings interpolate the training data exactly. The fitting procedure's implicit regularization (e.g. what gradient descent tends to converge to) favors the smoothest/lowest-complexity interpolating solution among them, which lowers variance again even as the raw parameter count keeps growing — so test error can fall a second time.} \\
+    &\text{The lesson: raw parameter count ("model complexity") and the effective complexity the fitting procedure actually selects are not the same thing, which the classical bias-variance story implicitly conflates.}
+    \end{aligned}
