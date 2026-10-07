@@ -4704,3 +4704,373 @@
     &\text{Since the interval lies entirely above 0, the data support a real (positive) difference in mean} \\
     &\text{spend: Segment 1 customers spend more, by somewhere between about \$4.55 and \$25.45 on average.}
     \end{aligned}
+- id: probability-statistics-hypothesis-testing-1-01
+  category: Probability & Statistics
+  subtopic: Hypothesis Testing
+  level: 1
+  question: |
+    \text{In hypothesis testing, what do } H_0 \text{ and } H_1 \text{ (or } H_a\text{) represent, and how is } H_0 \text{ normally chosen?}
+  answer: |
+    \begin{aligned}
+    &H_0 \text{ (null hypothesis): the default/status-quo claim (e.g. "no effect", "} \mu=\mu_0\text{")} \\
+    &H_1 \text{ or } H_a \text{ (alternative hypothesis): the claim tested against } H_0 \text{ (what we'd conclude if we reject } H_0\text{)} \\
+    &\text{Convention: } H_0 \text{ is assumed true unless the data provide strong evidence otherwise} \\
+    &\text{(the test only ever rejects or fails to reject } H_0\text{, it never "accepts" } H_0 \text{ or "proves" } H_1\text{)}
+    \end{aligned}
+- id: probability-statistics-hypothesis-testing-1-02
+  category: Probability & Statistics
+  subtopic: Hypothesis Testing
+  level: 1
+  question: |
+    \text{Define Type I error and Type II error in a hypothesis test, and state their probabilities in terms of } \alpha \text{ and } \beta.
+  answer: |
+    \begin{aligned}
+    &\text{Type I error: reject } H_0 \text{ when } H_0 \text{ is actually true (a "false positive"), } \P(\text{Type I}) = \alpha \\
+    &\text{Type II error: fail to reject } H_0 \text{ when } H_1 \text{ is actually true (a "false negative"), } \P(\text{Type II}) = \beta \\
+    &\alpha \text{ is chosen by the analyst (the significance level); } \beta \text{ depends on the true effect size, } n\text{, and } \alpha
+    \end{aligned}
+- id: probability-statistics-hypothesis-testing-1-03
+  category: Probability & Statistics
+  subtopic: Hypothesis Testing
+  level: 1
+  question: |
+    \text{What is the } p\text{-value of a hypothesis test, in words?}
+  answer: |
+    \text{The probability, computed assuming } H_0 \text{ is true, of observing a test statistic at least as extreme}
+    \text{as the one actually observed. A small } p\text{-value means the data would be unusual under } H_0\text{,}
+    \text{which is evidence against } H_0.
+- id: probability-statistics-hypothesis-testing-1-04
+  category: Probability & Statistics
+  subtopic: Hypothesis Testing
+  level: 1
+  question: |
+    \text{How does the rejection region of a two-sided test } (H_1: \theta \neq \theta_0) \text{ differ from a one-sided}
+    \text{test } (H_1: \theta > \theta_0 \text{ or } \theta < \theta_0)?
+  answer: |
+    \begin{aligned}
+    &\text{Two-sided: the rejection region is split between both tails, each tail getting } \alpha/2 \\
+    &\text{One-sided: the entire } \alpha \text{ is placed in the single tail matching the direction of } H_1 \\
+    &\text{(e.g. only the upper tail for } H_1:\theta>\theta_0\text{), so for the same } \alpha \text{ a one-sided test has} \\
+    &\text{a less extreme critical value in that direction}
+    \end{aligned}
+- id: probability-statistics-hypothesis-testing-1-05
+  category: Probability & Statistics
+  subtopic: Hypothesis Testing
+  level: 1
+  question: |
+    \text{Describe the critical-value decision rule for a hypothesis test: how is a test statistic turned into a}
+    \text{reject / fail-to-reject decision?}
+  answer: |
+    \begin{aligned}
+    &\text{Choose a significance level } \alpha\text{, then find the critical value(s) that cut off probability } \alpha \\
+    &\text{(split by tails if two-sided) under } H_0\text{'s sampling distribution of the test statistic} \\
+    &\text{Reject } H_0 \text{ if the observed test statistic falls in the rejection region (beyond the critical}\\
+    &\text{value(s)), otherwise fail to reject } H_0
+    \end{aligned}
+- id: probability-statistics-hypothesis-testing-1-06
+  category: Probability & Statistics
+  subtopic: Hypothesis Testing
+  level: 1
+  question: |
+    \text{Define the power of a hypothesis test, and name three factors that increase it (holding the others fixed).}
+  answer: |
+    \begin{aligned}
+    \text{Power} &= 1-\beta = \P(\text{reject } H_0 \mid H_1 \text{ true}) \\
+    &\text{Increases with: a larger true effect size, a larger sample size } n\text{, and a larger significance level } \alpha
+    \end{aligned}
+- id: probability-statistics-hypothesis-testing-1-07
+  category: Probability & Statistics
+  subtopic: Hypothesis Testing
+  level: 1
+  question: |
+    \text{Under a likelihood framework, what do the Wald, Likelihood-Ratio (LR), and Lagrange-Multiplier (LM / score)}
+    \text{tests each compare, and how are they related asymptotically?}
+  answer: |
+    \begin{aligned}
+    &\text{Wald: compares the unrestricted MLE } \hat\theta \text{ to the hypothesized } \theta_0\text{, scaled by } \hat\theta\text{'s} \\
+    &\quad\text{own standard error (exactly what the usual } z\text{- and } t\text{-tests already do)} \\
+    &\text{LR: compares the maximized log-likelihood under } H_0 \text{ (restricted) to the unrestricted maximum:} \\
+    &\quad \lambda = -2\ln\!\big(L(\hat\theta_0)/L(\hat\theta)\big) \\
+    &\text{LM / score: evaluates the score (gradient of the log-likelihood) at the restricted MLE } \hat\theta_0\text{;} \\
+    &\quad\text{large if imposing } H_0 \text{ forces the score far from } 0 \\
+    &\text{Wald needs only } \hat\theta\text{, LM needs only } \hat\theta_0\text{, LR needs both fits} \\
+    &\text{Asymptotically all three converge to the same } \chi^2 \text{ distribution under } H_0 \text{ (equivalent in large samples)}
+    \end{aligned}
+- id: probability-statistics-hypothesis-testing-2-01
+  category: Probability & Statistics
+  subtopic: Hypothesis Testing
+  level: 2
+  question: |
+    \text{A machine fills bottles with mean volume claimed to be } 500\text{ ml. A sample of } n=36 \text{ bottles has}
+    \bar x = 497 \text{ ml. Assume } \sigma = 9 \text{ ml is known. Test } H_0:\mu=500 \text{ vs } H_1:\mu\neq 500 \text{ at } \alpha=0.05.
+  answer: |
+    \begin{aligned}
+    z &= \dfrac{\bar x - \mu_0}{\sigma/\sqrt{n}} = \dfrac{497-500}{9/\sqrt{36}} = \dfrac{-3}{1.5} = -2 \\
+    \text{Critical values: } &\pm z_{0.025} = \pm 1.96 \\
+    |z|&=2 > 1.96 \implies \text{reject } H_0 \text{ at } \alpha=0.05
+    \end{aligned}
+- id: probability-statistics-hypothesis-testing-2-02
+  category: Probability & Statistics
+  subtopic: Hypothesis Testing
+  level: 2
+  question: |
+    \text{A sample of } n=16 \text{ measurements has } \bar x = 51.2 \text{ and sample standard deviation } s=4. \text{ Test}
+    H_0:\mu=50 \text{ vs } H_1:\mu>50 \text{ at } \alpha=0.05. \text{ (Use } t_{0.05,15}=1.753\text{.)}
+  answer: |
+    \begin{aligned}
+    t &= \dfrac{\bar x - \mu_0}{s/\sqrt{n}} = \dfrac{51.2-50}{4/\sqrt{16}} = \dfrac{1.2}{1} = 1.2 \\
+    df &= n-1 = 15, \quad \text{critical value } t_{0.05,15} = 1.753 \\
+    t&=1.2 < 1.753 \implies \text{fail to reject } H_0 \text{ at } \alpha=0.05
+    \end{aligned}
+- id: probability-statistics-hypothesis-testing-2-03
+  category: Probability & Statistics
+  subtopic: Hypothesis Testing
+  level: 2
+  question: |
+    \text{A two-sided } z\text{-test gives test statistic } z=2.3. \text{ Compute the } p\text{-value and state the decision at}
+    \alpha=0.05 \text{ and at } \alpha=0.01. \text{ (Use } \Phi(2.3)=0.9893\text{.)}
+  answer: |
+    \begin{aligned}
+    p &= 2\big(1-\Phi(|z|)\big) = 2(1-0.9893) = 0.0214 \\
+    \alpha&=0.05: \quad p=0.0214 < 0.05 \implies \text{reject } H_0 \\
+    \alpha&=0.01: \quad p=0.0214 > 0.01 \implies \text{fail to reject } H_0
+    \end{aligned}
+- id: probability-statistics-hypothesis-testing-2-04
+  category: Probability & Statistics
+  subtopic: Hypothesis Testing
+  level: 2
+  question: |
+    \text{Two independent samples: Group A } (n_1=10,\ \bar x_1=85,\ s_1=5)\text{, Group B } (n_2=12,\ \bar x_2=80,\ s_2=6).
+    \text{Assuming equal variances, test } H_0:\mu_1=\mu_2 \text{ vs } H_1:\mu_1\neq\mu_2 \text{ at } \alpha=0.05.
+    \text{ (Use } t_{0.025,20}=2.086\text{.)}
+  answer: |
+    \begin{aligned}
+    s_p^2 &= \dfrac{(n_1-1)s_1^2+(n_2-1)s_2^2}{n_1+n_2-2} = \dfrac{9(25)+11(36)}{20} = \dfrac{225+396}{20} = 31.05 \\
+    t &= \dfrac{\bar x_1-\bar x_2}{\sqrt{s_p^2\left(\tfrac{1}{n_1}+\tfrac{1}{n_2}\right)}} = \dfrac{5}{\sqrt{31.05\left(\tfrac{1}{10}+\tfrac{1}{12}\right)}} = \dfrac{5}{\sqrt{31.05\times0.1833}} \approx \dfrac{5}{\sqrt{5.693}} \approx \dfrac{5}{2.386} \approx 2.096 \\
+    df&=n_1+n_2-2=20,\quad \text{critical value } t_{0.025,20}=2.086 \\
+    t&\approx 2.096 > 2.086 \implies \text{reject } H_0 \text{ at } \alpha=0.05 \text{ (marginal)}
+    \end{aligned}
+- id: probability-statistics-hypothesis-testing-2-05
+  category: Probability & Statistics
+  subtopic: Hypothesis Testing
+  level: 2
+  question: |
+    \text{Before/after weights for } n=5 \text{ subjects give differences } d_i \text{ (after}-\text{before) with } \bar d = -3.2
+    \text{ and } s_d = 2.5. \text{ Test } H_0:\mu_d=0 \text{ vs } H_1:\mu_d<0 \text{ at } \alpha=0.05. \text{ (Use } t_{0.05,4}=2.132\text{.)}
+  answer: |
+    \begin{aligned}
+    t &= \dfrac{\bar d - 0}{s_d/\sqrt{n}} = \dfrac{-3.2}{2.5/\sqrt{5}} = \dfrac{-3.2}{1.118} \approx -2.862 \\
+    df&=n-1=4,\quad \text{critical value (lower tail) } -t_{0.05,4}=-2.132 \\
+    t&\approx -2.862 < -2.132 \implies \text{reject } H_0 \text{ at } \alpha=0.05 \text{ (significant weight loss)}
+    \end{aligned}
+- id: probability-statistics-hypothesis-testing-2-06
+  category: Probability & Statistics
+  subtopic: Hypothesis Testing
+  level: 2
+  question: |
+    \text{A pollster claims } 40\% \text{ of voters favor a measure. A sample of } n=200 \text{ voters finds } 92 \text{ in favor.}
+    \text{Test } H_0:p=0.4 \text{ vs } H_1:p\neq0.4 \text{ at } \alpha=0.05.
+  answer: |
+    \begin{aligned}
+    \hat p &= 92/200 = 0.46 \\
+    z &= \dfrac{\hat p - p_0}{\sqrt{p_0(1-p_0)/n}} = \dfrac{0.46-0.4}{\sqrt{0.4(0.6)/200}} = \dfrac{0.06}{\sqrt{0.0012}} \approx \dfrac{0.06}{0.03464} \approx 1.732 \\
+    |z|&\approx 1.732 < 1.96 \implies \text{fail to reject } H_0 \text{ at } \alpha=0.05
+    \end{aligned}
+- id: probability-statistics-hypothesis-testing-2-07
+  category: Probability & Statistics
+  subtopic: Hypothesis Testing
+  level: 2
+  question: |
+    \text{Group A: } n_1=150,\ x_1=60 \text{ successes. Group B: } n_2=180,\ x_2=90 \text{ successes. Test } H_0:p_1=p_2
+    \text{ vs } H_1:p_1\neq p_2 \text{ at } \alpha=0.05 \text{ using the pooled proportion.}
+  answer: |
+    \begin{aligned}
+    \hat p_1&=60/150=0.4,\quad \hat p_2=90/180=0.5 \\
+    \hat p &= \dfrac{x_1+x_2}{n_1+n_2} = \dfrac{150}{330} \approx 0.4545 \\
+    z &= \dfrac{\hat p_1-\hat p_2}{\sqrt{\hat p(1-\hat p)\left(\tfrac{1}{n_1}+\tfrac{1}{n_2}\right)}} = \dfrac{-0.1}{\sqrt{0.4545(0.5455)\left(\tfrac{1}{150}+\tfrac{1}{180}\right)}} \approx \dfrac{-0.1}{\sqrt{0.2479\times0.01222}} \approx \dfrac{-0.1}{0.05505} \approx -1.817 \\
+    |z|&\approx 1.817 < 1.96 \implies \text{fail to reject } H_0 \text{ at } \alpha=0.05
+    \end{aligned}
+- id: probability-statistics-hypothesis-testing-2-08
+  category: Probability & Statistics
+  subtopic: Hypothesis Testing
+  level: 2
+  question: |
+    \text{A Binomial experiment has } n=20 \text{ trials and } x=15 \text{ successes. Test } H_0:p=0.5 \text{ using the}
+    \text{likelihood-ratio statistic } \lambda=-2\ln\!\big(L(p_0)/L(\hat p)\big)\text{, comparing to } \chi^2_1 \text{ at } \alpha=0.05
+    \text{ (} \chi^2_{1,0.05}=3.841\text{).}
+  answer: |
+    \begin{aligned}
+    \hat p &= x/n = 15/20 = 0.75 \quad (\text{MLE}) \\
+    \ln L(p) &= x\ln p + (n-x)\ln(1-p) \\
+    \ln L(0.5) &= 15\ln(0.5)+5\ln(0.5) = 20\ln(0.5) \approx -13.863 \\
+    \ln L(0.75) &= 15\ln(0.75)+5\ln(0.25) \approx 15(-0.2877)+5(-1.3863) \approx -4.315-6.931 = -11.247 \\
+    \lambda &= -2\big(\ln L(0.5)-\ln L(0.75)\big) = -2(-13.863-(-11.247)) \approx 5.232 \\
+    \lambda&\approx 5.232 > 3.841 \implies \text{reject } H_0:p=0.5 \text{ at } \alpha=0.05
+    \end{aligned}
+- id: probability-statistics-hypothesis-testing-3-01
+  category: Probability & Statistics
+  subtopic: Hypothesis Testing
+  level: 3
+  question: |
+    \text{Prove: for a two-sided } (1-\alpha) \text{ confidence interval for } \theta \text{ built by inverting a test statistic,}
+    \theta_0 \text{ lies outside the CI if and only if the two-sided test of } H_0:\theta=\theta_0 \text{ at level } \alpha \text{ rejects } H_0.
+  answer: |
+    \begin{aligned}
+    &\text{Let } \hat\theta \text{ have standard error } SE\text{, and let } c=c_{\alpha/2} \text{ be the two-sided critical value} \\
+    &\text{(e.g. } z_{\alpha/2} \text{ or } t_{\alpha/2,df}\text{) so that } \P\!\left(-c \le \dfrac{\hat\theta-\theta}{SE} \le c\right) = 1-\alpha \\
+    &\text{The } (1-\alpha) \text{ CI is } \big[\hat\theta - c\cdot SE,\ \hat\theta + c\cdot SE\big] \\
+    &\theta_0 \text{ is outside this CI} \iff |\hat\theta-\theta_0| > c\cdot SE \iff \left|\dfrac{\hat\theta-\theta_0}{SE}\right| > c \\
+    &\text{But the test statistic for } H_0:\theta=\theta_0 \text{ is exactly } T=\dfrac{\hat\theta-\theta_0}{SE}\text{, and the two-sided} \\
+    &\text{test rejects } H_0 \text{ at level } \alpha \text{ exactly when } |T|>c \\
+    &\text{So } \theta_0 \notin \text{CI} \iff |T|>c \iff \text{the test rejects } H_0 \text{ at level } \alpha \qquad \blacksquare
+    \end{aligned}
+- id: probability-statistics-hypothesis-testing-3-02
+  category: Probability & Statistics
+  subtopic: Hypothesis Testing
+  level: 3
+  question: |
+    \text{State the Neyman–Pearson lemma and use it to find the most powerful level-}\alpha \text{ test of } H_0:\mu=\mu_0
+    \text{ vs } H_1:\mu=\mu_1>\mu_0 \text{ for } X_1,\dots,X_n \overset{iid}{\sim} N(\mu,\sigma^2) \text{ with } \sigma^2 \text{ known.}
+  answer: |
+    \begin{aligned}
+    &\textbf{Lemma: } \text{for testing a simple } H_0 \text{ vs a simple } H_1\text{, the most powerful level-}\alpha \text{ test} \\
+    &\text{rejects } H_0 \text{ when the likelihood ratio } \Lambda = L(\mu_1)/L(\mu_0) > k\text{, where } k \text{ is chosen so that}\\
+    &\P(\Lambda>k\mid H_0)=\alpha \\[4pt]
+    &\text{Applying it: } \ln\Lambda = \dfrac{1}{\sigma^2}\sum_i X_i(\mu_1-\mu_0) - \dfrac{n(\mu_1^2-\mu_0^2)}{2\sigma^2}\text{, increasing} \\
+    &\text{in } \sum_i X_i \text{ (since } \mu_1>\mu_0\text{), so } \Lambda>k \iff \sum_i X_i > k' \iff \bar X > k'' \text{ for some constant } k'' \\
+    &\text{Thus the most powerful test rejects } H_0 \text{ for large } \bar X\text{: exactly the upper-tail } z\text{-test,} \\
+    &\text{reject if } \bar X > \mu_0 + z_\alpha \cdot \sigma/\sqrt{n}\text{, confirming the usual one-sided } z\text{-test is optimal here}
+    \end{aligned}
+- id: probability-statistics-hypothesis-testing-3-03
+  category: Probability & Statistics
+  subtopic: Hypothesis Testing
+  level: 3
+  question: |
+    \text{For } X_1,\dots,X_n\overset{iid}{\sim}N(\mu,\sigma^2) \text{ with } \sigma^2 \text{ known, the test rejects } H_0:\mu=\mu_0
+    \text{ for } \bar X > \mu_0+z_\alpha\sigma/\sqrt n \ (H_1:\mu>\mu_0). \text{ Derive the power function } \pi(\mu_1)=\P(\text{reject}\mid \mu=\mu_1)
+    \text{ and show how it trades off against } \alpha.
+  answer: |
+    \begin{aligned}
+    \pi(\mu_1) &= \P\!\left(\bar X > \mu_0+z_\alpha\dfrac{\sigma}{\sqrt n} \,\middle|\, \mu=\mu_1\right) = \P\!\left(\dfrac{\bar X-\mu_1}{\sigma/\sqrt n} > z_\alpha + \dfrac{\mu_0-\mu_1}{\sigma/\sqrt n}\right) \\
+    &= 1-\Phi\!\left(z_\alpha - \dfrac{\mu_1-\mu_0}{\sigma/\sqrt n}\right) \\
+    &\text{As } \mu_1 \text{ moves further above } \mu_0\text{, the argument of } \Phi \text{ decreases, so } \pi(\mu_1) \text{ increases toward } 1 \\
+    &\text{Raising } \alpha \text{ makes } z_\alpha \text{ smaller, shifting the critical value left: this raises power } \pi(\mu_1) \\
+    &\text{for every fixed } \mu_1>\mu_0 \text{ (lower } \beta=1-\pi\text{), but also raises the Type I error rate } \alpha \text{ itself} \\
+    &\text{— the classic } \alpha/\beta \text{ tradeoff: the only way to reduce both simultaneously is to increase } n
+    \end{aligned}
+- id: probability-statistics-hypothesis-testing-3-04
+  category: Probability & Statistics
+  subtopic: Hypothesis Testing
+  level: 3
+  question: |
+    \text{For } X_1,\dots,X_n\overset{iid}{\sim}N(\mu,\sigma^2)\text{, explain why } T=\dfrac{\bar X-\mu}{S/\sqrt n} \text{ follows a}
+    t_{n-1} \text{ distribution rather than a standard normal.}
+  answer: |
+    \begin{aligned}
+    &\text{Write } T = \dfrac{(\bar X-\mu)/(\sigma/\sqrt n)}{S/\sigma} = \dfrac{Z}{\sqrt{\chi^2_{n-1}/(n-1)}}\text{, where } Z=\dfrac{\bar X-\mu}{\sigma/\sqrt n}\sim N(0,1) \\
+    &\text{Under normality, Cochran's theorem gives: (i) } \bar X \text{ and } S^2 \text{ are independent, and} \\
+    &\text{(ii) } \dfrac{(n-1)S^2}{\sigma^2}\sim\chi^2_{n-1} \\
+    &\text{By definition, a standard normal divided by } \sqrt{\text{independent } \chi^2_{k}/k} \text{ is exactly a } t_k \text{ r.v.} \\
+    &\text{So } T\sim t_{n-1}\text{; replacing the known } \sigma \text{ by the estimated } S \text{ introduces extra variability,} \\
+    &\text{which is why } t_{n-1} \text{ has heavier tails than } N(0,1) \text{ (converging to it only as } n\to\infty\text{, when } S\to\sigma\text{)}
+    \end{aligned}
+- id: probability-statistics-hypothesis-testing-3-05
+  category: Probability & Statistics
+  subtopic: Hypothesis Testing
+  level: 3
+  question: |
+    \text{Running } m \text{ independent hypothesis tests, each at level } \alpha\text{, when all } m \text{ null hypotheses are}
+    \text{true. Derive the family-wise error rate (probability of at least one false rejection), and show why testing}
+    \text{each at level } \alpha/m \text{ (Bonferroni) controls it at } \alpha.
+  answer: |
+    \begin{aligned}
+    &\text{FWER} = \P(\text{at least one false rejection}) = 1-\P(\text{no false rejections}) = 1-(1-\alpha)^m \\
+    &\text{This exceeds } \alpha \text{ for any } m>1 \text{ (e.g. } m=20,\ \alpha=0.05 \implies \text{FWER}=1-0.95^{20}\approx 0.642\text{)} \\[4pt]
+    &\textbf{Bonferroni fix: } \text{test each hypothesis at level } \alpha/m. \text{ By the union bound (Boole's inequality),} \\
+    &\text{FWER} = \P\!\left(\bigcup_{i=1}^m \{\text{reject } i\}\right) \le \sum_{i=1}^m \P(\text{reject } i) = \sum_{i=1}^m \dfrac{\alpha}{m} = \alpha \\
+    &\text{so the FWER is guaranteed } \le \alpha\text{, regardless of dependence between the tests (the union bound} \\
+    &\text{needs no independence)}
+    \end{aligned}
+- id: probability-statistics-hypothesis-testing-3-06
+  category: Probability & Statistics
+  subtopic: Hypothesis Testing
+  level: 3
+  question: |
+    \text{For } X_1,\dots,X_n\overset{iid}{\sim}N(\mu,\sigma^2) \text{ (both unknown), derive the Lagrange-Multiplier (score)}
+    \text{test statistic for } H_0:\mu=\mu_0 \text{ (treating } \sigma^2 \text{ as a nuisance parameter), using the Fisher}
+    \text{information matrix for } (\mu,\sigma^2).
+  answer: |
+    \begin{aligned}
+    &\ln L(\mu,\sigma^2) = -\dfrac{n}{2}\ln(2\pi\sigma^2) - \dfrac{1}{2\sigma^2}\sum_i (x_i-\mu)^2 \\
+    &\text{Score vector: } U(\mu,\sigma^2) = \left(\dfrac{\partial \ln L}{\partial\mu},\ \dfrac{\partial \ln L}{\partial\sigma^2}\right) = \left(\dfrac{n(\bar x-\mu)}{\sigma^2},\ -\dfrac{n}{2\sigma^2}+\dfrac{\sum_i(x_i-\mu)^2}{2\sigma^4}\right) \\
+    &\text{Fisher information matrix (diagonal, since } \mu,\sigma^2 \text{ are orthogonal parameters for the normal):} \\
+    &I(\mu,\sigma^2) = \begin{pmatrix} n/\sigma^2 & 0 \\ 0 & n/(2\sigma^4) \end{pmatrix} \\
+    &\text{Restricted MLE under } H_0: \ \hat\sigma_0^2 = \dfrac{1}{n}\sum_i(x_i-\mu_0)^2\text{, and at } (\mu_0,\hat\sigma_0^2) \text{ the}\\
+    &\sigma^2\text{-score is exactly } 0 \text{ by construction, leaving only the } \mu\text{-score: } U_\mu(\mu_0,\hat\sigma_0^2) = \dfrac{n(\bar x-\mu_0)}{\hat\sigma_0^2} \\
+    &\text{Because } I \text{ is diagonal, the LM statistic only needs the } (\mu,\mu) \text{ block } I_{\mu\mu}=n/\hat\sigma_0^2: \\
+    &\text{LM} = \dfrac{U_\mu(\mu_0,\hat\sigma_0^2)^2}{I_{\mu\mu}} = \dfrac{\big(n(\bar x-\mu_0)/\hat\sigma_0^2\big)^2}{n/\hat\sigma_0^2} = \dfrac{n(\bar x-\mu_0)^2}{\hat\sigma_0^2} \ \overset{asym}{\sim}\ \chi^2_1 \text{ under } H_0
+    \end{aligned}
+- id: probability-statistics-hypothesis-testing-4-01
+  category: Probability & Statistics
+  subtopic: Hypothesis Testing
+  level: 4
+  question: |
+    \text{You want to detect a true mean difference of } \delta=2 \text{ (vs } H_0:\mu=\mu_0\text{) with a one-sided } z\text{-test}
+    \text{ at } \alpha=0.05 \text{ and power } 0.90\text{, given } \sigma=5. \text{ Find the required sample size } n.
+    \text{ (Use } z_{0.05}=1.645,\ z_{0.10}=1.282.\text{)}
+  answer: |
+    \begin{aligned}
+    &\text{Need } \P\!\left(\bar X>\mu_0+z_\alpha\dfrac{\sigma}{\sqrt n}\,\middle|\,\mu=\mu_0+\delta\right) = 0.90 \\
+    &\iff \mu_0+\delta - z_{0.10}\dfrac{\sigma}{\sqrt n} = \mu_0+z_{0.05}\dfrac{\sigma}{\sqrt n} \\
+    &\iff \delta = (z_{0.05}+z_{0.10})\dfrac{\sigma}{\sqrt n} \implies n = \left(\dfrac{(z_\alpha+z_\beta)\sigma}{\delta}\right)^2 \\
+    &n = \left(\dfrac{(1.645+1.282)(5)}{2}\right)^2 = \left(\dfrac{2.927\times 5}{2}\right)^2 \approx (7.3175)^2 \approx 53.5 \\
+    &\text{Round up: } n=54
+    \end{aligned}
+- id: probability-statistics-hypothesis-testing-4-02
+  category: Probability & Statistics
+  subtopic: Hypothesis Testing
+  level: 4
+  question: |
+    \text{A data team runs } m=20 \text{ independent A/B tests in a quarter, each at } \alpha=0.05\text{, and in reality none}
+    \text{of the 20 changes has any effect (all 20 nulls are true). Compute the probability at least one test is}
+    \text{falsely declared significant, and state how the team should adjust } \alpha \text{ per test to keep the overall}
+    \text{false-positive risk at } 0.05.
+  answer: |
+    \begin{aligned}
+    \P(\text{at least one false positive}) &= 1-(1-0.05)^{20} = 1-0.95^{20} \approx 1-0.358 = 0.642 \\
+    &\text{So there's a} \approx 64\% \text{ chance of at least one "significant" result purely by chance} \\
+    &\textbf{Bonferroni fix: } \text{test each at } \alpha' = \alpha/m = 0.05/20 = 0.0025 \text{ instead of } 0.05 \\
+    &\text{This caps the family-wise false-positive probability at } \le 0.05 \text{ overall, at the cost of needing a} \\
+    &\text{much stronger individual } p\text{-value (}p<0.0025\text{) to call any single test significant}
+    \end{aligned}
+- id: probability-statistics-hypothesis-testing-4-03
+  category: Probability & Statistics
+  subtopic: Hypothesis Testing
+  level: 4
+  question: |
+    \text{A die is rolled } 120 \text{ times with observed face counts } (1\text{–}6): 15, 24, 22, 17, 25, 17. \text{ Test } H_0\text{:}
+    \text{the die is fair at } \alpha=0.05 \text{ using a chi-square goodness-of-fit test. (Use } \chi^2_{0.05,5}=11.07\text{.)}
+  answer: |
+    \begin{aligned}
+    &\text{Expected count per face (fair die): } E_i = 120/6 = 20 \\
+    \chi^2 &= \sum_{i=1}^6 \dfrac{(O_i-E_i)^2}{E_i} = \dfrac{(15-20)^2}{20}+\dfrac{(24-20)^2}{20}+\dfrac{(22-20)^2}{20}+\dfrac{(17-20)^2}{20}+\dfrac{(25-20)^2}{20}+\dfrac{(17-20)^2}{20} \\
+    &= \dfrac{25+16+4+9+25+9}{20} = \dfrac{88}{20} = 4.4 \\
+    df&=6-1=5,\quad \text{critical value } \chi^2_{0.05,5}=11.07 \\
+    \chi^2&=4.4 < 11.07 \implies \text{fail to reject } H_0\text{: no evidence the die is unfair}
+    \end{aligned}
+- id: probability-statistics-hypothesis-testing-4-04
+  category: Probability & Statistics
+  subtopic: Hypothesis Testing
+  level: 4
+  question: |
+    \text{A sample of } n=25 \text{ gives } \bar x=104,\ s=10. \text{ The resulting } 95\% \text{ CI for } \mu \text{ is}
+    104 \pm 2.064(10/\sqrt{25}) = (99.87,\ 108.13) \text{ (using } t_{0.025,24}=2.064\text{). A colleague claims } \mu_0=98.
+    \text{ Without recomputing a } t\text{-statistic, use the CI to decide whether the two-sided test } H_0:\mu=98 \text{ vs }
+    H_1:\mu\neq 98 \text{ rejects at } \alpha=0.05\text{, then verify directly with the } t\text{-statistic.}
+  answer: |
+    \begin{aligned}
+    &\mu_0=98 \text{ lies outside the CI } (99.87,\ 108.13) \implies \text{by CI-test duality, the test rejects } H_0 \text{ at } \alpha=0.05 \\[4pt]
+    &\text{Direct check: } t = \dfrac{\bar x-\mu_0}{s/\sqrt n} = \dfrac{104-98}{10/\sqrt{25}} = \dfrac{6}{2} = 3 \\
+    &df=24,\quad \text{critical value } t_{0.025,24}=2.064 \\
+    &|t|=3 > 2.064 \implies \text{reject } H_0 \text{ — confirms the CI-based conclusion}
+    \end{aligned}
