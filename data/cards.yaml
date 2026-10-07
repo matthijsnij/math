@@ -5994,3 +5994,305 @@
     \text{So there is over a } 20\% \text{ chance the path spends } 90\% \text{ or more of the time on ONE side of } 0 ---
     \text{the density } f_A(x) \text{ blows up near the endpoints } 0 \text{ and } 1, \text{ meaning a Brownian path is far more}
     \text{likely to spend almost all its time on one side than to split time evenly, contrary to naive intuition.}
+- id: probability-statistics-poisson-process-1-01
+  category: Probability & Statistics
+  subtopic: Poisson Process
+  level: 1
+  question: |
+    \text{Define a Poisson process } \{N(t), t\ge 0\} \text{ with rate } \lambda: \text{ state the axioms it must satisfy,} \\
+    \text{and the resulting distribution of } N(t).
+  answer: |
+    \begin{aligned}
+    &\text{(i) } N(0)=0. \\
+    &\text{(ii) Independent increments: counts of events in disjoint time intervals are independent.} \\
+    &\text{(iii) Stationary increments: the distribution of } N(t+s)-N(s) \text{ depends only on } t\text{, not } s. \\
+    &\text{(iv) Orderliness: } \P(N(h)=1)=\lambda h+o(h) \text{ and } \P(N(h)\ge 2)=o(h) \text{ as } h\to 0 \\
+    &\text{(no two events occur at exactly the same instant).}
+    \end{aligned} \\
+    \text{Consequence: } N(t) \sim \text{Poisson}(\lambda t) \text{ for every } t.
+- id: probability-statistics-poisson-process-1-02
+  category: Probability & Statistics
+  subtopic: Poisson Process
+  level: 1
+  question: |
+    \text{For a Poisson process with rate } \lambda\text{, state the distribution of the interarrival times } T_i \\
+    \text{(the gaps between consecutive arrivals) and of the waiting time } S_n \text{ until the } n\text{th arrival.}
+  answer: |
+    T_1,T_2,\dots \text{ are iid } \text{Exponential}(\lambda). \\
+    S_n = T_1+\cdots+T_n \sim \text{Gamma}(n,\lambda) \text{ (Erlang), with pdf} \\
+    f_{S_n}(t) = \dfrac{\lambda^{n}t^{n-1}e^{-\lambda t}}{(n-1)!}, \quad t\ge 0.
+- id: probability-statistics-poisson-process-1-03
+  category: Probability & Statistics
+  subtopic: Poisson Process
+  level: 1
+  question: |
+    \text{For a Poisson process with rate } \lambda\text{, state } \E[N(t)] \text{ and } \Var(N(t)).
+  answer: |
+    \text{Since } N(t)\sim\text{Poisson}(\lambda t)\text{:} \quad \E[N(t)] = \Var(N(t)) = \lambda t.
+- id: probability-statistics-poisson-process-1-04
+  category: Probability & Statistics
+  subtopic: Poisson Process
+  level: 1
+  question: |
+    \text{State the merging (superposition) property of independent Poisson processes.}
+  answer: |
+    \text{If } \{N_1(t)\} \text{ and } \{N_2(t)\} \text{ are independent Poisson processes with rates } \lambda_1 \text{ and } \lambda_2\text{,} \\
+    \text{then } \{N_1(t)+N_2(t)\} \text{ is itself a Poisson process, with rate } \lambda_1+\lambda_2.
+- id: probability-statistics-poisson-process-1-05
+  category: Probability & Statistics
+  subtopic: Poisson Process
+  level: 1
+  question: |
+    \text{State the thinning (splitting) property of a Poisson process.}
+  answer: |
+    \text{If each arrival of a Poisson process with rate } \lambda \text{ is independently marked "type 1" with} \\
+    \text{probability } p \text{ and "type 2" with probability } 1-p\text{, then the type-1 and type-2 arrivals each} \\
+    \text{form a Poisson process, with rates } \lambda p \text{ and } \lambda(1-p) \text{ respectively, and the two resulting} \\
+    \text{processes are independent of each other.}
+- id: probability-statistics-poisson-process-1-06
+  category: Probability & Statistics
+  subtopic: Poisson Process
+  level: 1
+  question: |
+    \text{Define a non-homogeneous Poisson process with rate function } \lambda(t)\ge 0\text{, and state the} \\
+    \text{distribution of } N(t)-N(s) \text{ for } s<t.
+  answer: |
+    \text{A non-homogeneous Poisson process has a time-varying intensity } \lambda(t) \text{ instead of a constant} \\
+    \text{rate. It still has independent increments, but} \\
+    N(t)-N(s) \sim \text{Poisson}\!\left(\int_s^t \lambda(u)\,du\right).
+- id: probability-statistics-poisson-process-2-01
+  category: Probability & Statistics
+  subtopic: Poisson Process
+  level: 2
+  question: |
+    \text{Arrivals to a shop follow a Poisson process with rate } \lambda=3 \text{ per hour. Find the probability of} \\
+    \text{exactly } 5 \text{ arrivals in a } 2\text{-hour window.}
+  answer: |
+    \begin{aligned}
+    N(2) &\sim \text{Poisson}(\lambda t = 6) \\
+    \P(N(2)=5) &= \dfrac{e^{-6}6^{5}}{5!} = \dfrac{7776\,e^{-6}}{120} = 64.8\,e^{-6} \approx 0.1606
+    \end{aligned}
+- id: probability-statistics-poisson-process-2-02
+  category: Probability & Statistics
+  subtopic: Poisson Process
+  level: 2
+  question: |
+    \text{Calls arrive at a call center as a Poisson process with rate } \lambda=2 \text{ per minute. Find the probability} \\
+    \text{that no calls arrive in a } 3\text{-minute interval, and the probability that at least one call arrives.}
+  answer: |
+    \begin{aligned}
+    N(3) &\sim \text{Poisson}(6) \\
+    \P(N(3)=0) &= e^{-6} \approx 0.00248 \\
+    \P(N(3)\ge 1) &= 1-e^{-6} \approx 0.99752
+    \end{aligned}
+- id: probability-statistics-poisson-process-2-03
+  category: Probability & Statistics
+  subtopic: Poisson Process
+  level: 2
+  question: |
+    \text{For a Poisson process with rate } \lambda=0.5 \text{ per minute, find } \E[S_4] \text{ and } \Var(S_4)\text{, the waiting} \\
+    \text{time until the } 4\text{th arrival.}
+  answer: |
+    \begin{aligned}
+    S_4 &\sim \text{Gamma}(4, 0.5) \\
+    \E[S_4] &= \dfrac{n}{\lambda} = \dfrac{4}{0.5} = 8 \text{ minutes} \\
+    \Var(S_4) &= \dfrac{n}{\lambda^2} = \dfrac{4}{0.25} = 16 \text{ minutes}^2
+    \end{aligned}
+- id: probability-statistics-poisson-process-2-04
+  category: Probability & Statistics
+  subtopic: Poisson Process
+  level: 2
+  question: |
+    \text{Two independent Poisson processes model arrivals of buses (rate } \lambda_1=4\text{/hour) and taxis} \\
+    \text{(rate } \lambda_2=6\text{/hour) at a stand. Using the merging property, find the probability that exactly} \\
+    3 \text{ vehicles (of either type) arrive in a } 30\text{-minute window.}
+  answer: |
+    \begin{aligned}
+    &\text{Merged process has rate } \lambda = \lambda_1+\lambda_2 = 10\text{/hour.} \\
+    &\text{In } t=0.5 \text{ hour, mean } = \lambda t = 5. \\
+    \P(N(0.5)=3) &= \dfrac{e^{-5}5^{3}}{3!} = \dfrac{125\,e^{-5}}{6} \approx 20.833\,e^{-5} \approx 0.1404
+    \end{aligned}
+- id: probability-statistics-poisson-process-2-05
+  category: Probability & Statistics
+  subtopic: Poisson Process
+  level: 2
+  question: |
+    \text{Emails arrive at a server as a Poisson process with rate } \lambda=10 \text{ per hour; independently, each} \\
+    \text{email is spam with probability } p=0.3. \text{ Using the thinning property, find the probability of exactly} \\
+    2 \text{ spam emails in a } 1\text{-hour period.}
+  answer: |
+    \begin{aligned}
+    &\text{The spam stream is Poisson with rate } \lambda p = 10 \times 0.3 = 3 \text{ per hour.} \\
+    \P(X=2) &= \dfrac{e^{-3}3^{2}}{2!} = 4.5\,e^{-3} \approx 0.2240
+    \end{aligned}
+- id: probability-statistics-poisson-process-2-06
+  category: Probability & Statistics
+  subtopic: Poisson Process
+  level: 2
+  question: |
+    \text{A non-homogeneous Poisson process has rate } \lambda(t)=2t \text{ (} t \text{ in hours). Find the expected number} \\
+    \text{of arrivals in the interval } [1,3].
+  answer: |
+    \E[N(3)-N(1)] = \int_{1}^{3} 2t\,dt = \Big[t^{2}\Big]_{1}^{3} = 9-1 = 8.
+- id: probability-statistics-poisson-process-3-01
+  category: Probability & Statistics
+  subtopic: Poisson Process
+  level: 3
+  question: |
+    \text{Derive } N(t)\sim\text{Poisson}(\lambda t) \text{ starting only from the Poisson process axioms (independent} \\
+    \text{increments, stationary increments, and } \P(N(h)=1)=\lambda h+o(h)\text{, } \P(N(h)\ge 2)=o(h)\text{).}
+  answer: |
+    \begin{aligned}
+    &\text{Let } p_n(t)=\P(N(t)=n)\text{. For } n=0\text{, conditioning on the first } h \text{ time units,} \\
+    p_0(t+h) &= p_0(t)\P(N(h)=0) = p_0(t)\big(1-\lambda h+o(h)\big) \\
+    &\Rightarrow \dfrac{p_0(t+h)-p_0(t)}{h} \to p_0'(t) = -\lambda p_0(t), \quad p_0(0)=1 \\
+    &\Rightarrow p_0(t) = e^{-\lambda t}. \\[4pt]
+    &\text{For } n\ge 1\text{, independent/stationary increments give} \\
+    p_n(t+h) &= p_n(t)\P(N(h)=0) + p_{n-1}(t)\P(N(h)=1) + o(h) \\
+    &= p_n(t)(1-\lambda h) + p_{n-1}(t)\lambda h + o(h) \\
+    &\Rightarrow p_n'(t) = -\lambda p_n(t) + \lambda p_{n-1}(t). \\[4pt]
+    &\text{Using the integrating factor } e^{\lambda t}\text{:} \quad \big(e^{\lambda t}p_n(t)\big)' = \lambda e^{\lambda t}p_{n-1}(t)\text{.} \\
+    &\text{By induction, assume } e^{\lambda t}p_{n-1}(t) = \dfrac{(\lambda t)^{n-1}}{(n-1)!}\text{. Then} \\
+    \big(e^{\lambda t}p_n(t)\big)' &= \lambda\dfrac{(\lambda t)^{n-1}}{(n-1)!} \quad\Rightarrow\quad e^{\lambda t}p_n(t) = \dfrac{(\lambda t)^{n}}{n!} + C\text{,} \\
+    &\text{and } p_n(0)=0 \text{ forces } C=0\text{, so } p_n(t) = \dfrac{e^{-\lambda t}(\lambda t)^{n}}{n!}\text{, i.e. } N(t)\sim\text{Poisson}(\lambda t).
+    \end{aligned}
+- id: probability-statistics-poisson-process-3-02
+  category: Probability & Statistics
+  subtopic: Poisson Process
+  level: 3
+  question: |
+    \text{Let } \{N_1(t)\} \text{ and } \{N_2(t)\} \text{ be independent Poisson processes with rates } \lambda_1,\lambda_2\text{. Prove} \\
+    \text{that } N(t)=N_1(t)+N_2(t) \text{ is itself a Poisson process with rate } \lambda_1+\lambda_2 \text{ (not just that} \\
+    N(t) \text{ has the right marginal distribution).}
+  answer: |
+    \begin{aligned}
+    &\text{(i) } N(0) = N_1(0)+N_2(0) = 0. \\
+    &\text{(ii) Independent increments: over disjoint intervals, the increments of } N_1 \text{ are independent} \\
+    &\text{of each other, the increments of } N_2 \text{ are independent of each other, and } N_1\perp N_2\text{. So the} \\
+    &\text{sums } N(t_{k})-N(t_{k-1}) = \big[N_1(t_k)-N_1(t_{k-1})\big]+\big[N_2(t_k)-N_2(t_{k-1})\big] \text{ over disjoint} \\
+    &\text{intervals are each built from mutually independent pieces, hence are themselves independent.} \\
+    &\text{(iii) Stationary increments: } N(t+s)-N(s) = \big[N_1(t+s)-N_1(s)\big]+\big[N_2(t+s)-N_2(s)\big]\text{, a} \\
+    &\text{sum of two independent random variables whose distributions depend only on } t \text{ (by} \\
+    &\text{stationarity of } N_1,N_2\text{), so the sum's distribution also depends only on } t. \\
+    &\text{(iv) Marginal distribution: for fixed } t\text{, } N_1(t)\sim\text{Poisson}(\lambda_1 t) \text{ and } N_2(t)\sim\text{Poisson}(\lambda_2 t) \\
+    &\text{are independent, so their sum is } \text{Poisson}(\lambda_1 t+\lambda_2 t) \text{ (sum of independent Poissons).} \\
+    &\text{(i)-(iv) are exactly the Poisson process axioms, so } N(t) \text{ is a Poisson process with rate } \lambda_1+\lambda_2.
+    \end{aligned}
+- id: probability-statistics-poisson-process-3-03
+  category: Probability & Statistics
+  subtopic: Poisson Process
+  level: 3
+  question: |
+    \text{A Poisson process with rate } \lambda \text{ has each arrival independently marked "type 1" with probability} \\
+    p\text{. Let } N_1(t), N_2(t) \text{ be the type-1 and type-2 counts by time } t. \text{ Prove that } N_1(t)\sim\text{Poisson}(\lambda p t)\text{,} \\
+    N_2(t)\sim\text{Poisson}(\lambda(1-p)t)\text{, and that } N_1(t) \text{ and } N_2(t) \text{ are independent.}
+  answer: |
+    \begin{aligned}
+    &\text{Conditional on } N(t)=n\text{, each of the } n \text{ arrivals is independently type 1 with probability } p\text{,} \\
+    &\text{so } N_1(t)\mid N(t)=n \sim \text{Binomial}(n,p). \text{ Marginalizing:} \\
+    \P(N_1(t)=k) &= \sum_{n=k}^{\infty} \binom{n}{k}p^{k}(1-p)^{n-k}\cdot\dfrac{e^{-\lambda t}(\lambda t)^{n}}{n!} \\
+    &= e^{-\lambda t}\dfrac{(\lambda p t)^{k}}{k!}\sum_{m=0}^{\infty}\dfrac{\big((1-p)\lambda t\big)^{m}}{m!} \quad (m=n-k) \\
+    &= e^{-\lambda t}\dfrac{(\lambda p t)^{k}}{k!}\,e^{(1-p)\lambda t} = \dfrac{e^{-\lambda p t}(\lambda p t)^{k}}{k!} \\
+    &\Rightarrow N_1(t)\sim\text{Poisson}(\lambda p t)\text{, and symmetrically } N_2(t)\sim\text{Poisson}(\lambda(1-p)t). \\[4pt]
+    &\text{Independence --- compute the joint pmf directly:} \\
+    \P(N_1(t)=j,N_2(t)=k) &= \P(N(t)=j+k)\,\P(N_1(t)=j \mid N(t)=j+k) \\
+    &= \dfrac{e^{-\lambda t}(\lambda t)^{j+k}}{(j+k)!}\binom{j+k}{j}p^{j}(1-p)^{k} = \dfrac{e^{-\lambda t}(\lambda t)^{j+k}}{j!\,k!}p^{j}(1-p)^{k} \\
+    &= \left[\dfrac{e^{-\lambda p t}(\lambda p t)^{j}}{j!}\right]\left[\dfrac{e^{-\lambda(1-p)t}(\lambda(1-p)t)^{k}}{k!}\right] = \P(N_1(t)=j)\,\P(N_2(t)=k)\text{.} \\
+    &\text{The joint pmf factors for all } j,k\text{, so } N_1(t) \text{ and } N_2(t) \text{ are independent (the same} \\
+    &\text{argument applied increment-by-increment shows the full processes are independent too).}
+    \end{aligned}
+- id: probability-statistics-poisson-process-3-04
+  category: Probability & Statistics
+  subtopic: Poisson Process
+  level: 3
+  question: |
+    \text{For a Poisson process with rate } \lambda\text{, show that conditional on } N(t)=n\text{, the unordered arrival} \\
+    \text{times } (S_1,\dots,S_n) \text{ have the same joint distribution as the order statistics of } n \text{ iid} \\
+    \text{Uniform}(0,t) \text{ random variables.}
+  answer: |
+    \begin{aligned}
+    &\text{Write the arrival times via interarrival gaps } T_1,\dots,T_{n+1}\overset{iid}{\sim}\text{Exponential}(\lambda)\text{,} \\
+    &\text{where } S_i = T_1+\cdots+T_i. \text{ For } 0<s_1<\cdots<s_n<t\text{, the event } \{S_1=s_1,\dots,S_n=s_n, N(t)=n\} \\
+    &\text{is } \{T_1=s_1, T_2=s_2-s_1,\dots,T_n=s_n-s_{n-1}, T_{n+1}>t-s_n\}\text{. Since the } T_i \text{ are iid Exponential}(\lambda)\text{,} \\
+    f_{S_1,\dots,S_n,N(t)=n}(s_1,\dots,s_n) &= \lambda^{n}e^{-\lambda(t_1+\cdots+t_n)}\cdot \P(T_{n+1}>t-s_n) = \lambda^{n}e^{-\lambda s_n}\cdot e^{-\lambda(t-s_n)} = \lambda^{n}e^{-\lambda t}\text{,} \\
+    &\text{a constant (independent of the } s_i \text{ values), for } 0<s_1<\cdots<s_n<t. \\
+    &\text{Dividing by } \P(N(t)=n) = e^{-\lambda t}(\lambda t)^{n}/n! \text{ gives the conditional joint density} \\
+    f_{S_1,\dots,S_n \mid N(t)=n}(s_1,\dots,s_n) &= \dfrac{n!}{t^{n}}, \qquad 0<s_1<\cdots<s_n<t\text{.} \\
+    &\text{This is exactly the joint density of the order statistics of } n \text{ iid Uniform}(0,t) \text{ variables} \\
+    &\text{(each has density } 1/t\text{, and there are } n! \text{ orderings), proving the claim.}
+    \end{aligned}
+- id: probability-statistics-poisson-process-3-05
+  category: Probability & Statistics
+  subtopic: Poisson Process
+  level: 3
+  question: |
+    \text{Let } \{N_A(t)\} \text{ and } \{N_B(t)\} \text{ be independent Poisson processes with rates } \lambda_A,\lambda_B\text{. Derive} \\
+    \text{the probability that A's next arrival occurs before B's next arrival.}
+  answer: |
+    \begin{aligned}
+    &\text{Let } X \text{ be the time to A's next arrival and } Y \text{ the time to B's next arrival; by the memoryless} \\
+    &\text{property, } X\sim\text{Exponential}(\lambda_A)\text{, } Y\sim\text{Exponential}(\lambda_B)\text{, independent.} \\
+    \P(X<Y) &= \int_{0}^{\infty} \lambda_A e^{-\lambda_A x}\,\P(Y>x)\,dx = \int_{0}^{\infty} \lambda_A e^{-\lambda_A x}e^{-\lambda_B x}\,dx \\
+    &= \lambda_A \int_{0}^{\infty} e^{-(\lambda_A+\lambda_B)x}\,dx = \dfrac{\lambda_A}{\lambda_A+\lambda_B}
+    \end{aligned}
+- id: probability-statistics-poisson-process-4-01
+  category: Probability & Statistics
+  subtopic: Poisson Process
+  level: 4
+  question: |
+    \text{A website's visits follow a Poisson process. It received exactly } 6 \text{ visits between } 9{:}00 \text{ and} \\
+    10{:}00. \text{ Given this, find the probability that at least } 4 \text{ of the } 6 \text{ visits occurred in the first} \\
+    20 \text{ minutes of the hour.}
+  answer: |
+    \begin{aligned}
+    &\text{Conditional on } N(60)=6\text{, the } 6 \text{ arrival times are distributed as } 6 \text{ iid Uniform}(0,60) \\
+    &\text{values (order-statistics property), so the number landing in the first } 20 \text{ minutes is} \\
+    X &\sim \text{Binomial}\!\left(6,\ p=\dfrac{20}{60}=\dfrac13\right). \\
+    \P(X\ge 4) &= \sum_{k=4}^{6}\binom{6}{k}\left(\dfrac13\right)^{k}\left(\dfrac23\right)^{6-k} = \dfrac{60}{729}+\dfrac{12}{729}+\dfrac{1}{729} = \dfrac{73}{729} \approx 0.1001
+    \end{aligned}
+- id: probability-statistics-poisson-process-4-02
+  category: Probability & Statistics
+  subtopic: Poisson Process
+  level: 4
+  question: |
+    \text{A factory produces items according to a Poisson process with rate } \lambda=20 \text{ per hour. Each item} \\
+    \text{independently passes quality inspection with probability } 0.95. \text{ Using thinning, find the} \\
+    \text{probability that fewer than } 2 \text{ items fail inspection in a given hour.}
+  answer: |
+    \begin{aligned}
+    &\text{The failing-item stream is Poisson with rate } \lambda(1-0.95) = 20\times0.05 = 1 \text{ per hour.} \\
+    X &\sim \text{Poisson}(1) \\
+    \P(X<2) &= \P(X=0)+\P(X=1) = e^{-1}+e^{-1} = 2e^{-1} \approx 0.7358
+    \end{aligned}
+- id: probability-statistics-poisson-process-4-03
+  category: Probability & Statistics
+  subtopic: Poisson Process
+  level: 4
+  question: |
+    \text{Two independent machines process orders as Poisson processes: Machine A at rate } 5\text{/hour,} \\
+    \text{Machine B at rate } 3\text{/hour. Both just started a new order. Find the probability Machine A finishes} \\
+    \text{its order first, and the expected time until whichever machine finishes first.}
+  answer: |
+    \begin{aligned}
+    &\text{By the race-probability result, } \P(\text{A first}) = \dfrac{\lambda_A}{\lambda_A+\lambda_B} = \dfrac{5}{5+3} = \dfrac58 = 0.625. \\
+    &\text{The time until the first completion is } \min(X,Y) \sim \text{Exponential}(\lambda_A+\lambda_B=8)\text{, so} \\
+    &\E[\min(X,Y)] = \dfrac{1}{8} \text{ hour} = 7.5 \text{ minutes.}
+    \end{aligned}
+- id: probability-statistics-poisson-process-4-04
+  category: Probability & Statistics
+  subtopic: Poisson Process
+  level: 4
+  question: |
+    \text{Buses arrive at a stop according to a Poisson process with rate } \lambda \text{ (mean interarrival time } 1/\lambda\text{).} \\
+    \text{A passenger arrives at an arbitrary fixed time, long after the process started. Find the expected} \\
+    \text{length of the interarrival interval that contains the passenger's arrival, and compare it to } 1/\lambda\text{.}
+  answer: |
+    \begin{aligned}
+    &\text{By the memoryless property, the forward recurrence time (wait until the next bus) is} \\
+    &\text{Exponential}(\lambda)\text{, with mean } 1/\lambda\text{. By time-reversibility of the Poisson process, the backward} \\
+    &\text{recurrence time (time since the last bus) is independently also Exponential}(\lambda)\text{, mean } 1/\lambda\text{.} \\
+    &\text{The full interval containing the passenger's arrival is the sum of these two independent pieces:} \\
+    \E[\text{interval length}] &= \dfrac1\lambda + \dfrac1\lambda = \dfrac2\lambda\text{,} \\
+    &\text{twice the unconditional mean interarrival time } 1/\lambda --- \text{ the waiting-time (inspection) paradox:} \\
+    &\text{a randomly inspected interval is length-biased, so it is systematically longer than a "typical" gap.}
+    \end{aligned}
