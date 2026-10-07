@@ -3486,3 +3486,240 @@
     \P(R<-0.04) &= \P\!\left(Z < \dfrac{-0.04-0}{0.02}\right) = \P(Z<-2) = 1-\Phi(2) \\
     &= 1-0.9772 = 0.0228
     \end{aligned}
+- id: probability-statistics-central-limit-theorem-1-01
+  category: Probability & Statistics
+  subtopic: Central Limit Theorem
+  level: 1
+  question: |
+    \begin{aligned}
+    &\text{State the Central Limit Theorem for the sum } S_n = X_1+\cdots+X_n \text{ of iid random} \\
+    &\text{variables with mean } \mu \text{ and variance } \sigma^2. \text{ What two conditions on the } X_i \\
+    &\text{does it require?}
+    \end{aligned}
+  answer: |
+    \begin{aligned}
+    &\text{As } n\to\infty, \quad \frac{S_n - n\mu}{\sigma\sqrt n} \xrightarrow{d} N(0,1). \\
+    &\text{Required conditions: the } X_i \text{ are independent and identically distributed, and} \\
+    &\text{have finite variance } \sigma^2 < \infty \text{ (their common distribution's shape doesn't matter).}
+    \end{aligned}
+- id: probability-statistics-central-limit-theorem-1-02
+  category: Probability & Statistics
+  subtopic: Central Limit Theorem
+  level: 1
+  question: |
+    \begin{aligned}
+    &\text{For iid } X_1,\dots,X_n \text{ with mean } \mu \text{ and variance } \sigma^2, \text{ state the approximate} \\
+    &\text{distribution of the sample mean } \bar X_n = \frac{1}{n}\sum_{i=1}^n X_i \text{ for large } n, \text{ and} \\
+    &\text{define its standard error.}
+    \end{aligned}
+  answer: |
+    \begin{aligned}
+    &\bar X_n \approx N\!\left(\mu, \frac{\sigma^2}{n}\right) \quad \text{for large } n. \\
+    &\text{The standard error is the standard deviation of } \bar X_n: \quad SE(\bar X_n) = \frac{\sigma}{\sqrt n}.
+    \end{aligned}
+- id: probability-statistics-central-limit-theorem-1-03
+  category: Probability & Statistics
+  subtopic: Central Limit Theorem
+  level: 1
+  question: |
+    \begin{aligned}
+    &\text{For iid } X_1,\dots,X_n \text{ with mean } \mu \text{ and finite variance } \sigma^2, \text{ what does the Law} \\
+    &\text{of Large Numbers tell you about } \bar X_n\text{, and what does the Central Limit Theorem add} \\
+    &\text{on top of that?}
+    \end{aligned}
+  answer: |
+    \begin{aligned}
+    &\text{LLN: } \bar X_n \to \mu \text{ (converges to the constant } \mu \text{ as } n\to\infty\text{); it says} \\
+    &\text{nothing about the size or shape of the remaining fluctuation.} \\
+    &\text{CLT: it describes that fluctuation --- } \bar X_n - \mu\text{, rescaled by } \sqrt n/\sigma\text{, converges} \\
+    &\text{to a } N(0,1) \text{ distribution, i.e. } \bar X_n \approx N(\mu, \sigma^2/n). \text{ LLN gives the limit;} \\
+    &\text{CLT gives the rate and distribution of the error around that limit.}
+    \end{aligned}
+- id: probability-statistics-central-limit-theorem-1-04
+  category: Probability & Statistics
+  subtopic: Central Limit Theorem
+  level: 1
+  question: |
+    \begin{aligned}
+    &\text{Scores on a test have mean } \mu = 70 \text{ and standard deviation } \sigma = 12. \text{ For a random} \\
+    &\text{sample of } n = 36 \text{ students, approximate } \P(\bar X_n > 73).
+    \end{aligned}
+  answer: |
+    \begin{aligned}
+    &SE = \frac{\sigma}{\sqrt n} = \frac{12}{\sqrt{36}} = 2 \\
+    &\P(\bar X_n > 73) = \P\!\left(Z > \frac{73-70}{2}\right) = \P(Z > 1.5) \approx 0.0668, \quad Z\sim N(0,1)
+    \end{aligned}
+- id: probability-statistics-central-limit-theorem-2-01
+  category: Probability & Statistics
+  subtopic: Central Limit Theorem
+  level: 2
+  question: |
+    \begin{aligned}
+    &X \sim \text{Binomial}(n=100, p=0.4). \text{ Using the normal approximation with continuity} \\
+    &\text{correction, estimate } \P(X \le 35).
+    \end{aligned}
+  answer: |
+    \begin{aligned}
+    &\mu = np = 40, \quad \sigma = \sqrt{np(1-p)} = \sqrt{100(0.4)(0.6)} = \sqrt{24} \approx 4.899 \\
+    &\text{Continuity correction: } \P(X\le 35) \approx \P\!\left(Z \le \frac{35.5 - 40}{4.899}\right) \\
+    &= \P(Z \le -0.918) \approx 0.179
+    \end{aligned}
+- id: probability-statistics-central-limit-theorem-2-02
+  category: Probability & Statistics
+  subtopic: Central Limit Theorem
+  level: 2
+  question: |
+    \begin{aligned}
+    &X_1,\dots,X_{50} \text{ are iid Exponential with rate } \lambda=2 \text{ (so } \E[X_i]=0.5\text{,} \\
+    &\Var(X_i)=0.25\text{). Let } S = \sum_{i=1}^{50} X_i. \text{ Using the CLT, approximate } \P(S > 30).
+    \end{aligned}
+  answer: |
+    \begin{aligned}
+    &\E[S] = n\mu = 50(0.5) = 25, \quad \Var(S) = n\sigma^2 = 50(0.25) = 12.5, \quad SD(S) \approx 3.536 \\
+    &\text{The exponential population is far from normal, but the CLT only needs its mean/variance,} \\
+    &\text{not its shape, once } n \text{ is reasonably large.} \\
+    &\P(S>30) \approx \P\!\left(Z > \frac{30-25}{3.536}\right) = \P(Z>1.414) \approx 0.0786
+    \end{aligned}
+- id: probability-statistics-central-limit-theorem-2-03
+  category: Probability & Statistics
+  subtopic: Central Limit Theorem
+  level: 2
+  question: |
+    \begin{aligned}
+    &\text{A population has standard deviation } \sigma = 20. \text{ What sample size } n \text{ is needed so that} \\
+    &\text{the standard error of } \bar X_n \text{ is at most } 2?
+    \end{aligned}
+  answer: |
+    \begin{aligned}
+    &SE = \frac{\sigma}{\sqrt n} \le 2 \;\iff\; \sqrt n \ge \frac{\sigma}{2} = 10 \;\iff\; n \ge 100 \\
+    &\text{So } n = 100 \text{ is the smallest sample size achieving } SE \le 2.
+    \end{aligned}
+- id: probability-statistics-central-limit-theorem-2-04
+  category: Probability & Statistics
+  subtopic: Central Limit Theorem
+  level: 2
+  question: |
+    \begin{aligned}
+    &\text{Two independent samples of sizes } n_1=40, n_2=50 \text{ are drawn from populations with} \\
+    &(\mu_1,\sigma_1^2) = (100, 64) \text{ and } (\mu_2,\sigma_2^2) = (90, 50). \text{ State the approximate} \\
+    &\text{distribution of } \bar X_1 - \bar X_2\text{, and use it to approximate } \P(\bar X_1 - \bar X_2 > 12).
+    \end{aligned}
+  answer: |
+    \begin{aligned}
+    &\text{By the CLT, each } \bar X_i \approx N(\mu_i, \sigma_i^2/n_i)\text{, and since the samples are} \\
+    &\text{independent,} \\
+    &\bar X_1 - \bar X_2 \approx N\!\left(\mu_1-\mu_2, \ \frac{\sigma_1^2}{n_1}+\frac{\sigma_2^2}{n_2}\right) = N\!\left(10, \ \frac{64}{40}+\frac{50}{50}\right) = N(10, 2.6) \\
+    &SD \approx 1.612 \\
+    &\P(\bar X_1-\bar X_2 > 12) \approx \P\!\left(Z > \frac{12-10}{1.612}\right) = \P(Z>1.241)\approx 0.1073
+    \end{aligned}
+- id: probability-statistics-central-limit-theorem-3-01
+  category: Probability & Statistics
+  subtopic: Central Limit Theorem
+  level: 3
+  question: |
+    \begin{aligned}
+    &\text{Let } X_1,\dots,X_n \text{ be iid with mean } 0\text{, variance } \sigma^2\text{, and MGF } M(t) \text{ finite} \\
+    &\text{near } 0. \text{ Let } Z_n = \dfrac{S_n}{\sigma\sqrt n} \text{ where } S_n=\sum X_i. \text{ Show that the MGF of } Z_n \\
+    &\text{converges to } e^{t^2/2}\text{, the MGF of } N(0,1).
+    \end{aligned}
+  answer: |
+    \begin{aligned}
+    &\text{Since the } X_i \text{ are iid}, \quad M_{Z_n}(t) = \E\!\left[e^{tS_n/(\sigma\sqrt n)}\right] = \left(M\!\left(\frac{t}{\sigma\sqrt n}\right)\right)^n \\
+    &\text{Taylor-expand } M \text{ near } 0: \quad M(u) = 1 + \frac{\sigma^2 u^2}{2} + o(u^2) \quad (\text{since } \E[X_i]=0,\ \E[X_i^2]=\sigma^2) \\
+    &\text{With } u = \frac{t}{\sigma\sqrt n}: \quad M\!\left(\frac{t}{\sigma\sqrt n}\right) = 1 + \frac{t^2}{2n} + o\!\left(\frac{1}{n}\right) \\
+    &\text{Taking logs: } \quad n\log M\!\left(\frac{t}{\sigma\sqrt n}\right) = n\left(\frac{t^2}{2n}+o(1/n)\right) \to \frac{t^2}{2} \\
+    &\text{as } n\to\infty \text{ (using } \log(1+x)=x+o(x)\text{). Hence } M_{Z_n}(t) = e^{n\log M(t/(\sigma\sqrt n))} \to e^{t^2/2}\text{,} \\
+    &\text{the MGF of } N(0,1)\text{, which gives convergence in distribution by the continuity theorem.}
+    \end{aligned}
+- id: probability-statistics-central-limit-theorem-3-02
+  category: Probability & Statistics
+  subtopic: Central Limit Theorem
+  level: 3
+  question: |
+    \begin{aligned}
+    &\text{For iid } X_1,\dots,X_n \text{ with mean } 0\text{, variance } \sigma^2\text{, and finite third moment} \\
+    &\mu_3 = \E[X_i^3]\text{, show that the skewness of } S_n=\sum X_i \text{ goes to } 0 \text{ at rate } 1/\sqrt n \\
+    &\text{as } n\to\infty. \text{ Why does this support using a normal approximation once } n \text{ is} \\
+    &\text{``large enough''?}
+    \end{aligned}
+  answer: |
+    \begin{aligned}
+    &\text{Since the } X_i \text{ are independent with mean } 0\text{, cross terms vanish in } \E[S_n^3]: \\
+    &\E[S_n^3] = \sum_{i=1}^n \E[X_i^3] = n\mu_3, \qquad \Var(S_n) = n\sigma^2 \\
+    &\text{Skew}(S_n) = \frac{\E[S_n^3]}{\Var(S_n)^{3/2}} = \frac{n\mu_3}{(n\sigma^2)^{3/2}} = \frac{\mu_3}{\sigma^3\sqrt n} \;\to\; 0 \text{ as } n\to\infty \\
+    &\text{This matches the Berry--Esseen bound, which caps the gap between } S_n\text{'s standardized} \\
+    &\text{CDF and the } N(0,1) \text{ CDF by a constant times } \mu_3/(\sigma^3\sqrt n). \text{ Since the skewness} \\
+    &\text{(and this error bound) vanish at the same } 1/\sqrt n \text{ rate regardless of the } X_i\text{'s shape,} \\
+    &\text{the normal approximation becomes reliable once } n \text{ is moderately large --- the basis for} \\
+    &\text{heuristics like } n\ge 30.
+    \end{aligned}
+- id: probability-statistics-central-limit-theorem-3-03
+  category: Probability & Statistics
+  subtopic: Central Limit Theorem
+  level: 3
+  question: |
+    \begin{aligned}
+    &\text{Given } \bar X_n \approx N(\mu, \sigma^2/n) \text{ by the CLT, and a differentiable function } g \text{ with} \\
+    &g'(\mu)\ne 0\text{, derive the approximate distribution of } g(\bar X_n) \text{ for large } n.
+    \end{aligned}
+  answer: |
+    \begin{aligned}
+    &\text{First-order Taylor-expand } g \text{ around } \mu: \quad g(\bar X_n) \approx g(\mu) + g'(\mu)(\bar X_n - \mu) \\
+    &\text{Since } \bar X_n - \mu \approx N(0, \sigma^2/n) \text{ by the CLT, the linear term is a constant} \\
+    &\text{multiple of a normal random variable, so} \\
+    &g(\bar X_n) \approx N\!\left(g(\mu), \ g'(\mu)^2\frac{\sigma^2}{n}\right) \\
+    &\text{(the remainder of the Taylor expansion vanishes relative to the leading term as } n\to\infty\text{).} \\
+    &\text{This is the Delta method.}
+    \end{aligned}
+- id: probability-statistics-central-limit-theorem-4-01
+  category: Probability & Statistics
+  subtopic: Central Limit Theorem
+  level: 4
+  question: |
+    \begin{aligned}
+    &\text{An elevator has a weight capacity of } 2000\text{kg. Passenger weights are iid with mean} \\
+    &75\text{kg and standard deviation } 15\text{kg. If } n=24 \text{ passengers board, approximate the} \\
+    &\text{probability their total weight exceeds the capacity.}
+    \end{aligned}
+  answer: |
+    \begin{aligned}
+    &\text{Let } S = \sum_{i=1}^{24} X_i. \quad \E[S] = 24(75) = 1800, \quad \Var(S) = 24(15^2) = 5400, \\
+    &SD(S) = \sqrt{5400}\approx 73.48 \\
+    &\text{By the CLT, } S \approx N(1800, 5400). \\
+    &\P(S > 2000) \approx \P\!\left(Z > \frac{2000-1800}{73.48}\right) = \P(Z > 2.722) \approx 0.00325
+    \end{aligned}
+- id: probability-statistics-central-limit-theorem-4-02
+  category: Probability & Statistics
+  subtopic: Central Limit Theorem
+  level: 4
+  question: |
+    \begin{aligned}
+    &\text{A coin is flipped } n \text{ times; let } \hat p \text{ be the sample proportion of heads. Assuming} \\
+    &\text{the coin is fair } (p=0.5)\text{, find the smallest } n \text{ so that } \P(|\hat p - 0.5| < 0.01) \ge 0.95.
+    \end{aligned}
+  answer: |
+    \begin{aligned}
+    &\hat p \text{ is the mean of } n \text{ iid Bernoulli}(0.5) \text{ variables, so by the CLT} \\
+    &\hat p \approx N\!\left(0.5, \ \frac{p(1-p)}{n}\right) = N\!\left(0.5, \ \frac{0.25}{n}\right), \quad SD(\hat p) = \frac{0.5}{\sqrt n} \\
+    &\P(|\hat p - 0.5| < 0.01) \ge 0.95 \;\iff\; 0.01 \ge 1.96\,SD(\hat p) = 1.96\cdot\frac{0.5}{\sqrt n} \\
+    &\iff \sqrt n \ge \frac{1.96 \times 0.5}{0.01} = 98 \;\iff\; n \ge 98^2 = 9604 \\
+    &\text{So } n = 9604 \text{ flips are needed.}
+    \end{aligned}
+- id: probability-statistics-central-limit-theorem-4-03
+  category: Probability & Statistics
+  subtopic: Central Limit Theorem
+  level: 4
+  question: |
+    \begin{aligned}
+    &\text{In a fair game, each round you win } \$1 \text{ or lose } \$1 \text{ with equal probability,} \\
+    &\text{independently. After } n=400 \text{ rounds, approximate the probability your net winnings} \\
+    &\text{exceed } \$50.
+    \end{aligned}
+  answer: |
+    \begin{aligned}
+    &\text{Let } X_i \in \{+1,-1\} \text{ with equal probability; } \E[X_i]=0, \quad \Var(X_i) = \E[X_i^2] = 1 \\
+    &\text{Let } S_n = \sum_{i=1}^{400} X_i \text{ be the net winnings. } \E[S_n]=0, \quad \Var(S_n) = 400(1)=400, \\
+    &SD(S_n)=20 \\
+    &\text{By the CLT, } S_n \approx N(0, 400). \\
+    &\P(S_n > 50) \approx \P\!\left(Z > \frac{50-0}{20}\right) = \P(Z>2.5) \approx 0.0062
+    \end{aligned}
