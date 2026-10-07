@@ -5415,3 +5415,298 @@
     \text{Substituting } h_3=1+0.5h_1 \text{ into } h_2\text{: } h_2 = 1.5+0.25h_1. \text{ Substituting both into } h_1\text{:} \\
     h_1 = 1+0.5(1.5+0.25h_1)+0.5(1+0.5h_1) = 2.25+0.375h_1 \Rightarrow 0.625h_1=2.25 \Rightarrow h_1=3.6. \\
     \text{So the expected number of turns to Finish from square 1 is } 3.6.
+- id: probability-statistics-martingale-and-random-walk-1-01
+  category: Probability & Statistics
+  subtopic: Martingale and Random Walk
+  level: 1
+  question: |
+    \text{Define the simple symmetric random walk } (S_n)_{n\ge0} \text{ on } \Z.
+  answer: |
+    \text{Let } X_1,X_2,\dots \text{ be iid with } \P(X_i=1)=\P(X_i=-1)=\tfrac12. \text{ Define } S_0=0 \text{ and}
+    S_n = \sum_{i=1}^n X_i.
+    \text{Then } (S_n) \text{ moves } +1 \text{ or } -1 \text{ at each step with equal probability, independent of the past.}
+- id: probability-statistics-martingale-and-random-walk-1-02
+  category: Probability & Statistics
+  subtopic: Martingale and Random Walk
+  level: 1
+  question: |
+    \text{For } S_n=\sum_{i=1}^n X_i \text{ with iid steps } X_i,\ \E[X_i]=\mu,\ \Var(X_i)=\sigma^2,\text{ state } \E[S_n] \text{ and } \Var(S_n).
+    \text{Specialize to the symmetric simple random walk.}
+  answer: |
+    \begin{aligned}
+    \E[S_n] &= n\mu, \qquad \Var(S_n) = n\sigma^2 \quad \text{(linearity of expectation, independence of steps)} \\
+    \text{For the symmetric SRW, } X_i&\in\{\pm1\} \text{ equally likely, so } \mu=0,\ \sigma^2=\E[X_i^2]=1 \\
+    \Rightarrow \quad \E[S_n] &= 0, \qquad \Var(S_n) = n
+    \end{aligned}
+- id: probability-statistics-martingale-and-random-walk-1-03
+  category: Probability & Statistics
+  subtopic: Martingale and Random Walk
+  level: 1
+  question: |
+    \text{Let } (\mathcal F_n) \text{ be a filtration. Define what it means for an adapted process } (X_n) \text{ to be a}
+    \text{martingale, a submartingale, and a supermartingale.}
+  answer: |
+    \text{$(X_n)$ is a martingale if } \E[|X_n|]<\infty \text{ for all } n \text{ and}
+    \E[X_{n+1}\mid \mathcal F_n] = X_n \quad \text{a.s. for every } n.
+    \text{It is a submartingale if } \E[X_{n+1}\mid\mathcal F_n]\ge X_n \text{ (tends to increase), and a supermartingale}
+    \text{if } \E[X_{n+1}\mid\mathcal F_n]\le X_n \text{ (tends to decrease).}
+- id: probability-statistics-martingale-and-random-walk-1-04
+  category: Probability & Statistics
+  subtopic: Martingale and Random Walk
+  level: 1
+  question: |
+    \text{Define a stopping time w.r.t. a filtration } (\mathcal F_n). \text{ Give an example of a stopping time and an}
+    \text{example of an adapted random time that is NOT one, both for a random walk } (S_n).
+  answer: |
+    \text{A random time } T\in\{0,1,2,\dots\}\cup\{\infty\} \text{ is a stopping time if for every } n, \{T=n\}\in\mathcal F_n
+    \text{(you can tell whether $T=n$ occurred using only information up to time $n$).}
+    \text{Example (stopping time): } T=\min\{n: S_n=a\}, \text{ the first hitting time of level } a.
+    \text{Non-example: } L=\max\{n\le N: S_n=0\}, \text{ the last time before horizon } N \text{ the walk is at } 0 \text{---}
+    \text{deciding } \{L=n\} \text{ requires knowing whether the walk returns to } 0 \text{ again after time } n, \text{ so } L
+    \text{is not a stopping time.}
+- id: probability-statistics-martingale-and-random-walk-1-05
+  category: Probability & Statistics
+  subtopic: Martingale and Random Walk
+  level: 1
+  question: |
+    \text{Let } (S_n) \text{ be the symmetric simple random walk with } \mathcal F_n=\sigma(X_1,\dots,X_n).
+    \text{Verify directly that } (S_n) \text{ is a martingale.}
+  answer: |
+    \begin{aligned}
+    \E[S_{n+1}\mid\mathcal F_n] &= \E[S_n+X_{n+1}\mid\mathcal F_n] = S_n + \E[X_{n+1}\mid\mathcal F_n] \\
+    &= S_n + \E[X_{n+1}] = S_n + 0 = S_n
+    \end{aligned}
+    \text{using that } S_n \text{ is } \mathcal F_n\text{-measurable and } X_{n+1} \text{ is independent of } \mathcal F_n
+    \text{with mean } 0. \text{ Hence } (S_n) \text{ is a martingale.}
+- id: probability-statistics-martingale-and-random-walk-2-01
+  category: Probability & Statistics
+  subtopic: Martingale and Random Walk
+  level: 2
+  question: |
+    \text{A gambler starts with \$}i\ (0<i<N) \text{ and bets \$1 repeatedly, winning w.p. } p \text{ and losing w.p. } q=1-p,
+    \text{stopping at \$0 or \$}N. \text{ Let } p_i=\P(\text{reach } N \text{ before } 0). \text{ Derive } p_i \text{ for } p\neq q
+    \text{ and for } p=q=\tfrac12.
+  answer: |
+    \text{First-step analysis: } p_i = p\,p_{i+1} + q\,p_{i-1} \ (0<i<N), \quad p_0=0,\ p_N=1.
+    \begin{aligned}
+    \text{Case } p\neq q&: \text{ characteristic equation } px^2-x+q=0 \text{ has roots } x=1,\ x=q/p, \text{ so } p_i=A+B(q/p)^i. \\
+    \text{Boundary conditions give } p_i &= \dfrac{1-(q/p)^i}{1-(q/p)^N}. \\
+    \text{Case } p=q=\tfrac12&: \text{ recurrence } p_i=\tfrac12p_{i+1}+\tfrac12p_{i-1} \text{ makes } p_i \text{ linear in } i, \\
+    \text{so with } p_0=0,p_N=1&: \quad p_i = \dfrac{i}{N}.
+    \end{aligned}
+- id: probability-statistics-martingale-and-random-walk-2-02
+  category: Probability & Statistics
+  subtopic: Martingale and Random Walk
+  level: 2
+  question: |
+    \text{Let } (S_n) \text{ be the symmetric simple random walk. Show that } M_n=S_n^2-n \text{ is a martingale w.r.t. }
+    \mathcal F_n=\sigma(X_1,\dots,X_n).
+  answer: |
+    \begin{aligned}
+    \E[M_{n+1}\mid\mathcal F_n] &= \E[(S_n+X_{n+1})^2\mid\mathcal F_n] - (n+1) \\
+    &= S_n^2 + 2S_n\E[X_{n+1}] + \E[X_{n+1}^2] - (n+1) \\
+    &= S_n^2 + 0 + 1 - (n+1) = S_n^2-n = M_n
+    \end{aligned}
+    \text{using } \E[X_{n+1}]=0,\ \E[X_{n+1}^2]=1.
+- id: probability-statistics-martingale-and-random-walk-2-03
+  category: Probability & Statistics
+  subtopic: Martingale and Random Walk
+  level: 2
+  question: |
+    \text{Let } X_1,X_2,\dots \text{ be iid, nonnegative, with } \E[X_i]=1. \text{ Define } M_0=1,\ M_n=\prod_{i=1}^n X_i.
+    \text{Show } (M_n) \text{ is a martingale w.r.t. } \mathcal F_n=\sigma(X_1,\dots,X_n).
+  answer: |
+    \begin{aligned}
+    \E[M_{n+1}\mid\mathcal F_n] &= \E[M_nX_{n+1}\mid\mathcal F_n] = M_n\,\E[X_{n+1}\mid\mathcal F_n] \\
+    &= M_n\,\E[X_{n+1}] = M_n\cdot1 = M_n
+    \end{aligned}
+    \text{using that } M_n \text{ is } \mathcal F_n\text{-measurable and } X_{n+1} \text{ is independent of } \mathcal F_n.
+- id: probability-statistics-martingale-and-random-walk-2-04
+  category: Probability & Statistics
+  subtopic: Martingale and Random Walk
+  level: 2
+  question: |
+    \text{For the symmetric simple random walk, use the reflection principle to compute } \P\!\left(\max_{0\le k\le n}S_k\ge a\right)
+    \text{for integer } a>0.
+  answer: |
+    \text{Let } T_a=\min\{n:S_n=a\}. \text{ For } b<a, \text{ reflecting the path after } T_a \text{ gives the bijection}
+    \P(T_a\le n,\ S_n=b) = \P(S_n=2a-b).
+    \begin{aligned}
+    \P(T_a\le n) &= \P(S_n>a) + \P(S_n=a) + \sum_{b<a}\P(T_a\le n,S_n=b) \\
+    &= \P(S_n>a) + \P(S_n=a) + \sum_{b<a}\P(S_n=2a-b) \\
+    &= \P(S_n>a) + \P(S_n=a) + \P(S_n>a) \qquad \text{(sum ranges over } c=2a-b>a\text{)} \\
+    &= \P(S_n=a) + 2\P(S_n>a)
+    \end{aligned}
+    \text{So } \P\!\left(\max_{k\le n}S_k\ge a\right) = \P(S_n=a) + 2\P(S_n>a).
+- id: probability-statistics-martingale-and-random-walk-2-05
+  category: Probability & Statistics
+  subtopic: Martingale and Random Walk
+  level: 2
+  question: |
+    \text{State Wald's equation. A trader makes a sequence of iid trades with mean profit } \E[X]=\$0.2, \text{ stopping}
+    \text{at a stopping time } T \text{ with } \E[T]=25. \text{ Compute her expected total profit } \E[S_T].
+  answer: |
+    \text{Wald's equation: if } X_1,X_2,\dots \text{ are iid with } \E[|X_i|]<\infty \text{ and } T \text{ is a stopping time}
+    \text{w.r.t. } (X_i) \text{ with } \E[T]<\infty, \text{ then } \E[S_T] = \E[X]\,\E[T].
+    \text{Here } \E[S_T] = 0.2 \times 25 = \$5.
+- id: probability-statistics-martingale-and-random-walk-3-01
+  category: Probability & Statistics
+  subtopic: Martingale and Random Walk
+  level: 3
+  question: |
+    \text{Prove that the symmetric simple random walk on } \Z \text{ is recurrent, i.e. } \P(S_n=0 \text{ i.o.})=1.
+  answer: |
+    \text{It suffices to show } \sum_n\P(S_{2n}=0)=\infty. \text{ We have } \P(S_{2n}=0)=\binom{2n}{n}2^{-2n}.
+    \text{By Stirling, } n!\sim\sqrt{2\pi n}(n/e)^n, \text{ so}
+    \binom{2n}{n} = \frac{(2n)!}{(n!)^2} \sim \frac{4^n}{\sqrt{\pi n}} \quad\Rightarrow\quad \P(S_{2n}=0)\sim\frac{1}{\sqrt{\pi n}}.
+    \text{Hence } \sum_n\P(S_{2n}=0)\sim\sum_n\frac{1}{\sqrt{\pi n}} = \infty.
+    \text{Let } N \text{ be the (random) number of returns to } 0; \text{ by the strong Markov property, } N \text{ is}
+    \text{geometric: if } \rho=\P(\text{at least one return}) \text{, then } \P(N\ge k)=\rho^k, \text{ so}
+    \E[N] = \frac{\rho}{1-\rho} \text{ if } \rho<1 \text{ (finite), and } \E[N]=\infty \text{ iff } \rho=1.
+    \text{Since } \E[N]=\sum_n\P(S_{2n}=0)=\infty, \text{ we must have } \rho=1, \text{ i.e. the walk returns to } 0
+    \text{infinitely often almost surely.}
+- id: probability-statistics-martingale-and-random-walk-3-02
+  category: Probability & Statistics
+  subtopic: Martingale and Random Walk
+  level: 3
+  question: |
+    \text{State the Optional Stopping Theorem (give a sufficient condition), and prove it when } T \text{ is a bounded}
+    \text{stopping time.}
+  answer: |
+    \text{OST: if } (X_n) \text{ is a martingale w.r.t. } (\mathcal F_n) \text{ and } T \text{ is a stopping time satisfying}
+    \text{any one of: (a) } T\le K \text{ a.s. for a constant } K; \text{ (b) } T<\infty \text{ a.s. and } (X_{n\wedge T})
+    \text{is uniformly integrable; (c) } \E[T]<\infty \text{ and increments } |X_{n+1}-X_n| \text{ are bounded --- then }
+    \E[X_T]=\E[X_0].
+    \text{Proof for bounded } T\le K: \text{ write } X_{n\wedge T} = X_0+\sum_{k=1}^n(X_k-X_{k-1})\mathbf 1\{T\ge k\}.
+    \text{Since } T \text{ is a stopping time, } \{T\ge k\}=\{T\le k-1\}^c\in\mathcal F_{k-1}, \text{ so}
+    \E[X_{n\wedge T}-X_{(n-1)\wedge T}\mid\mathcal F_{n-1}] = \mathbf 1\{T\ge n\}\,\E[X_n-X_{n-1}\mid\mathcal F_{n-1}] = 0.
+    \text{So } (X_{n\wedge T}) \text{ is a martingale, hence } \E[X_{n\wedge T}]=\E[X_0] \text{ for all } n;
+    \text{taking } n=K \text{ gives } T\wedge K=T, \text{ so } \E[X_T]=\E[X_0].
+- id: probability-statistics-martingale-and-random-walk-3-03
+  category: Probability & Statistics
+  subtopic: Martingale and Random Walk
+  level: 3
+  question: |
+    \text{Using the Optional Stopping Theorem, re-derive the Gambler's Ruin probability } p_i=\P(\text{reach } N \text{ before } 0)
+    \text{for } p\neq q, \text{ via the martingale } M_n=(q/p)^{S_n}.
+  answer: |
+    \text{Check } M_n=(q/p)^{S_n} \text{ is a martingale:}
+    \E[M_{n+1}\mid\mathcal F_n] = M_n\left[p\cdot\tfrac{q}{p} + q\cdot\tfrac{p}{q}\right] = M_n(q+p) = M_n.
+    \text{Let } T=\min\{n:S_n\in\{0,N\}\} \text{ (a.s. finite). } (M_{n\wedge T}) \text{ is bounded since } S_{n\wedge T}\in[0,N],
+    \text{so OST applies: } \E[M_T] = M_0 = (q/p)^i.
+    \text{Now } M_T=(q/p)^N \text{ if the walk reaches } N \text{ (prob. } p_i\text{), and } M_T=1 \text{ if it is ruined}
+    \text{(prob. } 1-p_i\text{), so}
+    p_i(q/p)^N + (1-p_i) = (q/p)^i \quad\Longrightarrow\quad p_i = \frac{1-(q/p)^i}{1-(q/p)^N},
+    \text{matching the first-step-analysis result, now via the martingale method.}
+- id: probability-statistics-martingale-and-random-walk-3-04
+  category: Probability & Statistics
+  subtopic: Martingale and Random Walk
+  level: 3
+  question: |
+    \text{Derive Wald's identity } \E[S_T]=\E[X]\,\E[T] \text{ for iid } X_1,X_2,\dots \text{ with } \E[X]=\mu,\ \E[|X|]<\infty,
+    \text{and a stopping time } T \text{ with } \E[T]<\infty, \text{ using the martingale } M_n=S_n-n\mu.
+  answer: |
+    \E[M_{n+1}\mid\mathcal F_n] = \E[S_n+X_{n+1}-(n+1)\mu\mid\mathcal F_n] = M_n + \E[X_{n+1}] - \mu = M_n,
+    \text{so } (M_n) \text{ is a martingale. Since } \E[T]<\infty \text{ and the increments } X_{n+1}-\mu \text{ have}
+    \text{bounded mean absolute value (a constant independent of } n\text{), the OST (condition (c)) gives}
+    \E[M_T] = \E[M_0] = 0 \quad\Longrightarrow\quad \E[S_T - T\mu] = 0 \quad\Longrightarrow\quad \E[S_T] = \mu\,\E[T] = \E[X]\,\E[T].
+- id: probability-statistics-martingale-and-random-walk-4-01
+  category: Probability & Statistics
+  subtopic: Martingale and Random Walk
+  level: 4
+  question: |
+    \text{A gambler starts with \$}i \text{ and plays a fair (} p=\tfrac12\text{) \$1 coin-flip game, stopping at \$0 or \$}N.
+    \text{Let } T \text{ be the (a.s. finite) time the game ends. Using the martingale } M_n=S_n^2-n \text{ and the Optional}
+    \text{Stopping Theorem, find } \E[T].
+  answer: |
+    \text{Let } S_n=W_n-i \text{ (so } S_0=0\text{), stopped at } T=\min\{n: S_n=-i \text{ or } S_n=N-i\}.
+    M_n=S_n^2-n \text{ is a martingale with } M_0=0; \text{ since } T \text{ is a.s. finite with } \E[T]<\infty, \text{ OST gives}
+    \E[M_T]=0, \text{ i.e. } \E[S_T^2]=\E[T].
+    \text{Using the } p=\tfrac12 \text{ ruin probability } i/N \text{ from Level 2: } S_T=N-i \text{ w.p. } i/N, \text{ and }
+    S_T=-i \text{ w.p. } 1-i/N. \text{ So}
+    \begin{aligned}
+    \E[T] = \E[S_T^2] &= \left(1-\frac{i}{N}\right)i^2 + \frac{i}{N}(N-i)^2 \\
+    &= i^2 - \frac{i^3}{N} + iN - 2i^2 + \frac{i^3}{N} = i(N-i).
+    \end{aligned}
+- id: probability-statistics-martingale-and-random-walk-4-02
+  category: Probability & Statistics
+  subtopic: Martingale and Random Walk
+  level: 4
+  question: |
+    \text{In an election, candidate A receives } a \text{ votes and B receives } b \text{ votes, } a>b, \text{ and all }
+    \binom{a+b}{a} \text{ orderings of the counted votes are equally likely. Find the probability A is strictly ahead}
+    \text{of B throughout the entire count.}
+  answer: |
+    \text{This is the classical ballot problem. Encode the count as a } \pm1 \text{ path (+1 per A-vote, -1 per B-vote)}
+    \text{ending at } a-b>0. \text{ By the cycle lemma: for any sequence of } a+b \text{ steps of } \pm1 \text{ summing to}
+    k=a-b>0, \text{ exactly } k \text{ of its } a+b \text{ cyclic rotations have every partial sum strictly positive.}
+    \text{Since a uniformly random arrangement of the votes is equally likely to be any cyclic rotation of its own}
+    \text{necklace, the probability a uniformly random arrangement itself stays strictly positive throughout is}
+    \P(\text{A always ahead}) = \frac{k}{a+b} = \frac{a-b}{a+b}.
+- id: probability-statistics-martingale-and-random-walk-4-03
+  category: Probability & Statistics
+  subtopic: Martingale and Random Walk
+  level: 4
+  question: |
+    \text{A gambler plays fair \$1 bets forming a martingale } (S_n),\ S_0=0, \text{ choosing her bet sizes based only on}
+    \text{the past and stopping at a stopping time } T. \text{ Using OST, explain why no such strategy can produce}
+    \text{positive expected profit, and examine the classic "double the bet after each loss, stop at the first win"}
+    \text{strategy.}
+  answer: |
+    \text{Betting a previsible amount } C_n \text{ at round } n \text{ and stopping at } T \text{ gives wealth}
+    S_T=\sum_{n=1}^T C_n\xi_n, \ \xi_n=\pm1 \text{ fair coin flips --- this martingale transform is itself a martingale,}
+    \text{so whenever } T \text{ satisfies an OST condition, } \E[S_T]=\E[S_0]=0: \text{ no strategy changes the expected}
+    \text{payoff of a fair game.}
+    \text{Doubling strategy: bet \$1, if lose bet \$2, \$4, \dots, stop at the first win (round } T\text{). If the first win}
+    \text{is on flip } k, \text{ losses total } 2^{k-1}-1 \text{ and the winning bet is } 2^{k-1}, \text{ net profit } +\$1
+    \text{always; } T \text{ is geometric with } \E[T]=2<\infty, \text{ so } S_T=1>0=S_0 \text{ seemingly contradicts OST.}
+    \text{It does not: the bet sizes } C_n=2^{n-1} \text{ are unbounded, so } (S_{n\wedge T}) \text{ is not uniformly}
+    \text{integrable --- the strategy requires unbounded capital to guarantee no ruin before the eventual win. With any}
+    \text{finite starting capital there is a nonzero probability of ruin first, and accounting for that loss the expected}
+    \text{profit is exactly } 0 \text{ again.}
+- id: probability-statistics-martingale-and-random-walk-4-04
+  category: Probability & Statistics
+  subtopic: Martingale and Random Walk
+  level: 4
+  question: |
+    \text{Let } T_0=\min\{n\ge1:S_n=0\} \text{ be the first return time to } 0 \text{ for the symmetric simple random walk.}
+    \text{Given that the walk is recurrent (} \P(T_0<\infty)=1\text{), show that } \E[T_0]=\infty.
+  answer: |
+    \text{The first-return probabilities satisfy } \P(T_0=2n) = \dfrac{1}{2n-1}\binom{2n}{n}2^{-2n}
+    \text{(standard first-return identity). Using the Level 3 asymptotic } \binom{2n}{n}2^{-2n}\sim\tfrac{1}{\sqrt{\pi n}},
+    \P(T_0=2n) \sim \frac{1}{(2n-1)\sqrt{\pi n}} \sim \frac{1}{2\sqrt\pi\,n^{3/2}}.
+    \text{Then}
+    \E[T_0] = \sum_{n=1}^\infty 2n\,\P(T_0=2n) \sim \sum_{n=1}^\infty \frac{1}{\sqrt{\pi n}} = \infty,
+    \text{since } \sum_n n^{-1/2} \text{ diverges. So although the walk returns to } 0 \text{ with probability } 1,
+    \text{the expected waiting time for that return is infinite.}
+- id: probability-statistics-martingale-and-random-walk-4-05
+  category: Probability & Statistics
+  subtopic: Martingale and Random Walk
+  level: 4
+  question: |
+    \text{A stock priced at } S_0=100 \text{ moves to } S_1=uS_0=120 \text{ or } S_1=dS_0=90 \text{ after one period, with}
+    \text{gross risk-free return } R=1.05. \text{ Find the risk-neutral probability } q=\P(\text{up}) \text{ making the}
+    \text{discounted stock price a martingale, then price a European call with strike } K=100 \text{ expiring after one period.}
+  answer: |
+    \text{Need } \E^q[S_1]/R=S_0, \text{ i.e. } q\,uS_0+(1-q)\,dS_0=RS_0, \text{ so}
+    q = \frac{R-d}{u-d} = \frac{1.05-0.9}{1.2-0.9} = \frac{0.15}{0.3} = 0.5.
+    \text{Under } q, \text{ the discounted price } S_n/R^n \text{ is a martingale by construction. The call payoff is}
+    C_1^{up}=\max(120-100,0)=20, \quad C_1^{down}=\max(90-100,0)=0.
+    \text{No-arbitrage (martingale) pricing gives}
+    C_0 = \frac{1}{R}\E^q[C_1] = \frac{1}{1.05}\big(0.5\cdot20+0.5\cdot0\big) = \frac{10}{1.05} \approx \$9.52.
+- id: probability-statistics-martingale-and-random-walk-4-06
+  category: Probability & Statistics
+  subtopic: Martingale and Random Walk
+  level: 4
+  question: |
+    \text{For the symmetric simple random walk, show that the probability of first returning to } 0 \text{ at time exactly}
+    2n \text{ is } \P(T_0=2n) = \dfrac{1}{2n-1}\binom{2n}{n}2^{-2n}, \text{ via Catalan-number path-counting.}
+  answer: |
+    \text{By symmetry, assume the first step is } +1; \text{ first return at } 2n \text{ means staying } \ge1 \text{ for}
+    \text{steps } 1,\dots,2n-1 \text{ then returning to } 0 \text{ at step } 2n. \text{ Shifting down by 1, steps 2 through}
+    2n-1 \text{ form an excursion of length } 2n-2 \text{ from } 0 \text{ to } 0 \text{ staying } \ge0, \text{ counted by the}
+    \text{Catalan number } C_{n-1}=\tfrac1n\binom{2n-2}{n-1}.
+    \text{Counting both the } +1\text{-first and } -1\text{-first mirror cases, out of } 2^{2n} \text{ total paths of length } 2n\text{,}
+    \P(T_0=2n) = \frac{2C_{n-1}}{2^{2n}} = \frac{2}{n}\binom{2n-2}{n-1}2^{-2n}.
+    \text{Using } \binom{2n}{n} = \binom{2n-2}{n-1}\cdot\frac{2n(2n-1)}{n^2}, \text{ this simplifies to}
+    \P(T_0=2n) = \frac{1}{2n-1}\binom{2n}{n}2^{-2n}.
