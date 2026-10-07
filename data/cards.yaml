@@ -4368,3 +4368,339 @@
     &\text{this sign reversal is Simpson's paradox. Group membership is a confounder omitted from the pooled} \\
     &\text{regression.}
     \end{aligned}
+- id: probability-statistics-confidence-intervals-and-regions-1-01
+  category: Probability & Statistics
+  subtopic: Confidence Intervals and Regions
+  level: 1
+  question: |
+    \begin{aligned}
+    &\text{Define a } (1-\alpha) \text{ confidence interval for a parameter } \theta. \text{ State the correct frequentist} \\
+    &\text{interpretation of ``95\% confidence,'' and the common misinterpretation it is } \textbf{not}.
+    \end{aligned}
+  answer: |
+    \begin{aligned}
+    &\text{A } (1-\alpha) \text{ confidence interval for } \theta \text{ is a random interval } [L,U], \text{ computed from the sample,} \\
+    &\text{such that, before the data is observed, } \P(L\le\theta\le U)=1-\alpha. \\
+    &\textbf{Correct: } \text{if the sampling procedure were repeated many times and an interval built the same way each} \\
+    &\text{time, about } (1-\alpha)\times100\% \text{ of those intervals would contain the true, fixed } \theta. \\
+    &\textbf{Not: } \text{``there is a } (1-\alpha) \text{ probability that } \theta \text{ lies in this one already-computed interval.'' Once} \\
+    &\text{the data is observed, } L,U \text{ are fixed numbers and } \theta \text{ is a fixed unknown constant --- the realized} \\
+    &\text{interval either contains } \theta \text{ or it doesn't; no probability is left to assign.}
+    \end{aligned}
+- id: probability-statistics-confidence-intervals-and-regions-1-02
+  category: Probability & Statistics
+  subtopic: Confidence Intervals and Regions
+  level: 1
+  question: |
+    \text{State the formula for a } (1-\alpha) \text{ confidence interval for a population mean } \mu \text{ when the} \\
+    \text{population standard deviation } \sigma \text{ is known.}
+  answer: |
+    \bar X \pm z_{\alpha/2}\dfrac{\sigma}{\sqrt n}, \quad \text{where } z_{\alpha/2} \text{ is the upper } \alpha/2 \text{ quantile of } N(0,1).
+- id: probability-statistics-confidence-intervals-and-regions-1-03
+  category: Probability & Statistics
+  subtopic: Confidence Intervals and Regions
+  level: 1
+  question: |
+    \begin{aligned}
+    &\text{State the formula for a } (1-\alpha) \text{ CI for } \mu \text{ when } \sigma \text{ is unknown and estimated by the sample} \\
+    &\text{standard deviation } S. \text{ Which distribution supplies the critical value, and why not } N(0,1)?
+    \end{aligned}
+  answer: |
+    \begin{aligned}
+    &\bar X \pm t_{n-1,\alpha/2}\dfrac{S}{\sqrt n}, \text{ with the critical value from Student's } t \text{ with } n-1 \text{ degrees of} \\
+    &\text{freedom, not } z. \text{ Estimating } \sigma \text{ by } S \text{ adds extra sampling variability, which the heavier-tailed } t_{n-1} \\
+    &\text{accounts for; } t_{n-1}\to N(0,1) \text{ as } n\to\infty.
+    \end{aligned}
+- id: probability-statistics-confidence-intervals-and-regions-1-04
+  category: Probability & Statistics
+  subtopic: Confidence Intervals and Regions
+  level: 1
+  question: |
+    \begin{aligned}
+    &\text{State the (normal-approximation) formula for a } (1-\alpha) \text{ confidence interval for a population} \\
+    &\text{proportion } p, \text{ given a sample proportion } \hat p \text{ from } n \text{ trials.}
+    \end{aligned}
+  answer: |
+    \hat p \pm z_{\alpha/2}\sqrt{\dfrac{\hat p(1-\hat p)}{n}}
+- id: probability-statistics-confidence-intervals-and-regions-1-05
+  category: Probability & Statistics
+  subtopic: Confidence Intervals and Regions
+  level: 1
+  question: |
+    \begin{aligned}
+    &\text{Holding the sample size } n \text{ fixed, how does increasing the confidence level } (1-\alpha) \text{ (e.g. from} \\
+    &90\% \text{ to } 99\%) \text{ affect the width of a confidence interval? Why?}
+    \end{aligned}
+  answer: |
+    \begin{aligned}
+    &\text{It makes the interval wider. A higher confidence level needs a larger critical value } (z_{\alpha/2} \text{ or} \\
+    &t_{n-1,\alpha/2} \text{ grows as } \alpha \text{ shrinks), since covering the true parameter more often requires spanning a} \\
+    &\text{larger range of plausible values around the estimate. Confidence and precision trade off: you cannot} \\
+    &\text{increase both at once without more data.}
+    \end{aligned}
+- id: probability-statistics-confidence-intervals-and-regions-2-01
+  category: Probability & Statistics
+  subtopic: Confidence Intervals and Regions
+  level: 2
+  question: |
+    \begin{aligned}
+    &\text{A sample of } n=36 \text{ has sample mean } \bar x=50, \text{ with population standard deviation } \sigma=12 \\
+    &\text{known. Construct a 95\% CI for } \mu. \quad (z_{0.025}=1.96)
+    \end{aligned}
+  answer: |
+    \begin{aligned}
+    50 \pm 1.96\cdot\dfrac{12}{\sqrt{36}} &= 50 \pm 1.96\cdot 2 = 50\pm3.92 \\
+    &\Rightarrow [46.08,\ 53.92]
+    \end{aligned}
+- id: probability-statistics-confidence-intervals-and-regions-2-02
+  category: Probability & Statistics
+  subtopic: Confidence Intervals and Regions
+  level: 2
+  question: |
+    \begin{aligned}
+    &\text{A sample of } n=16 \text{ has sample mean } \bar x=100, \text{ sample standard deviation } s=8, \sigma \text{ unknown.} \\
+    &\text{Construct a 90\% CI for } \mu. \quad (t_{15,0.05}=1.753)
+    \end{aligned}
+  answer: |
+    \begin{aligned}
+    100 \pm 1.753\cdot\dfrac{8}{\sqrt{16}} &= 100 \pm 1.753\cdot 2 = 100\pm3.506 \\
+    &\Rightarrow [96.494,\ 103.506]
+    \end{aligned}
+- id: probability-statistics-confidence-intervals-and-regions-2-03
+  category: Probability & Statistics
+  subtopic: Confidence Intervals and Regions
+  level: 2
+  question: |
+    \begin{aligned}
+    &\text{In a survey of } n=400 \text{ respondents, 220 said yes } (\hat p=0.55). \text{ Construct a 95\% CI for the true} \\
+    &\text{proportion } p. \quad (z_{0.025}=1.96)
+    \end{aligned}
+  answer: |
+    \begin{aligned}
+    \sqrt{\dfrac{0.55\cdot0.45}{400}} &= \sqrt{0.0006188} \approx 0.02487 \\
+    0.55 \pm 1.96\cdot0.02487 &= 0.55\pm0.0487 \\
+    &\Rightarrow [0.5013,\ 0.5987]
+    \end{aligned}
+- id: probability-statistics-confidence-intervals-and-regions-2-04
+  category: Probability & Statistics
+  subtopic: Confidence Intervals and Regions
+  level: 2
+  question: |
+    \begin{aligned}
+    &\text{A researcher wants a 95\% CI for a mean with margin of error at most } E=2, \text{ given } \sigma=10 \\
+    &\text{known. What is the minimum sample size } n? \quad (z_{0.025}=1.96)
+    \end{aligned}
+  answer: |
+    \begin{aligned}
+    E = z_{\alpha/2}\dfrac{\sigma}{\sqrt n} \ \Rightarrow\ n &\ge \left(\dfrac{z_{\alpha/2}\sigma}{E}\right)^{2} = \left(\dfrac{1.96\cdot10}{2}\right)^{2} = 9.8^{2} = 96.04 \\
+    &\Rightarrow n = 97 \ \text{(round up)}
+    \end{aligned}
+- id: probability-statistics-confidence-intervals-and-regions-2-05
+  category: Probability & Statistics
+  subtopic: Confidence Intervals and Regions
+  level: 2
+  question: |
+    \begin{aligned}
+    &\text{A quality engineer only cares about an upper bound on the mean defect rate } \mu, \text{ not a lower one.} \\
+    &\text{State the formula for a one-sided } (1-\alpha) \text{ upper confidence bound for } \mu \ (\sigma \text{ unknown}), \text{ and} \\
+    &\text{explain how its construction differs from the two-sided interval.}
+    \end{aligned}
+  answer: |
+    \begin{aligned}
+    &\text{One-sided upper bound: } \bar X + t_{n-1,\alpha}\dfrac{S}{\sqrt n}, \text{ giving the confidence set } (-\infty,\ U]. \\
+    &\text{The critical value uses the } \textbf{full} \ \alpha \text{ in a single tail (not } \alpha/2 \text{ split across two tails), since} \\
+    &\text{all of the error probability is allocated to the one direction of interest. Used when only one bound} \\
+    &\text{matters (e.g. ``not worse than'').}
+    \end{aligned}
+- id: probability-statistics-confidence-intervals-and-regions-3-01
+  category: Probability & Statistics
+  subtopic: Confidence Intervals and Regions
+  level: 3
+  question: |
+    \begin{aligned}
+    &\text{Derive the } Z \text{ confidence interval for } \mu \text{ from the pivotal quantity } Z=\dfrac{\bar X-\mu}{\sigma/\sqrt n}\sim N(0,1).
+    \end{aligned}
+  answer: |
+    \begin{aligned}
+    &\text{Since } \bar X\sim N(\mu,\sigma^2/n), \text{ the standardized quantity } Z=\dfrac{\bar X-\mu}{\sigma/\sqrt n}\sim N(0,1), \text{ for any } \mu. \\
+    &\text{By definition of } z_{\alpha/2}: \quad \P\!\left(-z_{\alpha/2}\le Z\le z_{\alpha/2}\right)=1-\alpha. \\
+    &\text{Substitute } Z: \quad \P\!\left(-z_{\alpha/2}\le \dfrac{\bar X-\mu}{\sigma/\sqrt n}\le z_{\alpha/2}\right)=1-\alpha. \\
+    &\text{Multiply through by } \sigma/\sqrt n>0 \text{ and rearrange so that } \mu \text{ is isolated in the middle:} \\
+    &\P\!\left(\bar X - z_{\alpha/2}\dfrac{\sigma}{\sqrt n} \ \le\ \mu \ \le\ \bar X + z_{\alpha/2}\dfrac{\sigma}{\sqrt n}\right)=1-\alpha. \\
+    &\text{So } \left[\bar X - z_{\alpha/2}\sigma/\sqrt n,\ \bar X + z_{\alpha/2}\sigma/\sqrt n\right] \text{ is a } (1-\alpha) \text{ CI for } \mu.
+    \end{aligned}
+- id: probability-statistics-confidence-intervals-and-regions-3-02
+  category: Probability & Statistics
+  subtopic: Confidence Intervals and Regions
+  level: 3
+  question: |
+    \begin{aligned}
+    &\text{When } \sigma \text{ is unknown and estimated by } S, \text{ the ratio } \dfrac{\bar X-\mu}{S/\sqrt n} \text{ is no longer } N(0,1). \text{ Derive} \\
+    &\text{its true distribution, and explain why using } z_{\alpha/2} \text{ in its place would understate the stated} \\
+    &\text{confidence level.}
+    \end{aligned}
+  answer: |
+    \begin{aligned}
+    &\text{Write } \dfrac{\bar X-\mu}{S/\sqrt n} = \dfrac{(\bar X-\mu)/(\sigma/\sqrt n)}{S/\sigma} = \dfrac{Z}{\sqrt{\chi^2_{n-1}/(n-1)}}, \text{ where } Z=\dfrac{\bar X-\mu}{\sigma/\sqrt n}\sim N(0,1) \\
+    &\text{is independent of } \dfrac{(n-1)S^2}{\sigma^2}\sim\chi^2_{n-1} \text{ (a standard result for normal samples). A standard normal} \\
+    &\text{divided by } \sqrt{\chi^2_{n-1}/(n-1)} \text{ is, by definition, } t_{n-1}. \text{ So } \dfrac{\bar X-\mu}{S/\sqrt n}\sim t_{n-1}, \text{ not } N(0,1). \\
+    &t_{n-1} \text{ has heavier tails than } N(0,1) \text{ (extra spread from not knowing } \sigma \text{ exactly), so} \\
+    &t_{n-1,\alpha/2} > z_{\alpha/2} \text{ for finite } n. \text{ Using } z_{\alpha/2} \text{ would make the interval too narrow, so it would} \\
+    &\text{actually capture } \mu \text{ less than } (1-\alpha) \text{ of the time. As } n\to\infty, \ S\to\sigma \text{ and } t_{n-1}\to N(0,1).
+    \end{aligned}
+- id: probability-statistics-confidence-intervals-and-regions-3-03
+  category: Probability & Statistics
+  subtopic: Confidence Intervals and Regions
+  level: 3
+  question: |
+    \begin{aligned}
+    &\text{Derive a } (1-\alpha) \text{ CI for the population variance } \sigma^2 \text{ using } \dfrac{(n-1)S^2}{\sigma^2}\sim\chi^2_{n-1}. \text{ Why is} \\
+    &\text{the resulting interval not symmetric about } S^2?
+    \end{aligned}
+  answer: |
+    \begin{aligned}
+    &\text{Let } \chi^2_{n-1,1-\alpha/2} < \chi^2_{n-1,\alpha/2} \text{ be the lower/upper } \alpha/2 \text{ critical values of } \chi^2_{n-1}, \text{ so} \\
+    &\P\!\left(\chi^2_{n-1,1-\alpha/2} \ \le\ \dfrac{(n-1)S^2}{\sigma^2} \ \le\ \chi^2_{n-1,\alpha/2}\right) = 1-\alpha. \\
+    &\text{Inverting each inequality for } \sigma^2 \text{ (dividing flips the direction):} \\
+    &\P\!\left(\dfrac{(n-1)S^2}{\chi^2_{n-1,\alpha/2}} \ \le\ \sigma^2 \ \le\ \dfrac{(n-1)S^2}{\chi^2_{n-1,1-\alpha/2}}\right) = 1-\alpha. \\
+    &\text{Unlike the mean's CI, this is not of the form estimate} \pm\text{margin: } \chi^2_{n-1} \text{ is a skewed (not} \\
+    &\text{symmetric) distribution, so its two critical values are not equidistant from its center. Dividing } S^2 \\
+    &\text{by them produces an interval skewed around } S^2, \text{ not symmetric.}
+    \end{aligned}
+- id: probability-statistics-confidence-intervals-and-regions-3-04
+  category: Probability & Statistics
+  subtopic: Confidence Intervals and Regions
+  level: 3
+  question: |
+    \begin{aligned}
+    &\text{Show that the margin of error of the } Z \text{ confidence interval for } \mu \text{ is proportional to } 1/\sqrt n, \\
+    &\text{and use this to show that halving the margin of error requires quadrupling } n.
+    \end{aligned}
+  answer: |
+    \begin{aligned}
+    &\text{Margin of error } E(n) = z_{\alpha/2}\dfrac{\sigma}{\sqrt n} \propto \dfrac{1}{\sqrt n} \ \text{(holding } \alpha,\sigma \text{ fixed).} \\
+    &\text{To halve it, want } E(n') = \dfrac12 E(n): \quad z_{\alpha/2}\dfrac{\sigma}{\sqrt{n'}} = \dfrac12\, z_{\alpha/2}\dfrac{\sigma}{\sqrt n} \ \Rightarrow\ \sqrt{n'} = 2\sqrt n \ \Rightarrow\ n' = 4n. \\
+    &\text{Halving the margin of error requires 4} \times \text{ the sample size --- precision improves only with the} \\
+    &\text{square root of } n, \text{ a diminishing-returns relationship.}
+    \end{aligned}
+- id: probability-statistics-confidence-intervals-and-regions-3-05
+  category: Probability & Statistics
+  subtopic: Confidence Intervals and Regions
+  level: 3
+  question: |
+    \begin{aligned}
+    &\text{Explain why a joint } (1-\alpha) \text{ confidence } \textbf{region} \text{ for two parameters } (\beta_1,\beta_2) \text{ estimated from} \\
+    &\text{the same data is generally an ellipse, not the rectangle formed by their two individual marginal} \\
+    &(1-\alpha) \text{ confidence intervals, as in the figure below.} \\
+    &\includegraphics[width=8cm,height=6.4cm]{/static/graphs/probability-statistics-confidence-intervals-and-regions-3-05.png}
+    \end{aligned}
+  answer: |
+    \begin{aligned}
+    &\text{The joint sampling distribution of } (\hat\beta_1,\hat\beta_2) \text{ is (approximately) bivariate normal, with some} \\
+    &\text{correlation } \rho \text{ between the two estimators (e.g. induced by correlated regressors). Its } (1-\alpha) \\
+    &\text{confidence region is the set } \{(\beta_1,\beta_2): (\hat\beta-\beta)^T\Sigma^{-1}(\hat\beta-\beta) \le \chi^2_{2,\alpha}\}, \text{ a quadratic form} \\
+    &\text{bound --- geometrically an ellipse, tilted whenever } \rho\neq0, \text{ reflecting that correlation.} \\
+    &\text{The rectangle built from two separate marginal } (1-\alpha) \text{ intervals ignores } \rho \text{ entirely: its corners} \\
+    &\text{(both marginal bounds hit simultaneously) lie outside the ellipse, since that joint event is less likely} \\
+    &\text{than each marginal event alone when the estimators are correlated. Combining two marginal intervals} \\
+    &\text{does } \textbf{not} \text{ give a region with the correct joint } (1-\alpha) \text{ coverage --- the ellipse, not the box, is the right} \\
+    &\text{multi-dimensional generalization of a confidence interval.}
+    \end{aligned}
+- id: probability-statistics-confidence-intervals-and-regions-3-06
+  category: Probability & Statistics
+  subtopic: Confidence Intervals and Regions
+  level: 3
+  question: |
+    \begin{aligned}
+    &\text{Describe the bootstrap percentile method for constructing an approximate } (1-\alpha) \text{ CI for a} \\
+    &\text{statistic } \hat\theta=g(X_1,\dots,X_n) \text{ when no simple pivotal quantity for } \theta \text{ is available. Contrast it} \\
+    &\text{with the pivotal-quantity approach used above.}
+    \end{aligned}
+  answer: |
+    \begin{aligned}
+    &\text{Resample } n \text{ observations with replacement from the original data, compute the statistic } \hat\theta^{*} \\
+    &\text{on that resample, and repeat this } B \text{ times (large } B, \text{ e.g. 10{,}000) to get } \hat\theta^{*}_1,\dots,\hat\theta^{*}_B. \\
+    &\text{The } (1-\alpha) \text{ bootstrap percentile CI is } \left[\hat\theta^{*}_{(\alpha/2)},\ \hat\theta^{*}_{(1-\alpha/2)}\right], \text{ the empirical } \alpha/2 \\
+    &\text{and } 1-\alpha/2 \text{ quantiles of the bootstrap distribution.} \\
+    &\text{Unlike the } Z/t/\chi^2 \text{ intervals above, this needs no known sampling distribution or pivotal quantity} \\
+    &\text{for } \theta: \text{ resampling itself approximates the sampling distribution of } \hat\theta, \text{ at the cost of relying on} \\
+    &\text{the observed data as a stand-in for the population (so it can perform poorly for very small } n \text{ or} \\
+    &\text{heavy-tailed data).}
+    \end{aligned}
+- id: probability-statistics-confidence-intervals-and-regions-4-01
+  category: Probability & Statistics
+  subtopic: Confidence Intervals and Regions
+  level: 4
+  question: |
+    \begin{aligned}
+    &\text{A pollster reports a 95\% CI for a candidate's support as } [48\%,54\%]. \text{ A reporter writes: ``There} \\
+    &\text{is a 95\% probability that the true support is between 48\% and 54\%.'' Explain precisely why this} \\
+    &\text{is wrong, using a repeated-sampling argument, and give the correct statement.}
+    \end{aligned}
+  answer: |
+    \begin{aligned}
+    &\text{Imagine repeating the same poll (same } n, \text{ same method) on many independent samples from the} \\
+    &\text{population, computing a 95\% CI each time. About 95\% of those intervals would contain the true,} \\
+    &\text{fixed support level --- but the true support itself does not vary, and it already is or isn't in } [48\%,54\%] \\
+    &\text{once this particular sample has been drawn. There is no ``95\% probability'' left to attach to this one,} \\
+    &\text{already-realized interval; probability describes the long-run success rate of the } \textbf{procedure}, \text{ not} \\
+    &\text{this specific outcome.} \\
+    &\textbf{Correct statement: } \text{``If we repeated this survey procedure many times, about 95\% of the resulting} \\
+    &\text{intervals would contain the true support level'' (equivalently: ``we used a procedure that captures} \\
+    &\text{the truth 95\% of the time'').}
+    \end{aligned}
+- id: probability-statistics-confidence-intervals-and-regions-4-02
+  category: Probability & Statistics
+  subtopic: Confidence Intervals and Regions
+  level: 4
+  question: |
+    \begin{aligned}
+    &\text{An A/B test gives Group A conversion } \hat p_A=0.10 \ (n_A=1000) \text{ and Group B conversion} \\
+    &\hat p_B=0.13 \ (n_B=1000). \text{ Their separate 95\% CIs are } [0.0814,0.1186] \text{ and } [0.1092,0.1509], \\
+    &\text{which } \textbf{overlap} \text{ (in } [0.1092,0.1186]\text{). Does this overlap mean the difference } p_B-p_A \text{ is not} \\
+    &\text{statistically significant at 95\%? Construct the correct CI to check. } (z_{0.025}=1.96)
+    \end{aligned}
+  answer: |
+    \begin{aligned}
+    &\text{No --- overlap of the two individual CIs does } \textbf{not} \text{ imply the difference is insignificant; that} \\
+    &\text{eyeballing rule is overly conservative. The correct check builds a CI for the difference directly, using} \\
+    &SE_{diff}=\sqrt{SE_A^2+SE_B^2}: \\
+    &SE_A=\sqrt{\dfrac{0.10\cdot0.90}{1000}}\approx0.00949, \qquad SE_B=\sqrt{\dfrac{0.13\cdot0.87}{1000}}\approx0.01064 \\
+    &SE_{diff}=\sqrt{0.00949^2+0.01064^2}=\sqrt{0.0002032}\approx0.01426 \\
+    &(\hat p_B-\hat p_A)\pm1.96\cdot SE_{diff} = 0.03\pm1.96\cdot0.01426 = 0.03\pm0.02795 \ \Rightarrow\ [0.0021,\ 0.0580] \\
+    &\text{This interval excludes 0, so the difference } \textbf{is} \text{ significant at 95\% --- despite the two separate CIs} \\
+    &\text{overlapping.}
+    \end{aligned}
+- id: probability-statistics-confidence-intervals-and-regions-4-03
+  category: Probability & Statistics
+  subtopic: Confidence Intervals and Regions
+  level: 4
+  question: |
+    \begin{aligned}
+    &\text{A campaign wants to estimate a candidate's support level to within } \pm3 \text{ percentage points at 95\%} \\
+    &\text{confidence, with no prior estimate of } p \text{ available. How many people must be surveyed?} \quad (z_{0.025}=1.96)
+    \end{aligned}
+  answer: |
+    \begin{aligned}
+    &\text{With no prior estimate of } p, \text{ use the conservative worst case } p(1-p), \text{ maximized at } p=0.5 \\
+    &\text{(value } 0.25\text{), which gives the largest required } n: \\
+    &E=z_{\alpha/2}\sqrt{\dfrac{p(1-p)}{n}} \ \Rightarrow\ n \ge \dfrac{z_{\alpha/2}^2\,p(1-p)}{E^2} = \dfrac{1.96^2\cdot0.25}{0.03^2} = \dfrac{0.9604}{0.0009}\approx1067.1 \\
+    &\Rightarrow n = 1068 \ \text{(round up)} --- \text{the classic ``} n\approx1068 \text{ for } \pm3\%\text{'' poll benchmark.}
+    \end{aligned}
+- id: probability-statistics-confidence-intervals-and-regions-4-04
+  category: Probability & Statistics
+  subtopic: Confidence Intervals and Regions
+  level: 4
+  question: |
+    \begin{aligned}
+    &\text{An analyst samples } n_1=50 \text{ customers from Segment 1 } (\bar x_1=\$120,\ s_1=\$30) \text{ and } n_2=60 \\
+    &\text{customers from Segment 2 } (\bar x_2=\$105,\ s_2=\$25), \text{ independent, large-sample } (z). \text{ Construct} \\
+    &\text{a 95\% CI for } \mu_1-\mu_2 \text{ and interpret whether the data support a real difference.} \quad (z_{0.025}=1.96)
+    \end{aligned}
+  answer: |
+    \begin{aligned}
+    SE &= \sqrt{\dfrac{s_1^2}{n_1}+\dfrac{s_2^2}{n_2}} = \sqrt{\dfrac{900}{50}+\dfrac{625}{60}} = \sqrt{18+10.417} = \sqrt{28.417}\approx5.33 \\
+    (\bar x_1-\bar x_2)\pm1.96\cdot SE &= (120-105)\pm1.96\cdot5.33 = 15\pm10.45 \ \Rightarrow\ [4.55,\ 25.45] \\
+    &\text{Since the interval lies entirely above 0, the data support a real (positive) difference in mean} \\
+    &\text{spend: Segment 1 customers spend more, by somewhere between about \$4.55 and \$25.45 on average.}
+    \end{aligned}
