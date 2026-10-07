@@ -41,6 +41,8 @@
 - Markov Chains
 - Martingale and Random Walk
 - Brownian Motion
+- Poisson Process
+- Stochastic Calculus
 
 ## Machine Learning
 - Bias-Variance Tradeoff

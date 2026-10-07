@@ -5074,3 +5074,344 @@
     &df=24,\quad \text{critical value } t_{0.025,24}=2.064 \\
     &|t|=3 > 2.064 \implies \text{reject } H_0 \text{ — confirms the CI-based conclusion}
     \end{aligned}
+- id: probability-statistics-markov-chains-1-01
+  category: Probability & Statistics
+  subtopic: Markov Chains
+  level: 1
+  question: |
+    \text{State the Markov property for a discrete-time stochastic process } (X_n)_{n \ge 0} \text{ with state space } S.
+  answer: |
+    \text{For every } n \text{ and all states } i_0,\ldots,i_{n-1},i,j \in S:
+    \begin{aligned}
+    \P(X_{n+1}=j \mid X_n=i, X_{n-1}=i_{n-1}, \ldots, X_0=i_0) = \P(X_{n+1}=j \mid X_n=i)
+    \end{aligned} \\
+    \text{The conditional distribution of the next state depends on the past only through the present} \\
+    \text{state } X_n \text{ — this "memorylessness" is what makes the process a Markov chain.}
+- id: probability-statistics-markov-chains-1-02
+  category: Probability & Statistics
+  subtopic: Markov Chains
+  level: 1
+  question: |
+    \text{A Markov chain has transition matrix } P \text{ with } P_{ij}=\P(X_{n+1}=j\mid X_n=i). \text{ What two} \\
+    \text{properties must every row of } P \text{ satisfy, and what term describes a matrix with these properties?}
+  answer: |
+    \begin{aligned}
+    &\text{(1) } P_{ij} \ge 0 \text{ for all } i,j \qquad \text{(2) } \sum_j P_{ij} = 1 \text{ for every row } i
+    \end{aligned} \\
+    \text{Each row of } P \text{ is itself a probability distribution over the next state. A matrix satisfying} \\
+    \text{both properties is called (row-)stochastic.}
+- id: probability-statistics-markov-chains-1-03
+  category: Probability & Statistics
+  subtopic: Markov Chains
+  level: 1
+  question: |
+    \text{What does } P^n_{ij} \text{ represent, and state the Chapman–Kolmogorov equation relating } P^{m+n} \\
+    \text{to } P^m \text{ and } P^n \text{ (no proof required).}
+  answer: |
+    \begin{aligned}
+    P^n_{ij} = \P(X_n=j \mid X_0=i)
+    \end{aligned} \\
+    \text{is the } n\text{-step transition probability. Chapman–Kolmogorov: } P^{m+n}=P^mP^n, \text{ i.e.}
+    \begin{aligned}
+    P^{m+n}_{ij} = \sum_k P^m_{ik}\,P^n_{kj}
+    \end{aligned}
+- id: probability-statistics-markov-chains-1-04
+  category: Probability & Statistics
+  subtopic: Markov Chains
+  level: 1
+  question: |
+    \text{Define a stationary distribution of a Markov chain with transition matrix } P.
+  answer: |
+    \text{A probability vector } \pi \text{ (with } \pi_i \ge 0 \text{ and } \sum_i \pi_i = 1\text{) is stationary if}
+    \begin{aligned}
+    \pi P = \pi, \qquad \text{i.e.} \qquad \sum_i \pi_i P_{ij} = \pi_j \text{ for every } j
+    \end{aligned} \\
+    \text{Once the chain's distribution equals } \pi, \text{ it equals } \pi \text{ at every future time too.}
+- id: probability-statistics-markov-chains-1-05
+  category: Probability & Statistics
+  subtopic: Markov Chains
+  level: 1
+  question: |
+    \text{Let } f_i = \P(\text{chain returns to state } i \text{ at some finite time} \mid X_0=i). \text{ Define what it} \\
+    \text{means for state } i \text{ to be recurrent, and what it means for } i \text{ to be transient.}
+  answer: |
+    \begin{aligned}
+    &\text{Recurrent: } f_i = 1 \qquad (\text{return to } i \text{ is certain}) \\
+    &\text{Transient: } f_i < 1 \qquad (\text{positive probability of never returning to } i)
+    \end{aligned}
+- id: probability-statistics-markov-chains-1-06
+  category: Probability & Statistics
+  subtopic: Markov Chains
+  level: 1
+  question: |
+    \text{Define an absorbing state of a Markov chain, and define an absorbing Markov chain.}
+  answer: |
+    \text{State } i \text{ is absorbing if } P_{ii}=1 \text{ (once entered, the chain stays there forever).} \\
+    \text{A Markov chain is an absorbing chain if it has at least one absorbing state, and from every} \\
+    \text{state some absorbing state is reachable.}
+- id: probability-statistics-markov-chains-2-01
+  category: Probability & Statistics
+  subtopic: Markov Chains
+  level: 2
+  question: |
+    \text{A Markov chain on states } \{A,B,C\} \text{ has transition matrix (rows/cols in order } A,B,C\text{):}
+    \begin{aligned}
+    P = \begin{pmatrix} 0.5 & 0.5 & 0 \\ 0.25 & 0.5 & 0.25 \\ 0 & 0.5 & 0.5 \end{pmatrix}
+    \end{aligned} \\
+    \text{Find } \P(X_2=C \mid X_0=A).
+  answer: |
+    \begin{aligned}
+    \P(X_2=C\mid X_0=A) = P^2_{AC} &= P_{AA}P_{AC} + P_{AB}P_{BC} + P_{AC}P_{CC} \\
+    &= (0.5)(0) + (0.5)(0.25) + (0)(0.5) = 0.125
+    \end{aligned}
+- id: probability-statistics-markov-chains-2-02
+  category: Probability & Statistics
+  subtopic: Markov Chains
+  level: 2
+  question: |
+    \text{A Markov chain on states } \{1,2\} \text{ has } P_{11}=0.9,\ P_{12}=0.1,\ P_{21}=0.4,\ P_{22}=0.6. \text{ Find its} \\
+    \text{stationary distribution } \pi=(\pi_1,\pi_2).
+  answer: |
+    \text{Solve } \pi P = \pi \text{ together with } \pi_1+\pi_2=1\text{:}
+    \begin{aligned}
+    \pi_1 &= 0.9\pi_1 + 0.4\pi_2 \ \Longrightarrow\ 0.1\pi_1 = 0.4\pi_2 \ \Longrightarrow\ \pi_1 = 4\pi_2
+    \end{aligned} \\
+    \text{Substituting into } \pi_1+\pi_2=1\text{: } 4\pi_2+\pi_2=1 \Rightarrow \pi_2=0.2, \ \pi_1=0.8. \text{ So } \pi=(0.8,\ 0.2).
+- id: probability-statistics-markov-chains-2-03
+  category: Probability & Statistics
+  subtopic: Markov Chains
+  level: 2
+  question: |
+    \text{Classify each state of the chain below as transient, recurrent, or absorbing, and identify its} \\
+    \text{communicating classes.}
+    \includegraphics[width=9cm,height=7.5cm]{/static/graphs/probability-statistics-markov-chains-2-03.png}
+  answer: |
+    \begin{aligned}
+    &\text{State 1: transient — once the chain leaves 1 (to 2 or 4) no edge ever returns to 1.} \\
+    &\text{States } \{2,3\}\text{: communicate with each other and no edge leaves } \{2,3\}, \text{ so it is a closed} \\
+    &\text{communicating class} \Rightarrow \text{recurrent.} \\
+    &\text{State 4: } P_{44}=1 \Rightarrow \text{absorbing (a trivial closed class, hence recurrent).}
+    \end{aligned} \\
+    \text{Communicating classes: } \{1\} \text{ (transient)}, \ \{2,3\} \text{ (recurrent)}, \ \{4\} \text{ (absorbing).}
+- id: probability-statistics-markov-chains-2-04
+  category: Probability & Statistics
+  subtopic: Markov Chains
+  level: 2
+  question: |
+    \text{A Markov chain has states } \{0,1,2,3\} \text{ with } 0 \text{ and } 3 \text{ absorbing. From state 1: } P_{10}=0.25,\
+    P_{12}=0.75. \text{ From state 2: } P_{23}=0.5,\ P_{21}=0.5. \text{ Let } h_i \text{ be the expected number of steps to} \\
+    \text{absorption starting from state } i. \text{ Find } h_1 \text{ and } h_2.
+  answer: |
+    \text{First-step analysis (absorbing states contribute 0 further steps):}
+    \begin{aligned}
+    h_1 &= 1 + 0.25(0) + 0.75\,h_2 = 1 + 0.75\,h_2 \\
+    h_2 &= 1 + 0.5\,h_1 + 0.5(0) = 1 + 0.5\,h_1
+    \end{aligned} \\
+    \text{Substituting: } h_1 = 1 + 0.75(1+0.5h_1) = 1.75 + 0.375h_1 \Rightarrow 0.625h_1 = 1.75 \Rightarrow h_1 = 2.8. \\
+    \text{Then } h_2 = 1 + 0.5(2.8) = 2.4.
+- id: probability-statistics-markov-chains-2-05
+  category: Probability & Statistics
+  subtopic: Markov Chains
+  level: 2
+  question: |
+    \text{A chain on states } \{1,2,3\} \text{ has } P_{12}=1,\ P_{23}=1,\ P_{31}=1 \text{ (all other entries } 0\text{). Is the chain} \\
+    \text{irreducible? Find its period.}
+  answer: |
+    \begin{aligned}
+    &\text{Irreducible: every state is reachable from every other (} 1\to2\to3\to1 \text{ cycles through all states),} \\
+    &\text{so there is a single communicating class.} \\
+    &\text{Returns to state 1 only occur after } 3,6,9,\ldots \text{ steps, so } d(1) = \gcd\{3,6,9,\ldots\} = 3.
+    \end{aligned} \\
+    \text{All states in an irreducible chain share the same period, so the chain has period 3 (periodic).}
+- id: probability-statistics-markov-chains-2-06
+  category: Probability & Statistics
+  subtopic: Markov Chains
+  level: 2
+  question: |
+    \text{A machine is Up or Down each day: } P_{UU}=0.95,\ P_{UD}=0.05,\ P_{DU}=0.5,\ P_{DD}=0.5. \text{ In the long} \\
+    \text{run, what fraction of days is the machine Up?}
+  answer: |
+    \text{Solve } \pi P=\pi\text{:}
+    \begin{aligned}
+    \pi_U &= 0.95\pi_U + 0.5\pi_D \ \Longrightarrow\ 0.05\pi_U = 0.5\pi_D \ \Longrightarrow\ \pi_U = 10\pi_D
+    \end{aligned} \\
+    \text{With } \pi_U+\pi_D=1\text{: } 10\pi_D+\pi_D=1 \Rightarrow \pi_D=\tfrac{1}{11},\ \pi_U=\tfrac{10}{11}. \text{ The chain is irreducible} \\
+    \text{and aperiodic (self-loops), so by the ergodic theorem the long-run fraction of Up days equals} \\
+    \pi_U = \tfrac{10}{11} \approx 90.9\%.
+- id: probability-statistics-markov-chains-3-01
+  category: Probability & Statistics
+  subtopic: Markov Chains
+  level: 3
+  question: |
+    \text{Derive the Chapman–Kolmogorov equation } P^{m+n}_{ij} = \sum_k P^m_{ik}P^n_{kj} \text{ from the Markov} \\
+    \text{property and the law of total probability.}
+  answer: |
+    \begin{aligned}
+    P^{m+n}_{ij} &= \P(X_{m+n}=j \mid X_0=i) \\
+    &= \sum_k \P(X_{m+n}=j,\, X_m=k \mid X_0=i) \qquad (\text{total probability, partition on } X_m) \\
+    &= \sum_k \P(X_m=k\mid X_0=i)\,\P(X_{m+n}=j \mid X_m=k, X_0=i) \qquad (\text{chain rule}) \\
+    &= \sum_k \P(X_m=k\mid X_0=i)\,\P(X_{m+n}=j \mid X_m=k) \qquad (\text{Markov property}) \\
+    &= \sum_k P^m_{ik}\,P^n_{kj} \qquad (\text{definition of } n\text{-step probabilities, time-homogeneity})
+    \end{aligned}
+- id: probability-statistics-markov-chains-3-02
+  category: Probability & Statistics
+  subtopic: Markov Chains
+  level: 3
+  question: |
+    \text{Suppose a distribution } \pi \text{ satisfies the detailed balance equations } \pi_i P_{ij} = \pi_j P_{ji} \text{ for} \\
+    \text{all states } i,j. \text{ Prove that } \pi \text{ is a stationary distribution.}
+  answer: |
+    \text{Need } (\pi P)_j = \pi_j \text{ for every } j\text{:}
+    \begin{aligned}
+    (\pi P)_j = \sum_i \pi_i P_{ij} &= \sum_i \pi_j P_{ji} \qquad (\text{detailed balance}) \\
+    &= \pi_j \sum_i P_{ji} = \pi_j \cdot 1 = \pi_j \qquad (\text{row } j \text{ of } P \text{ sums to } 1)
+    \end{aligned} \\
+    \text{So } \pi P = \pi\text{: } \pi \text{ is stationary. (The converse can fail — stationarity does not imply} \\
+    \text{detailed balance; chains that do satisfy it are called reversible.)}
+- id: probability-statistics-markov-chains-3-03
+  category: Probability & Statistics
+  subtopic: Markov Chains
+  level: 3
+  question: |
+    \text{State the convergence theorem for finite Markov chains (conditions and conclusion), and give a} \\
+    2\text{-state example showing the conclusion fails when the chain is periodic.}
+  answer: |
+    \text{If a finite chain is irreducible and aperiodic, then } P^n_{ij} \to \pi_j \text{ as } n\to\infty \text{ for every } i,j, \\
+    \text{where } \pi \text{ is the chain's unique stationary distribution (independent of the start state } i\text{).} \\
+    \text{Counterexample without aperiodicity: states } \{1,2\} \text{ with } P_{12}=P_{21}=1 \text{ (deterministic swap,} \\
+    \text{period 2). Solving } \pi P=\pi \text{ gives } \pi=(0.5,0.5), \text{ but}
+    \begin{aligned}
+    P^n = \begin{cases} I & n \text{ even} \\ P & n \text{ odd} \end{cases}
+    \end{aligned} \\
+    \text{so } P^n_{11} \text{ alternates forever between } 1 \text{ and } 0 \text{ and never converges to } \pi_1=0.5 \text{ — irreducibility} \\
+    \text{alone is not enough; periodicity blocks convergence.}
+- id: probability-statistics-markov-chains-3-04
+  category: Probability & Statistics
+  subtopic: Markov Chains
+  level: 3
+  question: |
+    \text{For an absorbing Markov chain with transient states } T, \text{ let } h_i = \E[\text{steps to absorption} \mid X_0=i] \\
+    \text{for } i\in T. \text{ Derive the general linear system satisfied by } (h_i)_{i\in T}, \text{ and give its closed-form} \\
+    \text{solution in terms of the transient-to-transient sub-matrix } Q.
+  answer: |
+    \text{Condition on the first step from } i \text{ (absorbing states contribute } 0 \text{ further steps):}
+    \begin{aligned}
+    h_i = 1 + \sum_{k\in T} P_{ik}\,h_k \qquad \text{for every } i\in T
+    \end{aligned} \\
+    \text{In vector form, with } Q \text{ the sub-matrix of } P \text{ restricted to transient-to-transient entries and} \\
+    \mathbf{1} \text{ the all-ones vector:}
+    \begin{aligned}
+    h = \mathbf{1} + Qh \ \Longrightarrow\ (I-Q)h = \mathbf{1} \ \Longrightarrow\ h = (I-Q)^{-1}\mathbf{1}
+    \end{aligned} \\
+    (I-Q \text{ is invertible for an absorbing chain, since every transient state reaches absorption with} \\
+    \text{probability } 1\text{.)}
+- id: probability-statistics-markov-chains-3-05
+  category: Probability & Statistics
+  subtopic: Markov Chains
+  level: 3
+  question: |
+    \text{Prove that a Markov chain with a finite state space cannot have every state transient.}
+  answer: |
+    \text{Suppose for contradiction every state is transient. A transient state is visited only finitely many} \\
+    \text{times almost surely (its number of visits is geometric with success probability } 1-f_i>0\text{, hence} \\
+    \text{finite a.s.). Since the state space } S \text{ is finite, the total number of visits summed over all states,}
+    \begin{aligned}
+    \sum_{i\in S} (\text{number of visits to } i),
+    \end{aligned} \\
+    \text{would then be a finite sum of (a.s.) finite random variables, hence finite a.s. But the chain is in} \\
+    \text{some state at every time } n=0,1,2,\ldots, \text{ so this total must be infinite — a contradiction. Hence} \\
+    \text{at least one state must be recurrent.}
+- id: probability-statistics-markov-chains-4-01
+  category: Probability & Statistics
+  subtopic: Markov Chains
+  level: 4
+  question: |
+    \text{A machine's state each period is Working (W) or Under-Repair (U), eventually absorbed into} \\
+    \text{Scrapped (Sc) or permanently Refurbished (F). From W: stays W w.p. } 0.7\text{, moves to U w.p. } 0.3\text{.} \\
+    \text{From U: Scrapped w.p. } 0.2\text{, Refurbished w.p. } 0.3\text{, back to W w.p. } 0.5\text{. Starting from W, find the} \\
+    \text{probability the machine is eventually Scrapped.}
+  answer: |
+    \text{Let } a_W, a_U \text{ be the probability of eventual absorption into Scrapped from each state. First-step} \\
+    \text{analysis (Scrapped contributes } 1\text{, Refurbished contributes } 0\text{):}
+    \begin{aligned}
+    a_W &= 0.7\,a_W + 0.3\,a_U \\
+    a_U &= 0.2(1) + 0.3(0) + 0.5\,a_W = 0.2 + 0.5\,a_W
+    \end{aligned} \\
+    \text{From the first equation: } 0.3a_W = 0.3a_U \Rightarrow a_W=a_U. \text{ Substituting into the second:} \\
+    a_W = 0.2+0.5a_W \Rightarrow 0.5a_W=0.2 \Rightarrow a_W=0.4. \text{ So starting from Working, the machine is} \\
+    \text{eventually Scrapped with probability } 0.4 \text{ (and permanently Refurbished with probability } 0.6\text{).}
+- id: probability-statistics-markov-chains-4-02
+  category: Probability & Statistics
+  subtopic: Markov Chains
+  level: 4
+  question: |
+    \text{A 3-state weather chain on } \{\text{Sunny, Cloudy, Rainy}\} \text{ has transition matrix (row = today, column} \\
+    \text{= tomorrow, order Sunny, Cloudy, Rainy):}
+    \begin{aligned}
+    P = \begin{pmatrix} 0.6 & 0.3 & 0.1 \\ 0.3 & 0.4 & 0.3 \\ 0.2 & 0.3 & 0.5 \end{pmatrix}
+    \end{aligned} \\
+    \text{Find the long-run fraction of days that are Rainy.}
+  answer: |
+    \text{Let } \pi=(s,c,r) \text{ solve } \pi P=\pi,\ s+c+r=1\text{:}
+    \begin{aligned}
+    s &= 0.6s+0.3c+0.2r \\
+    c &= 0.3s+0.4c+0.3r \\
+    r &= 0.1s+0.3c+0.5r
+    \end{aligned} \\
+    \text{From the second equation: } 0.6c = 0.3s+0.3r \Rightarrow c = 0.5(s+r) = 0.5(1-c) \Rightarrow c=\tfrac{1}{3}. \\
+    \text{From the first equation: } 0.4s - 0.3c - 0.2r = 0. \text{ With } c=\tfrac13 \text{ and } r = \tfrac23-s\text{:}
+    \begin{aligned}
+    0.4s - 0.1 - 0.2\left(\tfrac23-s\right) = 0 \ \Longrightarrow\ 0.6s = \tfrac{7}{30} \ \Longrightarrow\ s=\tfrac{7}{18}
+    \end{aligned} \\
+    \text{So } r = \tfrac23-\tfrac{7}{18} = \tfrac{5}{18}. \text{ The long-run fraction of Rainy days is } \pi_R=\tfrac{5}{18}\approx 27.8\%.
+- id: probability-statistics-markov-chains-4-03
+  category: Probability & Statistics
+  subtopic: Markov Chains
+  level: 4
+  question: |
+    \text{A frog hops between lily pads } \{1,2,3\} \text{ with } P_{11}=P_{12}=0.5,\ P_{22}=P_{23}=0.5,\ P_{33}=P_{31}=0.5 \\
+    \text{(all other entries } 0\text{). The chain is irreducible and aperiodic. Find the frog's mean recurrence} \\
+    \text{time to pad } 1\text{, i.e. } \E[\text{number of hops to return to pad 1} \mid X_0=1].
+  answer: |
+    \text{By the chain's symmetry (each state behaves identically under relabeling } 1\to2\to3\to1\text{), the} \\
+    \text{stationary distribution is uniform: } \pi=\left(\tfrac13,\tfrac13,\tfrac13\right) \text{ (direct check: } \pi P=\pi \text{ holds since each} \\
+    \text{column of } P \text{ also sums to the same total, } 1\text{, by symmetry).} \\
+    \text{For an irreducible positive-recurrent chain, the mean recurrence time to state } i \text{ is } m_i=1/\pi_i. \\
+    \text{So } m_1 = 1/\left(\tfrac13\right) = 3 \text{ hops.}
+- id: probability-statistics-markov-chains-4-04
+  category: Probability & Statistics
+  subtopic: Markov Chains
+  level: 4
+  question: |
+    \text{Simplified PageRank: pages } \{A,B,C\} \text{ have links } A\to B,\ A\to C,\ B\to C,\ C\to A. \text{ A "random} \\
+    \text{surfer" splits its probability equally among a page's outgoing links (ignore damping). Build the} \\
+    \text{transition matrix, find the stationary distribution, and say which page(s) rank highest.}
+  answer: |
+    \text{Transition matrix (order } A,B,C\text{):}
+    \begin{aligned}
+    P = \begin{pmatrix} 0 & 0.5 & 0.5 \\ 0 & 0 & 1 \\ 1 & 0 & 0 \end{pmatrix}
+    \end{aligned} \\
+    \text{Solve } \pi P=\pi\text{: only } C \text{ links to } A, \text{ so } \pi_A=\pi_C. \text{ Only } A \text{ links to } B \text{ (half its mass), so} \\
+    \pi_B = 0.5\pi_A. \text{ And } \pi_C = 0.5\pi_A + \pi_B = 0.5\pi_A+0.5\pi_A=\pi_A \text{ (consistent).} \\
+    \text{Normalizing: } \pi_A+0.5\pi_A+\pi_A=1 \Rightarrow \pi_A=0.4,\ \pi_B=0.2,\ \pi_C=0.4. \text{ Pages } A \text{ and } C \text{ tie for} \\
+    \text{the highest rank (both } 0.4\text{); } B \text{ ranks lowest (} 0.2\text{).}
+- id: probability-statistics-markov-chains-4-05
+  category: Probability & Statistics
+  subtopic: Markov Chains
+  level: 4
+  question: |
+    \text{A board has squares } \{1,2,3\} \text{ (transient) and Finish (absorbing). From square 1: to square 2 or} \\
+    \text{3, each w.p. } 0.5\text{. From square 2: to square 3 w.p. } 0.5\text{, to Finish w.p. } 0.5\text{. From square 3: back} \\
+    \text{to square 1 w.p. } 0.5 \text{ (a snake), to Finish w.p. } 0.5\text{. Using the fundamental matrix } (I-Q)^{-1}\mathbf{1}\text{,} \\
+    \text{find the expected number of turns to reach Finish starting from square 1.}
+  answer: |
+    \text{Let } h_i \text{ be the expected turns to Finish from square } i\text{. First-step analysis (equivalent to} \\
+    \text{solving } h=(I-Q)^{-1}\mathbf{1}\text{):}
+    \begin{aligned}
+    h_1 &= 1 + 0.5\,h_2 + 0.5\,h_3 \\
+    h_2 &= 1 + 0.5\,h_3 \\
+    h_3 &= 1 + 0.5\,h_1
+    \end{aligned} \\
+    \text{Substituting } h_3=1+0.5h_1 \text{ into } h_2\text{: } h_2 = 1.5+0.25h_1. \text{ Substituting both into } h_1\text{:} \\
+    h_1 = 1+0.5(1.5+0.25h_1)+0.5(1+0.5h_1) = 2.25+0.375h_1 \Rightarrow 0.625h_1=2.25 \Rightarrow h_1=3.6. \\
+    \text{So the expected number of turns to Finish from square 1 is } 3.6.
