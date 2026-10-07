@@ -34,6 +34,7 @@
 - Random Variables
 - Probability Distributions
 - Central Limit Theorem
+- Law of Large Numbers
 - Linear Regression
 - Confidence Intervals and Regions
 - Hypothesis Testing
