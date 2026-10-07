@@ -8848,3 +8848,275 @@
     &\text{Forming and solving the normal equations } A^TAx=A^Tb \text{ therefore amplifies rounding error by a condition number of } 10^8\text{.} \\
     &\text{QR avoids this: } A=QR \text{ with } Q \text{ orthogonal (} \kappa(Q)=1\text{) and } R \text{ sharing } A\text{'s own singular values, so } \kappa(R)=\kappa(A)=10^4\text{. Solving } Rx=Q^Tb \text{ by back substitution only ever amplifies error by } 10^4\text{, four orders of magnitude better than the normal equations.}
     \end{aligned}
+- id: mathematics-eigenvalues-and-eigenvectors-1-01
+  category: Mathematics
+  subtopic: Eigenvalues and Eigenvectors
+  level: 1
+  question: |
+    \text{Is } v=\begin{pmatrix}1\\1\end{pmatrix} \text{ an eigenvector of } A=\begin{pmatrix}4&1\\2&3\end{pmatrix}\text{? If so, give its eigenvalue.}
+  answer: |
+    \begin{aligned}
+    &Av=\begin{pmatrix}4&1\\2&3\end{pmatrix}\begin{pmatrix}1\\1\end{pmatrix}=\begin{pmatrix}5\\5\end{pmatrix}=5\begin{pmatrix}1\\1\end{pmatrix}=5v \\
+    &\text{Since } Av=5v \text{ for a scalar, } v \text{ is an eigenvector of } A \text{ with eigenvalue } 5.
+    \end{aligned}
+- id: mathematics-eigenvalues-and-eigenvectors-1-02
+  category: Mathematics
+  subtopic: Eigenvalues and Eigenvectors
+  level: 1
+  question: |
+    \text{Find the eigenvalues of } A=\begin{pmatrix}4&1\\2&3\end{pmatrix} \text{ using the characteristic equation.}
+  answer: |
+    \begin{aligned}
+    &\det(A-\lambda I)=\det\begin{pmatrix}4-\lambda&1\\2&3-\lambda\end{pmatrix}=(4-\lambda)(3-\lambda)-2 \\
+    &=\lambda^2-7\lambda+10=(\lambda-5)(\lambda-2)=0 \\
+    &\lambda=5 \quad \text{or} \quad \lambda=2
+    \end{aligned}
+- id: mathematics-eigenvalues-and-eigenvectors-1-03
+  category: Mathematics
+  subtopic: Eigenvalues and Eigenvectors
+  level: 1
+  question: |
+    \text{For } A=\begin{pmatrix}4&1\\2&3\end{pmatrix}\text{, find an eigenvector for } \lambda=2.
+  answer: |
+    \begin{aligned}
+    &(A-2I)v=0 \implies \begin{pmatrix}2&1\\2&1\end{pmatrix}\begin{pmatrix}v_1\\v_2\end{pmatrix}=\begin{pmatrix}0\\0\end{pmatrix} \\
+    &2v_1+v_2=0 \implies v_2=-2v_1 \\
+    &v=\begin{pmatrix}1\\-2\end{pmatrix} \quad \text{(or any nonzero scalar multiple)}
+    \end{aligned}
+- id: mathematics-eigenvalues-and-eigenvectors-1-04
+  category: Mathematics
+  subtopic: Eigenvalues and Eigenvectors
+  level: 1
+  question: |
+    \text{What are the eigenvalues of } A=\begin{pmatrix}3&4&7\\0&-1&2\\0&0&5\end{pmatrix}\text{?}
+  answer: |
+    \begin{aligned}
+    &A \text{ is upper triangular, so } \det(A-\lambda I)=(3-\lambda)(-1-\lambda)(5-\lambda) \\
+    &\text{The eigenvalues are the diagonal entries: } 3,\ -1,\ 5
+    \end{aligned}
+- id: mathematics-eigenvalues-and-eigenvectors-1-05
+  category: Mathematics
+  subtopic: Eigenvalues and Eigenvectors
+  level: 1
+  question: |
+    \text{What are the eigenvalues of the } n\times n \text{ identity matrix } I_n \text{ and the } n\times n \text{ zero matrix } 0_n\text{?}
+  answer: |
+    \begin{aligned}
+    &I_n v=1\cdot v \text{ for every nonzero } v\text{, so } I_n \text{ has eigenvalue } 1 \text{ with multiplicity } n\text{; every nonzero vector is an eigenvector.} \\
+    &0_n v=0\cdot v \text{ for every nonzero } v\text{, so } 0_n \text{ has eigenvalue } 0 \text{ with multiplicity } n\text{; every nonzero vector is an eigenvector.}
+    \end{aligned}
+- id: mathematics-eigenvalues-and-eigenvectors-1-06
+  category: Mathematics
+  subtopic: Eigenvalues and Eigenvectors
+  level: 1
+  question: |
+    \text{For } A=\begin{pmatrix}4&1\\2&3\end{pmatrix}\text{ (eigenvalues } 5 \text{ and } 2\text{), verify } \tr(A)=\text{sum of eigenvalues and } \det(A)=\text{product of eigenvalues.}
+  answer: |
+    \begin{aligned}
+    &\tr(A)=4+3=7=5+2 \\
+    &\det(A)=4\cdot3-1\cdot2=10=5\cdot2
+    \end{aligned}
+- id: mathematics-eigenvalues-and-eigenvectors-2-01
+  category: Mathematics
+  subtopic: Eigenvalues and Eigenvectors
+  level: 2
+  question: |
+    \text{If } Av=\lambda v\text{, explain why } \lambda^k \text{ is an eigenvalue of } A^k \text{ with the same eigenvector, and use it to find the eigenvalues of } A^3 \text{ given } A \text{ has eigenvalues } 5 \text{ and } 2.
+  answer: |
+    \begin{aligned}
+    &Av=\lambda v \implies A^2v=A(\lambda v)=\lambda(Av)=\lambda^2v \\
+    &\text{Repeating this } k \text{ times gives } A^kv=\lambda^kv\text{, so } \lambda^k \text{ is an eigenvalue of } A^k \text{ (same } v\text{).} \\
+    &\text{For } A^3\text{: eigenvalues are } 5^3=125 \text{ and } 2^3=8
+    \end{aligned}
+- id: mathematics-eigenvalues-and-eigenvectors-2-02
+  category: Mathematics
+  subtopic: Eigenvalues and Eigenvectors
+  level: 2
+  question: |
+    \text{Given } A=\begin{pmatrix}4&1\\2&3\end{pmatrix} \text{ has eigenvalues } 5 \text{ and } 2\text{, find the eigenvalues of } A^{-1}\text{.}
+  answer: |
+    \begin{aligned}
+    &Av=\lambda v \implies v=\lambda A^{-1}v \implies A^{-1}v=\tfrac{1}{\lambda}v \quad (\lambda\neq0) \\
+    &\text{So } A^{-1} \text{ has eigenvalues } \tfrac{1}{5} \text{ and } \tfrac{1}{2}
+    \end{aligned}
+- id: mathematics-eigenvalues-and-eigenvectors-2-03
+  category: Mathematics
+  subtopic: Eigenvalues and Eigenvectors
+  level: 2
+  question: |
+    \text{Given } A \text{ has eigenvalues } 5 \text{ and } 2\text{, find the eigenvalues of } A+3I \text{, and state what happens to the eigenvectors.}
+  answer: |
+    \begin{aligned}
+    &(A+cI)v=Av+cv=\lambda v+cv=(\lambda+c)v \\
+    &\text{Eigenvectors are unchanged; each eigenvalue shifts by } c\text{. For } c=3\text{: eigenvalues } 5+3=8 \text{ and } 2+3=5
+    \end{aligned}
+- id: mathematics-eigenvalues-and-eigenvectors-2-04
+  category: Mathematics
+  subtopic: Eigenvalues and Eigenvectors
+  level: 2
+  question: |
+    \text{Show that } A=\begin{pmatrix}4&1\\2&3\end{pmatrix} \text{ and } A^T \text{ have the same eigenvalues, then find an eigenvector of } A^T \text{ for } \lambda=5 \text{ and compare it to } A\text{'s eigenvector } (1,1) \text{ for } \lambda=5.
+  answer: |
+    \begin{aligned}
+    &\det(A^T-\lambda I)=\det\big((A-\lambda I)^T\big)=\det(A-\lambda I)\text{, so } A^T \text{ has the same characteristic polynomial, hence the same eigenvalues: } 5,2 \\
+    &(A^T-5I)v=0 \implies \begin{pmatrix}-1&2\\1&-2\end{pmatrix}v=0 \implies v_1=2v_2 \implies v=\begin{pmatrix}2\\1\end{pmatrix} \\
+    &\text{This differs from } A\text{'s eigenvector } (1,1)\text{: same eigenvalue, different eigenvector.}
+    \end{aligned}
+- id: mathematics-eigenvalues-and-eigenvectors-2-05
+  category: Mathematics
+  subtopic: Eigenvalues and Eigenvectors
+  level: 2
+  question: |
+    \text{For the symmetric matrix } S=\begin{pmatrix}2&1\\1&2\end{pmatrix}\text{, find its eigenvectors and verify those for distinct eigenvalues are orthogonal.}
+  answer: |
+    \begin{aligned}
+    &\det(S-\lambda I)=(2-\lambda)^2-1=\lambda^2-4\lambda+3=(\lambda-3)(\lambda-1)=0 \implies \lambda=3,1 \\
+    &\lambda=3: \begin{pmatrix}-1&1\\1&-1\end{pmatrix}v=0 \implies v_1=v_2 \implies v=\begin{pmatrix}1\\1\end{pmatrix} \\
+    &\lambda=1: \begin{pmatrix}1&1\\1&1\end{pmatrix}v=0 \implies v_1=-v_2 \implies v=\begin{pmatrix}1\\-1\end{pmatrix} \\
+    &\begin{pmatrix}1\\1\end{pmatrix}\cdot\begin{pmatrix}1\\-1\end{pmatrix}=1-1=0\text{, confirming orthogonality}
+    \end{aligned}
+- id: mathematics-eigenvalues-and-eigenvectors-2-06
+  category: Mathematics
+  subtopic: Eigenvalues and Eigenvectors
+  level: 2
+  question: |
+    \text{Find the eigenvalues of the rotation matrix } R(\theta)=\begin{pmatrix}\cos\theta&-\sin\theta\\\sin\theta&\cos\theta\end{pmatrix} \text{ and interpret the result.}
+  answer: |
+    \begin{aligned}
+    &\det(R-\lambda I)=(\cos\theta-\lambda)^2+\sin^2\theta=\lambda^2-2\cos\theta\,\lambda+1=0 \\
+    &\lambda=\cos\theta\pm i\sin\theta=e^{\pm i\theta} \\
+    &\text{For } \theta\neq0,\pi \text{ the eigenvalues are complex, so } R(\theta) \text{ has no real eigenvectors: a genuine rotation moves every real direction off itself.}
+    \end{aligned}
+- id: mathematics-eigenvalues-and-eigenvectors-3-01
+  category: Mathematics
+  subtopic: Eigenvalues and Eigenvectors
+  level: 3
+  question: |
+    \text{Prove that for an } n\times n \text{ matrix } A \text{ with eigenvalues } \lambda_1,\ldots,\lambda_n \text{ (with multiplicity), } \tr(A)=\sum_i\lambda_i \text{ and } \det(A)=\prod_i\lambda_i\text{.}
+  answer: |
+    \begin{aligned}
+    &\text{The characteristic polynomial factors over its roots: } p(\lambda)=\det(\lambda I-A)=\prod_{i=1}^n(\lambda-\lambda_i) \\
+    &\text{Setting } \lambda=0: \ p(0)=\det(-A)=(-1)^n\det(A)\text{, and the product form gives } p(0)=\prod_i(-\lambda_i)=(-1)^n\prod_i\lambda_i \\
+    &\text{Equating these: } \det(A)=\prod_i\lambda_i \\
+    &\text{Expanding } \det(\lambda I-A) \text{ directly, the coefficient of } \lambda^{n-1} \text{ comes only from the product of diagonal terms } \prod_i(\lambda-a_{ii})\text{, giving } -\sum_ia_{ii}=-\tr(A) \\
+    &\text{Expanding the product form } \prod_i(\lambda-\lambda_i)\text{, the coefficient of } \lambda^{n-1} \text{ is } -\sum_i\lambda_i \\
+    &\text{Equating these: } \tr(A)=\sum_i\lambda_i
+    \end{aligned}
+- id: mathematics-eigenvalues-and-eigenvectors-3-02
+  category: Mathematics
+  subtopic: Eigenvalues and Eigenvectors
+  level: 3
+  question: |
+    \text{Prove that eigenvectors corresponding to distinct eigenvalues of a matrix } A \text{ are linearly independent.}
+  answer: |
+    \begin{aligned}
+    &\text{Let } \lambda_1,\ldots,\lambda_k \text{ be distinct eigenvalues with eigenvectors } v_1,\ldots,v_k\text{. Proceed by induction on } k\text{.} \\
+    &\text{Base case } k=1\text{: a single nonzero vector is linearly independent.} \\
+    &\text{Inductive step: assume } v_1,\ldots,v_{k-1} \text{ are independent. Suppose } c_1v_1+\cdots+c_kv_k=0 \\
+    &\text{Apply } A: \ c_1\lambda_1v_1+\cdots+c_k\lambda_kv_k=0 \\
+    &\text{Multiply the original relation by } \lambda_k \text{ and subtract: } \sum_{i=1}^{k-1}c_i(\lambda_i-\lambda_k)v_i=0 \\
+    &\text{By the inductive hypothesis, } v_1,\ldots,v_{k-1} \text{ are independent, so } c_i(\lambda_i-\lambda_k)=0 \text{ for } i<k \\
+    &\text{Since } \lambda_i\neq\lambda_k\text{, this forces } c_i=0 \text{ for } i<k\text{, and then } c_kv_k=0 \text{ with } v_k\neq0 \text{ gives } c_k=0 \\
+    &\text{All coefficients vanish, so } v_1,\ldots,v_k \text{ are linearly independent.}
+    \end{aligned}
+- id: mathematics-eigenvalues-and-eigenvectors-3-03
+  category: Mathematics
+  subtopic: Eigenvalues and Eigenvectors
+  level: 3
+  question: |
+    \text{Prove that similar matrices } A \text{ and } B=P^{-1}AP \text{ (for invertible } P\text{) have the same characteristic polynomial, and hence the same eigenvalues.}
+  answer: |
+    \begin{aligned}
+    &\det(B-\lambda I)=\det(P^{-1}AP-\lambda I)=\det\big(P^{-1}(A-\lambda I)P\big) \\
+    &=\det(P^{-1})\det(A-\lambda I)\det(P)=\det(A-\lambda I) \quad \text{since } \det(P^{-1})\det(P)=1 \\
+    &\text{So } A \text{ and } B \text{ share the same characteristic polynomial, hence the same eigenvalues (with the same multiplicities).}
+    \end{aligned}
+- id: mathematics-eigenvalues-and-eigenvectors-3-04
+  category: Mathematics
+  subtopic: Eigenvalues and Eigenvectors
+  level: 3
+  question: |
+    \text{For } A=\begin{pmatrix}2&1\\0&2\end{pmatrix}\text{, find the algebraic and geometric multiplicity of its eigenvalue, and explain what this means for diagonalizability.}
+  answer: |
+    \begin{aligned}
+    &\det(A-\lambda I)=(2-\lambda)^2=0 \implies \lambda=2 \text{ with algebraic multiplicity } 2 \\
+    &(A-2I)v=0 \implies \begin{pmatrix}0&1\\0&0\end{pmatrix}v=0 \implies v_2=0\text{, } v_1 \text{ free} \\
+    &\text{The eigenspace is } \operatorname{span}\begin{pmatrix}1\\0\end{pmatrix}\text{, so geometric multiplicity is } 1<2=\text{algebraic multiplicity} \\
+    &A \text{ has only one independent eigenvector, not two, so it cannot be diagonalized: } A \text{ is defective.}
+    \end{aligned}
+- id: mathematics-eigenvalues-and-eigenvectors-3-05
+  category: Mathematics
+  subtopic: Eigenvalues and Eigenvectors
+  level: 3
+  question: |
+    \text{Prove that eigenvectors corresponding to distinct eigenvalues of a real symmetric matrix are orthogonal.}
+  answer: |
+    \begin{aligned}
+    &\text{Let } Av_1=\lambda_1v_1\text{, } Av_2=\lambda_2v_2\text{, with } \lambda_1\neq\lambda_2 \text{ and } A=A^T\text{.} \\
+    &v_2^T(Av_1)=\lambda_1(v_2^Tv_1) \\
+    &\text{Also } v_2^TAv_1=(A^Tv_2)^Tv_1=(Av_2)^Tv_1=\lambda_2v_2^Tv_1 \quad \text{since } A^T=A \\
+    &\text{So } \lambda_1(v_2^Tv_1)=\lambda_2(v_2^Tv_1) \implies (\lambda_1-\lambda_2)(v_2^Tv_1)=0 \\
+    &\text{Since } \lambda_1\neq\lambda_2\text{, this forces } v_2^Tv_1=0\text{: the eigenvectors are orthogonal.}
+    \end{aligned}
+- id: mathematics-eigenvalues-and-eigenvectors-4-01
+  category: Mathematics
+  subtopic: Eigenvalues and Eigenvectors
+  level: 4
+  question: |
+    \text{Without expanding the matrix, find all eigenvalues of } A=I+vv^T \text{ for } v=\begin{pmatrix}1\\2\\2\end{pmatrix}\text{.}
+  answer: |
+    \begin{aligned}
+    &\text{For any } w \text{ orthogonal to } v: \ Aw=w+v(v^Tw)=w+0=w\text{, so } w \text{ is an eigenvector with eigenvalue } 1 \\
+    &\text{The orthogonal complement of } v \text{ is 2-dimensional, so eigenvalue } 1 \text{ has multiplicity } 2 \\
+    &\text{For } v \text{ itself: } Av=v+v(v^Tv)=(1+\|v\|^2)v\text{, so } v \text{ is an eigenvector with eigenvalue } 1+\|v\|^2 \\
+    &\|v\|^2=1+4+4=9\text{, so the eigenvalues are } 1 \ (\times2) \text{ and } 10
+    \end{aligned}
+- id: mathematics-eigenvalues-and-eigenvectors-4-02
+  category: Mathematics
+  subtopic: Eigenvalues and Eigenvectors
+  level: 4
+  question: |
+    \text{State one eigenvalue of } A=\begin{pmatrix}2&3&2\\4&1&2\\0&5&2\end{pmatrix} \text{ instantly, without computing the characteristic polynomial.}
+  answer: |
+    \begin{aligned}
+    &\text{Every row sums to } 7\text{. For } \mathbf{1}=(1,1,1)^T\text{, each entry of } A\mathbf{1} \text{ is its row's sum, so } A\mathbf{1}=7\mathbf{1} \\
+    &\text{Thus } 7 \text{ is an eigenvalue of } A\text{, with eigenvector } \mathbf{1}
+    \end{aligned}
+- id: mathematics-eigenvalues-and-eigenvectors-4-03
+  category: Mathematics
+  subtopic: Eigenvalues and Eigenvectors
+  level: 4
+  question: |
+    \text{If } A^2=A \text{ (idempotent), show quickly that every eigenvalue of } A \text{ is } 0 \text{ or } 1\text{.}
+  answer: |
+    \begin{aligned}
+    &\text{Let } Av=\lambda v \text{ with } v\neq0\text{. Then } A^2v=A(\lambda v)=\lambda^2v \\
+    &\text{But } A^2=A\text{, so } A^2v=Av=\lambda v \text{ too. Hence } \lambda^2v=\lambda v \implies (\lambda^2-\lambda)v=0 \\
+    &\text{Since } v\neq0\text{: } \lambda^2-\lambda=0 \implies \lambda(\lambda-1)=0 \implies \lambda=0 \text{ or } \lambda=1
+    \end{aligned}
+- id: mathematics-eigenvalues-and-eigenvectors-4-04
+  category: Mathematics
+  subtopic: Eigenvalues and Eigenvectors
+  level: 4
+  question: |
+    \text{Argue quickly that every eigenvalue of a real skew-symmetric matrix (} A^T=-A\text{) is purely imaginary or zero, then verify on } A=\begin{pmatrix}0&2\\-2&0\end{pmatrix}\text{.}
+  answer: |
+    \begin{aligned}
+    &\text{Let } Av=\lambda v\ (v\neq0\text{, possibly complex). Then } v^*Av=\lambda\, v^*v=\lambda\|v\|^2 \\
+    &\text{Taking the conjugate transpose of the scalar } v^*Av: \ \overline{v^*Av}=v^*A^Tv=v^*(-A)v=-v^*Av \\
+    &\text{So } v^*Av \text{ equals the negative of its own conjugate, i.e. it is purely imaginary (or zero)} \\
+    &\text{Since } \|v\|^2>0 \text{ is real, } \lambda=\dfrac{v^*Av}{\|v\|^2} \text{ must itself be purely imaginary or zero} \\
+    &\text{Check: } \det(A-\lambda I)=\lambda^2+4=0 \implies \lambda=\pm2i\text{, confirming purely imaginary eigenvalues}
+    \end{aligned}
+- id: mathematics-eigenvalues-and-eigenvectors-4-05
+  category: Mathematics
+  subtopic: Eigenvalues and Eigenvectors
+  level: 4
+  question: |
+    \text{A } 2\times2 \text{ matrix } A \text{ has } \tr(A)=10 \text{ and } \det(A)=21\text{. Find its eigenvalues without being told } A \text{ itself.}
+  answer: |
+    \begin{aligned}
+    &\text{For a } 2\times2 \text{ matrix, the characteristic polynomial is } \lambda^2-\tr(A)\lambda+\det(A)=0 \\
+    &\lambda^2-10\lambda+21=0 \implies (\lambda-7)(\lambda-3)=0 \\
+    &\lambda=7 \quad \text{or} \quad \lambda=3
+    \end{aligned}
