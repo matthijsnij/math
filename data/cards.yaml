@@ -6802,3 +6802,283 @@
     &\text{Since } f(x)=a^x=e^{x\ln a}\text{, } f'(x)=\ln a\cdot a^x\text{, so } f'(0)=\ln a. \\
     &\text{Therefore } \lim_{n\to\infty} n\left(\sqrt[n]{a}-1\right) = \ln a.
     \end{aligned}
+- id: mathematics-derivatives-1-01
+  category: Mathematics
+  subtopic: Derivatives
+  level: 1
+  question: |
+    \text{Using the limit definition of the derivative, find } f'(x) \text{ for } f(x) = x^2.
+  answer: |
+    \begin{aligned}
+    f'(x) &= \lim_{h\to0} \dfrac{f(x+h)-f(x)}{h} \\
+    &= \lim_{h\to0} \dfrac{(x+h)^2 - x^2}{h} \\
+    &= \lim_{h\to0} \dfrac{2xh+h^2}{h} \\
+    &= \lim_{h\to0} (2x+h) \\
+    &= 2x
+    \end{aligned}
+- id: mathematics-derivatives-1-02
+  category: Mathematics
+  subtopic: Derivatives
+  level: 1
+  question: |
+    \text{Differentiate: } f(x) = 3x^4 - 5x^2 + 7.
+  answer: |
+    f'(x) = 12x^3 - 10x
+- id: mathematics-derivatives-1-03
+  category: Mathematics
+  subtopic: Derivatives
+  level: 1
+  question: |
+    \text{Differentiate: } f(x) = 2e^x + 3\ln x.
+  answer: |
+    f'(x) = 2e^x + \dfrac{3}{x}
+- id: mathematics-derivatives-1-04
+  category: Mathematics
+  subtopic: Derivatives
+  level: 1
+  question: |
+    \text{Differentiate: } f(x) = 4\sin x - \cos x.
+  answer: |
+    f'(x) = 4\cos x + \sin x
+- id: mathematics-derivatives-1-05
+  category: Mathematics
+  subtopic: Derivatives
+  level: 1
+  question: |
+    \text{Differentiate using the product rule: } f(x) = x^2 \sin x.
+  answer: |
+    \begin{aligned}
+    f'(x) &= (x^2)'\sin x + x^2(\sin x)' \\
+    &= 2x\sin x + x^2\cos x
+    \end{aligned}
+- id: mathematics-derivatives-1-06
+  category: Mathematics
+  subtopic: Derivatives
+  level: 1
+  question: |
+    \text{Differentiate using the quotient rule: } f(x) = \dfrac{x}{x+1}.
+  answer: |
+    \begin{aligned}
+    f'(x) &= \dfrac{(1)(x+1) - x(1)}{(x+1)^2} \\
+    &= \dfrac{1}{(x+1)^2}
+    \end{aligned}
+- id: mathematics-derivatives-1-07
+  category: Mathematics
+  subtopic: Derivatives
+  level: 1
+  question: |
+    \text{Differentiate using the chain rule: } f(x) = (3x+1)^5.
+  answer: |
+    \begin{aligned}
+    f'(x) &= 5(3x+1)^4 \cdot 3 \\
+    &= 15(3x+1)^4
+    \end{aligned}
+- id: mathematics-derivatives-2-01
+  category: Mathematics
+  subtopic: Derivatives
+  level: 2
+  question: |
+    \text{Find } \dfrac{dy}{dx} \text{ for } x^2 + y^2 = 25.
+  answer: |
+    \begin{aligned}
+    2x + 2y\dfrac{dy}{dx} &= 0 \\
+    \dfrac{dy}{dx} &= -\dfrac{x}{y}
+    \end{aligned}
+- id: mathematics-derivatives-2-02
+  category: Mathematics
+  subtopic: Derivatives
+  level: 2
+  question: |
+    \text{Differentiate: } f(x) = 2^x + \log_3 x.
+  answer: |
+    f'(x) = 2^x \ln 2 + \dfrac{1}{x\ln 3}
+- id: mathematics-derivatives-2-03
+  category: Mathematics
+  subtopic: Derivatives
+  level: 2
+  question: |
+    \text{Find } f''(x) \text{ for } f(x) = x^4 - 3x^3 + 2x.
+  answer: |
+    \begin{aligned}
+    f'(x) &= 4x^3 - 9x^2 + 2 \\
+    f''(x) &= 12x^2 - 18x
+    \end{aligned}
+- id: mathematics-derivatives-2-04
+  category: Mathematics
+  subtopic: Derivatives
+  level: 2
+  question: |
+    \text{Find the equation of the tangent line to } f(x) = x^3 - 2x \text{ at } x=1.
+  answer: |
+    \begin{aligned}
+    f(1) &= 1-2 = -1, \qquad f'(x) = 3x^2-2 \Rightarrow f'(1) = 1 \\
+    &\text{Tangent line: } y - (-1) = 1(x-1) \\
+    &\Rightarrow y = x - 2
+    \end{aligned}
+- id: mathematics-derivatives-3-01
+  category: Mathematics
+  subtopic: Derivatives
+  level: 3
+  question: |
+    \text{Prove that if } f \text{ is differentiable at } a, \text{ then } f \text{ is continuous at } a. \text{ Show the converse is false using } f(x)=|x| \text{ at } a=0.
+  answer: |
+    \begin{aligned}
+    &\text{Since } f \text{ is differentiable at } a,\ f'(a) = \lim_{x\to a}\dfrac{f(x)-f(a)}{x-a} \text{ exists.} \\
+    &\text{For } x\neq a: \quad f(x)-f(a) = \dfrac{f(x)-f(a)}{x-a}\cdot(x-a) \\
+    &\lim_{x\to a}\big(f(x)-f(a)\big) = \lim_{x\to a}\dfrac{f(x)-f(a)}{x-a}\cdot\lim_{x\to a}(x-a) = f'(a)\cdot 0 = 0 \\
+    &\Rightarrow \lim_{x\to a}f(x) = f(a), \text{ i.e. } f \text{ is continuous at } a. \\[0.5em]
+    &\text{Converse fails: } f(x)=|x| \text{ is continuous at } 0, \text{ but} \\
+    &\lim_{h\to0^{+}}\dfrac{|h|-0}{h} = 1, \qquad \lim_{h\to0^{-}}\dfrac{|h|-0}{h} = -1 \\
+    &\text{These one-sided limits disagree, so } f'(0) \text{ does not exist.}
+    \end{aligned}
+- id: mathematics-derivatives-3-02
+  category: Mathematics
+  subtopic: Derivatives
+  level: 3
+  question: |
+    \text{Derive the product rule } (fg)'(x) = f'(x)g(x) + f(x)g'(x) \text{ from the limit definition of the derivative.}
+  answer: |
+    \begin{aligned}
+    (fg)'(x) &= \lim_{h\to0} \dfrac{f(x+h)g(x+h) - f(x)g(x)}{h} \\
+    &= \lim_{h\to0} \dfrac{f(x+h)g(x+h) - f(x+h)g(x) + f(x+h)g(x) - f(x)g(x)}{h} \quad \text{(add and subtract)} \\
+    &= \lim_{h\to0} \left[ f(x+h)\cdot\dfrac{g(x+h)-g(x)}{h} + g(x)\cdot\dfrac{f(x+h)-f(x)}{h} \right] \\
+    &= f(x)g'(x) + g(x)f'(x) \quad \text{(using } f \text{ continuous at } x \text{ since differentiable there)}
+    \end{aligned}
+- id: mathematics-derivatives-3-03
+  category: Mathematics
+  subtopic: Derivatives
+  level: 3
+  question: |
+    \text{Derive the chain rule } (f\circ g)'(x_0) = f'(g(x_0))\,g'(x_0), \text{ carefully handling the case where } g(x_0+h)-g(x_0)=0 \text{ for some } h \text{ near } 0.
+  answer: |
+    \begin{aligned}
+    &\text{Define } Q(k) = \begin{cases} \dfrac{f(g(x_0)+k)-f(g(x_0))}{k} & k\neq0 \\ f'(g(x_0)) & k=0 \end{cases} \\
+    &\text{Since } f \text{ is differentiable at } g(x_0),\ Q \text{ is continuous at } 0, \text{ and for every } k \text{ (including } k=0\text{):} \\
+    &f(g(x_0)+k) - f(g(x_0)) = Q(k)\cdot k \\
+    &\text{Set } k = g(x_0+h)-g(x_0) \text{ (valid even when } k=0\text{, since both sides vanish):} \\
+    &f(g(x_0+h)) - f(g(x_0)) = Q\big(g(x_0+h)-g(x_0)\big)\cdot\big(g(x_0+h)-g(x_0)\big) \\
+    &\text{Divide by } h\ (h\neq0): \\
+    &\dfrac{f(g(x_0+h))-f(g(x_0))}{h} = Q\big(g(x_0+h)-g(x_0)\big)\cdot\dfrac{g(x_0+h)-g(x_0)}{h} \\
+    &\text{As } h\to0,\ g(x_0+h)-g(x_0)\to0 \text{ (}g\text{ is continuous at } x_0\text{), so by continuity of } Q: \\
+    &Q\big(g(x_0+h)-g(x_0)\big) \to Q(0) = f'(g(x_0)), \qquad \dfrac{g(x_0+h)-g(x_0)}{h}\to g'(x_0) \\
+    &\Rightarrow (f\circ g)'(x_0) = f'(g(x_0))\,g'(x_0)
+    \end{aligned}
+- id: mathematics-derivatives-3-04
+  category: Mathematics
+  subtopic: Derivatives
+  level: 3
+  question: |
+    \text{State Rolle's Theorem and prove it, given that a continuous function on a closed bounded interval attains its extrema (Extreme Value Theorem).}
+  answer: |
+    \begin{aligned}
+    &\textbf{Statement: } \text{If } f \text{ is continuous on } [a,b], \text{ differentiable on } (a,b), \text{ and } f(a)=f(b), \\
+    &\text{then there exists } c\in(a,b) \text{ with } f'(c)=0. \\[0.5em]
+    &\textbf{Proof: } \text{By the Extreme Value Theorem, } f \text{ attains a maximum } M \text{ and a minimum } m \text{ on } [a,b]. \\
+    &\text{Case 1: } M=m. \text{ Then } f \text{ is constant on } [a,b], \text{ so } f'(c)=0 \text{ for every } c\in(a,b). \\
+    &\text{Case 2: } M>m. \text{ Since } f(a)=f(b), \text{ at least one of } M,m \text{ is attained at an interior point } c\in(a,b) \\
+    &\text{(not both endpoints, as they share one value). Say } f(c)=M \text{ (the minimum case is symmetric).} \\
+    &\text{For small } h>0: f(c+h)\le M=f(c) \Rightarrow \dfrac{f(c+h)-f(c)}{h}\le0 \Rightarrow f'(c)=\lim_{h\to0^{+}}(\cdot)\le0 \\
+    &\text{For small } h<0: f(c+h)\le M=f(c) \Rightarrow \dfrac{f(c+h)-f(c)}{h}\ge0 \Rightarrow f'(c)=\lim_{h\to0^{-}}(\cdot)\ge0 \\
+    &\text{Since both one-sided limits equal } f'(c) \text{ (}f\text{ differentiable at } c\text{), } f'(c)\le0 \text{ and } f'(c)\ge0 \Rightarrow f'(c)=0.
+    \end{aligned}
+- id: mathematics-derivatives-3-05
+  category: Mathematics
+  subtopic: Derivatives
+  level: 3
+  question: |
+    \text{State the Mean Value Theorem, then use it to prove: if } f'(x)=0 \text{ for all } x \text{ in an interval } I, \text{ then } f \text{ is constant on } I.
+  answer: |
+    \begin{aligned}
+    &\textbf{MVT: } \text{If } f \text{ is continuous on } [a,b] \text{ and differentiable on } (a,b), \text{ there exists } c\in(a,b) \\
+    &\text{with } f'(c) = \dfrac{f(b)-f(a)}{b-a}. \\[0.5em]
+    &\textbf{Proof of corollary: } \text{Let } x_1<x_2 \text{ be any two points in } I. \text{ Applying the MVT on } [x_1,x_2]: \\
+    &f(x_2)-f(x_1) = f'(c)(x_2-x_1) \text{ for some } c\in(x_1,x_2) \\
+    &\text{Since } f'(c)=0 \text{ (given } f'\equiv0 \text{ on } I\text{), } f(x_2)-f(x_1)=0 \Rightarrow f(x_2)=f(x_1). \\
+    &\text{As } x_1,x_2 \text{ were arbitrary, } f \text{ takes the same value at every point of } I, \text{ i.e. } f \text{ is constant.}
+    \end{aligned}
+- id: mathematics-derivatives-3-06
+  category: Mathematics
+  subtopic: Derivatives
+  level: 3
+  question: |
+    \text{Let } f \text{ be differentiable and invertible near } a, \text{ with } b=f(a) \text{ and } f'(a)\neq0. \text{ Derive the formula for } (f^{-1})'(b), \text{ and explain the result geometrically.}
+  answer: |
+    \begin{aligned}
+    &\text{Since } f(f^{-1}(x)) = x \text{ for } x \text{ near } b, \text{ differentiate both sides with the chain rule:} \\
+    &f'(f^{-1}(x))\cdot (f^{-1})'(x) = 1 \\
+    &\text{At } x=b,\ f^{-1}(b)=a: \quad f'(a)\cdot(f^{-1})'(b) = 1 \Rightarrow (f^{-1})'(b) = \dfrac{1}{f'(a)} \\[0.5em]
+    &\text{Geometrically, the graph of } f^{-1} \text{ is the reflection of the graph of } f \text{ across the line } y=x, \\
+    &\text{which swaps the roles of } \Delta x \text{ and } \Delta y \text{ and so inverts the slope: a tangent of slope } f'(a) \\
+    &\text{on } f\text{'s graph becomes a tangent of slope } 1/f'(a) \text{ on } f^{-1}\text{'s graph at the reflected point.}
+    \end{aligned}
+- id: mathematics-derivatives-4-01
+  category: Mathematics
+  subtopic: Derivatives
+  level: 4
+  question: |
+    \text{A 13 ft ladder leans against a wall. The bottom slides away from the wall at } 2\text{ ft/s. How fast is the top of the ladder} \\
+    \text{sliding down the wall when the bottom is } 5\text{ ft from the wall?}
+  answer: |
+    \begin{aligned}
+    &\text{Let } x = \text{distance of bottom from wall}, y = \text{height of top on wall}. \text{ Then } x^2+y^2 = 13^2=169. \\
+    &\text{Differentiate w.r.t. time: } 2x\dfrac{dx}{dt} + 2y\dfrac{dy}{dt} = 0 \\
+    &\text{At } x=5: y = \sqrt{169-25} = 12 \\
+    &\dfrac{dx}{dt}=2 \Rightarrow 2(5)(2) + 2(12)\dfrac{dy}{dt} = 0 \Rightarrow \dfrac{dy}{dt} = -\dfrac{20}{24} = -\dfrac{5}{6} \\
+    &\text{The top is sliding down at } \dfrac{5}{6}\text{ ft/s.}
+    \end{aligned}
+- id: mathematics-derivatives-4-02
+  category: Mathematics
+  subtopic: Derivatives
+  level: 4
+  question: |
+    \text{Water drains from an inverted conical tank (vertex down) of height } 12\text{ m and top radius } 6\text{ m at a rate of } 3\text{ m}^3\text{/min.} \\
+    \text{How fast is the water level dropping when the water depth is } 4\text{ m?}
+  answer: |
+    \begin{aligned}
+    &\text{By similar triangles, } \dfrac{r}{h} = \dfrac{6}{12} = \dfrac{1}{2} \Rightarrow r = \dfrac{h}{2}. \\
+    &V = \dfrac13 \pi r^2 h = \dfrac13 \pi \left(\dfrac{h}{2}\right)^2 h = \dfrac{\pi}{12}h^3 \\
+    &\dfrac{dV}{dt} = \dfrac{\pi}{4}h^2\dfrac{dh}{dt} \\
+    &\text{Draining: } \dfrac{dV}{dt} = -3. \text{ At } h=4: \quad -3 = \dfrac{\pi}{4}(16)\dfrac{dh}{dt} = 4\pi \dfrac{dh}{dt} \\
+    &\dfrac{dh}{dt} = -\dfrac{3}{4\pi} \\
+    &\text{The water level is dropping at } \dfrac{3}{4\pi} \text{ m/min.}
+    \end{aligned}
+- id: mathematics-derivatives-4-03
+  category: Mathematics
+  subtopic: Derivatives
+  level: 4
+  question: |
+    \text{Using Newton's Method with initial guess } x_0=2, \text{ perform two iterations to approximate a root of } f(x)=x^2-5.
+  answer: |
+    \begin{aligned}
+    &\text{Newton's update: } x_{n+1} = x_n - \dfrac{f(x_n)}{f'(x_n)}, \qquad f'(x)=2x \\
+    &x_1 = 2 - \dfrac{2^2-5}{2(2)} = 2 - \dfrac{-1}{4} = 2.25 \\
+    &x_2 = 2.25 - \dfrac{2.25^2-5}{2(2.25)} = 2.25 - \dfrac{0.0625}{4.5} \approx 2.2361 \\
+    &\text{(converging toward } \sqrt5 \approx 2.2360679\ldots\text{)}
+    \end{aligned}
+- id: mathematics-derivatives-4-04
+  category: Mathematics
+  subtopic: Derivatives
+  level: 4
+  question: |
+    \text{Using the limit definition of the derivative, find } f'(x) \text{ for } f(x)=\sqrt{x} \ (x>0).
+  answer: |
+    \begin{aligned}
+    f'(x) &= \lim_{h\to0} \dfrac{\sqrt{x+h}-\sqrt{x}}{h} \\
+    &= \lim_{h\to0} \dfrac{\sqrt{x+h}-\sqrt{x}}{h}\cdot\dfrac{\sqrt{x+h}+\sqrt{x}}{\sqrt{x+h}+\sqrt{x}} \quad \text{(multiply by the conjugate)} \\
+    &= \lim_{h\to0} \dfrac{(x+h)-x}{h\left(\sqrt{x+h}+\sqrt{x}\right)} \\
+    &= \lim_{h\to0} \dfrac{1}{\sqrt{x+h}+\sqrt{x}} \\
+    &= \dfrac{1}{2\sqrt{x}}
+    \end{aligned}
+- id: mathematics-derivatives-4-05
+  category: Mathematics
+  subtopic: Derivatives
+  level: 4
+  question: |
+    \text{A firm's total cost to produce } q \text{ units is } C(q) = 0.01q^3 - 0.6q^2 + 20q + 500. \\
+    \text{Find the marginal cost at } q=20 \text{ and interpret it.}
+  answer: |
+    \begin{aligned}
+    C'(q) &= 0.03q^2 - 1.2q + 20 \\
+    C'(20) &= 0.03(400) - 1.2(20) + 20 = 12 - 24 + 20 = 8 \\
+    &\text{At a production level of } 20 \text{ units, producing one additional unit costs approximately } \$8.
+    \end{aligned}
