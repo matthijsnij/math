@@ -5710,3 +5710,287 @@
     \P(T_0=2n) = \frac{2C_{n-1}}{2^{2n}} = \frac{2}{n}\binom{2n-2}{n-1}2^{-2n}.
     \text{Using } \binom{2n}{n} = \binom{2n-2}{n-1}\cdot\frac{2n(2n-1)}{n^2}, \text{ this simplifies to}
     \P(T_0=2n) = \frac{1}{2n-1}\binom{2n}{n}2^{-2n}.
+- id: probability-statistics-brownian-motion-1-01
+  category: Probability & Statistics
+  subtopic: Brownian Motion
+  level: 1
+  question: |
+    \text{Define standard Brownian motion (Wiener process) } (B_t)_{t\ge0}.
+  answer: |
+    \text{A process } (B_t)_{t\ge0} \text{ is a standard Brownian motion if:}
+    \begin{aligned}
+    &\text{(1) } B_0=0 \text{ a.s.} \\
+    &\text{(2) Independent increments: for } 0\le t_0<t_1<\dots<t_n,\ B_{t_1}-B_{t_0},\dots,B_{t_n}-B_{t_{n-1}} \text{ are independent.} \\
+    &\text{(3) Stationary Gaussian increments: for } s<t,\ B_t-B_s \sim \text{Normal}(0,\,t-s). \\
+    &\text{(4) Continuous paths: } t\mapsto B_t \text{ is a.s. continuous.}
+    \end{aligned}
+- id: probability-statistics-brownian-motion-1-02
+  category: Probability & Statistics
+  subtopic: Brownian Motion
+  level: 1
+  question: |
+    \text{For standard Brownian motion } (B_t), \text{ state } \E[B_t],\ \Var(B_t), \text{ and } \Cov(B_s,B_t) \text{ for } s\le t.
+  answer: |
+    \text{Since } B_t\sim\text{Normal}(0,t)\text{: } \quad \E[B_t]=0, \qquad \Var(B_t)=t.
+    \text{For } s\le t\text{: } \quad \Cov(B_s,B_t) = s = \min(s,t).
+- id: probability-statistics-brownian-motion-1-03
+  category: Probability & Statistics
+  subtopic: Brownian Motion
+  level: 1
+  question: |
+    \text{State (without proof) the path continuity and differentiability properties of Brownian motion.}
+  answer: |
+    \text{With probability } 1, \text{ the map } t\mapsto B_t \text{ is continuous everywhere, but it is also, with}
+    \text{probability } 1, \text{ nowhere differentiable: at every } t, \text{ the path is too jagged at every scale for}
+    \lim_{h\to0}\frac{B_{t+h}-B_t}{h} \text{ to exist.}
+- id: probability-statistics-brownian-motion-1-04
+  category: Probability & Statistics
+  subtopic: Brownian Motion
+  level: 1
+  question: |
+    \text{State the scaling (self-similarity) property of standard Brownian motion: for a constant } c>0,
+    \text{what is the distribution of the process } (c^{-1/2}B_{ct})_{t\ge0}?
+  answer: |
+    (c^{-1/2}B_{ct})_{t\ge0} \text{ is itself a standard Brownian motion: it starts at } 0, \text{ has independent}
+    \text{increments, and for } s<t,
+    c^{-1/2}B_{ct} - c^{-1/2}B_{cs} = c^{-1/2}(B_{ct}-B_{cs}) \sim \text{Normal}\!\left(0,\ \frac{c(t-s)}{c}\right) = \text{Normal}(0,t-s),
+    \text{matching the increments of a standard BM. So Brownian motion has no characteristic time or length scale.}
+- id: probability-statistics-brownian-motion-1-05
+  category: Probability & Statistics
+  subtopic: Brownian Motion
+  level: 1
+  question: |
+    \text{Define Brownian motion with drift } \mu \text{ and volatility } \sigma \text{ starting at } x_0\text{:}
+    X_t = x_0+\mu t+\sigma B_t, \text{ where } (B_t) \text{ is standard BM. State the distribution of } X_t.
+  answer: |
+    X_t \sim \text{Normal}(x_0+\mu t,\ \sigma^2 t), \text{ since } B_t\sim\text{Normal}(0,t).
+    \text{More generally, increments are independent and stationary: for } s<t,\ X_t-X_s \sim \text{Normal}(\mu(t-s),\,\sigma^2(t-s)).
+- id: probability-statistics-brownian-motion-2-01
+  category: Probability & Statistics
+  subtopic: Brownian Motion
+  level: 2
+  question: |
+    \text{For standard Brownian motion, compute } \P(B_5>3).
+  answer: |
+    B_5 \sim \text{Normal}(0,5), \text{ so}
+    \P(B_5>3) = \P\!\left(Z > \frac{3}{\sqrt5}\right) = 1-\Phi(1.342) \approx 0.090,
+    \text{where } Z\sim\text{Normal}(0,1).
+- id: probability-statistics-brownian-motion-2-02
+  category: Probability & Statistics
+  subtopic: Brownian Motion
+  level: 2
+  question: |
+    \text{For standard Brownian motion and } 0<s<t, \text{ derive } \operatorname{Corr}(B_s,B_t) \text{ in terms of } s \text{ and } t.
+  answer: |
+    \text{Using } \Cov(B_s,B_t)=s,\ \Var(B_s)=s,\ \Var(B_t)=t\text{:}
+    \operatorname{Corr}(B_s,B_t) = \frac{\Cov(B_s,B_t)}{\sqrt{\Var(B_s)\Var(B_t)}} = \frac{s}{\sqrt{st}} = \sqrt{\frac{s}{t}}.
+- id: probability-statistics-brownian-motion-2-03
+  category: Probability & Statistics
+  subtopic: Brownian Motion
+  level: 2
+  question: |
+    \text{For standard Brownian motion and } 0<s<t, \text{ find the conditional distribution of } B_s \text{ given } B_t=b.
+  answer: |
+    (B_s,B_t) \text{ is jointly Gaussian with } \Var(B_s)=s,\ \Var(B_t)=t,\ \Cov(B_s,B_t)=s. \text{ For a bivariate normal,}
+    \text{conditioning gives}
+    \begin{aligned}
+    \E[B_s\mid B_t=b] &= \frac{\Cov(B_s,B_t)}{\Var(B_t)}\,b = \frac{s}{t}\,b, \\
+    \Var(B_s\mid B_t=b) &= \Var(B_s) - \frac{\Cov(B_s,B_t)^2}{\Var(B_t)} = s - \frac{s^2}{t} = \frac{s(t-s)}{t}.
+    \end{aligned}
+    \text{So } B_s\mid B_t=b \sim \text{Normal}\!\left(\dfrac{s}{t}b,\ \dfrac{s(t-s)}{t}\right) \text{ (the Brownian bridge).}
+- id: probability-statistics-brownian-motion-2-04
+  category: Probability & Statistics
+  subtopic: Brownian Motion
+  level: 2
+  question: |
+    \text{Let } S_t = S_0\exp\!\left((\mu-\tfrac12\sigma^2)t+\sigma B_t\right) \text{ be geometric Brownian motion. Compute } \E[S_t].
+  answer: |
+    \text{Write } S_t = S_0 e^{(\mu-\sigma^2/2)t}\,e^{\sigma B_t}. \text{ Since } \sigma B_t\sim\text{Normal}(0,\sigma^2t),
+    \text{its moment generating function at argument } 1 \text{ gives } \E[e^{\sigma B_t}] = e^{\sigma^2t/2}.
+    \text{So}
+    \E[S_t] = S_0\,e^{(\mu-\sigma^2/2)t}\,e^{\sigma^2t/2} = S_0\,e^{\mu t}.
+- id: probability-statistics-brownian-motion-2-05
+  category: Probability & Statistics
+  subtopic: Brownian Motion
+  level: 2
+  question: |
+    \text{Partition } [0,t] \text{ into } n \text{ equal pieces } t_i=it/n,\ i=0,\dots,n. \text{ For standard Brownian motion,}
+    \text{compute } \E\!\left[\sum_{i=0}^{n-1}(B_{t_{i+1}}-B_{t_i})^2\right].
+  answer: |
+    \text{Each increment } B_{t_{i+1}}-B_{t_i}\sim\text{Normal}(0,t/n), \text{ so } \E[(B_{t_{i+1}}-B_{t_i})^2] = \Var(B_{t_{i+1}}-B_{t_i}) = t/n.
+    \text{Summing over the } n \text{ terms:}
+    \E\!\left[\sum_{i=0}^{n-1}(B_{t_{i+1}}-B_{t_i})^2\right] = n\cdot\frac{t}{n} = t,
+    \text{exactly, for every } n.
+- id: probability-statistics-brownian-motion-3-01
+  category: Probability & Statistics
+  subtopic: Brownian Motion
+  level: 3
+  question: |
+    \text{Prove that for standard Brownian motion and } s\le t,\ \Cov(B_s,B_t)=s.
+  answer: |
+    \text{Write } B_t = B_s + (B_t-B_s). \text{ Then}
+    \begin{aligned}
+    \Cov(B_s,B_t) &= \Cov(B_s,B_s) + \Cov(B_s,\,B_t-B_s) \\
+    &= \Var(B_s) + \Cov(B_s,\,B_t-B_s).
+    \end{aligned}
+    \text{By the independent-increments property, } B_t-B_s \text{ is independent of } B_s-B_0=B_s, \text{ so}
+    \Cov(B_s,B_t-B_s)=0. \text{ Since } B_s\sim\text{Normal}(0,s),\ \Var(B_s)=s. \text{ Hence } \Cov(B_s,B_t)=s=\min(s,t).
+- id: probability-statistics-brownian-motion-3-02
+  category: Probability & Statistics
+  subtopic: Brownian Motion
+  level: 3
+  question: |
+    \text{Let } \mathcal F_t=\sigma(B_u:u\le t) \text{ be the natural filtration of standard Brownian motion. Prove that}
+    (B_t) \text{ and } (B_t^2-t) \text{ are both martingales.}
+  answer: |
+    \text{For } s<t, \text{ write } B_t=B_s+(B_t-B_s) \text{ with } B_t-B_s \text{ independent of } \mathcal F_s \text{ and mean } 0.
+    \begin{aligned}
+    \text{Martingale } (B_t)&: \quad \E[B_t\mid\mathcal F_s] = B_s + \E[B_t-B_s\mid\mathcal F_s] = B_s + \E[B_t-B_s] = B_s. \\[4pt]
+    \text{Martingale } (B_t^2-t)&: \quad \E[B_t^2-t\mid\mathcal F_s] = \E\!\left[(B_s+(B_t-B_s))^2\mid\mathcal F_s\right] - t \\
+    &= B_s^2 + 2B_s\,\E[B_t-B_s\mid\mathcal F_s] + \E[(B_t-B_s)^2\mid\mathcal F_s] - t \\
+    &= B_s^2 + 0 + (t-s) - t = B_s^2-s.
+    \end{aligned}
+- id: probability-statistics-brownian-motion-3-03
+  category: Probability & Statistics
+  subtopic: Brownian Motion
+  level: 3
+  question: |
+    \text{For standard Brownian motion and the partition } t_i=it/n, \text{ let } Q_n=\sum_{i=0}^{n-1}(B_{t_{i+1}}-B_{t_i})^2.
+    \text{Given } \E[Q_n]=t \text{ (shown directly for every } n\text{), show that } Q_n\to t \text{ in } L^2 \text{ as } n\to\infty,
+    \text{i.e. } \E[(Q_n-t)^2]\to0.
+  answer: |
+    \text{Let } X_i=(B_{t_{i+1}}-B_{t_i})^2. \text{ Each } B_{t_{i+1}}-B_{t_i}\sim\text{Normal}(0,t/n), \text{ so with } \sigma_n^2=t/n,
+    \E[X_i]=\sigma_n^2, \qquad \E[X_i^2]=3\sigma_n^4 \ \text{(fourth moment of a centered Normal)}, \qquad \Var(X_i)=3\sigma_n^4-\sigma_n^4=2\sigma_n^4.
+    \text{The } X_i \text{ are independent (disjoint increments), so}
+    \Var(Q_n) = \sum_{i=0}^{n-1}\Var(X_i) = n\cdot2\left(\frac{t}{n}\right)^2 = \frac{2t^2}{n} \ \xrightarrow{n\to\infty}\ 0.
+    \text{Since } \E[Q_n]=t \text{ exactly,}
+    \E[(Q_n-t)^2] = \Var(Q_n) + (\E[Q_n]-t)^2 = \frac{2t^2}{n} + 0 \ \xrightarrow{n\to\infty}\ 0.
+- id: probability-statistics-brownian-motion-3-04
+  category: Probability & Statistics
+  subtopic: Brownian Motion
+  level: 3
+  question: |
+    \text{Let } M_t=\max_{0\le s\le t}B_s \text{ and } T_a=\min\{s\ge0:B_s=a\} \text{ for } a>0. \text{ Using the strong Markov}
+    \text{property at } T_a, \text{ derive } \P(M_t\ge a)=2\P(B_t\ge a).
+  answer: |
+    \text{Since BM has continuous paths, } \{M_t\ge a\}=\{T_a\le t\}. \text{ At the stopping time } T_a, \text{ the strong}
+    \text{Markov property says } (B_{T_a+u}-a)_{u\ge0} \text{ is itself a standard Brownian motion, independent of } \mathcal F_{T_a}
+    \text{and in particular symmetric about } 0. \text{ So conditional on } T_a\le t, \text{ the post-}T_a\text{ path reflected}
+    \text{about level } a \text{ is an equally likely path, meaning } B_t-a \text{ is, given } T_a\le t, \text{ symmetric about } 0:
+    \P(B_t>a\mid T_a\le t) = \tfrac12.
+    \text{Since } B_t>a \text{ can only happen if } T_a\le t,
+    \P(B_t>a) = \P(T_a\le t)\,\P(B_t>a\mid T_a\le t) = \tfrac12\,\P(T_a\le t).
+    \text{Rearranging, and using that } B_t \text{ has a continuous distribution so } \P(B_t=a)=0\text{:}
+    \P(M_t\ge a) = \P(T_a\le t) = 2\,\P(B_t>a) = 2\,\P(B_t\ge a).
+- id: probability-statistics-brownian-motion-3-05
+  category: Probability & Statistics
+  subtopic: Brownian Motion
+  level: 3
+  question: |
+    \text{For standard Brownian motion and a constant } \sigma, \text{ show that } M_t=\exp\!\left(\sigma B_t-\tfrac12\sigma^2t\right)
+    \text{is a martingale w.r.t. } \mathcal F_t=\sigma(B_u:u\le t).
+  answer: |
+    \text{For } s<t, \text{ write } B_t=B_s+(B_t-B_s) \text{ with } B_t-B_s \text{ independent of } \mathcal F_s \text{ and}
+    \sim\text{Normal}(0,t-s).
+    \begin{aligned}
+    \E[M_t\mid\mathcal F_s] &= e^{\sigma B_s}\,e^{-\sigma^2t/2}\,\E\!\left[e^{\sigma(B_t-B_s)}\mid\mathcal F_s\right] \\
+    &= e^{\sigma B_s}\,e^{-\sigma^2t/2}\,\E\!\left[e^{\sigma(B_t-B_s)}\right] \qquad \text{(independence of } \mathcal F_s\text{)} \\
+    &= e^{\sigma B_s}\,e^{-\sigma^2t/2}\,e^{\sigma^2(t-s)/2} \qquad \text{(Normal MGF at argument } \sigma\text{)} \\
+    &= e^{\sigma B_s}\,e^{-\sigma^2s/2} = M_s.
+    \end{aligned}
+- id: probability-statistics-brownian-motion-4-01
+  category: Probability & Statistics
+  subtopic: Brownian Motion
+  level: 4
+  question: |
+    \text{Let } T_a=\inf\{t\ge0:B_t=a\} \text{ for } a>0 \text{ be the first passage time of standard Brownian motion to level}
+    a. \text{ Using } \P(T_a\le t)=2\P(B_t\ge a), \text{ derive the density of } T_a, \text{ and show that although } \P(T_a<\infty)=1,
+    \ \E[T_a]=\infty.
+  answer: |
+    \text{Write } F(t)=\P(T_a\le t) = 2\left(1-\Phi\!\left(\dfrac{a}{\sqrt t}\right)\right). \text{ Differentiating in } t
+    \text{(chain rule, } \tfrac{d}{dt}(a t^{-1/2}) = -\tfrac12 a t^{-3/2}\text{):}
+    f(t) = F'(t) = -2\phi\!\left(\frac{a}{\sqrt t}\right)\cdot\left(-\frac{a}{2}t^{-3/2}\right) = \frac{a}{\sqrt{2\pi t^3}}\,\exp\!\left(-\frac{a^2}{2t}\right), \quad t>0
+    \text{(a L\'evy distribution). As } t\to\infty,\ F(t)\to 2(1-\Phi(0))=1, \text{ so } \P(T_a<\infty)=1 \text{ (BM hits every}
+    \text{level eventually).}
+    \text{But}
+    \E[T_a] = \int_0^\infty t\,f(t)\,dt = \int_0^\infty \frac{a}{\sqrt{2\pi t}}\exp\!\left(-\frac{a^2}{2t}\right)dt,
+    \text{and as } t\to\infty \text{ the integrand behaves like } \dfrac{a}{\sqrt{2\pi t}}, \text{ whose integral diverges}
+    \text{(like } \int t^{-1/2}dt\text{). So } \E[T_a]=\infty: \text{ the hitting time is a.s. finite but has infinite mean.}
+- id: probability-statistics-brownian-motion-4-02
+  category: Probability & Statistics
+  subtopic: Brownian Motion
+  level: 4
+  question: |
+    \text{Let } X_t=x_0+\mu t+\sigma B_t \text{ with } 0<x_0<N \text{ and } \mu\neq0, \text{ and } T=\min\{t:X_t\in\{0,N\}\}.
+    \text{Using the martingale } M_t=\exp(\theta X_t) \text{ for a suitable constant } \theta \text{ and the Optional Stopping}
+    \text{Theorem, find } p=\P(X \text{ hits } N \text{ before } 0).
+  answer: |
+    \text{For } M_t=e^{\theta X_t} \text{ to be a martingale, need (as in the exponential-martingale card, applied to the}
+    \text{drifted process)}
+    \E[M_t\mid\mathcal F_s] = M_s\,e^{\theta\mu(t-s)}\,e^{\theta^2\sigma^2(t-s)/2} \overset{!}{=} M_s
+    \quad\Longrightarrow\quad \theta\mu+\tfrac12\theta^2\sigma^2=0 \quad\Longrightarrow\quad \theta = -\frac{2\mu}{\sigma^2} \ (\theta\neq0).
+    \text{Since } T \text{ is a.s. finite and } X_{t\wedge T}\in[0,N] \text{ is bounded, OST gives } \E[M_T]=M_0=e^{\theta x_0}.
+    \text{ } M_T=e^{\theta N} \text{ w.p. } p, \text{ or } M_T=1 \text{ w.p. } 1-p, \text{ so}
+    p\,e^{\theta N} + (1-p) = e^{\theta x_0} \quad\Longrightarrow\quad p = \frac{e^{\theta x_0}-1}{e^{\theta N}-1}, \qquad \theta=-\frac{2\mu}{\sigma^2}.
+    \text{As } \mu\to0 \ (\theta\to0), \text{ L'Hopital gives } p\to x_0/N, \text{ matching the symmetric driftless case ---}
+    \text{this is exactly the continuous analogue of the discrete Gambler's Ruin formula } p_i=\frac{1-(q/p)^i}{1-(q/p)^N}.
+- id: probability-statistics-brownian-motion-4-03
+  category: Probability & Statistics
+  subtopic: Brownian Motion
+  level: 4
+  question: |
+    \text{For the same process } X_t=x_0+\mu t+\sigma B_t\ (\mu\neq0) \text{ and } T=\min\{t:X_t\in\{0,N\}\}, \text{ use the}
+    \text{martingale } Y_t=X_t-\mu t \text{ together with } p=\P(\text{hit } N \text{ before } 0) \text{ from the previous card}
+    \text{to find } \E[T].
+  answer: |
+    Y_t = X_t-\mu t = x_0+\sigma B_t \text{ is a martingale (since } (B_t) \text{ is). } T \text{ has finite mean here}
+    \text{(boundary absorption under nonzero drift), so OST gives } \E[Y_T]=Y_0=x_0, \text{ i.e.}
+    \E[X_T] - \mu\,\E[T] = x_0.
+    X_T=N \text{ w.p. } p \text{ and } X_T=0 \text{ w.p. } 1-p, \text{ so } \E[X_T]=pN. \text{ Solving,}
+    \E[T] = \frac{pN-x_0}{\mu}, \qquad p = \frac{e^{\theta x_0}-1}{e^{\theta N}-1},\ \ \theta=-\frac{2\mu}{\sigma^2}.
+- id: probability-statistics-brownian-motion-4-04
+  category: Probability & Statistics
+  subtopic: Brownian Motion
+  level: 4
+  question: |
+    \text{For standard Brownian motion, let } M_T=\max_{0\le t\le T}B_t. \text{ Using } \P(M_T\ge a)=2\P(B_T\ge a) \text{ for }
+    a>0, \text{ show that } M_T \text{ has the same distribution as } |B_T|, \text{ and hence find } \E[M_T].
+  answer: |
+    \text{Since } B_T\sim\text{Normal}(0,T) \text{ is symmetric, } \P(B_T\ge a)=\P(B_T\le-a) \text{ for } a>0, \text{ so}
+    \P(|B_T|\ge a) = \P(B_T\ge a)+\P(B_T\le-a) = 2\,\P(B_T\ge a) = \P(M_T\ge a).
+    \text{This holds for every } a>0 \text{ (and trivially at } a=0\text{), so } M_T \overset{d}{=} |B_T|. \text{ Writing } B_T=\sqrt T\,Z
+    \text{for } Z\sim\text{Normal}(0,1), \text{ and using the standard half-normal mean } \E[|Z|]=\sqrt{2/\pi}\text{:}
+    \E[M_T] = \E[|B_T|] = \sqrt T\,\E[|Z|] = \sqrt{\frac{2T}{\pi}}.
+- id: probability-statistics-brownian-motion-4-05
+  category: Probability & Statistics
+  subtopic: Brownian Motion
+  level: 4
+  question: |
+    \text{A stock's log-price follows } Y_t=\ln(S_t/S_0)=\mu t+\sigma B_t \text{ with } \mu=0.05 \text{ and } \sigma=0.3
+    \text{ per year. Find the probability the price doubles before it halves.}
+  answer: |
+    \text{Doubling/halving means } Y_t \text{ hits } U=\ln2 \text{ before } L=-\ln2. \text{ Shift origin to the lower barrier:}
+    \text{let } x_0'=Y_0-L=\ln2 \text{ and } N'=U-L=2\ln2. \text{ Reusing the two-barrier formula with } \theta=-2\mu/\sigma^2\text{:}
+    \begin{aligned}
+    p &= \frac{e^{\theta x_0'}-1}{e^{\theta N'}-1} = \frac{e^{\theta\ln2}-1}{e^{2\theta\ln2}-1} = \frac{2^\theta-1}{2^{2\theta}-1} = \frac{2^\theta-1}{(2^\theta-1)(2^\theta+1)} = \frac{1}{2^\theta+1}.
+    \end{aligned}
+    \text{Here } \theta = -\dfrac{2(0.05)}{0.3^2} = -1.111. \text{ So } 2^\theta = 2^{-1.111}\approx0.463, \text{ and}
+    p = \frac{1}{1+0.463} \approx 0.684.
+    \text{So there is roughly a } 68\% \text{ chance the stock doubles before it halves. (As } \mu\to0,\ \theta\to0 \text{ and }
+    p\to\tfrac12, \text{ as expected by symmetry.)}
+- id: probability-statistics-brownian-motion-4-06
+  category: Probability & Statistics
+  subtopic: Brownian Motion
+  level: 4
+  question: |
+    \text{State the arcsine law for standard Brownian motion on } [0,1]: \text{ let } A \text{ be the fraction of time}
+    B_t \text{ spends positive on } [0,1]. \text{ Give its density, and compute } \P(A\le 0.1) \text{ to illustrate why}
+    A \text{ is NOT concentrated near } \tfrac12.
+  answer: |
+    A \text{ has the arcsine distribution on } [0,1], \text{ with density}
+    f_A(x) = \frac{1}{\pi\sqrt{x(1-x)}}, \qquad 0<x<1,
+    \text{and CDF } F_A(x) = \dfrac{2}{\pi}\arcsin(\sqrt x).
+    \P(A\le0.1) = \frac{2}{\pi}\arcsin(\sqrt{0.1}) = \frac{2}{\pi}\arcsin(0.316) \approx \frac{2}{\pi}(0.322) \approx 0.205.
+    \text{So there is over a } 20\% \text{ chance the path spends } 90\% \text{ or more of the time on ONE side of } 0 ---
+    \text{the density } f_A(x) \text{ blows up near the endpoints } 0 \text{ and } 1, \text{ meaning a Brownian path is far more}
+    \text{likely to spend almost all its time on one side than to split time evenly, contrary to naive intuition.}
