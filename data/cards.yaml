@@ -12888,3 +12888,443 @@
     &\text{peak of } 5 \text{ at } S_T=50\text{), so the position can never require a payment at expiration --- a pure}\\
     &\text{arbitrage: riskless profit of at least } \$2.50 \text{ today, possibly more if } S_T \text{ lands near } 50.
     \end{aligned}
+- id: economics-finance-market-microstructure-1-01
+  category: Economics & Finance
+  subtopic: Market Microstructure
+  level: 1
+  question: |
+    \text{Define the bid-ask spread, and name the three cost components market-making theory}\\
+    \text{typically decomposes it into.}
+  answer: |
+    \begin{aligned}
+    &\text{Bid-ask spread} = \text{ask price} - \text{bid price}\text{, the cost a trader pays for immediate execution.}\\
+    &\text{It is decomposed into three components:}\\
+    &\text{1. Order-processing cost --- compensation for the fixed administrative/exchange cost of}\\
+    &\text{handling a trade.}\\
+    &\text{2. Inventory-holding cost --- compensation for the risk of carrying an unbalanced,}\\
+    &\text{non-diversified position.}\\
+    &\text{3. Adverse-selection cost --- compensation for the risk of trading against a better-informed}\\
+    &\text{counterparty.}
+    \end{aligned}
+- id: economics-finance-market-microstructure-1-02
+  category: Economics & Finance
+  subtopic: Market Microstructure
+  level: 1
+  question: |
+    \text{Define a market order, a limit order, a stop order, and the time-in-force conditions IOC}\\
+    \text{(immediate-or-cancel) and FOK (fill-or-kill).}
+  answer: |
+    \begin{aligned}
+    &\text{Market order: executes immediately against the best available price(s) on the book; guarantees}\\
+    &\text{execution, not price.}\\
+    &\text{Limit order: executes only at a specified price or better; guarantees price, not execution.}\\
+    &\text{Stop order: dormant until the market trades at (or through) a trigger price, at which point it}\\
+    &\text{becomes a market order.}\\
+    &\text{IOC: execute whatever quantity is immediately available at the limit price, cancel the rest.}\\
+    &\text{FOK: execute the entire order immediately at the limit price, or cancel all of it.}
+    \end{aligned}
+- id: economics-finance-market-microstructure-1-03
+  category: Economics & Finance
+  subtopic: Market Microstructure
+  level: 1
+  question: |
+    \text{What is price-time priority, and how does it determine (a) which price level trades next and}\\
+    \text{(b) which order at that price level is filled first?}
+  answer: |
+    \begin{aligned}
+    &\text{Price priority: better-priced orders execute first --- the highest bid and lowest ask are the}\\
+    &\text{"best bid/offer" and trade before any worse-priced order on the same side.}\\
+    &\text{Time priority: among orders resting at the same price, the one that arrived earliest is filled}\\
+    &\text{first (first-in-first-out queue); an order that is cancelled and resubmitted loses its queue}\\
+    &\text{position and goes to the back.}
+    \end{aligned}
+- id: economics-finance-market-microstructure-1-04
+  category: Economics & Finance
+  subtopic: Market Microstructure
+  level: 1
+  question: |
+    \text{Distinguish a market maker (liquidity provider) from a liquidity taker, and explain who}\\
+    \text{"pays" the bid-ask spread.}
+  answer: |
+    \begin{aligned}
+    &\text{A market maker posts resting limit orders on both sides of the book, offering to buy at the}\\
+    &\text{bid and sell at the ask; it supplies liquidity and earns the spread as compensation for the}\\
+    &\text{order-processing, inventory, and adverse-selection risks it bears.}\\
+    &\text{A liquidity taker submits marketable orders (market orders, or limit orders that cross the}\\
+    &\text{spread) that execute immediately against resting liquidity; it demands immediacy and pays}\\
+    &\text{the spread.}
+    \end{aligned}
+- id: economics-finance-market-microstructure-1-05
+  category: Economics & Finance
+  subtopic: Market Microstructure
+  level: 1
+  question: |
+    \text{What is the tick size of an instrument, and what is the mechanical effect of a larger tick}\\
+    \text{size on the minimum possible bid-ask spread?}
+  answer: |
+    \begin{aligned}
+    &\text{The tick size is the smallest allowed increment between two price levels an order can be}\\
+    &\text{quoted at.}\\
+    &\text{Since the spread must be a multiple of the tick size, a larger tick size imposes a higher}\\
+    &\text{floor on the minimum quoted spread (it cannot be quoted tighter than one tick), which can}\\
+    &\text{keep spreads wider than the "true" frictionless spread would be.}
+    \end{aligned}
+- id: economics-finance-market-microstructure-1-06
+  category: Economics & Finance
+  subtopic: Market Microstructure
+  level: 1
+  question: |
+    \text{Contrast a lit exchange with a dark pool (ATS) in terms of pre-trade transparency and}\\
+    \text{typical participants.}
+  answer: |
+    \begin{aligned}
+    &\text{Lit exchange: resting orders and their prices/sizes are publicly displayed pre-trade (the}\\
+    &\text{visible order book); any participant can see the quotes before trading.}\\
+    &\text{Dark pool / ATS: orders are not displayed pre-trade --- only the resulting trade is reported}\\
+    &\text{after execution (post-trade transparency only). Used mainly by institutions to trade large}\\
+    &\text{size without signaling intent and moving the visible market.}
+    \end{aligned}
+- id: economics-finance-market-microstructure-1-07
+  category: Economics & Finance
+  subtopic: Market Microstructure
+  level: 1
+  question: |
+    \text{Describe the maker-taker exchange fee model: who pays and who is paid, and why exchanges}\\
+    \text{use it.}
+  answer: |
+    \begin{aligned}
+    &\text{Under maker-taker pricing, an exchange pays a rebate to the "maker" --- the resting limit}\\
+    &\text{order that supplies liquidity --- and charges a fee to the "taker" --- the incoming order}\\
+    &\text{that removes liquidity by executing against it.}\\
+    &\text{The rebate incentivizes market makers to keep tight, deep quotes posted, which attracts}\\
+    &\text{order flow (and taker-fee revenue) to that exchange.}
+    \end{aligned}
+- id: economics-finance-market-microstructure-1-08
+  category: Economics & Finance
+  subtopic: Market Microstructure
+  level: 1
+  question: |
+    \text{Describe the basic mechanics of a short sale: what must a trader do before selling short,}\\
+    \text{and what does "short interest" measure?}
+  answer: |
+    \begin{aligned}
+    &\text{To sell short, a trader must first borrow (or have a broker "locate") shares to deliver at}\\
+    &\text{settlement, since it is selling shares it does not own; it later buys shares back to return}\\
+    &\text{them to the lender, profiting if the price fell.}\\
+    &\text{Short interest is the total number of shares currently sold short and not yet covered, often}\\
+    &\text{quoted as a percentage of a stock's float.}
+    \end{aligned}
+- id: economics-finance-market-microstructure-2-01
+  category: Economics & Finance
+  subtopic: Market Microstructure
+  level: 2
+  question: |
+    \text{A stock quotes bid } \$99.95 \text{ / ask } \$100.05 \text{ (mid } \$100.00\text{). A buy order executes at}\\
+    \$100.03 \text{ (price improvement inside the quoted spread). Five minutes later the new midpoint is}\\
+    \$100.08\text{. Compute the quoted spread, the effective spread, and the realized spread (all in \$}\\
+    \text{per share, using the standard } 2|\cdot| \text{ convention), and interpret the sign of the realized}\\
+    \text{spread.}
+  answer: |
+    \begin{aligned}
+    &\text{Quoted spread} = \text{ask}-\text{bid} = 100.05-99.95 = \$0.10\\
+    &\text{Effective spread} = 2\,|\text{trade price} - \text{mid at trade}| = 2\,|100.03-100.00| = \$0.06\\
+    &\text{Realized spread (buyer-initiated trade)} = 2\,(\text{trade price} - \text{mid later}) = 2\,(100.03-100.08) = -\$0.10\\
+    &\text{The negative realized spread means the market maker lost money on this trade: the price}\\
+    &\text{moved up after it sold to the buyer, i.e. the buyer was (on average, over many such trades)}\\
+    &\text{informed --- this gap between the effective spread and the realized spread is exactly the}\\
+    &\text{adverse-selection cost.}
+    \end{aligned}
+- id: economics-finance-market-microstructure-2-02
+  category: Economics & Finance
+  subtopic: Market Microstructure
+  level: 2
+  question: |
+    \text{A large buy order is executed when the pre-trade midpoint is } \$50.00\text{. Immediately after,}\\
+    \text{the midpoint jumps to } \$50.70\text{, but over the next hour (as liquidity replenishes) it settles}\\
+    \text{back to } \$50.30\text{, where it stays. Decompose the } \$0.70 \text{ total price move into its temporary}\\
+    \text{and permanent impact components, and explain what causes each.}
+  answer: |
+    \begin{aligned}
+    &\text{Total impact} = 50.70-50.00 = \$0.70\\
+    &\text{Permanent impact} = \text{new settled level} - \text{pre-trade level} = 50.30-50.00=\$0.30\text{: the}\\
+    &\text{portion of the move that persists, reflecting the market's revised belief about fundamental}\\
+    &\text{value given the information content of a large trade.}\\
+    &\text{Temporary impact} = \text{peak} - \text{settled level} = 50.70-50.30 = \$0.40\text{: the portion that}\\
+    &\text{reverts, reflecting liquidity-provider compensation (inventory risk) for absorbing the order,}\\
+    &\text{which dissipates once the position is unwound and other liquidity returns.}
+    \end{aligned}
+- id: economics-finance-market-microstructure-2-03
+  category: Economics & Finance
+  subtopic: Market Microstructure
+  level: 2
+  question: |
+    \text{Define the VWAP and TWAP execution benchmarks, and describe how an execution algorithm}\\
+    \text{targeting each would slice a large parent order over the trading day.}
+  answer: |
+    \begin{aligned}
+    &\text{VWAP (volume-weighted average price)} = \dfrac{\sum_i P_i Q_i}{\sum_i Q_i}\text{, the average}\\
+    &\text{market trade price weighted by volume over a period. A VWAP algorithm slices the parent}\\
+    &\text{order in proportion to the historical/predicted intraday volume curve (trading more during}\\
+    &\text{high-volume periods, e.g. the open and close), so its own average fill price tracks the}\\
+    &\text{market's VWAP.}\\
+    &\text{TWAP (time-weighted average price)} = \dfrac{1}{T}\int_0^T P_t\,dt\text{, the simple average price}\\
+    &\text{over time. A TWAP algorithm slices the parent order into equal-sized pieces spread evenly}\\
+    &\text{across fixed time intervals, ignoring the volume curve.}
+    \end{aligned}
+- id: economics-finance-market-microstructure-2-04
+  category: Economics & Finance
+  subtopic: Market Microstructure
+  level: 2
+  question: |
+    \text{A portfolio manager decides to buy a stock when its price is } \$40.00 \text{ (decision price). By}\\
+    \text{the time the order reaches the trading desk the price is } \$40.10 \text{ (arrival price). The desk}\\
+    \text{executes 80\% of the order at an average price of } \$40.25\text{, and leaves 20\% unexecuted as the}\\
+    \text{price closes at } \$40.50\text{. Decompose the implementation shortfall into its standard}\\
+    \text{components.}
+  answer: |
+    \begin{aligned}
+    &\text{Delay cost (decision} \to \text{arrival)} = \text{arrival} - \text{decision} = 40.10-40.00=\$0.10\text{ per}\\
+    &\text{share, applied to the full order, reflecting drift while the order was pending.}\\
+    &\text{Market impact (arrival} \to \text{fill)} = \text{avg fill} - \text{arrival} = 40.25-40.10=\$0.15\text{ per share,}\\
+    &\text{applied to the executed } 80\%\text{, the cost of actually trading.}\\
+    &\text{Opportunity cost (unexecuted shares)} = \text{closing price} - \text{decision price} = 40.50-40.00=\$0.50\\
+    &\text{per share, applied to the unexecuted } 20\%\text{, the forgone gain from not completing the order.}\\
+    &\text{Total implementation shortfall} = 0.10(1.0)+0.15(0.8)+0.50(0.2) = 0.10+0.12+0.10 = \$0.32\\
+    &\text{per share of the original order.}
+    \end{aligned}
+- id: economics-finance-market-microstructure-2-05
+  category: Economics & Finance
+  subtopic: Market Microstructure
+  level: 2
+  question: |
+    \text{The ask side of the book shows: } 200 \text{ shares at } \$100.00\text{, } 300 \text{ shares at } \$100.05\text{, and}\\
+    500 \text{ shares at } \$100.10\text{. A trader submits a market buy order for } 600 \text{ shares. Compute the}\\
+    \text{average execution price ("walking the book").}
+  answer: |
+    \begin{aligned}
+    &\text{Fill } 200 @ 100.00\text{, then } 300 @ 100.05 \text{ (now } 500 \text{ filled), then the remaining } 100 @ 100.10\text{.}\\
+    &\text{Total cost} = 200(100.00)+300(100.05)+100(100.10) = 20000+30015+10010 = \$60{,}025\\
+    &\text{Average price} = \dfrac{60{,}025}{600} = \$100.0417\text{, above the best ask of } \$100.00 \text{ because the}\\
+    &\text{order size exceeded the liquidity available at the top of book and had to walk down into}\\
+    &\text{worse prices.}
+    \end{aligned}
+- id: economics-finance-market-microstructure-2-06
+  category: Economics & Finance
+  subtopic: Market Microstructure
+  level: 2
+  question: |
+    \text{Describe payment for order flow (PFOF) and internalization, and the conflict of interest}\\
+    \text{they raise for a retail broker.}
+  answer: |
+    \begin{aligned}
+    &\text{Payment for order flow: a wholesale market maker pays a retail broker for the right to}\\
+    &\text{execute that broker's customer orders, instead of the broker routing them to a public}\\
+    &\text{exchange.}\\
+    &\text{Internalization: the wholesaler fills the order against its own inventory/quotes rather than}\\
+    &\text{sending it to an exchange, typically at the exchange's NBBO or with some price improvement.}\\
+    &\text{Conflict of interest: the broker is paid more for sending orders to whichever wholesaler}\\
+    &\text{pays the most, which need not be the venue offering the customer the best execution quality}\\
+    &\text{--- regulation (e.g. best-execution duties) exists to police this misalignment.}
+    \end{aligned}
+- id: economics-finance-market-microstructure-2-07
+  category: Economics & Finance
+  subtopic: Market Microstructure
+  level: 2
+  question: |
+    \text{Explain why queue position at the best price level matters for a resting limit order, and}\\
+    \text{why cancelling and resubmitting that order (e.g. to adjust size) is costly.}
+  answer: |
+    \begin{aligned}
+    &\text{Under price-time priority, orders at the same price fill strictly in arrival order, so an}\\
+    &\text{order near the front of the queue is far more likely to actually trade before the price}\\
+    &\text{moves away, and is also less exposed to adverse selection (it trades against the earliest,}\\
+    &\text{least-informed flow at that price).}\\
+    &\text{Cancelling and resubmitting (even to change only the size) is treated as a brand-new order}\\
+    &\text{by the matching engine, so it loses its place and goes to the back of the queue at that}\\
+    &\text{price --- a real cost, which is why sophisticated market makers avoid unnecessary}\\
+    &\text{cancel/replace actions.}
+    \end{aligned}
+- id: economics-finance-market-microstructure-3-01
+  category: Economics & Finance
+  subtopic: Market Microstructure
+  level: 3
+  question: |
+    \text{(Roll's model) Assume the observed trade price is } P_t = m_t + c\,q_t\text{, where } m_t \text{ is the}\\
+    \text{efficient (fundamental) price following a random walk independent of trade direction, and}\\
+    q_t\in\{+1,-1\} \text{ is the trade-direction indicator (buy/sell), i.i.d. with } \P(q_t=+1)=\P(q_t=-1)=\tfrac12\text{,}\\
+    \text{independent across } t \text{ and of } m_t\text{. Derive } \Cov(\Delta P_t, \Delta P_{t-1}) \text{ in terms of } c\text{, and}\\
+    \text{hence express the effective half-spread } c \text{ (and the spread } 2c\text{) in terms of that covariance.}
+  answer: |
+    \begin{aligned}
+    &\Delta P_t = \Delta m_t + c(q_t-q_{t-1})\\
+    &\Cov(\Delta P_t,\Delta P_{t-1}) = \Cov\big(\Delta m_t + c(q_t-q_{t-1}),\ \Delta m_{t-1}+c(q_{t-1}-q_{t-2})\big)\\
+    &\text{Since } \Delta m_t \text{ (random-walk increments) is independent of every } q \text{ and serially}\\
+    &\text{uncorrelated, every cross-term involving } \Delta m \text{ vanishes, leaving}\\
+    &\Cov(\Delta P_t,\Delta P_{t-1}) = c^2\,\Cov(q_t-q_{t-1},\,q_{t-1}-q_{t-2})\\
+    &= c^2\big[\Cov(q_t,q_{t-1})-\Cov(q_t,q_{t-2})-\Var(q_{t-1})+\Cov(q_{t-1},q_{t-2})\big]\\
+    &\text{The } q_t \text{ are i.i.d., so all cross-covariances are } 0\text{, and } \Var(q_{t-1})=\E[q_{t-1}^2]=1\\
+    &\text{(since } q=\pm1\text{). Hence}\\
+    &\Cov(\Delta P_t,\Delta P_{t-1}) = -c^2\\
+    &\text{Since this covariance must be negative for the model to make sense, invert:}\\
+    &c = \sqrt{-\Cov(\Delta P_t,\Delta P_{t-1})}\text{, and the effective spread is}\\
+    &2c = 2\sqrt{-\Cov(\Delta P_t,\Delta P_{t-1})}\text{.}
+    \end{aligned}
+- id: economics-finance-market-microstructure-3-02
+  category: Economics & Finance
+  subtopic: Market Microstructure
+  level: 3
+  question: |
+    \text{(Glosten-Milgrom) The true value of an asset is } V\in\{V_H,V_L\} \text{ with } \P(V=V_H)=\P(V=V_L)=\tfrac12\text{.}\\
+    \text{A fraction } \alpha \text{ of incoming orders are from informed traders, who observe } V \text{ and buy if}\\
+    V=V_H\text{, sell if } V=V_L\text{; the remaining } 1-\alpha \text{ are noise traders who buy or sell with equal}\\
+    \text{probability regardless of } V\text{. A risk-neutral, competitive market maker sets the ask as}\\
+    \E[V\mid\text{buy order}] \text{ and the bid as } \E[V\mid\text{sell order}] \text{ (zero expected profit on each side).}\\
+    \text{Derive the ask, the bid, and the resulting bid-ask spread in terms of } \alpha, V_H, V_L\text{.}
+  answer: |
+    \begin{aligned}
+    &\P(\text{buy}\mid V_H) = \alpha\cdot 1 + (1-\alpha)\cdot\tfrac12\text{, since an informed trader always buys}\\
+    &\text{when } V=V_H \text{ and a noise trader buys half the time regardless.}\\
+    &\P(\text{buy}\mid V_L) = \alpha\cdot 0 + (1-\alpha)\cdot\tfrac12 = (1-\alpha)\cdot\tfrac12\\
+    &\text{By Bayes' rule,}\\
+    &\text{Ask} = \E[V\mid\text{buy}] = \dfrac{V_H\,\P(\text{buy}\mid V_H)\cdot\tfrac12 + V_L\,\P(\text{buy}\mid V_L)\cdot\tfrac12}{\P(\text{buy}\mid V_H)\cdot\tfrac12+\P(\text{buy}\mid V_L)\cdot\tfrac12}\\
+    &\text{The denominator simplifies to } \tfrac12\big[\alpha+(1-\alpha)\big]=\tfrac12\text{, giving}\\
+    &\text{Ask} = V_H\Big(\alpha+\tfrac{1-\alpha}{2}\Big) + V_L\,\tfrac{1-\alpha}{2} = \dfrac{V_H+V_L}{2} + \dfrac{\alpha}{2}(V_H-V_L)\\
+    &\text{By the symmetric argument on sell orders,}\\
+    &\text{Bid} = \dfrac{V_H+V_L}{2} - \dfrac{\alpha}{2}(V_H-V_L)\\
+    &\text{Spread} = \text{Ask}-\text{Bid} = \alpha(V_H-V_L)\text{: the spread is purely an adverse-selection}\\
+    &\text{premium --- it is zero with no informed traders (} \alpha=0\text{) and widens linearly in both the}\\
+    &\text{fraction of informed order flow and the fundamental uncertainty } V_H-V_L\text{.}
+    \end{aligned}
+- id: economics-finance-market-microstructure-3-03
+  category: Economics & Finance
+  subtopic: Market Microstructure
+  level: 3
+  question: |
+    \text{(Kyle's lambda) An informed trader observes the true value } v\sim N(v_0,\Sigma_0) \text{ and submits}\\
+    \text{order size } x\text{; a noise trader submits } u\sim N(0,\sigma_u^2) \text{ independent of } v\text{. A risk-neutral}\\
+    \text{market maker observes only the total order flow } y=x+u \text{ and sets the price } p=\E[v\mid y]\\
+    \text{(zero expected profit). Conjecturing a linear equilibrium } x=\beta(v-v_0) \text{ and } p=v_0+\lambda y\text{,}\\
+    \text{derive } \lambda \text{ (Kyle's lambda) in terms of } \Sigma_0 \text{ and } \sigma_u^2\text{.}
+  answer: |
+    \begin{aligned}
+    &\text{Since } y=\beta(v-v_0)+u \text{ is linear in jointly normal } v,u\text{, } \E[v\mid y]=v_0+\dfrac{\Cov(v,y)}{\Var(y)}\,y\text{,}\\
+    &\text{so}\\
+    &\lambda = \dfrac{\Cov(v,y)}{\Var(y)} = \dfrac{\beta\Sigma_0}{\beta^2\Sigma_0+\sigma_u^2}\\
+    &\text{The informed trader, knowing } v\text{, chooses } x \text{ to maximize expected profit}\\
+    &\E[(v-p)x\mid v] = (v-v_0)x - \lambda x^2 \text{ (using } p=v_0+\lambda(x+u)\text{, } \E[u]=0\text{). The}\\
+    &\text{first-order condition } (v-v_0)-2\lambda x = 0 \text{ gives } x^\ast = \dfrac{v-v_0}{2\lambda}\text{, matching the}\\
+    &\text{conjecture with } \beta = \dfrac{1}{2\lambda}\\
+    &\text{Substituting } \beta=\tfrac{1}{2\lambda} \text{ into the expression for } \lambda \text{ and multiplying numerator}\\
+    &\text{and denominator by } 4\lambda^2\text{:}\\
+    &\lambda = \dfrac{2\lambda\Sigma_0}{\Sigma_0+4\lambda^2\sigma_u^2}\ \Longrightarrow\ \lambda\big(\Sigma_0+4\lambda^2\sigma_u^2\big) = 2\lambda\Sigma_0\ \Longrightarrow\ 4\lambda^2\sigma_u^2=\Sigma_0\\
+    &\lambda = \dfrac{\sqrt{\Sigma_0}}{2\sigma_u} = \dfrac{\sigma_v}{2\sigma_u}\text{, where } \sigma_v=\sqrt{\Sigma_0}\text{: price impact per unit of order flow}\\
+    &\text{rises with fundamental uncertainty and falls with noise-trading volume (more noise lets}\\
+    &\text{informed flow hide).}
+    \end{aligned}
+- id: economics-finance-market-microstructure-3-04
+  category: Economics & Finance
+  subtopic: Market Microstructure
+  level: 3
+  question: |
+    \text{Using the pure bid-ask-bounce model } P_t = m + c\,q_t \text{ with } m \text{ constant (no new fundamental}\\
+    \text{information) and } q_t\in\{+1,-1\} \text{ i.i.d. with equal probability, show that the first-order}\\
+    \text{autocorrelation of observed price changes } \Delta P_t \text{ is exactly } -\tfrac12\text{, independent of } c\text{,}\\
+    \text{and explain why this means bid-ask bounce biases a naive realized-variance estimator upward.}
+  answer: |
+    \begin{aligned}
+    &\Delta P_t = c(q_t-q_{t-1})\\
+    &\Cov(\Delta P_t,\Delta P_{t-1}) = c^2\Cov(q_t-q_{t-1},q_{t-1}-q_{t-2}) = -c^2\,\Var(q_{t-1}) = -c^2\\
+    &\text{(the same i.i.d. cross-term cancellation as in Roll's model, with } \Var(q_{t-1})=1\text{)}\\
+    &\Var(\Delta P_t) = c^2\big[\Var(q_t)+\Var(q_{t-1})\big] = 2c^2 \text{ (since } q_t,q_{t-1} \text{ are independent)}\\
+    &\rho_1 = \dfrac{\Cov(\Delta P_t,\Delta P_{t-1})}{\Var(\Delta P_t)} = \dfrac{-c^2}{2c^2} = -\dfrac12\\
+    &\text{A naive realized-variance estimator (sum of squared tick-by-tick returns) implicitly assumes}\\
+    &\text{returns are uncorrelated. Over any horizon spanning multiple ticks, this negative}\\
+    &\text{autocorrelation would otherwise subtract from the variance of the multi-tick price change, so}\\
+    &\text{ignoring it makes the tick-by-tick realized variance overstate the true fundamental}\\
+    &\text{volatility.}
+    \end{aligned}
+- id: economics-finance-market-microstructure-4-01
+  category: Economics & Finance
+  subtopic: Market Microstructure
+  level: 4
+  question: |
+    \text{A stock's price changes tick-to-tick alternate exactly } +\$0.02,-\$0.02,+\$0.02,-\$0.02,\dots \text{ with}\\
+    \text{no drift. Using Roll's model, what is the implied effective bid-ask spread?}
+  answer: |
+    \begin{aligned}
+    &\text{Consecutive changes alternate in sign, so every product } \Delta P_t\,\Delta P_{t-1} = (0.02)(-0.02)=-0.0004\\
+    &\text{exactly, giving } \Cov(\Delta P_t,\Delta P_{t-1}) = -0.0004\text{.}\\
+    &\text{Roll's spread} = 2\sqrt{-\Cov(\Delta P_t,\Delta P_{t-1})} = 2\sqrt{0.0004} = 2(0.02) = \$0.04\\
+    &\text{(This matches the direct observation that pure alternation of } \pm c \text{ with } c=0.02 \text{ is}\\
+    &\text{exactly Roll's bounce model, so the estimate recovers the true half-spread } c \text{ exactly.)}
+    \end{aligned}
+- id: economics-finance-market-microstructure-4-02
+  category: Economics & Finance
+  subtopic: Market Microstructure
+  level: 4
+  question: |
+    \text{Using the Glosten-Milgrom result Spread} = \alpha(V_H-V_L)\text{: a stock is worth } V_H=\$52 \text{ with}\\
+    \text{good news or } V_L=\$48 \text{ with bad news, each equally likely a priori. } 30\% \text{ of order flow is}\\
+    \text{informed. Compute the market maker's bid and ask quotes.}
+  answer: |
+    \begin{aligned}
+    &\text{Midpoint} = \dfrac{V_H+V_L}{2} = \dfrac{52+48}{2} = 50\\
+    &\text{Half-spread adjustment} = \dfrac{\alpha}{2}(V_H-V_L) = \dfrac{0.3}{2}(4) = 0.6\\
+    &\text{Ask} = 50+0.6 = \$50.60\text{, Bid} = 50-0.6 = \$49.40\\
+    &\text{Spread} = \alpha(V_H-V_L) = 0.3(4) = \$1.20\text{, consistent with Ask}-\text{Bid}=50.60-49.40=1.20\text{.}
+    \end{aligned}
+- id: economics-finance-market-microstructure-4-03
+  category: Economics & Finance
+  subtopic: Market Microstructure
+  level: 4
+  question: |
+    \text{A market's estimated Kyle's lambda is } \lambda=\$0.10 \text{ per share, and the standard deviation of}\\
+    \text{noise-trader order flow is } \sigma_u=20 \text{ shares. Using } \lambda=\sigma_v/(2\sigma_u)\text{, back out the market's}\\
+    \text{implied uncertainty } \sigma_v \text{ about the asset's fundamental value, and predict the price impact}\\
+    \text{of a fresh order-flow imbalance of } 75 \text{ shares.}
+  answer: |
+    \begin{aligned}
+    &\sigma_v = 2\lambda\sigma_u = 2(0.10)(20) = \$4\text{ (one standard deviation of fundamental-value}\\
+    &\text{uncertainty).}\\
+    &\text{Predicted price impact} = \lambda\times(\text{order flow}) = 0.10\times 75 = \$7.50\text{ move in price for}\\
+    &\text{a net order-flow imbalance of } 75 \text{ shares.}
+    \end{aligned}
+- id: economics-finance-market-microstructure-4-04
+  category: Economics & Finance
+  subtopic: Market Microstructure
+  level: 4
+  question: |
+    \text{A stock quotes } \$49.95/\$50.05 \text{ on both Venue A and Venue B. Good news instantly moves the}\\
+    \text{true value to } \$50.30\text{. Venue A updates its quote immediately to } \$50.25/\$50.35\text{, but Venue}\\
+    \text{B's feed lags by } 10\,\text{ms and still shows the stale } \$49.95/\$50.05\text{. What riskless profit per}\\
+    \text{share is available to a trader fast enough to act within that } 10\,\text{ms window, and what cost}\\
+    \text{does this impose on Venue B's resting liquidity providers?}
+  answer: |
+    \begin{aligned}
+    &\text{Buy at Venue B's stale ask of } \$50.05\text{, simultaneously sell at Venue A's updated bid of}\\
+    &\$50.25\text{: riskless profit} = 50.25-50.05 = \$0.20 \text{ per share, with certainty (not an}\\
+    &\text{expectation) since both prices are already fixed quotes at the moment of the trade.}\\
+    &\text{Venue B's resting ask of } \$50.05 \text{ gets "picked off" by the fast trader before its own}\\
+    &\text{market maker can cancel/update it --- a pure adverse-selection loss that is the direct cost of}\\
+    &\text{being the slower venue, and the economic reason market makers invest heavily in low-latency}\\
+    &\text{feeds and infrastructure.}
+    \end{aligned}
+- id: economics-finance-market-microstructure-4-05
+  category: Economics & Finance
+  subtopic: Market Microstructure
+  level: 4
+  question: |
+    \text{A stock has a float of } 10 \text{ million shares, short interest of } 4 \text{ million shares, and average}\\
+    \text{daily volume of } 1 \text{ million shares. Compute the short-interest ratio (as a \% of float) and the}\\
+    \text{days-to-cover, and explain why both being high simultaneously creates short-squeeze risk.}
+  answer: |
+    \begin{aligned}
+    &\text{Short-interest ratio} = \dfrac{\text{shares short}}{\text{float}} = \dfrac{4\text{M}}{10\text{M}} = 40\%\\
+    &\text{Days-to-cover} = \dfrac{\text{shares short}}{\text{average daily volume}} = \dfrac{4\text{M}}{1\text{M}} = 4 \text{ days}\\
+    &\text{A high short-interest ratio means a large share of the float must eventually be bought}\\
+    &\text{back; a high days-to-cover means that buying cannot happen quickly without moving the price}\\
+    &\text{sharply (it would take } 4\times \text{ the stock's normal daily volume). If the price starts rising,}\\
+    &\text{some shorts face margin calls and are forced to buy to cover, which pushes the price up}\\
+    &\text{further and forces more covering --- a self-reinforcing feedback loop (short squeeze) that is}\\
+    &\text{more severe the higher both numbers are.}
+    \end{aligned}
