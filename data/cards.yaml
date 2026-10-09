@@ -11614,3 +11614,178 @@
     \beta_p &= 0.6(1.3)+0.4(0.7) = 0.78+0.28 = 1.06\\
     \alpha_p &= 0.6(4\%)+0.4(-1\%) = 2.4\%-0.4\% = 2.0\%
     \end{aligned}
+- id: economics-finance-efficient-market-hypothesis-1-01
+  category: Economics & Finance
+  subtopic: Efficient Market Hypothesis
+  level: 1
+  question: |
+    \text{State the Efficient Market Hypothesis (EMH).}
+  answer: |
+    \text{Asset prices fully and rapidly reflect all available information, so no market participant}\\
+    \text{can consistently earn risk-adjusted returns above the market using that information --- a}\\
+    \text{stock's current price is already the best estimate of its fair value given what is known.}
+- id: economics-finance-efficient-market-hypothesis-1-02
+  category: Economics & Finance
+  subtopic: Efficient Market Hypothesis
+  level: 1
+  question: |
+    \text{Describe weak-form EMH and what it implies about technical analysis.}
+  answer: |
+    \text{Weak-form EMH: prices fully reflect all information contained in past prices and trading}\\
+    \text{volume. It implies technical analysis (chart patterns, momentum indicators built only from}\\
+    \text{price/volume history) cannot produce persistent risk-adjusted abnormal returns.}
+- id: economics-finance-efficient-market-hypothesis-1-03
+  category: Economics & Finance
+  subtopic: Efficient Market Hypothesis
+  level: 1
+  question: |
+    \text{Describe semi-strong-form EMH and what it implies about fundamental analysis.}
+  answer: |
+    \text{Semi-strong-form EMH: prices fully reflect all publicly available information (past prices,}\\
+    \text{financial statements, news, economic data). It implies fundamental analysis of public}\\
+    \text{information cannot produce persistent risk-adjusted abnormal returns, since any such}\\
+    \text{information is already impounded in the price by the time it's acted on.}
+- id: economics-finance-efficient-market-hypothesis-1-04
+  category: Economics & Finance
+  subtopic: Efficient Market Hypothesis
+  level: 1
+  question: |
+    \text{Describe strong-form EMH and what it implies about insider information. Is strong-form EMH}\\
+    \text{empirically supported?}
+  answer: |
+    \text{Strong-form EMH: prices fully reflect all information, public and private (including}\\
+    \text{corporate insider information). It implies even insiders could not earn abnormal returns}\\
+    \text{trading on non-public information. This is empirically rejected: corporate insiders and}\\
+    \text{those who trade on insider tips have been shown to earn abnormal returns, which is also why}\\
+    \text{insider trading is illegal.}
+- id: economics-finance-efficient-market-hypothesis-2-01
+  category: Economics & Finance
+  subtopic: Efficient Market Hypothesis
+  level: 2
+  question: |
+    \text{Three traders each claim an edge: Trader A profits by spotting chart patterns in past prices;}\\
+    \text{Trader B profits by reading public earnings reports before the market has digested them;}\\
+    \text{Trader C profits from a tip from a company's CFO before an earnings release. For each, state}\\
+    \text{the weakest form of EMH their profits would violate.}
+  answer: |
+    \text{Trader A uses only past price/volume data, so profiting from it violates weak-form EMH ---}\\
+    \text{and since weak-form is nested inside semi-strong and strong, it violates all three forms.}\\
+    \text{Trader B uses public information the market hasn't yet priced in, so profiting from it is}\\
+    \text{consistent with weak-form (past prices alone don't give an edge) but violates semi-strong-form}\\
+    \text{(and hence strong-form too). Trader C uses private (non-public) information, so profiting from}\\
+    \text{it is consistent with both weak- and semi-strong-form but violates only strong-form EMH.}
+- id: economics-finance-efficient-market-hypothesis-2-02
+  category: Economics & Finance
+  subtopic: Efficient Market Hypothesis
+  level: 2
+  question: |
+    \text{What is post-earnings-announcement drift (PEAD), and which form of EMH does it challenge?}
+  answer: |
+    \text{PEAD is the empirical finding that after a company reports an earnings surprise (actual}\\
+    \text{earnings far from expectations), its stock price continues to drift in the same direction as}\\
+    \text{the surprise for weeks to months afterward, instead of jumping instantly to a new fair value.}\\
+    \text{Since the earnings announcement is public information, a profitable trading rule that exploits}\\
+    \text{this predictable drift is a violation of semi-strong-form EMH.}
+- id: economics-finance-efficient-market-hypothesis-2-03
+  category: Economics & Finance
+  subtopic: Efficient Market Hypothesis
+  level: 2
+  question: |
+    \text{Is EMH the same claim as "stock prices follow a random walk"? Explain the relationship.}
+  answer: |
+    \text{Not exactly --- EMH only requires that expected returns be unpredictable } \textbf{given the}\\
+    \textbf{relevant information set}\text{, not that prices follow a literal random walk with constant}\\
+    \text{expected return. A pure random walk is one special case consistent with EMH (expected return}\\
+    \text{is a constant, so price changes are i.i.d. and unforecastable), but EMH is also consistent with}\\
+    \text{expected returns that vary over time with risk (e.g. a time-varying risk premium) as long as}\\
+    \text{those expected returns, not the unexpected surprises, are the only predictable part of the}\\
+    \text{price change --- the random walk hypothesis is a stronger, more specific claim than EMH itself.}
+- id: economics-finance-efficient-market-hypothesis-3-01
+  category: Economics & Finance
+  subtopic: Efficient Market Hypothesis
+  level: 3
+  question: |
+    \text{Explain the "joint hypothesis problem" in testing EMH.}
+  answer: |
+    \text{Market efficiency itself is not directly observable: testing whether returns are "abnormal"}\\
+    \text{requires a model of what the normal, equilibrium expected return should have been (e.g. CAPM,}\\
+    \text{a multi-factor model). Any empirical test of EMH is therefore simultaneously a test of}\\
+    \text{EMH } \textbf{and} \text{ the assumed asset-pricing model together. If the test rejects the null}\\
+    \text{(returns look abnormal), that could mean either the market is genuinely inefficient, or the}\\
+    \text{market is efficient but the assumed pricing model is misspecified (wrong risk factors or risk}\\
+    \text{premia) --- the data alone cannot distinguish between these two explanations.}
+- id: economics-finance-efficient-market-hypothesis-3-02
+  category: Economics & Finance
+  subtopic: Efficient Market Hypothesis
+  level: 3
+  question: |
+    \text{State the Grossman--Stiglitz paradox and what it implies about "perfectly" efficient markets.}
+  answer: |
+    \text{Gathering and analyzing information is costly. If prices already perfectly reflected all}\\
+    \text{information (the strongest reading of EMH), an informed trader's research would earn no}\\
+    \text{extra return over an uninformed trader's, since the information is already in the price ---}\\
+    \text{so no one would have any incentive to pay for research in the first place. But if nobody}\\
+    \text{gathers information, prices cannot aggregate it and so cannot be fully efficient. This is a}\\
+    \text{contradiction: markets cannot be perfectly informationally efficient in equilibrium. The}\\
+    \text{resolution is that markets are only efficient up to the cost of information acquisition ---}\\
+    \text{informed traders earn just enough expected excess return to compensate them for research}\\
+    \text{costs, leaving prices "efficient enough" rather than perfectly efficient.}
+- id: economics-finance-efficient-market-hypothesis-3-03
+  category: Economics & Finance
+  subtopic: Efficient Market Hypothesis
+  level: 3
+  question: |
+    \text{Momentum, value, and size are well-documented patterns where certain stocks earn persistently}\\
+    \text{higher average returns than a simple CAPM-beta model predicts. Describe the two competing}\\
+    \text{explanations for why these patterns persist, and what distinguishes them.}
+  answer: |
+    \text{Risk-based explanation: the pattern is compensation for an omitted priced risk factor (e.g. a}\\
+    \text{momentum or value factor correlated with distress risk or economic cycles) that a single-factor}\\
+    \text{CAPM fails to capture --- under this view markets are still efficient, the pricing model was}\\
+    \text{just incomplete (an instance of the joint hypothesis problem above). Behavioral/limits-to-}\\
+    \text{arbitrage explanation: the pattern reflects genuine mispricing driven by investor biases}\\
+    \text{(underreaction/overreaction, herding) that rational arbitrageurs cannot fully correct because}\\
+    \text{arbitrage is costly and risky (see limits to arbitrage). The two are distinguished empirically}\\
+    \text{by whether the extra return covaries with a plausible risk factor (supports risk-based) or}\\
+    \text{instead correlates with measures of investor sentiment/behavioral bias and arbitrage frictions}\\
+    \text{(supports behavioral) --- in practice the debate over momentum/value/size remains unresolved.}
+- id: economics-finance-efficient-market-hypothesis-4-01
+  category: Economics & Finance
+  subtopic: Efficient Market Hypothesis
+  level: 4
+  question: |
+    \text{Royal Dutch and Shell merged their cash flows in a fixed 60/40 split, so Royal Dutch shares}\\
+    \text{should always trade at exactly } \tfrac{60}{40}=1.5 \text{ times Shell's price. For years, Royal Dutch}\\
+    \text{instead traded up to 30\% away from parity. Explain, as you would in an interview, why rational}\\
+    \text{arbitrageurs didn't eliminate this obvious mispricing.}
+  answer: |
+    \text{An arbitrageur would short the overpriced share and buy the underpriced share, locking in the}\\
+    \text{spread once it converges --- in principle risk-free. In practice several frictions limit this:}\\
+    \text{(1) capital/funding constraints --- the position ties up capital and margin, and the spread can}\\
+    \text{widen further before it converges, forcing a loss if the trader is forced to close early (a}\\
+    \text{margin call); (2) noise-trader risk --- the mispricing can persist or worsen for years, so even}\\
+    \text{a "sure thing" can wipe out a leveraged trader before it pays off; (3) short-selling frictions}\\
+    \text{--- borrowing costs, availability of shares to short, and legal/institutional restrictions in}\\
+    \text{different jurisdictions raise the cost and risk of the trade. These limits to arbitrage mean}\\
+    \text{prices can deviate from fair value for a long time even when the mispricing is obvious and}\\
+    \text{the "right" trade is clear --- efficiency is bounded by how much risk-bearing capital arbitrageurs}\\
+    \text{are willing and able to deploy.}
+- id: economics-finance-efficient-market-hypothesis-4-02
+  category: Economics & Finance
+  subtopic: Efficient Market Hypothesis
+  level: 4
+  question: |
+    \text{An interviewer asks: "If markets are efficient, why do thousands of analysts and funds still}\\
+    \text{spend money trying to beat them?" Walk through the equilibrium reasoning that resolves this}\\
+    \text{apparent contradiction.}
+  answer: |
+    \text{If markets were perfectly efficient already, research would be worthless (it couldn't improve}\\
+    \text{on a price that already reflects everything), so spending money on analysts would be irrational}\\
+    \text{--- yet if everyone stopped researching, nobody would be pushing new information into prices,}\\
+    \text{and prices would stop being efficient. The resolution is an equilibrium, not a corner solution:}\\
+    \text{enough capital flows into research that the }\textit{marginal}\text{ analyst's expected profit from a new}\\
+    \text{piece of information just covers their research cost, and no more. In equilibrium, research}\\
+    \text{activity is exactly large enough to keep prices about as efficient as the cost of information}\\
+    \text{allows --- the continued existence of analysts and active funds isn't evidence against EMH, it's}\\
+    \text{the mechanism that produces (near-)efficiency in the first place, and expected profit net of}\\
+    \text{costs trends toward zero on average as more capital competes for the same mispricings.}
