@@ -12174,3 +12174,334 @@
     \text{Carlo is preferred for pricing complex, high-dimensional, or path-dependent payoffs (e.g. basket or}\\
     \text{Asian options) even though its per-path convergence is slower than PDE/binomial methods in low}\\
     \text{dimensions.}
+- id: economics-finance-greeks-1-01
+  category: Economics & Finance
+  subtopic: Greeks
+  level: 1
+  question: |
+    \text{Define the Delta of an option, and state the range it takes for a European call versus a European put.}
+  answer: |
+    \Delta = \dfrac{\partial V}{\partial S}\text{, the option price's sensitivity to a small change in the}\\
+    \text{underlying price } S\text{. For a European call, } \Delta\in[0,1] \text{ (price rises with } S\text{, saturating at 1 deep}\\
+    \text{in-the-money). For a European put, } \Delta\in[-1,0] \text{ (price falls as } S \text{ rises, saturating at } -1 \text{ deep}\\
+    \text{in-the-money).}
+- id: economics-finance-greeks-1-02
+  category: Economics & Finance
+  subtopic: Greeks
+  level: 1
+  question: |
+    \text{Define Gamma, and explain why it takes the same value for a European call and a European put with}\\
+    \text{the same strike and maturity.}
+  answer: |
+    \Gamma = \dfrac{\partial^2 V}{\partial S^2} = \dfrac{\partial \Delta}{\partial S}\text{, the rate of change of Delta as the underlying moves.}\\
+    \text{By put-call parity, } C-P=S-Ke^{-rT} \text{ for fixed } S,K,r,T\text{; differentiating twice in } S \text{ kills the linear}\\
+    \text{right-hand side, giving } \Gamma_C-\Gamma_P=0\text{, so calls and puts on the same strike/maturity always share Gamma.}
+- id: economics-finance-greeks-1-03
+  category: Economics & Finance
+  subtopic: Greeks
+  level: 1
+  question: |
+    \text{Define Vega (} \Vega \text{), and state the sign it takes for a long call and a long put.}
+  answer: |
+    \Vega = \dfrac{\partial V}{\partial \sigma}\text{, the option price's sensitivity to a change in the underlying's}\\
+    \text{volatility. Both a long call and a long put are always long volatility: more uncertainty can only}\\
+    \text{raise the probability-weighted value of an option's payoff, so } \Vega>0 \text{ for both.}
+- id: economics-finance-greeks-1-04
+  category: Economics & Finance
+  subtopic: Greeks
+  level: 1
+  question: |
+    \text{Define Theta as a sensitivity to the passage of calendar time, and state the usual sign for a long}\\
+    \text{European option position.}
+  answer: |
+    \Theta = \dfrac{\partial V}{\partial t} = -\dfrac{\partial V}{\partial T}\text{, where } T \text{ is time to maturity: the option's sensitivity to}\\
+    \text{time passing with the underlying price and volatility held fixed.}\\
+    \text{For a long European option on a non-dividend-paying stock, } \Theta \text{ is usually negative: as time passes,}\\
+    \text{less time remains for the underlying to move favorably, so (holding } S,\sigma \text{ fixed) the option loses value.}
+- id: economics-finance-greeks-1-05
+  category: Economics & Finance
+  subtopic: Greeks
+  level: 1
+  question: |
+    \text{Define Rho, and state the sign it takes for a long call versus a long put.}
+  answer: |
+    \rho = \dfrac{\partial V}{\partial r}\text{, the option price's sensitivity to the risk-free rate.}\\
+    \text{A higher } r \text{ lowers the present value of the strike paid/received at maturity, which helps a call}\\
+    \text{holder (who pays } K\text{) and hurts a put holder (who receives } K\text{): } \rho>0 \text{ for a long call, } \rho<0 \text{ for a}\\
+    \text{long put.}
+- id: economics-finance-greeks-2-01
+  category: Economics & Finance
+  subtopic: Greeks
+  level: 2
+  question: |
+    \text{Using Black-Scholes with } S=K=50,\ T=1,\ r=0.05,\ \sigma=0.2 \text{ (so } d_1=0.35,\ N(d_1)\approx0.6368\text{),}\\
+    \text{state the Delta formulas for the call and put and evaluate them.}
+  answer: |
+    \Delta_C = N(d_1) \approx 0.6368, \qquad \Delta_P = N(d_1)-1 \approx -0.3632.
+    \text{(Equivalently } \Delta_P=-N(-d_1)=-(1-0.6368)=-0.3632\text{.)}
+- id: economics-finance-greeks-2-02
+  category: Economics & Finance
+  subtopic: Greeks
+  level: 2
+  question: |
+    \text{Using the same inputs } (S=K=50,\ T=1,\ r=0.05,\ \sigma=0.2,\ d_1=0.35)\text{, state the Black-Scholes Gamma}\\
+    \text{formula and evaluate it. (Gamma is the same for the call and the put.)}
+  answer: |
+    \Gamma = \dfrac{\phi(d_1)}{S\sigma\sqrt T}, \qquad \phi(0.35)=\dfrac{1}{\sqrt{2\pi}}e^{-0.35^2/2}\approx0.3752.
+    \Gamma = \dfrac{0.3752}{50(0.2)(1)} \approx 0.0375.
+- id: economics-finance-greeks-2-03
+  category: Economics & Finance
+  subtopic: Greeks
+  level: 2
+  question: |
+    \text{Using Black-Scholes with } S=K=60,\ T=0.5,\ r=0.04,\ \sigma=0.25 \text{ (so } d_1\approx0.2015,\ \phi(d_1)\approx0.3909\text{),}\\
+    \text{state the Black-Scholes Vega formula } (\Vega) \text{ and evaluate it. (Vega is the same for the call and the put.)}
+  answer: |
+    \Vega = S\phi(d_1)\sqrt T = 60(0.3909)\sqrt{0.5} \approx 60(0.3909)(0.7071) \approx 16.59.
+    \text{(Price change per 1.00, i.e. 100 percentage points, of } \sigma\text{; per 1 vol point it's } \approx0.1659.)
+- id: economics-finance-greeks-2-04
+  category: Economics & Finance
+  subtopic: Greeks
+  level: 2
+  question: |
+    \text{Using the same inputs } (S=K=60,\ T=0.5,\ r=0.04,\ \sigma=0.25,\ d_1\approx0.2015,\ d_2\approx0.0248,\\
+    N(d_2)\approx0.5099,\ \phi(d_1)\approx0.3909)\text{, state the Theta formula for a European call (no dividends)}\\
+    \text{and evaluate it, quoted per calendar day.}
+  answer: |
+    \Theta_C = -\dfrac{S\phi(d_1)\sigma}{2\sqrt T} - rKe^{-rT}N(d_2).
+    \Theta_C = -\dfrac{60(0.3909)(0.25)}{2\sqrt{0.5}} - (0.04)(60)e^{-0.02}(0.5099) \approx -4.147 - 1.200 \approx -5.35 \text{ per year.}
+    \text{Per calendar day: } \Theta_C/365 \approx -0.0146\text{, i.e. the call loses about \$0.0146 per day, all else equal.}
+- id: economics-finance-greeks-2-05
+  category: Economics & Finance
+  subtopic: Greeks
+  level: 2
+  question: |
+    \text{Using the same inputs as the Theta card above, state the Rho formula for a European call and evaluate it.}
+  answer: |
+    \rho_C = KTe^{-rT}N(d_2) = 60(0.5)e^{-0.02}(0.5099) \approx 30(0.9802)(0.5099) \approx 14.99.
+    \text{A 1 percentage point } (0.01) \text{ rise in } r \text{ raises the call's price by about } 14.99\times0.01\approx\$0.15.
+- id: economics-finance-greeks-2-06
+  category: Economics & Finance
+  subtopic: Greeks
+  level: 2
+  question: |
+    \text{A desk holds: long 200 calls with Delta } 0.6\text{, short 150 puts with Delta } -0.4\text{, and long 300 shares.}\\
+    \text{Find the portfolio's net Delta, and the number of shares to trade to make the portfolio delta-neutral.}
+  answer: |
+    \text{Net Delta} = 200(0.6) + (-150)(-0.4) + 300(1) = 120 + 60 + 300 = 480.
+    \text{(Shorting 150 puts flips the sign of their Delta contribution, since shorting an option negates its Delta.)}
+    \text{To delta-hedge, trade } -480 \text{ shares, i.e. sell 480 shares, bringing the net Delta to } 480-480=0.
+- id: economics-finance-greeks-3-01
+  category: Economics & Finance
+  subtopic: Greeks
+  level: 3
+  question: |
+    \text{Derive } \Delta_C=\partial C/\partial S=N(d_1) \text{ from the Black-Scholes call price } C=SN(d_1)-Ke^{-rT}N(d_2)\text{,}\\
+    \text{showing that the terms arising from differentiating } N(d_1) \text{ and } N(d_2) \text{ through } S \text{ cancel.}
+  answer: |
+    \begin{aligned}
+    &C = SN(d_1)-Ke^{-rT}N(d_2), \qquad d_1=\dfrac{\ln(S/K)+(r+\sigma^2/2)T}{\sigma\sqrt T}, \qquad d_2=d_1-\sigma\sqrt T. \\
+    &\text{Differentiate w.r.t. } S\text{, using } \partial d_1/\partial S=\partial d_2/\partial S=\dfrac{1}{S\sigma\sqrt T} \text{ (since } d_1,d_2 \text{ differ by a constant):} \\
+    &\dfrac{\partial C}{\partial S} = N(d_1) + S\phi(d_1)\dfrac{\partial d_1}{\partial S} - Ke^{-rT}\phi(d_2)\dfrac{\partial d_2}{\partial S} \\
+    &= N(d_1) + \dfrac{1}{S\sigma\sqrt T}\Big(S\phi(d_1)-Ke^{-rT}\phi(d_2)\Big). \\
+    &\text{Claim the bracket vanishes: } S\phi(d_1)=Ke^{-rT}\phi(d_2). \text{ Using } \phi(x)=\tfrac{1}{\sqrt{2\pi}}e^{-x^2/2} \text{ and } d_1=d_2+\sigma\sqrt T\text{:} \\
+    &\phi(d_1) = \phi(d_2)\,e^{-\sigma\sqrt T\,d_2-\sigma^2T/2}. \\
+    &\text{Substituting } d_2 = \dfrac{\ln(S/K)+(r-\sigma^2/2)T}{\sigma\sqrt T}\text{: } \sigma\sqrt T\,d_2 = \ln(S/K)+(r-\sigma^2/2)T\text{, so} \\
+    &e^{-\sigma\sqrt T\,d_2} = \dfrac{K}{S}e^{-(r-\sigma^2/2)T}, \quad\text{giving } \phi(d_1) = \phi(d_2)\dfrac{K}{S}e^{-rT}e^{\sigma^2T/2}e^{-\sigma^2T/2} = \phi(d_2)\dfrac{K}{S}e^{-rT}. \\
+    &\text{Hence } S\phi(d_1)=Ke^{-rT}\phi(d_2)\text{, the bracket is } 0\text{, and } \Delta_C=\dfrac{\partial C}{\partial S} = N(d_1).
+    \end{aligned}
+- id: economics-finance-greeks-3-02
+  category: Economics & Finance
+  subtopic: Greeks
+  level: 3
+  question: |
+    \text{Starting from put-call parity } C-P=S-Ke^{-rT}\text{, derive the relationships between the call and put}\\
+    \text{Delta, Gamma, Vega, Theta and Rho.}
+  answer: |
+    \begin{aligned}
+    &\text{Differentiate } C-P=S-Ke^{-rT} \text{ with respect to each Greek's variable, holding the others fixed.} \\
+    &\textbf{Delta } (\partial/\partial S)\text{: } \Delta_C-\Delta_P = 1 \ \Rightarrow\ \Delta_P=\Delta_C-1. \\
+    &\textbf{Gamma } (\partial^2/\partial S^2)\text{: differentiating again, the linear right side vanishes: } \Gamma_C-\Gamma_P=0 \ \Rightarrow\ \Gamma_C=\Gamma_P. \\
+    &\textbf{Vega } (\partial/\partial\sigma)\text{: the right side has no } \sigma\text{, so } \Vega_C-\Vega_P=0 \ \Rightarrow\ \Vega_C=\Vega_P. \\
+    &\textbf{Theta } (\Theta=-\partial/\partial T\text{, with } S \text{ fixed)}\text{: } \dfrac{\partial}{\partial T}\big(S-Ke^{-rT}\big) = rKe^{-rT}\text{, so } -\Theta_C-(-\Theta_P)=rKe^{-rT}\text{,} \\
+    &\text{i.e. } \Theta_C = \Theta_P - rKe^{-rT}. \\
+    &\textbf{Rho } (\partial/\partial r)\text{: } \dfrac{\partial}{\partial r}\big(S-Ke^{-rT}\big) = KTe^{-rT}\text{, so } \rho_C-\rho_P=KTe^{-rT} \ \Rightarrow\ \rho_C=\rho_P+KTe^{-rT}. \\
+    &\text{Delta, Gamma and Vega are shared between call and put; Theta and Rho differ by exactly the}\\
+    &\text{discounted-strike term from parity.}
+    \end{aligned}
+- id: economics-finance-greeks-3-03
+  category: Economics & Finance
+  subtopic: Greeks
+  level: 3
+  question: |
+    \text{The Black-Scholes PDE for any derivative } V(t,S) \text{ priced under no-arbitrage is}\\
+    \dfrac{\partial V}{\partial t} + rS\dfrac{\partial V}{\partial S}+\tfrac12\sigma^2S^2\dfrac{\partial^2V}{\partial S^2} - rV=0\\
+    \text{(derived via Ito's lemma and a delta-hedged portfolio). Rewrite this PDE purely in terms of the}\\
+    \text{Greeks } \Theta,\Delta,\Gamma\text{, and interpret what the identity says about a delta-hedged option position.}
+  answer: |
+    \begin{aligned}
+    &\text{Substituting } \Theta=\partial V/\partial t,\ \Delta=\partial V/\partial S,\ \Gamma=\partial^2V/\partial S^2\text{ directly into the PDE:} \\
+    &\Theta + rS\Delta + \tfrac12\sigma^2S^2\Gamma = rV. \\
+    &\text{Interpretation: consider the delta-hedged portfolio } \Pi=V-\Delta S \text{ (long the option, short } \Delta \text{ shares).}\\
+    &\text{Its instantaneous rate of change from time decay and curvature alone is } \Theta+\tfrac12\sigma^2S^2\Gamma \text{ (the } rS\Delta\\
+    &\text{term is exactly the financing cost of the hedge, and cancels in } r\Pi=r(V-\Delta S)\text{). The identity says this}\\
+    &\text{hedged, riskless portfolio must earn exactly the risk-free return } r\Pi\text{: } \Theta+\tfrac12\sigma^2S^2\Gamma = rV-rS\Delta=r\Pi. \\
+    &\text{In particular, Theta and Gamma move in opposite directions for a delta-hedged position (high positive}\\
+    &\text{Gamma must be paired with correspondingly negative Theta, and vice versa) --- the "Theta decay pays for}\\
+    &\text{Gamma" tradeoff options traders refer to.}
+    \end{aligned}
+- id: economics-finance-greeks-3-04
+  category: Economics & Finance
+  subtopic: Greeks
+  level: 3
+  question: |
+    \text{Using the Black-Scholes Gamma and Vega formulas } \Gamma=\dfrac{\phi(d_1)}{S\sigma\sqrt T} \text{ and } \Vega=S\phi(d_1)\sqrt T\text{,}\\
+    \text{derive a closed-form relationship expressing Vega purely in terms of Gamma (and } S,\sigma,T\text{).}
+  answer: |
+    \begin{aligned}
+    &\text{From } \Gamma=\dfrac{\phi(d_1)}{S\sigma\sqrt T}\text{, solve for } \phi(d_1)=\Gamma S\sigma\sqrt T. \\
+    &\text{Substitute into } \Vega=S\phi(d_1)\sqrt T\text{:} \\
+    &\Vega = S\big(\Gamma S\sigma\sqrt T\big)\sqrt T = \Gamma\,S^2\sigma T. \\
+    &\text{So } \Vega=\Gamma S^2\sigma T\text{: Vega and Gamma are proportional (same sign, both same for call/put), with the}\\
+    &\text{proportionality constant } S^2\sigma T \text{ growing with the underlying's price level, volatility, and time to}\\
+    &\text{maturity --- a long-Gamma position is automatically long Vega too, scaled by this factor.}
+    \end{aligned}
+- id: economics-finance-greeks-3-05
+  category: Economics & Finance
+  subtopic: Greeks
+  level: 3
+  question: |
+    \text{Define Vanna (} \partial\Delta/\partial\sigma=\partial\Vega/\partial S\text{) and Volga (} \partial\Vega/\partial\sigma\text{), and derive their Black-Scholes}\\
+    \text{closed forms from } \Delta=N(d_1) \text{ and } \Vega=S\phi(d_1)\sqrt T.
+  answer: |
+    \begin{aligned}
+    &\textbf{Vanna: } \text{Differentiate } \Delta=N(d_1) \text{ with respect to } \sigma\text{: } \text{Vanna}=\phi(d_1)\dfrac{\partial d_1}{\partial\sigma}. \\
+    &\text{Writing } d_1=\dfrac{\ln(S/K)+rT}{\sigma\sqrt T}+\tfrac12\sigma\sqrt T =: \dfrac{A}{\sigma\sqrt T}+\tfrac12\sigma\sqrt T \text{ (with } A \text{ constant in } \sigma\text{):} \\
+    &\dfrac{\partial d_1}{\partial\sigma} = -\dfrac{A}{\sigma^2\sqrt T}+\tfrac12\sqrt T. \text{ Since } A/(\sigma\sqrt T)=d_1-\tfrac12\sigma\sqrt T\text{, this simplifies to } -\dfrac{d_1}{\sigma}+\sqrt T. \\
+    &\text{Using } d_2=d_1-\sigma\sqrt T \ \Rightarrow\ d_1=d_2+\sigma\sqrt T\text{: } -\dfrac{d_1}{\sigma}+\sqrt T = -\dfrac{d_2+\sigma\sqrt T}{\sigma}+\sqrt T = -\dfrac{d_2}{\sigma}. \\
+    &\text{So } \dfrac{\partial d_1}{\partial\sigma}=-\dfrac{d_2}{\sigma}\text{, giving } \text{Vanna} = -\dfrac{\phi(d_1)\,d_2}{\sigma}. \\
+    &\textbf{Volga: } \text{Differentiate } \Vega=S\phi(d_1)\sqrt T \text{ with respect to } \sigma\text{, using } \phi'(x)=-x\phi(x)\text{:} \\
+    &\text{Volga} = S\sqrt T\,\phi'(d_1)\dfrac{\partial d_1}{\partial\sigma} = S\sqrt T\big({-d_1\phi(d_1)}\big)\Big({-\dfrac{d_2}{\sigma}}\Big) = \dfrac{S\phi(d_1)\sqrt T\,d_1d_2}{\sigma} = \dfrac{\Vega\,d_1d_2}{\sigma}. \\
+    &\text{Both are the same for calls and puts (since } \Delta_P=\Delta_C-1 \text{ differs by a constant, so } \partial\Delta_P/\partial\sigma=\partial\Delta_C/\partial\sigma\text{,}\\
+    &\text{and Vega is already shared).}
+    \end{aligned}
+- id: economics-finance-greeks-3-06
+  category: Economics & Finance
+  subtopic: Greeks
+  level: 3
+  question: |
+    \text{Let } V(t,S,\sigma) \text{ be an option's price. Using a Taylor expansion (second order in } S\text{, first order}\\
+    \text{in } t \text{ and } \sigma\text{), derive the standard Delta-Gamma-Theta-Vega approximation for the option's P\&L}\\
+    \delta V \text{ over a small move } \delta S \text{ in the underlying, } \delta t \text{ in time, and } \delta\sigma \text{ in volatility.}
+  answer: |
+    \begin{aligned}
+    &\text{Taylor-expand } V(t+\delta t,\,S+\delta S,\,\sigma+\delta\sigma) \text{ around } (t,S,\sigma)\text{, first order in } t,\sigma \text{ (theta/vega}\\
+    &\text{effects are approximately linear over small } \delta t,\delta\sigma\text{) and second order in } S \text{ (curvature, i.e. Gamma,}\\
+    &\text{is often the dominant correction even for a modest } \delta S\text{):} \\
+    &\delta V \approx \dfrac{\partial V}{\partial S}\delta S + \tfrac12\dfrac{\partial^2V}{\partial S^2}(\delta S)^2 + \dfrac{\partial V}{\partial t}\delta t + \dfrac{\partial V}{\partial\sigma}\delta\sigma + O\big((\delta S)^3,(\delta t)^2,(\delta\sigma)^2\big). \\
+    &\text{Substituting the Greek definitions } \Delta=\partial V/\partial S,\ \Gamma=\partial^2V/\partial S^2,\ \Theta=\partial V/\partial t,\ \Vega=\partial V/\partial\sigma\text{:} \\
+    &\delta V \approx \Delta\,\delta S + \tfrac12\Gamma(\delta S)^2 + \Theta\,\delta t + \Vega\,\delta\sigma. \\
+    &\text{(Cross terms like Vanna}\cdot\delta S\,\delta\sigma \text{ are dropped as second-order in the small changes; they matter}\\
+    &\text{only when } \delta S,\delta\sigma \text{ are both large or Vanna is unusually large.)}
+    \end{aligned}
+- id: economics-finance-greeks-4-01
+  category: Economics & Finance
+  subtopic: Greeks
+  level: 4
+  question: |
+    \text{A trader sells 1 option and delta-hedges continuously by holding } \Delta \text{ shares, financing the hedge at}\\
+    \text{the risk-free rate } r \text{ (so the hedged position } \Pi=V-\Delta S \text{ is self-financing). Using Ito's lemma for}\\
+    dV \text{ and the Black-Scholes PDE } \Theta+rS\Delta+\tfrac12\sigma^2S^2\Gamma=rV \text{ (with } \sigma \text{ the option's implied}\\
+    \text{volatility used to price and hedge it), show that the hedged position's P\&L over a small time } dt\\
+    \text{is } \tfrac12\Gamma S^2(\sigma_R^2-\sigma^2)\,dt\text{, where } \sigma_R \text{ is the stock's realized instantaneous volatility.}
+  answer: |
+    \begin{aligned}
+    &\text{By Ito's lemma, } dV=\Theta\,dt+\Delta\,dS+\tfrac12\Gamma(dS)^2. \\
+    &\text{The hedged position's P\&L over } dt\text{, after paying the financing cost } r\Pi\,dt=r(V-\Delta S)\,dt \text{ on the}\\
+    &\text{cash used to buy/short the } \Delta \text{ shares, is:} \\
+    &\text{P\&L} = dV - \Delta\,dS - r(V-\Delta S)\,dt = \Theta\,dt + \tfrac12\Gamma(dS)^2 - r(V-\Delta S)\,dt. \\
+    &\text{Rearrange the Black-Scholes PDE: } \Theta - r(V-S\Delta) = \Theta-rV+rS\Delta = -\tfrac12\sigma^2S^2\Gamma. \\
+    &\text{Substituting:} \\
+    &\text{P\&L} = -\tfrac12\sigma^2S^2\Gamma\,dt + \tfrac12\Gamma(dS)^2. \\
+    &\text{The stock's realized instantaneous variance is defined by } (dS)^2=\sigma_R^2S^2\,dt\text{, so:} \\
+    &\text{P\&L} = \tfrac12\Gamma S^2\big(\sigma_R^2-\sigma^2\big)\,dt. \\
+    &\text{Interpretation: a delta-hedged long-Gamma position (long option) profits when realized volatility exceeds}\\
+    &\text{the implied volatility used to price and hedge it, and loses when realized vol falls short --- the P\&L of}\\
+    &\text{"gamma scalping" is a direct bet on realized vs. implied volatility, independent of the direction of } dS.
+    \end{aligned}
+- id: economics-finance-greeks-4-02
+  category: Economics & Finance
+  subtopic: Greeks
+  level: 4
+  question: |
+    \text{A desk holds 100 long calls (Option A) with } \Delta_A=0.6,\ \Gamma_A=0.04\text{. It wants to hedge using the}\\
+    \text{underlying stock plus a second option (Option B) with } \Delta_B=0.5,\ \Gamma_B=0.08\text{, so that the combined}\\
+    \text{position's Delta and Gamma are both zero. Find the required number of units of Option B and shares.}
+  answer: |
+    \begin{aligned}
+    &\text{Let } n_B \text{ units of Option B and } n_S \text{ shares be added. The stock contributes Delta } 1 \text{ and Gamma } 0 \text{ per}\\
+    &\text{share, so the two neutrality conditions are:} \\
+    &\text{Gamma: } 100\Gamma_A + n_B\Gamma_B = 0 \ \Rightarrow\ n_B = -\dfrac{100(0.04)}{0.08} = -50 \quad (\text{sell 50 units of Option B}). \\
+    &\text{Delta: } 100\Delta_A + n_B\Delta_B + n_S = 0 \ \Rightarrow\ n_S = -\big(100(0.6)+(-50)(0.5)\big) = -(60-25) = -35. \\
+    &\text{Sell 50 units of Option B and sell 35 shares of the underlying. (Gamma must be neutralized first, using}\\
+    &\text{only the other option since stock has zero Gamma; Delta is then neutralized last, using the stock, since}\\
+    &\text{adding stock doesn't disturb the Gamma just fixed.)}
+    \end{aligned}
+- id: economics-finance-greeks-4-03
+  category: Economics & Finance
+  subtopic: Greeks
+  level: 4
+  question: |
+    \text{A trader buys an at-the-money straddle (1 call + 1 put, same strike } K=S\text{, same maturity). Using}\\
+    \Delta_C=N(d_1),\ \Delta_P=N(d_1)-1\text{, and noting } \phi(d_1) \text{ is the standard normal pdf, explain why the}\\
+    \text{straddle's Delta is approximately zero while its Gamma and Vega are close to their largest possible values.}
+  answer: |
+    \begin{aligned}
+    &\textbf{Delta: } \Delta_C+\Delta_P = N(d_1)+\big(N(d_1)-1\big) = 2N(d_1)-1. \text{ At the money, } d_1=\dfrac{(r+\sigma^2/2)T}{\sigma\sqrt T}\\
+    &\text{is small for short-dated options, so } N(d_1)\approx N(0)=0.5 \text{ and the straddle's Delta } \approx 2(0.5)-1=0\text{:}\\
+    &\text{the position is (nearly) directionless, a pure bet on the size of the move rather than its sign.} \\
+    &\textbf{Gamma \& Vega: } \text{both calls and puts share the same Gamma } \phi(d_1)/(S\sigma\sqrt T) \text{ and Vega } S\phi(d_1)\sqrt T\text{, so}\\
+    &\text{the straddle doubles each. Since } \phi(x)=\tfrac{1}{\sqrt{2\pi}}e^{-x^2/2} \text{ is maximized at } x=0\text{, and } d_1\approx0 \text{ at}\\
+    &\text{the money, } \phi(d_1) \text{ is at (or very near) its peak value } \phi(0)\approx0.3989 \text{ --- the largest it can be for any}\\
+    &\text{strike --- making the at-the-money straddle the position with the largest Gamma and Vega exposure per}\\
+    &\text{option, the classic structure for expressing a pure view on volatility.}
+    \end{aligned}
+- id: economics-finance-greeks-4-04
+  category: Economics & Finance
+  subtopic: Greeks
+  level: 4
+  question: |
+    \text{Give an example of a European option where Theta (} \partial V/\partial t\text{) is positive (the option gains value}\\
+    \text{purely from time passing, holding } S,\sigma \text{ fixed), and explain why, using put-call parity.}
+  answer: |
+    \begin{aligned}
+    &\text{Consider a deep in-the-money European put on a non-dividend-paying stock, with } S\ll K\text{. Being deep}\\
+    &\text{ITM, it is nearly certain to be exercised, so its extrinsic value is tiny and } P\approx Ke^{-rT}-S \text{ (the}\\
+    &\text{discounted strike minus the stock, from put-call parity } P=C-S+Ke^{-rT} \text{ with } C\approx0 \text{ since the call is}\\
+    &\text{deep out-of-the-money).} \\
+    &\text{As calendar time passes (} T \text{ decreases, holding } S,\sigma \text{ fixed), } e^{-rT} \text{ increases toward } 1\text{, so } Ke^{-rT}\\
+    &\text{increases toward } K\text{: the present value of the strike the put holder will receive at exercise rises as}\\
+    &\text{the wait shortens. Since } C\approx0 \text{ throughout (it stays deep OTM), } P\approx Ke^{-rT}-S \text{ increases too, so} \\
+    &\Theta_P = \partial P/\partial t > 0\text{: this put gains value purely from time passing, the opposite of the usual}\\
+    &\text{"options decay over time" intuition, which only holds reliably when extrinsic value dominates.}
+    \end{aligned}
+- id: economics-finance-greeks-4-05
+  category: Economics & Finance
+  subtopic: Greeks
+  level: 4
+  question: |
+    \text{Explain, using the Black-Scholes Gamma formula } \Gamma=\phi(d_1)/(S\sigma\sqrt T)\text{, why an at-the-money option's}\\
+    \text{Gamma grows without bound as it approaches expiration, and why this creates "pin risk" for a trader}\\
+    \text{who is delta-hedging it.}
+  answer: |
+    \begin{aligned}
+    &\text{At the money, } S=K\text{, so } \ln(S/K)=0 \text{ and } d_1=\dfrac{(r+\sigma^2/2)T}{\sigma\sqrt T} = \dfrac{(r+\sigma^2/2)\sqrt T}{\sigma} \to 0 \text{ as } T\to0. \\
+    &\text{So } \phi(d_1)\to\phi(0)\approx0.3989 \text{ stays bounded, while the denominator } S\sigma\sqrt T\to0\text{. Hence} \\
+    &\Gamma = \dfrac{\phi(d_1)}{S\sigma\sqrt T} \to \infty \text{ as } T\to0 \text{ for a strike at or very near the current stock price.} \\
+    &\text{Pin risk: Delta} = N(d_1) \text{ swings almost discontinuously between } \approx0 \text{ (just out-of-the-money) and}\\
+    &\approx1 \text{ (just in-the-money) for a tiny move in } S \text{ around } K \text{ right before expiry, since Gamma --- the rate}\\
+    &\text{Delta changes --- is exploding. A trader delta-hedging an at-the-money option into expiration can't}\\
+    &\text{keep the hedge ratio stable: the required hedge (0 or 1 share) depends on whether the stock pins just}\\
+    &\text{above or just below the strike at the close, a coin-flip the trader cannot continuously rehedge against,}\\
+    &\text{creating outsized, hard-to-manage P\&L risk right at expiration.}
+    \end{aligned}
