@@ -12505,3 +12505,386 @@
     &\text{above or just below the strike at the close, a coin-flip the trader cannot continuously rehedge against,}\\
     &\text{creating outsized, hard-to-manage P\&L risk right at expiration.}
     \end{aligned}
+- id: economics-finance-option-portfolios-1-01
+  category: Economics & Finance
+  subtopic: Option Portfolios
+  level: 1
+  question: |
+    \text{Describe how a covered call is constructed, and state the market view/motivation behind it.}
+  answer: |
+    \text{Long 1 share of stock + short 1 call option on it (same expiration). Motivation: generate extra income}\\
+    \text{from the premium received, appropriate when moderately bullish or neutral on the stock. It caps the}\\
+    \text{upside if the stock rallies past the strike (the shares get called away at } K\text{), while the premium}\\
+    \text{received cushions --- but does not eliminate --- the downside if the stock falls.}
+- id: economics-finance-option-portfolios-1-02
+  category: Economics & Finance
+  subtopic: Option Portfolios
+  level: 1
+  question: |
+    \text{Describe how a protective put ("married put") is constructed, and its motivation.}
+  answer: |
+    \text{Long 1 share of stock + long 1 put option on it (same expiration). Motivation: downside insurance ---}\\
+    \text{caps the maximum loss on the stock (to } S_0-K \text{ plus the premium paid), while leaving the upside}\\
+    \text{completely uncapped. The put premium is the cost of this insurance, paid regardless of whether the}\\
+    \text{put is ever exercised.}
+- id: economics-finance-option-portfolios-1-03
+  category: Economics & Finance
+  subtopic: Option Portfolios
+  level: 1
+  question: |
+    \text{Describe how a bull call spread is constructed, and state the market view/motivation behind it.}
+  answer: |
+    \text{Long 1 call at a lower strike } K_1 \text{ + short 1 call at a higher strike } K_2>K_1 \text{ (same expiration): a net}\\
+    \text{debit, since the lower-strike call is more expensive than the higher-strike call. Motivation:}\\
+    \text{moderately bullish --- reduces the cost of a pure long call (vs. buying the } K_1 \text{ call alone) in}\\
+    \text{exchange for giving up any gains above } K_2.
+- id: economics-finance-option-portfolios-1-04
+  category: Economics & Finance
+  subtopic: Option Portfolios
+  level: 1
+  question: |
+    \text{Describe how a bear put spread is constructed, and state the market view/motivation behind it.}
+  answer: |
+    \text{Long 1 put at a higher strike } K_2 \text{ + short 1 put at a lower strike } K_1<K_2 \text{ (same expiration): a net}\\
+    \text{debit, since the higher-strike put is more expensive than the lower-strike put. Motivation:}\\
+    \text{moderately bearish --- cheaper than a naked long put, in exchange for giving up any further gains}\\
+    \text{below } K_1.
+- id: economics-finance-option-portfolios-1-05
+  category: Economics & Finance
+  subtopic: Option Portfolios
+  level: 1
+  question: |
+    \text{Describe how a long straddle is constructed, and state the market view/motivation behind it.}
+  answer: |
+    \text{Long 1 call + long 1 put, same strike } K \text{ (usually at-the-money) and same expiration. Motivation: bet}\\
+    \text{on a large move in the underlying, in either direction --- the trader doesn't need to know which way}\\
+    \text{the stock will move, only that it will move by more than the combined premium paid. The maximum loss}\\
+    \text{(the combined premium) occurs if the stock finishes exactly at } K.
+- id: economics-finance-option-portfolios-1-06
+  category: Economics & Finance
+  subtopic: Option Portfolios
+  level: 1
+  question: |
+    \text{Describe how a long strangle is constructed, and contrast it with a long straddle.}
+  answer: |
+    \text{Long 1 out-of-the-money call (strike } K_2>S \text{) + long 1 out-of-the-money put (strike } K_1<S \text{), same}\\
+    \text{expiration. Like a straddle, it bets on a large move in either direction, but because both legs are}\\
+    \text{bought out-of-the-money it costs less than an at-the-money straddle --- at the cost of needing an}\\
+    \text{even larger move past } K_1 \text{ or } K_2 \text{ to turn a profit.}
+- id: economics-finance-option-portfolios-1-07
+  category: Economics & Finance
+  subtopic: Option Portfolios
+  level: 1
+  question: |
+    \text{Describe how a collar is constructed, and state the market view/motivation behind it.}
+  answer: |
+    \text{Long 1 share of stock + long 1 put at strike } K_1 \text{ + short 1 call at strike } K_2>K_1 \text{ (same expiration).}\\
+    \text{Motivation: protect an existing stock holding from downside below } K_1\text{, financing some or all of the}\\
+    \text{put's cost with the premium received from selling the call, at the cost of giving up any upside above}\\
+    K_2\text{ --- cheaper (or free) downside insurance than a protective put alone.}
+- id: economics-finance-option-portfolios-1-08
+  category: Economics & Finance
+  subtopic: Option Portfolios
+  level: 1
+  question: |
+    \text{Describe how a (call) butterfly spread is constructed, and state the market view/motivation behind it.}
+  answer: |
+    \text{Long 1 call at a low strike } K_1 \text{ + short 2 calls at a middle strike } K_2 \text{ + long 1 call at a high strike}\\
+    K_3\text{, all the same expiration, typically with } K_2 \text{ equally spaced between } K_1 \text{ and } K_3\text{. Motivation: bet}\\
+    \text{that the stock will finish near } K_2 \text{ at expiration (a low-realized-volatility, "pinning" view) --- both}\\
+    \text{the maximum profit and maximum loss are small and strictly limited, unlike a straddle/strangle.}
+- id: economics-finance-option-portfolios-2-01
+  category: Economics & Finance
+  subtopic: Option Portfolios
+  level: 2
+  question: |
+    \text{A trader owns stock bought at } S_0=45 \text{ and sells 1 call with strike } K=50 \text{ for a premium of } 2\text{. Find}\\
+    \text{the position's max profit, max loss, and breakeven stock price at expiration.}
+  answer: |
+    \begin{aligned}
+    &\text{Max profit (if } S_T\ge K\text{, stock called away): } (K-S_0)+\text{premium} = (50-45)+2 = 7. \\
+    &\text{Max loss (as } S_T\to0\text{): } -(S_0-\text{premium}) = -(45-2) = -43. \\
+    &\text{Breakeven: } S_0-\text{premium} = 45-2 = 43 \text{ (below this, the stock's loss exceeds the premium cushion).}
+    \end{aligned}
+- id: economics-finance-option-portfolios-2-02
+  category: Economics & Finance
+  subtopic: Option Portfolios
+  level: 2
+  question: |
+    \text{A trader owns stock at } S_0=45 \text{ and buys 1 put with strike } K=40 \text{ for a premium of } 1.5\text{. Find the}\\
+    \text{position's floor (max loss), the cost of the insurance, and the breakeven stock price.}
+  answer: |
+    \begin{aligned}
+    &\text{Floor (max loss, for } S_T\le K\text{): } -\big((S_0-K)+\text{premium}\big) = -\big((45-40)+1.5\big) = -6.5. \\
+    &\text{Cost of insurance} = \text{premium} = 1.5. \\
+    &\text{Breakeven} = S_0+\text{premium} = 45+1.5 = 46.5 \text{ (upside stays uncapped above this).}
+    \end{aligned}
+- id: economics-finance-option-portfolios-2-03
+  category: Economics & Finance
+  subtopic: Option Portfolios
+  level: 2
+  question: |
+    \text{A bull call spread buys the } K_1=50 \text{ call for } 6 \text{ and sells the } K_2=60 \text{ call for } 2\text{. Find the net debit,}\\
+    \text{max profit, max loss, and breakeven.}
+  answer: |
+    \begin{aligned}
+    &\text{Net debit} = 6-2 = 4. \\
+    &\text{Max profit (} S_T\ge K_2\text{)} = (K_2-K_1)-\text{debit} = 10-4 = 6. \\
+    &\text{Max loss (} S_T\le K_1\text{)} = -\text{debit} = -4. \\
+    &\text{Breakeven} = K_1+\text{debit} = 50+4 = 54.
+    \end{aligned}
+- id: economics-finance-option-portfolios-2-04
+  category: Economics & Finance
+  subtopic: Option Portfolios
+  level: 2
+  question: |
+    \text{A bear put spread buys the } K_2=60 \text{ put for } 7 \text{ and sells the } K_1=50 \text{ put for } 3\text{. Find the net debit,}\\
+    \text{max profit, max loss, and breakeven.}
+  answer: |
+    \begin{aligned}
+    &\text{Net debit} = 7-3 = 4. \\
+    &\text{Max profit (} S_T\le K_1\text{)} = (K_2-K_1)-\text{debit} = 10-4 = 6. \\
+    &\text{Max loss (} S_T\ge K_2\text{)} = -\text{debit} = -4. \\
+    &\text{Breakeven} = K_2-\text{debit} = 60-4 = 56.
+    \end{aligned}
+- id: economics-finance-option-portfolios-2-05
+  category: Economics & Finance
+  subtopic: Option Portfolios
+  level: 2
+  question: |
+    \text{A straddle at } K=50 \text{ costs } 3 \text{ for the call and } 2.5 \text{ for the put. Find the total cost and both}\\
+    \text{breakeven stock prices.}
+  answer: |
+    \begin{aligned}
+    &\text{Total cost} = 3+2.5 = 5.5. \\
+    &\text{Breakevens: } K-\text{cost} = 50-5.5=44.5 \quad\text{and}\quad K+\text{cost} = 50+5.5=55.5. \\
+    &\text{Profitable if } S_T<44.5 \text{ or } S_T>55.5.
+    \end{aligned}
+- id: economics-finance-option-portfolios-2-06
+  category: Economics & Finance
+  subtopic: Option Portfolios
+  level: 2
+  question: |
+    \text{A stock trades at } 50\text{. A strangle buys the } K_1=45 \text{ put for } 1.2 \text{ and the } K_2=55 \text{ call for } 1.5\text{. Find}\\
+    \text{the total cost and both breakevens, and compare the required move to the straddle above (cost } 5.5\text{,}\\
+    \text{breakevens } 44.5/55.5\text{).}
+  answer: |
+    \begin{aligned}
+    &\text{Total cost} = 1.2+1.5 = 2.7. \\
+    &\text{Breakevens: } K_1-\text{cost} = 45-2.7=42.3 \quad\text{and}\quad K_2+\text{cost} = 55+2.7=57.7. \\
+    &\text{Distance from spot needed to profit: } 100-42.3=7.7 \text{ (or } 57.7-50=7.7\text{) vs. the straddle's } 5.5\text{.}\\
+    &\text{The strangle is cheaper (2.7 vs. 5.5) but needs a bigger move to break even (7.7 vs. 5.5) --- the}\\
+    &\text{standard cost-vs-required-move tradeoff between the two structures.}
+    \end{aligned}
+- id: economics-finance-option-portfolios-2-07
+  category: Economics & Finance
+  subtopic: Option Portfolios
+  level: 2
+  question: |
+    \text{A collar on stock held at } S_0=50 \text{ buys the } K_1=45 \text{ put for } 1.8 \text{ and sells the } K_2=55 \text{ call for } 1.6\text{.}\\
+    \text{Find the net cost, the capped max profit, and the floor max loss.}
+  answer: |
+    \begin{aligned}
+    &\text{Net cost} = 1.8-1.6 = 0.2 \text{ (a small debit).} \\
+    &\text{Max profit (} S_T\ge K_2\text{)} = (K_2-S_0)-\text{net cost} = (55-50)-0.2 = 4.8. \\
+    &\text{Max loss (} S_T\le K_1\text{)} = -\big((S_0-K_1)+\text{net cost}\big) = -\big((50-45)+0.2\big) = -5.2. \\
+    &\text{Between } K_1 \text{ and } K_2\text{, P\&L} = (S_T-S_0)-\text{net cost}\text{, tracking the stock minus the small net cost.}
+    \end{aligned}
+- id: economics-finance-option-portfolios-2-08
+  category: Economics & Finance
+  subtopic: Option Portfolios
+  level: 2
+  question: |
+    \text{A call butterfly uses } K_1=45 \text{ (long, premium } 7\text{), } K_2=50 \text{ (short } \times2\text{, premium } 4 \text{ each), and}\\
+    K_3=55 \text{ (long, premium } 2\text{). Find the net debit and the payoff at } S_T=45,\,50,\,55\text{, and hence the}\\
+    \text{max profit and max loss.}
+  answer: |
+    \begin{aligned}
+    &\text{Net debit} = 7-2(4)+2 = 7-8+2 = 1. \\
+    &\text{Payoff at } S_T=45\text{: } \max(0,0)-2\max(-5,0)+\max(-10,0) = 0-0+0=0. \quad\text{Profit} = 0-1=-1. \\
+    &\text{Payoff at } S_T=50\text{: } (50-45)-2(0)+0 = 5. \quad\text{Profit} = 5-1=4 \quad(\text{max profit, at } S_T=K_2). \\
+    &\text{Payoff at } S_T=55\text{: } (55-45)-2(55-50)+0 = 10-10=0. \quad\text{Profit} = 0-1=-1. \\
+    &\text{Max loss} = -1 \text{ (the net debit), attained for any } S_T\le K_1 \text{ or } S_T\ge K_3.
+    \end{aligned}
+- id: economics-finance-option-portfolios-3-01
+  category: Economics & Finance
+  subtopic: Option Portfolios
+  level: 3
+  question: |
+    \text{Using put-call parity } C-P=S-Ke^{-rT} \text{ (same } K,T\text{), prove that a covered call (long stock + short}\\
+    \text{call) has the same payoff at every } S_T \text{ as a short put plus lending } Ke^{-rT} \text{ risk-free.}
+  answer: |
+    \begin{aligned}
+    &\text{Covered call payoff at expiration: } S_T-\max(S_T-K,0) = \min(S_T,K) \text{ (capped at } K \text{ if the call is}\\
+    &\text{exercised against the writer; equal to } S_T \text{ if it expires worthless).} \\
+    &\text{Short put + lending } Ke^{-rT} \text{ payoff at expiration: } K-\max(K-S_T,0) = \min(S_T,K) \text{ (the bond matures}\\
+    &\text{to } K\text{; the short put pays out } -\max(K-S_T,0)\text{).} \\
+    &\text{The two payoffs are identical at every } S_T\text{, so by no-arbitrage they must cost the same today. This}\\
+    &\text{is exactly put-call parity rearranged: } S-C = Ke^{-rT}-P\text{, i.e. buying stock and selling a call}\\
+    &\text{replicates selling a put and lending } Ke^{-rT} \text{ risk-free.}
+    \end{aligned}
+- id: economics-finance-option-portfolios-3-02
+  category: Economics & Finance
+  subtopic: Option Portfolios
+  level: 3
+  question: |
+    \text{Using put-call parity } C-P=S-Ke^{-rT}\text{, prove that a protective put (long stock + long put) has the}\\
+    \text{same payoff at every } S_T \text{ as a long call plus lending } Ke^{-rT} \text{ risk-free (a "fiduciary call").}
+  answer: |
+    \begin{aligned}
+    &\text{Protective put payoff at expiration: } S_T+\max(K-S_T,0) = \max(S_T,K). \\
+    &\text{Fiduciary call payoff at expiration: } \max(S_T-K,0)+K = \max(S_T,K). \\
+    &\text{The two payoffs are identical at every } S_T\text{, so by no-arbitrage they cost the same today --- exactly}\\
+    &\text{put-call parity rearranged as } S+P = C+Ke^{-rT}\text{: buying stock and a put replicates buying a call}\\
+    &\text{and lending } Ke^{-rT} \text{ risk-free.}
+    \end{aligned}
+- id: economics-finance-option-portfolios-3-03
+  category: Economics & Finance
+  subtopic: Option Portfolios
+  level: 3
+  question: |
+    \text{For a bull call spread (long call } K_1\text{, short call } K_2>K_1\text{, net premium paid } d=c_1-c_2>0\text{), derive}\\
+    \text{the payoff as a function of } S_T\text{, and hence general formulas for the max profit, max loss, and}\\
+    \text{breakeven in terms of } K_1,K_2,d.
+  answer: |
+    \begin{aligned}
+    &\text{Payoff}(S_T) = \max(S_T-K_1,0)-\max(S_T-K_2,0) = \begin{cases} 0 & S_T\le K_1 \\ S_T-K_1 & K_1<S_T<K_2 \\ K_2-K_1 & S_T\ge K_2 \end{cases} \\
+    &\text{Profit}(S_T) = \text{Payoff}(S_T)-d. \\
+    &\text{Max profit} = (K_2-K_1)-d \text{, attained for } S_T\ge K_2. \\
+    &\text{Max loss} = -d \text{, attained for } S_T\le K_1. \\
+    &\text{Breakeven: solve } S_T-K_1-d=0 \ \Rightarrow\ S_T = K_1+d \text{ (lies strictly inside } (K_1,K_2) \text{ whenever}\\
+    &0<d<K_2-K_1\text{, i.e. for any sensibly priced debit spread).}
+    \end{aligned}
+- id: economics-finance-option-portfolios-3-04
+  category: Economics & Finance
+  subtopic: Option Portfolios
+  level: 3
+  question: |
+    \text{An iron condor combines a bull put spread (long put } K_1\text{, short put } K_2\text{, } K_1<K_2\text{) and a bear call}\\
+    \text{spread (short call } K_3\text{, long call } K_4\text{, } K_3<K_4\text{), with } K_2\le K_3\text{, for a total net credit } cr\text{. Derive}\\
+    \text{general formulas for the max profit, max loss, and the two breakeven points.}
+  answer: |
+    \begin{aligned}
+    &\text{Max profit} = cr\text{, attained when } K_2\le S_T\le K_3 \text{ (both spreads expire worthless, full credit kept).} \\
+    &\text{If } S_T\le K_1\text{: the put spread is at its own max loss } -(K_2-K_1)\text{, the call spread is worthless, so}\\
+    &\text{total P\&L} = cr-(K_2-K_1). \text{ If } S_T\ge K_4\text{: symmetrically, P\&L} = cr-(K_4-K_3). \\
+    &\text{Max loss} = cr-\max(K_2-K_1,\,K_4-K_3) \text{ (the wider wing determines the worst case if the wings}\\
+    &\text{aren't equal; with equal wing width } w\text{, max loss simplifies to } cr-w\text{).} \\
+    &\text{Lower breakeven (in } (K_1,K_2)\text{): put spread P\&L} = cr-(K_2-S_T)=0 \ \Rightarrow\ S_T=K_2-cr. \\
+    &\text{Upper breakeven (in } (K_3,K_4)\text{): call spread P\&L} = cr-(S_T-K_3)=0 \ \Rightarrow\ S_T=K_3+cr.
+    \end{aligned}
+- id: economics-finance-option-portfolios-3-05
+  category: Economics & Finance
+  subtopic: Option Portfolios
+  level: 3
+  question: |
+    \text{Combine a bull call spread (long call } K_1\text{, short call } K_2\text{) with a bear put spread (long put } K_2\text{,}\\
+    \text{short put } K_1\text{), same strikes } K_1<K_2 \text{ and expiration (a "box spread"). Prove the combined payoff}\\
+    \text{is } K_2-K_1 \text{ regardless of } S_T\text{, and state the no-arbitrage pricing condition this implies.}
+  answer: |
+    \begin{aligned}
+    &\text{Payoff by region of } S_T\text{:} \\
+    &S_T\le K_1\text{: calls contribute } 0-0=0\text{; puts contribute } (K_2-S_T)-(K_1-S_T)=K_2-K_1\text{. Total: } K_2-K_1. \\
+    &K_1<S_T<K_2\text{: calls contribute } (S_T-K_1)-0=S_T-K_1\text{; puts contribute } (K_2-S_T)-0=K_2-S_T\text{. Total: } K_2-K_1. \\
+    &S_T\ge K_2\text{: calls contribute } (S_T-K_1)-(S_T-K_2)=K_2-K_1\text{; puts contribute } 0-0=0\text{. Total: } K_2-K_1. \\
+    &\text{The combined payoff is } K_2-K_1 \text{ in every region --- a riskless payoff, independent of } S_T\text{: the box}\\
+    &\text{spread replicates a zero-coupon bond paying } K_2-K_1 \text{ at } T\text{. By no-arbitrage its cost today must}\\
+    &\text{equal the discounted payoff:} \\
+    &c_1-c_2+p_2-p_1 = (K_2-K_1)e^{-rT}\text{,} \\
+    &\text{where } c_1,c_2 \text{ are the } K_1,K_2 \text{ call premiums and } p_1,p_2 \text{ the } K_1,K_2 \text{ put premiums.}
+    \end{aligned}
+- id: economics-finance-option-portfolios-4-01
+  category: Economics & Finance
+  subtopic: Option Portfolios
+  level: 4
+  question: |
+    \text{A box spread (long call } K_1=50\text{, short call } K_2=60\text{, long put } K_2=60\text{, short put } K_1=50\text{, all}\\
+    T=1\text{ year) can be entered today for a net cost of } \$10\text{, with } r=0.05\text{. Is the box over- or}\\
+    \text{under-priced, and construct the arbitrage trade, computing the riskless profit.}
+  answer: |
+    \begin{aligned}
+    &\text{Fair value} = (K_2-K_1)e^{-rT} = 10e^{-0.05} \approx 9.512. \\
+    &\text{The actual cost to buy the box (} \$10\text{) exceeds the fair value (} \$9.512\text{): the box is overpriced.} \\
+    &\text{Arbitrage: sell (short) the box instead --- short call } K_1\text{, long call } K_2\text{, short put } K_2\text{, long put}\\
+    &K_1 \text{ --- receiving } \$10 \text{ today. This guarantees paying out exactly } K_2-K_1=\$10 \text{ at } T=1 \text{ regardless}\\
+    &\text{of } S_T \text{ (the mirror image of the replication proof above). Invest the } \$10 \text{ received at the}\\
+    &\text{risk-free rate: it grows to } 10e^{0.05(1)}\approx\$10.513 \text{ at } T\text{. After paying the } \$10 \text{ owed from the box,}\\
+    &\text{the riskless profit is } 10.513-10\approx\$0.513\text{, locked in today with zero net initial cash outlay.}
+    \end{aligned}
+- id: economics-finance-option-portfolios-4-02
+  category: Economics & Finance
+  subtopic: Option Portfolios
+  level: 4
+  question: |
+    \text{A stock trades at } S=100\text{. A 1-month at-the-money straddle (} K=100\text{) costs } \$6 \text{ total. A trader}\\
+    \text{estimates the stock's expected absolute move over the next month, based on historical realized}\\
+    \text{volatility, is } \$4.50\text{. Should the trader buy or sell this straddle, and why?}
+  answer: |
+    \begin{aligned}
+    &\text{The straddle only profits if } |S_T-K|>\text{cost}=6\text{, i.e. the stock must move by more than } \$6 \text{ in}\\
+    &\text{either direction. The trader's own estimate of the expected move (} \$4.50\text{) is smaller than the}\\
+    &\text{breakeven move the straddle's price demands (} \$6.00\text{): the straddle looks "expensive" relative to}\\
+    &\text{the trader's own volatility view (it is pricing in a bigger move than the trader expects).} \\
+    &\text{The trader should sell (write) the straddle, collecting the } \$6 \text{ premium and profiting if the stock}\\
+    &\text{stays within roughly } \pm\$6 \text{ of } 100\text{, consistent with their smaller expected-move estimate --- while}\\
+    &\text{bearing the risk of a large loss if an unexpectedly large move occurs (limited profit, large potential loss).}
+    \end{aligned}
+- id: economics-finance-option-portfolios-4-03
+  category: Economics & Finance
+  subtopic: Option Portfolios
+  level: 4
+  question: |
+    \text{An investor holds stock at } S=80 \text{ and wants a zero-cost collar: buy a protective put at } K_1=75\\
+    \text{(premium } \$2.10\text{), and sell a call at one of three strikes to offset the put's cost: } K=84\\
+    \text{(premium } \$2.60\text{), } K=86 \text{ (premium } \$2.00\text{), or } K=88 \text{ (premium } \$1.50\text{). Which call strike gives}\\
+    \text{(approximately) a zero-cost collar, and what is the resulting profit/loss band?}
+  answer: |
+    \begin{aligned}
+    &\text{Net cost} = \text{put premium} - \text{call premium, want} \approx 0\text{, i.e. call premium} \approx 2.10\text{:} \\
+    &K=84: \text{ net} = 2.10-2.60 = -0.50 \text{ (a credit, overshoots zero).} \\
+    &K=86: \text{ net} = 2.10-2.00 = 0.10 \text{ (closest to zero).} \\
+    &K=88: \text{ net} = 2.10-1.50 = 0.60 \text{ (overshoots the other way).} \\
+    &\text{The } K=86 \text{ call gives the best (nearly) zero-cost collar, net debit only } \$0.10\text{.} \\
+    &\text{Floor loss (} S_T\le75\text{):} -\big((80-75)+0.10\big) = -5.10. \qquad \text{Capped gain (} S_T\ge86\text{):} (86-80)-0.10 = 5.90. \\
+    &\text{Between 75 and 86, P\&L} = (S_T-80)-0.10\text{, tracking the stock minus the small net cost.}
+    \end{aligned}
+- id: economics-finance-option-portfolios-4-04
+  category: Economics & Finance
+  subtopic: Option Portfolios
+  level: 4
+  question: |
+    \text{An iron condor on a stock at } S=100 \text{ sells a } 95/90 \text{ put spread for a credit of } \$1.20 \text{ and a } 105/110\\
+    \text{call spread for a credit of } \$1.10 \text{ (total credit } cr=2.30\text{), both spreads 5 points wide. Compute both}\\
+    \text{breakevens and the max loss, and (treating the outcome as a simple win/lose at the max profit/max}\\
+    \text{loss amounts) the approximate probability of finishing between the breakevens needed for zero}\\
+    \text{expected value.}
+  answer: |
+    \begin{aligned}
+    &\text{Max profit} = cr = 2.30. \qquad \text{Max loss} = w-cr = 5-2.30 = 2.70. \\
+    &\text{Breakevens: lower} = 95-cr = 95-2.30=92.70\text{, upper} = 105+cr = 105+2.30=107.30. \\
+    &\text{Reward-to-risk} = 2.30/2.70 \approx 0.85\text{, below 1 --- this is a high-probability, limited-reward trade.} \\
+    &\text{Treating the outcome as a simple binary win } (+2.30) \text{ or lose } (-2.70)\text{, zero expected value requires:} \\
+    &p(2.30) - (1-p)(2.70) = 0 \ \Rightarrow\ p(2.30+2.70) = 2.70 \ \Rightarrow\ p = 2.70/5.00 = 0.54. \\
+    &\text{So the trade needs roughly a 54\% chance of finishing within the breakevens just to break even on}\\
+    &\text{average --- consistent with a reward/risk ratio under 1 requiring a better-than-even win probability.}
+    \end{aligned}
+- id: economics-finance-option-portfolios-4-05
+  category: Economics & Finance
+  subtopic: Option Portfolios
+  level: 4
+  question: |
+    \text{Three calls on the same stock/expiration are quoted: } K=45 \text{ at } \$8.00\text{, } K=50 \text{ at } \$6.50\text{, } K=55\\
+    \text{at } \$2.50\text{. The no-arbitrage convexity bound requires } C(50)\le\tfrac12[C(45)+C(55)] \text{ (equivalently, a}\\
+    \text{long-1/short-2/long-1 butterfly must cost} \ge 0\text{). Check whether these quotes satisfy the bound,}\\
+    \text{and if not, construct the arbitrage.}
+  answer: |
+    \begin{aligned}
+    &\text{RHS} = \tfrac12(8.00+2.50) = 5.25\text{. Quoted } C(50)=6.50 > 5.25\text{: the bound is violated --- the middle}\\
+    &\text{strike is overpriced relative to the wings.} \\
+    &\text{Enter the butterfly (long 1 call45, short 2 call50, long 1 call55): cost} = 8.00-2(6.50)+2.50 = -2.50\text{,}\\
+    &\text{i.e. the trader is } \textbf{paid} \ \$2.50 \text{ to enter the position (selling the two overpriced middle calls}\\
+    &\text{brings in more than buying the two wing calls costs).} \\
+    &\text{A long butterfly's payoff is always} \ge 0 \text{ at every } S_T \text{ (it is } 0 \text{ outside } [45,55] \text{ and rises to a}\\
+    &\text{peak of } 5 \text{ at } S_T=50\text{), so the position can never require a payment at expiration --- a pure}\\
+    &\text{arbitrage: riskless profit of at least } \$2.50 \text{ today, possibly more if } S_T \text{ lands near } 50.
+    \end{aligned}
