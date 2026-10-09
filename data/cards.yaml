@@ -11352,3 +11352,139 @@
     1+f_{1,2} &= \dfrac{1.0816}{1.03} \approx 1.0501\\
     f_{1,2} &\approx 5.01\%
     \end{aligned}
+- id: economics-finance-asset-pricing-1-01
+  category: Economics & Finance
+  subtopic: Asset Pricing
+  level: 1
+  question: |
+    \text{State the CAPM formula for the expected return of asset } i, \text{ and explain what } \beta_i \text{ measures.}
+  answer: |
+    \E[R_i] = R_f + \beta_i\big(\E[R_m]-R_f\big)\\
+    \text{where } \beta_i = \dfrac{\Cov(R_i,R_m)}{\Var(R_m)} \text{ measures asset } i\text{'s sensitivity to systematic}\\
+    \text{(market-wide) risk — the only risk CAPM says is priced, since idiosyncratic risk diversifies away.}
+- id: economics-finance-asset-pricing-1-02
+  category: Economics & Finance
+  subtopic: Asset Pricing
+  level: 1
+  question: |
+    \text{State the Gordon growth (constant-growth dividend discount) model for a stock's fair price } P_0,
+  answer: |
+    P_0 = \dfrac{D_1}{r-g}\\
+    \text{where } D_1 \text{ is next year's expected dividend, } r \text{ is the required return, and } g \text{ is the}\\
+    \text{constant perpetual dividend growth rate } (r>g).
+- id: economics-finance-asset-pricing-2-01
+  category: Economics & Finance
+  subtopic: Asset Pricing
+  level: 2
+  question: |
+    \text{A stock has returns with } \Cov(R_i,R_m)=0.006 \text{ and } \Var(R_m)=0.004. \text{ If } R_f=2\%
+    \text{ and } \E[R_m]=8\%, \text{ find } \beta_i \text{ and the CAPM-required return.}
+  answer: |
+    \begin{aligned}
+    \beta_i &= \dfrac{0.006}{0.004} = 1.5\\
+    \E[R_i] &= 0.02 + 1.5(0.08-0.02) = 0.02+0.09 = 11\%
+    \end{aligned}
+- id: economics-finance-asset-pricing-2-02
+  category: Economics & Finance
+  subtopic: Asset Pricing
+  level: 2
+  question: |
+    \text{Contrast APT with CAPM: what does APT say the expected return of asset } i \text{ is, and how}\\
+    \text{does this differ structurally from CAPM?}
+  answer: |
+    \E[R_i] = R_f + \beta_{i,1}\lambda_1 + \beta_{i,2}\lambda_2 + \cdots + \beta_{i,k}\lambda_k\\
+    \text{where each } \lambda_j \text{ is the risk premium of factor } j \text{ and } \beta_{i,j} \text{ is asset } i\text{'s exposure to it.}\\
+    \text{APT allows multiple priced risk factors (e.g. size, value, momentum) derived from no-arbitrage,}\\
+    \text{while CAPM is the special case of a single factor — the market portfolio — derived from}\\
+    \text{mean-variance equilibrium.}
+- id: economics-finance-asset-pricing-2-03
+  category: Economics & Finance
+  subtopic: Asset Pricing
+  level: 2
+  question: |
+    \text{A stock just paid a dividend of \$2, expected to grow at 4\% forever. Investors require a 10\%}\\
+    \text{return. Find the fair price } P_0.
+  answer: |
+    \begin{aligned}
+    D_1 &= 2(1.04) = 2.08\\
+    P_0 &= \dfrac{D_1}{r-g} = \dfrac{2.08}{0.10-0.04} = \dfrac{2.08}{0.06} \approx \$34.67
+    \end{aligned}
+- id: economics-finance-asset-pricing-3-01
+  category: Economics & Finance
+  subtopic: Asset Pricing
+  level: 3
+  question: |
+    \text{State the law of one price and prove it must hold under no-arbitrage: if two portfolios } A, B
+    \text{ have identical payoffs in every future state, show } P_A = P_B.
+  answer: |
+    \begin{aligned}
+    &\text{Law of one price: two assets/portfolios with identical payoffs in every state must have the}\\
+    &\text{same price today.}\\
+    &\text{Proof: suppose instead } P_A > P_B. \text{ Sell } A \text{ short for } P_A, \text{ buy } B \text{ for } P_B, \text{ pocketing}\\
+    &P_A-P_B>0 \text{ today. At the future date, } B\text{'s payoff exactly covers the short position in } A\\
+    &\text{(since their payoffs are identical in every state), leaving zero net future cash flow.}\\
+    &\text{This is a riskless profit with no net investment — an arbitrage, which is assumed not to exist.}\\
+    &\text{So } P_A \le P_B. \text{ By symmetry (swap the roles of } A, B\text{), } P_A \ge P_B. \text{ Hence } P_A = P_B.
+    \end{aligned}
+- id: economics-finance-asset-pricing-3-02
+  category: Economics & Finance
+  subtopic: Asset Pricing
+  level: 3
+  question: |
+    \text{Define the stochastic discount factor (pricing kernel) } m, \text{ state the fundamental pricing}\\
+    \text{equation, and show how it reduces to the risk-free rate for a riskless payoff.}
+  answer: |
+    \begin{aligned}
+    &\text{For any asset with future payoff } X, \text{ its price today is } P = \E[m\,X] \text{ for some strictly}\\
+    &\text{positive random variable } m \text{ (the stochastic discount factor), common to all assets.}\\
+    &\text{For a riskless payoff } X=1 \text{ (e.g. a zero-coupon bond), } P = \E[m\cdot 1] = \E[m].\\
+    &\text{Since this riskless asset also prices at } P = \dfrac{1}{1+R_f}, \text{ we get } \E[m]=\dfrac{1}{1+R_f}:\\
+    &\text{the SDF's mean pins down the risk-free rate, while its covariance with a payoff (via}\\
+    &\Cov(m,X)) \text{ generates the asset's risk premium — this single equation nests CAPM (where}\\
+    &m \text{ is linear in } R_m) \text{ and bond pricing as special cases.}
+    \end{aligned}
+- id: economics-finance-asset-pricing-4-01
+  category: Economics & Finance
+  subtopic: Asset Pricing
+  level: 4
+  question: |
+    \text{Asset } X \text{ and asset } Y \text{ will both pay exactly \$100 in one year with certainty. } X \text{ trades at}\\
+    \text{\$94, } Y \text{ trades at \$96. Describe the arbitrage trade and compute the riskless profit per pair.}
+  answer: |
+    \begin{aligned}
+    &\text{Both pay the same certain future amount, so by the law of one price they must have the}\\
+    &\text{same price today — they don't, so there's an arbitrage. Buy the cheap one (} X \text{ at \$94}),\\
+    &\text{short-sell the expensive one (} Y \text{ at \$96}). \text{ Net cash received today: } 96-94=\$2.\\
+    &\text{In one year, the \$100 received from holding } X \text{ exactly covers the \$100 owed on the short}\\
+    &\text{} Y \text{ position} \Rightarrow \text{ net future cash flow is \$0.}\\
+    &\text{Riskless profit: \$2 per pair, locked in today with zero net future exposure.}
+    \end{aligned}
+- id: economics-finance-asset-pricing-4-02
+  category: Economics & Finance
+  subtopic: Asset Pricing
+  level: 4
+  question: |
+    \text{A stock has } \beta=1.2, \ R_f=3\%, \ \E[R_m]=9\%, \text{ and analysts forecast its actual expected}\\
+    \text{return at 10\%. Is it mispriced per CAPM, and what trade does this imply?}
+  answer: |
+    \begin{aligned}
+    \E[R_i]_{CAPM} &= 0.03 + 1.2(0.09-0.03) = 0.03+0.072 = 10.2\%\\
+    \alpha &= \text{forecast} - \text{CAPM required} = 10\% - 10.2\% = -0.2\%
+    \end{aligned}\\
+    \text{Negative alpha: the stock is expected to underperform its required (risk-adjusted) return,}\\
+    \text{i.e. it is overpriced relative to CAPM — the implied trade is to sell/short it (or underweight}\\
+    \text{it relative to the market portfolio).}
+- id: economics-finance-asset-pricing-4-03
+  category: Economics & Finance
+  subtopic: Asset Pricing
+  level: 4
+  question: |
+    \text{A stock trades at \$40, just paid a \$2 dividend expected to grow at 5\% forever, and the}\\
+    \text{required return is 10\%. Is the stock over- or undervalued, and by how much?}
+  answer: |
+    \begin{aligned}
+    D_1 &= 2(1.05) = 2.10\\
+    P_{fair} &= \dfrac{D_1}{r-g} = \dfrac{2.10}{0.10-0.05} = \dfrac{2.10}{0.05} = \$42
+    \end{aligned}\\
+    \text{Fair value \$42 exceeds the \$40 market price, so the stock is undervalued by \$2 — a buy signal}\\
+    \text{under the DDM.}
