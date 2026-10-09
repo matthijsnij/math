@@ -11488,3 +11488,129 @@
     \end{aligned}\\
     \text{Fair value \$42 exceeds the \$40 market price, so the stock is undervalued by \$2 — a buy signal}\\
     \text{under the DDM.}
+- id: economics-finance-the-concept-of-alpha-1-01
+  category: Economics & Finance
+  subtopic: The Concept of Alpha
+  level: 1
+  question: |
+    \text{What does an investment's } \alpha \text{ (alpha) measure?}
+  answer: |
+    \text{The portion of a portfolio's return that is NOT explained by its exposure to a benchmark}\\
+    \text{or pricing model (e.g. CAPM): } \alpha = \text{actual return} - \text{model-predicted return}\\
+    \text{for that level of risk. It represents excess risk-adjusted return — the skill/value-add}\\
+    \text{component, separate from just bearing market risk.}
+- id: economics-finance-the-concept-of-alpha-1-02
+  category: Economics & Finance
+  subtopic: The Concept of Alpha
+  level: 1
+  question: |
+    \text{Contrast what } \beta \text{ and } \alpha \text{ each measure for a portfolio's return.}
+  answer: |
+    \beta \text{ measures sensitivity to systematic (market) risk — the return earned purely from}\\
+    \text{being exposed to the market's moves, scaled by } \beta\text{.}\\
+    \alpha \text{ measures the return left over after removing that } \beta\text{-driven component — the}\\
+    \text{idiosyncratic, skill-based piece not explained by market exposure.}
+- id: economics-finance-the-concept-of-alpha-1-03
+  category: Economics & Finance
+  subtopic: The Concept of Alpha
+  level: 1
+  question: |
+    \text{A fund manager's estimated CAPM alpha is } \alpha = -1.5\% \text{ per year. What does this indicate?}
+  answer: |
+    \text{The manager underperformed relative to what CAPM predicts for its beta/risk level: its}\\
+    \text{risk-adjusted return was } 1.5\% \text{ below the model's required return. This is value}\\
+    \text{destroyed net of simply bearing systematic risk — the manager would have been better off}\\
+    \text{holding a passive position with the same beta.}
+- id: economics-finance-the-concept-of-alpha-2-01
+  category: Economics & Finance
+  subtopic: The Concept of Alpha
+  level: 2
+  question: |
+    \text{Compute Jensen's alpha given } R_p=14\%,\ R_f=2\%,\ \beta=1.2,\ R_m=10\%.
+  answer: |
+    \begin{aligned}
+    \alpha &= R_p - \left[R_f + \beta(R_m-R_f)\right]\\
+    &= 0.14 - \left[0.02 + 1.2(0.10-0.02)\right]\\
+    &= 0.14 - \left[0.02+0.096\right]\\
+    &= 0.14 - 0.116 = 2.4\%
+    \end{aligned}
+- id: economics-finance-the-concept-of-alpha-2-02
+  category: Economics & Finance
+  subtopic: The Concept of Alpha
+  level: 2
+  question: |
+    \text{A strategy has annualized alpha } \alpha=3\% \text{ and tracking error (std.\ dev.\ of alpha) }\\
+    \sigma_\alpha = 6\%\text{. Compute its information ratio and interpret it.}
+  answer: |
+    IR = \dfrac{\alpha}{\sigma_\alpha} = \dfrac{3\%}{6\%} = 0.5\\
+    \text{The information ratio is a risk-adjusted measure of how consistently the strategy}\\
+    \text{generates alpha per unit of active risk taken — a higher IR means the outperformance is}\\
+    \text{more reliable (less likely to be noise) than the raw alpha number alone suggests.}
+- id: economics-finance-the-concept-of-alpha-3-01
+  category: Economics & Finance
+  subtopic: The Concept of Alpha
+  level: 3
+  question: |
+    \text{Prove that the wealth-weighted average alpha (excess return over the market) across all}\\
+    \text{investors in a market must be exactly zero before costs (Sharpe's "arithmetic of active}\\
+    \text{management").}
+  answer: |
+    \begin{aligned}
+    \text{Let investor } i \text{ hold a fraction } w_i \text{ of total invested wealth, with } \sum_i w_i = 1,\\
+    \text{and earn return } R_i\text{. Since every share of every asset is owned by someone, the}\\
+    \text{aggregate (dollar-weighted) holdings of all investors combined } \textit{is} \text{ the market}\\
+    \text{portfolio, so the wealth-weighted average return equals the market return:}\\
+    \sum_i w_i R_i &= R_m.\\
+    \text{Define each investor's alpha relative to the market as } \alpha_i = R_i - R_m. \text{ Then}\\
+    \sum_i w_i \alpha_i &= \sum_i w_i R_i - R_m\sum_i w_i = R_m - R_m\cdot 1 = 0.
+    \end{aligned}\\
+    \text{So before costs, every dollar of outperformance must be matched by a dollar of}\\
+    \text{underperformance elsewhere — active management is a zero-sum game among all investors,}\\
+    \text{and strictly negative-sum once fees are subtracted.}
+- id: economics-finance-the-concept-of-alpha-3-02
+  category: Economics & Finance
+  subtopic: The Concept of Alpha
+  level: 3
+  question: |
+    \text{Explain and derive why a value-tilted manager can show positive alpha under CAPM but}\\
+    \text{near-zero alpha under a Fama-French 3-factor model.}
+  answer: |
+    \begin{aligned}
+    \text{The manager's excess return decomposes under the 3-factor model as}\\
+    R_i - R_f &= \beta(R_m-R_f) + h\cdot HML + \alpha_{FF3} + \epsilon,\\
+    \text{where } h>0 \text{ is the manager's loading on the value factor } HML. \text{ CAPM only}\\
+    \text{accounts for the market term, so its implied alpha absorbs the } HML \text{ contribution:}\\
+    \alpha_{CAPM} &= \E[R_i-R_f] - \beta\,\E[R_m-R_f] = \alpha_{FF3} + h\cdot\E[HML].
+    \end{aligned}\\
+    \text{Since the value premium } \E[HML] \text{ is positive on average, CAPM misattributes the}\\
+    \text{return from the manager's value tilt to skill, inflating } \alpha_{CAPM}\text{. The 3-factor model}\\
+    \text{correctly attributes it to the } h \text{ factor exposure instead, leaving the true skill}\\
+    \text{component } \alpha_{FF3} \text{ near zero.}
+- id: economics-finance-the-concept-of-alpha-4-01
+  category: Economics & Finance
+  subtopic: The Concept of Alpha
+  level: 4
+  question: |
+    \text{A manager's estimated annual alpha over } N=10 \text{ years averages } \hat\alpha=2\% \text{ with}\\
+    \text{standard error } SE=1.8\%\text{. Compute the t-statistic for } H_0:\alpha=0 \text{ and judge whether}\\
+    \text{the alpha is statistically distinguishable from luck.}
+  answer: |
+    t = \dfrac{\hat\alpha}{SE} = \dfrac{2\%}{1.8\%} \approx 1.11\\
+    \text{With 9 degrees of freedom, the two-sided 5\% critical value is about 2.26, and } |t|\approx 1.11\\
+    \text{falls well short of it. We fail to reject } H_0:\alpha=0\text{ — despite a positive point estimate,}\\
+    \text{the alpha is not statistically distinguishable from zero/luck given the noise in the estimate.}
+- id: economics-finance-the-concept-of-alpha-4-02
+  category: Economics & Finance
+  subtopic: The Concept of Alpha
+  level: 4
+  question: |
+    \text{An investor allocates 60\% to Manager A } (\alpha=4\%,\ \beta=1.3) \text{ and 40\% to Manager B}\\
+    (\alpha=-1\%,\ \beta=0.7)\text{. Compute the blended portfolio's alpha and beta.}
+  answer: |
+    \begin{aligned}
+    \text{Each manager's return is } R_i = R_f+\beta_i(R_m-R_f)+\alpha_i\text{, so the weighted blend is}\\
+    R_p &= \sum_i w_i R_i = R_f + \Big(\sum_i w_i\beta_i\Big)(R_m-R_f) + \sum_i w_i\alpha_i\\
+    \text{since } \sum_i w_i=1\text{. Alpha and beta each combine as simple weighted averages:}\\
+    \beta_p &= 0.6(1.3)+0.4(0.7) = 0.78+0.28 = 1.06\\
+    \alpha_p &= 0.6(4\%)+0.4(-1\%) = 2.4\%-0.4\% = 2.0\%
+    \end{aligned}
