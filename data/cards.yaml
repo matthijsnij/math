@@ -11789,3 +11789,388 @@
     \text{allows --- the continued existence of analysts and active funds isn't evidence against EMH, it's}\\
     \text{the mechanism that produces (near-)efficiency in the first place, and expected profit net of}\\
     \text{costs trends toward zero on average as more capital competes for the same mispricings.}
+- id: economics-finance-option-pricing-1-01
+  category: Economics & Finance
+  subtopic: Option Pricing
+  level: 1
+  question: |
+    \text{State the risk-neutral valuation principle for pricing a derivative, and explain briefly why the}\\
+    \text{real-world probability of the stock going up or down does not appear in the price.}
+  answer: |
+    \text{Price } = e^{-rT}\,\E^{\mathbb{Q}}[\text{payoff}(S_T)], \text{ the discounted expectation of the payoff under the}\\
+    \text{risk-neutral measure } \mathbb{Q} \text{ (the measure under which the discounted asset price is a martingale),}\\
+    \text{not under the real-world measure } \P. \text{ The price is pinned down instead by a no-arbitrage}\\
+    \text{replication argument: a portfolio of the stock and a risk-free bond can be constructed to exactly}\\
+    \text{match the derivative's payoff, and the derivative must cost the same as this replicating}\\
+    \text{portfolio or there is a riskless arbitrage. The replicating portfolio's cost depends only on}\\
+    \text{today's stock price, the risk-free rate, and the up/down move sizes --- never on how likely the}\\
+    \text{up or down move actually is --- so investors' real-world probability beliefs are irrelevant to the price.}
+- id: economics-finance-option-pricing-1-02
+  category: Economics & Finance
+  subtopic: Option Pricing
+  level: 1
+  question: |
+    \text{List the inputs to the Black-Scholes option pricing formula and state what each represents.}
+  answer: |
+    S_0\text{: current stock price.} \quad K\text{: strike price.} \quad T\text{: time to maturity (years).}\\
+    r\text{: continuously compounded risk-free rate.} \quad \sigma\text{: annualized volatility of the stock's returns.}\\
+    \text{(A continuous dividend yield } q \text{ is often added as a sixth input when the stock pays dividends.)}
+- id: economics-finance-option-pricing-1-03
+  category: Economics & Finance
+  subtopic: Option Pricing
+  level: 1
+  question: |
+    \text{Describe, at a high level, how the binomial option pricing model values an option.}
+  answer: |
+    \text{Time to maturity is split into discrete steps. At each step the stock price can only move to one of}\\
+    \text{two values (up or down), building a lattice of possible stock prices out to maturity. The option's}\\
+    \text{payoff is computed at every terminal node, and the price is found by working backward through the}\\
+    \text{lattice one step at a time: at each node, the value is the risk-neutral-probability-weighted average}\\
+    \text{of the two possible next-step values, discounted one period at the risk-free rate (equivalently, the}\\
+    \text{cost of the stock-plus-bond portfolio that replicates the next step's payoffs). Repeating this back}\\
+    \text{to the first node gives today's price.}
+- id: economics-finance-option-pricing-1-04
+  category: Economics & Finance
+  subtopic: Option Pricing
+  level: 1
+  question: |
+    \text{Define implied volatility.}
+  answer: |
+    \text{The value of } \sigma \text{ that, when plugged into an option pricing formula (e.g. Black-Scholes) along}\\
+    \text{with the option's other observable inputs } (S_0,K,T,r), \text{ reproduces the option's observed market}\\
+    \text{price exactly. It is found by inverting the pricing formula given the market price, not by}\\
+    \text{estimating } \sigma \text{ from the stock's historical returns --- it is the market's forward-looking}\\
+    \text{volatility estimate implied by what traders are willing to pay.}
+- id: economics-finance-option-pricing-1-05
+  category: Economics & Finance
+  subtopic: Option Pricing
+  level: 1
+  question: |
+    \text{What is the volatility smile (or skew), and which Black-Scholes assumption does it violate?}
+  answer: |
+    \text{The empirical pattern that implied volatilities for options on the same underlying and maturity}\\
+    \text{differ across strikes, instead of being flat --- often U-shaped ("smile") for currencies/index}\\
+    \text{options, or downward-sloping ("skew") for equities, where out-of-the-money puts carry higher}\\
+    \text{implied vol than out-of-the-money calls. This directly violates Black-Scholes's assumption that}\\
+    \text{the stock has one constant volatility } \sigma \text{ applicable to every strike and maturity.}
+- id: economics-finance-option-pricing-2-01
+  category: Economics & Finance
+  subtopic: Option Pricing
+  level: 2
+  question: |
+    \text{For the Cox-Ross-Rubinstein (CRR) binomial model with } \sigma=0.3, \ r=0.05, \text{ and a step size}\\
+    dt=0.25 \text{ years, compute the up factor } u, \text{ down factor } d, \text{ and risk-neutral probability } p.
+  answer: |
+    u = e^{\sigma\sqrt{dt}} = e^{0.3\sqrt{0.25}} = e^{0.15} \approx 1.1618, \qquad d = \dfrac{1}{u} \approx 0.8607.
+    \text{The risk-neutral probability matches the stock's expected gross return to the risk-free rate:}
+    p = \dfrac{e^{r\,dt}-d}{u-d} = \dfrac{e^{0.0125}-0.8607}{1.1618-0.8607} = \dfrac{1.0126-0.8607}{0.3011} \approx \dfrac{0.1519}{0.3011} \approx 0.504.
+- id: economics-finance-option-pricing-2-02
+  category: Economics & Finance
+  subtopic: Option Pricing
+  level: 2
+  question: |
+    \text{A stock at } S_0=50 \text{ moves by factors } u=1.2 \text{ or } d=0.8 \text{ each period, with gross risk-free}\\
+    \text{return } R=1.05 \text{ per period. Price a 2-period European call with strike } K=50 \text{ via backward}\\
+    \text{induction on the binomial tree.}
+  answer: |
+    \begin{aligned}
+    &\text{Risk-neutral probability: } q = \dfrac{R-d}{u-d} = \dfrac{1.05-0.8}{0.4} = 0.625. \\
+    &\text{Terminal nodes: } S_{uu}=72\ (\text{payoff } 22), \quad S_{ud}=S_{du}=48\ (\text{payoff } 0), \quad S_{dd}=32\ (\text{payoff } 0). \\
+    &\text{Step back to the "up" node } (S=60)\text{: } V_u = \dfrac{q(22)+(1-q)(0)}{R} = \dfrac{0.625(22)}{1.05} \approx 13.095. \\
+    &\text{Step back to the "down" node } (S=40)\text{: both terminal payoffs are } 0\text{, so } V_d = 0. \\
+    &\text{Step back to today: } V_0 = \dfrac{q\,V_u+(1-q)V_d}{R} = \dfrac{0.625(13.095)}{1.05} \approx \$7.79.
+    \end{aligned}
+- id: economics-finance-option-pricing-2-03
+  category: Economics & Finance
+  subtopic: Option Pricing
+  level: 2
+  question: |
+    \text{Using Black-Scholes with } S_0=K=50,\ T=1,\ r=0.05,\ \sigma=0.2, \text{ compute } d_1,\ d_2, \text{ and the}\\
+    \text{European call price.}
+  answer: |
+    \begin{aligned}
+    &d_1 = \dfrac{\ln(S_0/K)+(r+\sigma^2/2)T}{\sigma\sqrt T} = \dfrac{0+(0.05+0.02)(1)}{0.2} = 0.35, \qquad d_2 = d_1-\sigma\sqrt T = 0.15. \\
+    &N(0.35)\approx0.6368, \quad N(0.15)\approx0.5596. \\
+    &C = S_0N(d_1) - Ke^{-rT}N(d_2) = 50(0.6368) - 50e^{-0.05}(0.5596) \approx 31.84 - 26.62 \approx \$5.22.
+    \end{aligned}
+- id: economics-finance-option-pricing-2-04
+  category: Economics & Finance
+  subtopic: Option Pricing
+  level: 2
+  question: |
+    \text{Using the same inputs as above } (S_0=K=50,\ T=1,\ r=0.05,\ \sigma=0.2, \ d_1=0.35,\ d_2=0.15), \text{ price}\\
+    \text{the European put directly from the Black-Scholes put formula (not via put-call parity).}
+  answer: |
+    \begin{aligned}
+    &P = Ke^{-rT}N(-d_2) - S_0N(-d_1), \qquad N(-0.15)\approx0.4404, \quad N(-0.35)\approx0.3632. \\
+    &P = 50e^{-0.05}(0.4404) - 50(0.3632) \approx 20.95 - 18.16 \approx \$2.79. \\
+    &\text{Check: } C-P \approx 5.22-2.79 = 2.43 \approx S_0-Ke^{-rT} = 50-47.56 = 2.44 \text{ (matches put-call parity up to rounding).}
+    \end{aligned}
+- id: economics-finance-option-pricing-2-05
+  category: Economics & Finance
+  subtopic: Option Pricing
+  level: 2
+  question: |
+    \text{A stock pays a continuous dividend yield } q=3\%. \text{ With } S_0=K=50,\ T=1,\ r=0.05,\ \sigma=0.2,\text{ find}\\
+    \text{the dividend-adjusted Black-Scholes call price.}
+  answer: |
+    \begin{aligned}
+    &d_1 = \dfrac{\ln(S_0/K)+(r-q+\sigma^2/2)T}{\sigma\sqrt T} = \dfrac{0+(0.05-0.03+0.02)(1)}{0.2} = 0.20, \qquad d_2 = d_1-\sigma\sqrt T = 0. \\
+    &N(0.20)\approx0.5793, \quad N(0)=0.5. \\
+    &C = S_0e^{-qT}N(d_1) - Ke^{-rT}N(d_2) = 50e^{-0.03}(0.5793) - 50e^{-0.05}(0.5) \approx 28.11-23.78 \approx \$4.33. \\
+    &\text{Lower than the no-dividend price (\$5.22) above, since paying out dividends reduces the stock's}\\
+    &\text{expected growth available to a call holder.}
+    \end{aligned}
+- id: economics-finance-option-pricing-2-06
+  category: Economics & Finance
+  subtopic: Option Pricing
+  level: 2
+  question: |
+    \text{A European call with } S_0=K=50,\ T=1,\ r=0.05 \text{ trades in the market at \$6.00. At } \sigma_0=0.20\text{, Black-}\\
+    \text{Scholes gives a price of \$5.224. Using one Newton-Raphson step with vega } = S_0\phi(d_1)\sqrt T, \text{ find}\\
+    \text{the updated implied volatility estimate.}
+  answer: |
+    \begin{aligned}
+    &d_1=0.35 \ (\text{from above}), \qquad \phi(0.35) = \tfrac{1}{\sqrt{2\pi}}e^{-0.35^2/2} \approx 0.3752. \\
+    &\text{vega} = S_0\phi(d_1)\sqrt T = 50(0.3752)(1) \approx 18.76 \ (\text{price change per 1 unit of } \sigma). \\
+    &\sigma_1 = \sigma_0 + \dfrac{C_{\text{mkt}}-C(\sigma_0)}{\text{vega}} = 0.20 + \dfrac{6.00-5.224}{18.76} \approx 0.20+0.0414 \approx 0.241.
+    \end{aligned}
+- id: economics-finance-option-pricing-3-01
+  category: Economics & Finance
+  subtopic: Option Pricing
+  level: 3
+  question: |
+    \text{Under the risk-neutral measure } \mathbb{Q}, \ S_T = S_0e^{(r-\sigma^2/2)T+\sigma\sqrt T Z}\text{ with } Z\sim N(0,1).\\
+    \text{Derive the Black-Scholes call formula } C=S_0N(d_1)-Ke^{-rT}N(d_2) \text{ from } C=e^{-rT}\E^{\mathbb{Q}}[(S_T-K)^+].
+  answer: |
+    \begin{aligned}
+    &(S_T-K)^+>0 \iff S_T>K \iff Z > \dfrac{\ln(K/S_0)-(r-\sigma^2/2)T}{\sigma\sqrt T} =: -d_2, \text{ where } d_2:=\dfrac{\ln(S_0/K)+(r-\sigma^2/2)T}{\sigma\sqrt T}. \\
+    &C = e^{-rT}\int_{-d_2}^{\infty}\Big(S_0e^{(r-\sigma^2/2)T+\sigma\sqrt T z}-K\Big)\phi(z)\,dz \\
+    &= e^{-rT}S_0e^{(r-\sigma^2/2)T}\int_{-d_2}^{\infty} e^{\sigma\sqrt T z}\phi(z)\,dz \ - \ e^{-rT}K\int_{-d_2}^{\infty}\phi(z)\,dz. \\
+    &\text{The second integral is } N(d_2) \text{ directly. For the first, complete the square:}\\
+    &e^{\sigma\sqrt T z}\phi(z) = \phi(z-\sigma\sqrt T)\,e^{\sigma^2T/2} \ (\text{since } \sigma\sqrt T z - z^2/2 = -\tfrac12(z-\sigma\sqrt T)^2+\sigma^2T/2), \\
+    &\text{so } \int_{-d_2}^{\infty} e^{\sigma\sqrt T z}\phi(z)\,dz = e^{\sigma^2T/2}\int_{-d_2}^{\infty}\phi(z-\sigma\sqrt T)\,dz = e^{\sigma^2T/2}N(d_2+\sigma\sqrt T) = e^{\sigma^2T/2}N(d_1), \\
+    &\text{defining } d_1:=d_2+\sigma\sqrt T = \dfrac{\ln(S_0/K)+(r+\sigma^2/2)T}{\sigma\sqrt T}. \text{ Substituting back:}\\
+    &C = e^{-rT}S_0e^{(r-\sigma^2/2)T}e^{\sigma^2T/2}N(d_1) - Ke^{-rT}N(d_2) = S_0N(d_1) - Ke^{-rT}N(d_2),\\
+    &\text{since the exponents } -rT+(r-\sigma^2/2)T+\sigma^2T/2 \text{ cancel to } 0.
+    \end{aligned}
+- id: economics-finance-option-pricing-3-02
+  category: Economics & Finance
+  subtopic: Option Pricing
+  level: 3
+  question: |
+    \text{The CRR binomial model sets } u=e^{\sigma\sqrt{dt}}, \ d=e^{-\sigma\sqrt{dt}} \text{ (so } ud=1\text{), with risk-neutral}\\
+    p=\tfrac{e^{r\,dt}-d}{u-d} \text{ from matching the expected gross return to } e^{r\,dt}. \text{ Show that as } dt\to0, \text{ the}\\
+    \text{mean and variance of the step's log-return match those of geometric Brownian motion, } (r-\sigma^2/2)dt\\
+    \text{and } \sigma^2dt.
+  answer: |
+    \begin{aligned}
+    &\text{Taylor-expand to } O(dt)\text{: } e^{r\,dt}\approx1+r\,dt, \quad u\approx1+\sigma\sqrt{dt}+\tfrac12\sigma^2dt, \quad d\approx1-\sigma\sqrt{dt}+\tfrac12\sigma^2dt. \\
+    &p = \dfrac{e^{r\,dt}-d}{u-d} \approx \dfrac{(1+r\,dt)-(1-\sigma\sqrt{dt}+\tfrac12\sigma^2dt)}{2\sigma\sqrt{dt}} = \dfrac{\sigma\sqrt{dt}+(r-\tfrac12\sigma^2)dt}{2\sigma\sqrt{dt}} = \tfrac12 + \dfrac{(r-\sigma^2/2)\sqrt{dt}}{2\sigma}+O(dt). \\
+    &\text{The log-return is } +\sigma\sqrt{dt} \text{ w.p. } p \text{ and } -\sigma\sqrt{dt} \text{ w.p. } 1-p, \text{ so its mean is}\\
+    &(2p-1)\sigma\sqrt{dt} \approx \dfrac{(r-\sigma^2/2)\sqrt{dt}}{\sigma}\cdot\sigma\sqrt{dt} = (r-\sigma^2/2)\,dt, \text{ matching the GBM drift term.} \\
+    &\text{Its variance is } \E[(\log\text{-return})^2]-(\text{mean})^2 = \sigma^2dt - O(dt^2) \to \sigma^2dt \text{ as } dt\to0,\\
+    &\text{matching the GBM diffusion term } \sigma^2dt. \text{ So the CRR step reproduces GBM's first two moments}\\
+    &\text{to leading order in } dt.
+    \end{aligned}
+- id: economics-finance-option-pricing-3-03
+  category: Economics & Finance
+  subtopic: Option Pricing
+  level: 3
+  question: |
+    \text{Sketch why the } n\text{-step CRR binomial price converges to the Black-Scholes price as } n\to\infty\\
+    (dt=T/n\to0).
+  answer: |
+    \begin{aligned}
+    &\ln(S_T/S_0) \text{ is the sum of } n \text{ i.i.d. two-point steps, each } \pm\sigma\sqrt{dt} \text{ with risk-neutral}\\
+    &\text{probabilities from the previous result, mean } \approx(r-\sigma^2/2)dt \text{ and variance } \approx\sigma^2dt. \\
+    &\text{Summing } n \text{ i.i.d. steps gives total mean } n(r-\sigma^2/2)dt = (r-\sigma^2/2)T \text{ and total variance}\\
+    &n\sigma^2dt = \sigma^2T, \text{ fixed as } n\to\infty \text{ even though each individual step shrinks.} \\
+    &\text{By the (Lindeberg) Central Limit Theorem, the standardized sum of these shrinking i.i.d. steps}\\
+    &\text{converges in distribution to } N\big((r-\sigma^2/2)T,\ \sigma^2T\big), \text{ so } \ln(S_T/S_0) \text{ converges to exactly the}\\
+    &\text{lognormal law assumed by Black-Scholes. Since the discounted payoff } e^{-rT}(S_T-K)^+ \text{ is a bounded-}\\
+    &\text{below, continuous (a.e.) function of } S_T, \text{ its expectation under the converging distributions}\\
+    &\text{converges to its expectation under the limiting lognormal law --- i.e. the binomial price converges}\\
+    &\text{to the Black-Scholes price.}
+    \end{aligned}
+- id: economics-finance-option-pricing-3-04
+  category: Economics & Finance
+  subtopic: Option Pricing
+  level: 3
+  question: |
+    \text{In } C=S_0N(d_1)-Ke^{-rT}N(d_2), \text{ it is known that } N(d_2)=\mathbb{Q}(S_T>K). \text{ Derive an analogous}\\
+    \text{probabilistic interpretation for } N(d_1), \text{ using a change of numeraire to the stock itself.}
+  answer: |
+    \begin{aligned}
+    &\text{From the Level 3 derivation above, } e^{-rT}\E^{\mathbb{Q}}[S_T\mathbf{1}_{S_T>K}] = S_0N(d_1). \text{ Define a new measure}\\
+    &\mathbb{Q}^S \text{ via the Radon-Nikodym derivative } \dfrac{d\mathbb{Q}^S}{d\mathbb{Q}} = \dfrac{e^{-rT}S_T}{S_0} \text{ (valid since } e^{-rT}S_T/S_0 \text{ is a}\\
+    &\text{positive } \mathbb{Q}\text{-martingale with mean 1, i.e. the stock, discounted and normalized, is the new}\\
+    &\text{numeraire). Then}\\
+    &e^{-rT}\E^{\mathbb{Q}}[S_T\mathbf{1}_{S_T>K}] = S_0\,\E^{\mathbb{Q}}\!\left[\dfrac{e^{-rT}S_T}{S_0}\mathbf{1}_{S_T>K}\right] = S_0\,\E^{\mathbb{Q}^S}[\mathbf{1}_{S_T>K}] = S_0\,\mathbb{Q}^S(S_T>K). \\
+    &\text{Comparing to } S_0N(d_1)\text{: } N(d_1)=\mathbb{Q}^S(S_T>K), \text{ the risk-neutral exercise probability measured}\\
+    &\text{under the "stock numeraire" instead of the usual money-market numeraire. So } C \text{ splits into}\\
+    &\text{PV(receive the stock if exercised, under } \mathbb{Q}^S\text{)} - \text{PV(pay } K \text{ if exercised, under } \mathbb{Q}\text{)}.
+    \end{aligned}
+- id: economics-finance-option-pricing-3-05
+  category: Economics & Finance
+  subtopic: Option Pricing
+  level: 3
+  question: |
+    \text{In the one-period binomial model } (S_0,\ S_u=uS_0,\ S_d=dS_0,\ \text{gross risk-free } R), \text{ an option pays}\\
+    C_u \text{ or } C_d. \text{ Build the replicating portfolio } (\Delta \text{ shares, } B \text{ cash) and show its cost equals the}\\
+    \text{risk-neutral discounted expectation } \tfrac1R\big[qC_u+(1-q)C_d\big], \ q=\tfrac{R-d}{u-d}.
+  answer: |
+    \begin{aligned}
+    &\text{Match the replicating portfolio's payoff in both states: } \Delta uS_0+RB=C_u, \quad \Delta dS_0+RB=C_d. \\
+    &\text{Subtracting: } \Delta(u-d)S_0 = C_u-C_d \ \Rightarrow\ \Delta = \dfrac{C_u-C_d}{(u-d)S_0}. \text{ Then } B = \dfrac{uC_d-dC_u}{(u-d)R}. \\
+    &\text{Cost of the portfolio: } \Delta S_0+B = \dfrac{C_u-C_d}{u-d} + \dfrac{uC_d-dC_u}{(u-d)R} = \dfrac{R(C_u-C_d)+uC_d-dC_u}{(u-d)R} \\
+    &= \dfrac{1}{R}\cdot\dfrac{(R-d)C_u+(u-R)C_d}{u-d} = \dfrac1R\left[\dfrac{R-d}{u-d}C_u + \dfrac{u-R}{u-d}C_d\right] = \dfrac1R\big[qC_u+(1-q)C_d\big], \\
+    &\text{using } \tfrac{u-R}{u-d}=1-q. \text{ So the replicating portfolio's cost exactly equals the risk-neutral}\\
+    &\text{discounted expectation --- if the option's market price differed from this, buying the cheaper of}\\
+    &\text{\{option, replicating portfolio\} and selling the other would lock in a riskless profit.}
+    \end{aligned}
+- id: economics-finance-option-pricing-4-01
+  category: Economics & Finance
+  subtopic: Option Pricing
+  level: 4
+  question: |
+    \text{A stock at } S_0=50 \text{ moves by } u=1.1 \text{ or } d=0.9 \text{ per period, gross risk-free } R=1.02 \text{ per period.}\\
+    \text{Price a 2-period } \textbf{American put} \text{ with strike } K=55 \text{ via backward induction, checking for early}\\
+    \text{exercise at every node. Compare to the European put price.}
+  answer: |
+    \begin{aligned}
+    &q = \dfrac{R-d}{u-d} = \dfrac{1.02-0.9}{0.2} = 0.6. \text{ Terminal prices/payoffs } (\max(K-S,0))\text{:}\\
+    &S_{uu}=60.5\ (0), \quad S_{ud}=49.5\ (5.5), \quad S_{dd}=40.5\ (14.5). \\
+    &\text{Node "u" } (S=55)\text{: continuation } = \dfrac{0.6(0)+0.4(5.5)}{1.02}\approx2.157; \text{ exercise value } = \max(55-55,0)=0.\\
+    &\text{Continuation wins: } V_u\approx2.157 \text{ (hold).}\\
+    &\text{Node "d" } (S=45)\text{: continuation } = \dfrac{0.6(5.5)+0.4(14.5)}{1.02}\approx8.922; \text{ exercise value } = \max(55-45,0)=10.\\
+    &\text{Exercise wins: } V_d=10 \text{ (exercise early here).}\\
+    &\text{Node 0 } (S=50)\text{: continuation } = \dfrac{0.6(2.157)+0.4(10)}{1.02}\approx5.190; \text{ exercise value } = \max(55-50,0)=5.\\
+    &\text{Continuation wins: } V_0\approx\$5.19 \text{ (don't exercise at } t=0\text{).}\\
+    &\text{If European (no early exercise allowed), node "d" would use } 8.922 \text{ instead of } 10\text{, giving}\\
+    &V_0^{\text{Euro}} = \dfrac{0.6(2.157)+0.4(8.922)}{1.02}\approx\$4.77 < \$5.19\text{, the early-exercise premium.}
+    \end{aligned}
+- id: economics-finance-option-pricing-4-02
+  category: Economics & Finance
+  subtopic: Option Pricing
+  level: 4
+  question: |
+    \text{A stock trades at } S=60 \text{ the instant before an ex-dividend date, about to pay a \$5 dividend}\\
+    \text{(dropping the price to \$55 ex-dividend). One period remains after that, with up/down factors}\\
+    u=1.2,\ d=0.8 \text{ on the ex-dividend price, gross risk-free } R=1.05 \text{ per period. For an American call}\\
+    \text{with } K=50\text{, should the holder exercise immediately (before the dividend) or wait?}
+  answer: |
+    \begin{aligned}
+    &q = \dfrac{R-d}{u-d} = \dfrac{1.05-0.8}{0.4} = 0.625. \text{ From the ex-dividend price } 55\text{, next period's prices/payoffs}\\
+    &\text{are } 66\ (\max(66-50,0)=16) \text{ and } 44\ (\max(44-50,0)=0).\\
+    &\text{Continuation value (wait, receive the dividend's effect, keep the option): } \dfrac{0.625(16)+0.375(0)}{1.05}\approx9.524.\\
+    &\text{Immediate exercise value (using the cum-dividend price } S=60 \text{ before the drop): } \max(60-50,0)=10.\\
+    &\text{Since } 10 > 9.524\text{, exercise is optimal right now, immediately before the ex-dividend date.}\\
+    &\text{Between dividend dates the stock behaves like a non-dividend payer, where early exercise of a call}\\
+    &\text{is never optimal (holding always dominates) --- so the instant right before an ex-dividend payment}\\
+    &\text{is the only point in time where early exercise of an American call can ever be rational.}
+    \end{aligned}
+- id: economics-finance-option-pricing-4-03
+  category: Economics & Finance
+  subtopic: Option Pricing
+  level: 4
+  question: |
+    \text{Derive the classic quant "quick approximation" for an at-the-money-forward Black-Scholes call,}\\
+    C\approx0.4\,S_0\sigma\sqrt T, \text{ valid when } S_0=Ke^{-rT} \text{ and } \sigma\sqrt T \text{ is small.}
+  answer: |
+    \begin{aligned}
+    &\text{With } S_0=Ke^{-rT}=:F\text{, } \ln(S_0/K)+rT=0\text{, so } d_1=\tfrac12\sigma\sqrt T, \ d_2=-\tfrac12\sigma\sqrt T, \text{ and}\\
+    &C = F\big[N(d_1)-N(d_2)\big] = F\big[N(\tfrac12\sigma\sqrt T)-N(-\tfrac12\sigma\sqrt T)\big] = F\big[2N(\tfrac12\sigma\sqrt T)-1\big]\\
+    &\text{using } N(-x)=1-N(x). \text{ For small } x=\tfrac12\sigma\sqrt T, \text{ Taylor-expand } N(x)\approx N(0)+x\phi(0) = \tfrac12+x\phi(0)\text{:}\\
+    &C \approx F\big[2(\tfrac12+x\phi(0))-1\big] = 2F\,x\,\phi(0) = F\,\sigma\sqrt T\,\phi(0), \quad \phi(0)=\tfrac{1}{\sqrt{2\pi}}\approx0.3989\approx0.4.\\
+    &\text{So } C \approx F\sigma\sqrt T\,(0.4) = 0.4\,S_0\sigma\sqrt T \text{ (since } F=S_0\text{). This lets a trader mentally estimate an}\\
+    &\text{ATM option's price from just the spot, vol, and time to expiry, with no normal-CDF table needed.}
+    \end{aligned}
+- id: economics-finance-option-pricing-4-04
+  category: Economics & Finance
+  subtopic: Option Pricing
+  level: 4
+  question: |
+    \text{Derive the price of a } \textbf{perpetual American put} \text{ (no maturity) under Black-Scholes assumptions,}\\
+    \text{by guessing a power solution } V(S)=AS^\gamma \text{ to the time-independent pricing ODE.}
+  answer: |
+    \begin{aligned}
+    &\text{With no time-dependence, the Black-Scholes PDE's } V_t \text{ term vanishes, leaving the ODE}\\
+    &\tfrac12\sigma^2S^2V''(S)+rSV'(S)-rV(S)=0 \text{ for } S>S^*, \text{ where } S^* \text{ is the (unknown) optimal exercise}\\
+    &\text{boundary, with value-matching } V(S^*)=K-S^*, \text{ smooth-pasting } V'(S^*)=-1, \text{ and } V(S)\to0 \text{ as } S\to\infty.\\
+    &\text{Trying } V=S^\gamma\text{: } \tfrac12\sigma^2\gamma(\gamma-1)+r\gamma-r=0 \ \Rightarrow\ \gamma^2+\big(\tfrac{2r}{\sigma^2}-1\big)\gamma-\tfrac{2r}{\sigma^2}=0,\\
+    &\text{which factors as } (\gamma-1)\big(\gamma+\tfrac{2r}{\sigma^2}\big)=0, \text{ so } \gamma=1 \text{ or } \gamma=-\tfrac{2r}{\sigma^2}. \text{ The } \gamma=1 \text{ branch}\\
+    &(V\propto S) \text{ violates } V(S)\to0 \text{ as } S\to\infty, \text{ so only } \gamma=-\tfrac{2r}{\sigma^2}<0 \text{ survives: } V(S)=AS^\gamma.\\
+    &\text{Value-matching and smooth-pasting: } A(S^*)^\gamma=K-S^*, \quad A\gamma(S^*)^{\gamma-1}=-1. \text{ Dividing the second}\\
+    &\text{by the first: } \gamma/S^* = -1/(K-S^*) \ \Rightarrow\ \gamma(K-S^*)=-S^* \ \Rightarrow\ S^*=\dfrac{\gamma K}{\gamma-1} = \dfrac{2rK}{2r+\sigma^2}\\
+    &\text{(substituting } \gamma=-2r/\sigma^2\text{), and } A=(K-S^*)/(S^*)^\gamma. \text{ So } V(S)=K-S \text{ for } S\le S^*, \text{ and}\\
+    &V(S)=A S^{-2r/\sigma^2} \text{ for } S>S^*, \text{ with } S^*=2rK/(2r+\sigma^2) \text{ a clean closed form for the exercise boundary.}
+    \end{aligned}
+- id: economics-finance-option-pricing-4-05
+  category: Economics & Finance
+  subtopic: Option Pricing
+  level: 4
+  question: |
+    \text{A cash-or-nothing digital call pays \$1 if } S_T>K \text{ at maturity, 0 otherwise. Using the}\\
+    \text{interpretation } N(d_2)=\mathbb{Q}(S_T>K), \text{ price this digital call for } S_0=50,\ K=55,\ T=0.5,\ r=0.04,\\
+    \sigma=0.25, \text{ with no further risk-neutral-expectation derivation needed.}
+  answer: |
+    \begin{aligned}
+    &\text{Price } = e^{-rT}\mathbb{Q}(S_T>K) = e^{-rT}N(d_2) \text{ directly --- the whole point is reusing the known}\\
+    &\text{interpretation of } N(d_2) \text{ rather than re-deriving the payoff integral.}\\
+    &d_1 = \dfrac{\ln(50/55)+(0.04+0.03125)(0.5)}{0.25\sqrt{0.5}} = \dfrac{-0.0953+0.0356}{0.1768} \approx -0.338, \qquad d_2 = d_1-0.1768\approx-0.514.\\
+    &N(-0.514)\approx0.304. \quad \text{Price } = e^{-0.04(0.5)}(0.304) = e^{-0.02}(0.304) \approx 0.980(0.304) \approx \$0.30.
+    \end{aligned}
+- id: economics-finance-option-pricing-4-06
+  category: Economics & Finance
+  subtopic: Option Pricing
+  level: 4
+  question: |
+    \text{With } S_0,K,T,r \text{ fixed, show that the Black-Scholes call price } C=S_0N(d_1)-Ke^{-rT}N(d_2) \text{ converges}\\
+    \text{to } \max(S_0-Ke^{-rT},0) \text{ as } \sigma\to0. \text{ Give a one-line intuition for the result.}
+  answer: |
+    \begin{aligned}
+    &d_1,d_2 = \dfrac{\ln(S_0/K)+rT}{\sigma\sqrt T} \pm \tfrac12\sigma\sqrt T. \text{ As } \sigma\to0, \text{ both } d_1,d_2 \text{ are dominated by the}\\
+    &\dfrac{\ln(S_0/K)+rT}{\sigma\sqrt T} \text{ term, which } \to+\infty \text{ if } S_0e^{rT}>K, \text{ or } \to-\infty \text{ if } S_0e^{rT}<K.\\
+    &\text{If } S_0e^{rT}>K\text{: } N(d_1),N(d_2)\to1, \text{ so } C\to S_0-Ke^{-rT}. \text{ If } S_0e^{rT}<K\text{: } N(d_1),N(d_2)\to0, \text{ so } C\to0.\\
+    &\text{Combined: } C\to\max(S_0-Ke^{-rT},0). \text{ Intuition: with zero volatility the stock just grows}\\
+    &\text{deterministically at the risk-free rate, so the option's payoff is certain in advance --- it becomes}\\
+    &\text{a forward contract (or worthless), and its price collapses to the discounted certain payoff, matching}\\
+    &\text{the no-arbitrage lower bound on a call's price.}
+    \end{aligned}
+- id: economics-finance-option-pricing-4-07
+  category: Economics & Finance
+  subtopic: Option Pricing
+  level: 4
+  question: |
+    \text{Two European calls on the same stock and maturity, but different strikes, have different implied}\\
+    \text{volatilities (a volatility smile). What does this imply about the market's assumed risk-neutral}\\
+    \text{distribution of } S_T\text{, compared to the lognormal distribution Black-Scholes assumes?}
+  answer: |
+    \text{If the true risk-neutral distribution of } S_T \text{ were exactly the lognormal Black-Scholes assumes,}\\
+    \text{every strike would back out the same implied } \sigma, \text{ since one lognormal distribution (one } \sigma\text{)}\\
+    \text{would price every strike consistently. A smile/skew means the market is pricing in a different}\\
+    \text{risk-neutral distribution than lognormal --- typically with fatter tails (more probability of large}\\
+    \text{moves than lognormal predicts) and, for equities, negative skew (more weight on large downward}\\
+    \text{moves, reflecting crash risk) than a lognormal with a single } \sigma \text{ could capture. Each strike's}\\
+    \text{implied } \sigma \text{ is really just a (wrong) single-parameter summary of how much probability the true}\\
+    \text{distribution puts near that particular strike, which is why it varies by strike.}
+- id: economics-finance-option-pricing-4-08
+  category: Economics & Finance
+  subtopic: Option Pricing
+  level: 4
+  question: |
+    \text{A Monte Carlo option pricer simulates } N=10{,}000 \text{ risk-neutral paths and reports a standard error}\\
+    \text{of \$0.08 on the price estimate. How many paths are needed to halve the standard error to \$0.04?}\\
+    \text{Why is this convergence rate independent of the payoff's complexity (e.g. path-dependence),}\\
+    \text{unlike grid-based PDE methods?}
+  answer: |
+    \text{The Monte Carlo estimator's standard error scales as } \text{SE}\propto\sigma_{\text{payoff}}/\sqrt N, \text{ so halving SE}\\
+    \text{requires quadrupling } N\text{: } N' = 4\times10{,}000 = 40{,}000. \text{ This } 1/\sqrt N \text{ rate comes purely from the}\\
+    \text{Central Limit Theorem applied to averaging i.i.d. discounted payoffs, and does not depend on how}\\
+    \text{many state variables or past-path values the payoff depends on. Grid-based PDE methods, by}\\
+    \text{contrast, need a grid point for every combination of state variables, so their cost grows}\\
+    \text{exponentially with the number of dimensions (the "curse of dimensionality") --- which is why Monte}\\
+    \text{Carlo is preferred for pricing complex, high-dimensional, or path-dependent payoffs (e.g. basket or}\\
+    \text{Asian options) even though its per-path convergence is slower than PDE/binomial methods in low}\\
+    \text{dimensions.}
