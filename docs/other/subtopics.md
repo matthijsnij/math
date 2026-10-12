@@ -25,7 +25,8 @@
 
 ## Probability & Statistics
 - Mean, Median, Mode and Range
-- Expected Value, Variance and Covariance
+- Expected Value, Variance, Covariance, Correlation
+- Conditional Expectation and Variance
 - Order Statistics
 - Conditional Probability and Bayes
 - Combinatorics
@@ -33,12 +34,15 @@
 - Random Variables
 - Probability Distributions
 - Central Limit Theorem
+- Law of Large Numbers
 - Linear Regression
 - Confidence Intervals and Regions
 - Hypothesis Testing
 - Markov Chains
 - Martingale and Random Walk
 - Brownian Motion
+- Poisson Process
+- Stochastic Calculus
 
 ## Machine Learning
 - Bias-Variance Tradeoff

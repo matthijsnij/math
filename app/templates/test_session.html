@@ -35,9 +35,14 @@
         review.innerHTML = "";
         cards.forEach((card) => {
           const li = document.createElement("li");
-          li.innerHTML =
-            '<div class="question">\\[' + card.question + '\\]</div>' +
-            '<div class="answer">\\[' + card.answer + '\\]</div>';
+          const question = document.createElement("div");
+          question.className = "question";
+          question.textContent = "\\[" + card.question + "\\]";
+          const answer = document.createElement("div");
+          answer.className = "answer";
+          answer.textContent = "\\[" + card.answer + "\\]";
+          li.appendChild(question);
+          li.appendChild(answer);
           review.appendChild(li);
         });
         review.hidden = false;
@@ -46,6 +51,7 @@
           renderMathInElement(review, {
             delimiters: [{left: "\\[", right: "\\]", display: true}],
             macros: window.KATEX_MACROS,
+            trust: window.KATEX_TRUST,
           });
         }
       });

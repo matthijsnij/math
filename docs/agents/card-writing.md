@@ -52,7 +52,28 @@ it:
   Double-quoted YAML strings require every backslash to be doubled (`\\\\begin` for `\begin`),
   which gets unreadable fast once `\begin{aligned}` and `\\` row separators are both involved;
   block scalars take the LaTeX as-is.
+## Images (function plots, diagrams)
 
+A Card can embed a static image via `\includegraphics[width=8cm]{/static/graphs/<file>}` —
+KaTeX's `trust` is scoped (see `app/templates/base.html`) to only allow that command with a URL
+under `/static/graphs/`, nothing else. Use this when a case genuinely needs a visual (a function
+plot, a geometric figure, a Venn diagram, a probability tree, a Markov chain state diagram, a
+payoff diagram) rather than when the content is just as clear written out in LaTeX — most Cards
+still don't need one.
+
+- Generate the image (e.g. a small matplotlib/graphviz script) and save it under
+  `app/static/graphs/`, named after the Card's id it belongs to (e.g. `mathematics-functions-and-graphs-4-03.png`)
+  so it's obvious which Card it's for and it won't collide with another Card's image.
+- Reference it from the `question` or `answer` with `\includegraphics`, same KaTeX block as the
+  rest of the Card — don't add markdown or an `<img>` tag, both are unsupported (see above).
+- Keep images small/cropped to what the question needs; `width=`/`height=` in the
+  `\includegraphics` options controls render size, the file itself should still be reasonably
+  sized.
+- **Always specify both `width=` and `height=`**, matching the image's real aspect ratio (e.g. a
+  5x4in figure needs an 8cm/6.4cm or similar 1.25:1 pair). If `height` is omitted, KaTeX defaults
+  it to a tiny `0.9em`, squashing the image to an invisible sliver. Verify the rendered size in a
+  real browser (practice session, not just that an `<img>` tag exists) before considering the Card
+  done.
 ## Other practices
 
 - **Category/Subtopic/Level must be valid**: Category from the fixed list in `app/categories.py`,
@@ -80,12 +101,25 @@ case per card" above), which only works if every Level is visible at once.
    the ones you're about to add) so the outline and the cross-Level dedup check in step 3 both
    have the full picture. If the Subtopic is brand new, this step is empty.
 1. **Draft an outline first, not Cards**, covering only the missing Levels. List the distinct
-   cases/techniques to cover per Level (roughly Level 1: 4-6, Level 2: 4-6, Level 3: 3-5, Level 4:
-   3-5 — fewer for a narrow Subtopic, more for a broad one). Post the outline for approval before
+   cases/techniques to cover per Level. The count per Level is not a target to fill — it's
+   whatever number of genuinely distinct cases that Level of that specific Subtopic actually
+   supports. Derive it by first listing every case/technique/edge case you can think of for that
+   Level, then keeping only the ones that are truly distinct (per "one case per card" above), and
+   using however many survive — don't pad with near-duplicates to hit a round number, and don't
+   cut a genuinely distinct case just to stay low. Keep Level 3 and Level 4 cases
+   qualitatively distinct, not just same-content-different-count (see Level definitions in
+   `CONTEXT.md`): a Level 3 case is deep theoretical content — a proof, an edge case, a
+   derivation — valuable to know but not phrased as an interview prompt, even if the underlying
+   fact is one an interviewer could ask about. A Level 4 case is phrased and solved as an actual
+   quant-interview application question. When a classic problem (e.g. Monty Hall, a named
+   paradox) could fit either, put it at Level 4, not Level 3. Post the outline for approval before
    writing any LaTeX: it's much cheaper to fix scope at this stage than after Cards are drafted.
    Flag any Level 3-4 case that has more than one reasonable solution method here too, so the
-   method can be picked before drafting (see "Multiple solution methods" above).
+   method can be picked before drafting (see "Multiple solution methods" above). Also flag any
+   case that needs an image (see "Images" above) so that's agreed before drafting too.
 2. **Draft the Cards** for the approved outline, following the depth/formatting/macro rules above.
+   For any case flagged as needing an image, generate it now and save it under
+   `app/static/graphs/` before writing the Card's `\includegraphics` reference.
 3. **Batch-review the drafted Cards** as a single set, against each other and against the existing
    Cards from step 0, before anything is written to `data/cards.yaml` — this is the pass that
    catches cross-Level duplicates. Show only the question of each Card here (see "Batch review

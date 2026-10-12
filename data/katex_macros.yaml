@@ -1,9 +1,17 @@
 \E: \mathbb{E}
 \Var: \operatorname{Var}
+\Bias: \operatorname{Bias}
 \P: \mathbb{P}
 \Cov: \operatorname{Cov}
+\Corr: \operatorname{Corr}
 \R: \mathbb{R}
 \Z: \mathbb{Z}
 \N: \mathbb{N}
 \argmax: \operatorname*{argmax}
 \argmin: \operatorname*{argmin}
+\plim: \operatorname{plim}
+\tr: \operatorname{tr}
+\diag: \operatorname{diag}
+\Vega: \mathcal{V}
+\VaR: \operatorname{VaR}
+\ES: \operatorname{ES}
