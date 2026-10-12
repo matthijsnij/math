@@ -14791,3 +14791,174 @@
   answer: |
     \text{Power of a point (intersecting chords): } PA\times PB = PC\times PD\\
     4\times 9 = 6\times PD \ \Rightarrow \ 36 = 6\times PD \ \Rightarrow \ PD = 6
+- id: computer-science-time-space-complexity-1-01
+  category: Computer Science
+  subtopic: Time/space complexity
+  level: 1
+  question: |
+    \text{State the formal definition of } f(n)=O(g(n)).
+  answer: |
+    f(n)=O(g(n)) \iff \exists\, c>0,\ n_0 \text{ such that } 0\le f(n)\le c\,g(n)\ \text{ for all } n\ge n_0.\\
+    \text{So } g \text{ bounds } f \text{ from above, up to a constant factor, for all sufficiently large } n.
+- id: computer-science-time-space-complexity-1-02
+  category: Computer Science
+  subtopic: Time/space complexity
+  level: 1
+  question: |
+    \text{Define } f(n)=\Omega(g(n)) \text{ and } f(n)=\Theta(g(n)) \text{, and say how each relates to Big-O.}
+  answer: |
+    f(n)=\Omega(g(n)) \iff \exists\, c>0,\ n_0 \text{ such that } f(n)\ge c\,g(n)\ \text{ for all } n\ge n_0 \quad(\text{asymptotic lower bound})\\
+    f(n)=\Theta(g(n)) \iff \exists\, c_1,c_2>0,\ n_0 \text{ such that } c_1 g(n)\le f(n)\le c_2 g(n)\ \text{ for all } n\ge n_0 \quad(\text{tight bound})\\
+    \text{Equivalently, } f=\Theta(g) \iff f=O(g) \text{ and } f=\Omega(g).
+- id: computer-science-time-space-complexity-1-03
+  category: Computer Science
+  subtopic: Time/space complexity
+  level: 1
+  question: |
+    \text{Order these from slowest- to fastest-growing as } n\to\infty\text{: }\ n!,\ 2^n,\ n^2,\ n\log n,\ n,\ \log n,\ 1.
+  answer: |
+    1 \ \prec\ \log n \ \prec\ n \ \prec\ n\log n \ \prec\ n^2 \ \prec\ 2^n \ \prec\ n!\\
+    \text{Each class strictly dominates the one before it: the ratio of the faster-growing function to the slower one tends to } \infty.
+- id: computer-science-time-space-complexity-1-04
+  category: Computer Science
+  subtopic: Time/space complexity
+  level: 1
+  question: |
+    \text{What is space complexity? Distinguish auxiliary space from input space, and say whether the recursion stack counts.}
+  answer: |
+    \text{Space complexity is the memory an algorithm needs, as a function of the input size } n.\\
+    \text{Input space is the memory holding the input itself; auxiliary space is the extra memory beyond it}\\
+    \text{(temporary variables, extra data structures, the call stack). Space complexity usually quotes the auxiliary space,}\\
+    \text{e.g. reversing an array in place uses } O(1).\\
+    \text{The recursion stack does count: a recursion of depth } d \text{ with } O(1) \text{ per frame uses } O(d) \text{ space.}
+- id: computer-science-time-space-complexity-1-05
+  category: Computer Science
+  subtopic: Time/space complexity
+  level: 1
+  question: |
+    \text{Linear search looks for a target among } n \text{ distinct elements, and the target is present at a uniformly random position.}\\
+    \text{Give the best-case, worst-case and average-case number of comparisons.}
+  answer: |
+    \text{Best case: the target is first, } 1 \text{ comparison, } O(1).\\
+    \text{Worst case: the target is last, } n \text{ comparisons, } O(n).\\
+    \text{Average case: } \dfrac{1+2+\cdots+n}{n} = \dfrac{n+1}{2} = \Theta(n).
+- id: computer-science-time-space-complexity-2-01
+  category: Computer Science
+  subtopic: Time/space complexity
+  level: 2
+  question: |
+    \text{One loop runs over } n \text{ items and a second loop runs over } m \text{ items. Compare the time complexity when the}\\
+    \text{loops run one after the other with when the second loop is nested inside the first.}
+  answer: |
+    \text{Sequential: } n+m \text{ steps, so } O(n+m).\\
+    \text{Nested: each of the } n \text{ outer iterations runs } m \text{ inner steps, so } n\cdot m \text{ steps, } O(nm).\\
+    \text{Sequential loops add their costs; nested loops multiply them (for } n=m\text{: } O(n) \text{ versus } O(n^2)\text{).}
+- id: computer-science-time-space-complexity-2-02
+  category: Computer Science
+  subtopic: Time/space complexity
+  level: 2
+  question: |
+    \text{For } i=1,\dots,n \text{ an outer loop runs an inner loop } j=1,\dots,i \text{, doing } O(1) \text{ work per inner step.}\\
+    \text{Give the exact number of steps and its } \Theta \text{ class.}
+  answer: |
+    \text{The inner loop runs } i \text{ times for each } i\text{, so the total is}\\
+    \sum_{i=1}^{n} i = \dfrac{n(n+1)}{2} = \dfrac{n^2}{2}+\dfrac{n}{2} = \Theta(n^2).
+- id: computer-science-time-space-complexity-2-03
+  category: Computer Science
+  subtopic: Time/space complexity
+  level: 2
+  question: |
+    \text{A loop starts at } i=1 \text{ and repeats } i\leftarrow 2i \text{ while } i<n. \text{ How many iterations run?}\\
+    \text{What changes if it instead starts at } i=n \text{ and repeats } i\leftarrow i/2 \text{ while } i>1\text{?}
+  answer: |
+    \text{After } k \text{ iterations } i=2^k\text{, and the loop stops once } 2^k\ge n\text{, so } k=\lceil\log_2 n\rceil = \Theta(\log n).\\
+    \text{Halving from } n\text{: after } k \text{ iterations } i=n/2^k\text{, which reaches } 1 \text{ after about } \log_2 n \text{ iterations, again } \Theta(\log n).\\
+    \text{Multiplying or dividing the counter by a constant factor each pass gives logarithmic running time.}
+- id: computer-science-time-space-complexity-2-04
+  category: Computer Science
+  subtopic: Time/space complexity
+  level: 2
+  question: |
+    \text{Simplify } 3n^2+5n\log n+100 \text{ to a Big-O class, and justify dropping each term.}
+  answer: |
+    \text{For } n\ge 1\text{: } \log_2 n\le n \text{ gives } 5n\log n\le 5n^2\text{, and } 100\le 100n^2\text{, so}\\
+    3n^2+5n\log n+100 \le (3+5+100)\,n^2 = 108\,n^2 \ \Rightarrow\ O(n^2).\\
+    \text{Since it is also } \ge 3n^2\text{, it is } \Theta(n^2).\\
+    \text{Lower-order terms are absorbed by the dominant term, and the leading constant is absorbed into } c.
+- id: computer-science-time-space-complexity-2-05
+  category: Computer Science
+  subtopic: Time/space complexity
+  level: 2
+  question: |
+    \text{Recursive factorial computes } n!=n\cdot(n-1)! \text{ with } 0!=1\text{, so } T(n)=T(n-1)+1\text{. What are its time and stack-space complexity?}
+  answer: |
+    \text{Unroll: } T(n)=T(n-1)+1=T(n-2)+2=\cdots=T(0)+n = n+1 = \Theta(n) \text{ time.}\\
+    \text{The call chain reaches depth } n+1 \text{ before any call returns, with } O(1) \text{ per frame, so the stack uses } O(n) \text{ space}\\
+    \text{(an iterative loop would use } O(1) \text{ space).}
+- id: computer-science-time-space-complexity-2-06
+  category: Computer Science
+  subtopic: Time/space complexity
+  level: 2
+  question: |
+    \text{A dynamic array doubles its capacity whenever it is full, copying all elements into the new array. What is the total}\\
+    \text{cost of } n \text{ appends, and the amortized cost per append?}
+  answer: |
+    \text{Resizes happen at sizes } 1,2,4,\dots,2^{\lfloor\log_2 n\rfloor}\text{, copying } 1+2+4+\cdots+2^{\lfloor\log_2 n\rfloor} < 2n \text{ elements in total.}\\
+    \text{Adding the } n \text{ writes, the total cost is less than } 3n = O(n).\\
+    \text{Amortized cost per append: } O(n)/n = O(1) \text{ (a single append can cost } O(n)\text{, but only rarely).}
+- id: computer-science-time-space-complexity-4-01
+  category: Computer Science
+  subtopic: Time/space complexity
+  level: 4
+  question: |
+    \text{An array holds } n-1 \text{ distinct integers from } \{1,\dots,n\}\text{, so exactly one is missing. Find it in } O(n) \text{ time and } O(1) \text{ extra space.}
+  answer: |
+    \text{The full set sums to } \dfrac{n(n+1)}{2}\text{. Sum the array in one pass into a single accumulator } S\text{; then}\\
+    \text{missing} = \dfrac{n(n+1)}{2} - S.\\
+    \text{One pass gives } O(n) \text{ time and one accumulator gives } O(1) \text{ space (sorting would cost } O(n\log n)\text{ and a hash set } O(n) \text{ space).}
+- id: computer-science-time-space-complexity-4-02
+  category: Computer Science
+  subtopic: Time/space complexity
+  level: 4
+  question: |
+    \text{Given an unsorted array of } n \text{ numbers and a target } T\text{, decide whether two different elements sum to } T\text{.}\\
+    \text{Compare brute force with the best time/space trade-off.}
+  answer: |
+    \text{Brute force checks every pair: } \binom{n}{2} = \Theta(n^2) \text{ time, } O(1) \text{ space.}\\
+    \text{Hash set: scan once; for each } x \text{ check whether } T-x \text{ is already in the set, then insert } x\text{.}\\
+    \text{Each lookup and insert is } O(1) \text{ expected, so } O(n) \text{ expected time at the cost of } O(n) \text{ extra space.}\\
+    \text{This is optimal in time up to constants, since every element must be read: } \Omega(n)\text{.}
+- id: computer-science-time-space-complexity-4-03
+  category: Computer Science
+  subtopic: Time/space complexity
+  level: 4
+  question: |
+    \text{Show that any comparison-based sorting algorithm needs } \Omega(n\log n) \text{ comparisons in the worst case.}
+  answer: |
+    \text{Model the algorithm as a binary decision tree: each internal node is a comparison, and each leaf is an output order.}\\
+    \text{All } n! \text{ orderings of } n \text{ distinct elements must be reachable, so the tree has at least } n! \text{ leaves.}\\
+    \text{A binary tree of height } h \text{ has at most } 2^h \text{ leaves, so } 2^h\ge n! \Rightarrow h\ge\log_2 n!.\\
+    \text{At least } n/2 \text{ of the factors of } n! \text{ are } \ge n/2\text{, so } n!\ge (n/2)^{n/2} \text{ and}\\
+    h \ge \dfrac{n}{2}\log_2\dfrac{n}{2} = \Omega(n\log n).\\
+    \text{The worst case needs at least } h \text{ comparisons.}
+- id: computer-science-time-space-complexity-4-04
+  category: Computer Science
+  subtopic: Time/space complexity
+  level: 4
+  question: |
+    \text{Consider } i=1,\dots,n\text{ with an inner loop } j=i,2i,3i,\dots\le n \text{ doing } O(1) \text{ work per step. What is the total number of inner steps?}
+  answer: |
+    \text{For a given } i\text{, the inner loop runs } \lfloor n/i\rfloor \text{ times. The total is}\\
+    \sum_{i=1}^{n}\left\lfloor\dfrac{n}{i}\right\rfloor \le n\sum_{i=1}^{n}\dfrac{1}{i} = nH_n\text{, and } H_n\approx\ln n\text{ (since } \ln(n+1)\le H_n\le 1+\ln n\text{).}\\
+    \text{Also } \lfloor n/i\rfloor \ge n/i-1 \text{ gives a total } \ge nH_n-n\text{, so the total is } \Theta(n\log n).
+- id: computer-science-time-space-complexity-4-05
+  category: Computer Science
+  subtopic: Time/space complexity
+  level: 4
+  question: |
+    \text{Compute } x^n \text{ for a positive integer } n \text{ using only } O(\log n) \text{ multiplications.}
+  answer: |
+    \text{Exponentiation by squaring: } x^n = \left(x^{n/2}\right)^2 \text{ if } n \text{ is even, and } x^n = x\cdot x^{n-1} \text{ if } n \text{ is odd.}\\
+    \text{Each squaring halves the exponent, so there are } \lfloor\log_2 n\rfloor \text{ squarings, plus at most one extra multiplication}\\
+    \text{per set bit of } n \text{ (at most } \lfloor\log_2 n\rfloor+1\text{).}\\
+    \text{Total} \le 2\lfloor\log_2 n\rfloor+1 = O(\log n) \text{ multiplications, versus } n-1 \text{ for the naive method.}
