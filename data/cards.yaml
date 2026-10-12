@@ -14962,3 +14962,220 @@
     \text{Each squaring halves the exponent, so there are } \lfloor\log_2 n\rfloor \text{ squarings, plus at most one extra multiplication}\\
     \text{per set bit of } n \text{ (at most } \lfloor\log_2 n\rfloor+1\text{).}\\
     \text{Total} \le 2\lfloor\log_2 n\rfloor+1 = O(\log n) \text{ multiplications, versus } n-1 \text{ for the naive method.}
+- id: computer-science-dynamic-programming-1-01
+  category: Computer Science
+  subtopic: Dynamic Programming
+  level: 1
+  question: |
+    \text{State the two properties a problem must have for dynamic programming to apply, and say what each means.}
+  answer: |
+    \textbf{Overlapping subproblems:}\text{ the recursive decomposition meets the same subproblem many times, so storing each result once avoids recomputing it.}\\
+    \textbf{Optimal substructure:}\text{ an optimal solution to the problem is built from optimal solutions to its subproblems, so a recurrence over subproblem optima gives the overall optimum.}
+- id: computer-science-dynamic-programming-1-02
+  category: Computer Science
+  subtopic: Dynamic Programming
+  level: 1
+  question: |
+    \text{Distinguish memoization from tabulation: direction of evaluation, which subproblems get solved, and one trade-off.}
+  answer: |
+    \textbf{Memoization (top-down):}\text{ write the natural recursion and cache each result; only subproblems actually reached are solved.}\\
+    \textbf{Tabulation (bottom-up):}\text{ fill a table iteratively in dependency order, so every subproblem is solved.}\\
+    \text{Trade-off: memoization is easier to write and skips unneeded states, but pays recursion overhead and stack depth;}\\
+    \text{tabulation has no recursion and makes space reduction easy, but computes states the answer may never need.}
+- id: computer-science-dynamic-programming-1-03
+  category: Computer Science
+  subtopic: Dynamic Programming
+  level: 1
+  question: |
+    \text{For } F(n)=F(n-1)+F(n-2) \text{ with } F(0)=0,\ F(1)=1 \text{, identify the state, recurrence and base cases of the DP.}\\
+    \text{Compare the running time of naive recursion with the DP.}
+  answer: |
+    \text{State: the index } n \text{ (the subproblem is "compute } F(n)\text{"). Recurrence: } F(n)=F(n-1)+F(n-2)\text{. Base cases: } F(0)=0,\ F(1)=1.\\
+    \text{Naive recursion: } T(n)=T(n-1)+T(n-2)+1 = \Theta(\varphi^n)\text{ with } \varphi=\tfrac{1+\sqrt5}{2}\approx1.618\text{, because each } F(k) \text{ is recomputed many times.}\\
+    \text{DP: } n+1 \text{ states with } O(1) \text{ work each, so } O(n) \text{ time (and } O(1) \text{ space if only the last two values are kept).}
+- id: computer-science-dynamic-programming-1-04
+  category: Computer Science
+  subtopic: Dynamic Programming
+  level: 1
+  question: |
+    \text{Contrast dynamic programming, divide and conquer, and greedy: how each treats subproblems, and when DP is needed instead of greedy.}
+  answer: |
+    \textbf{Divide and conquer:}\text{ subproblems are disjoint and solved independently, then combined (e.g. merge sort).}\\
+    \textbf{Dynamic programming:}\text{ subproblems overlap, so each is solved once, stored, and reused; the best choice is found by comparing all options.}\\
+    \textbf{Greedy:}\text{ commit to one locally best choice and never revisit it, leaving a single subproblem.}\\
+    \text{Greedy is correct only if the greedy-choice property holds; when it fails (e.g. min-coin change with arbitrary coin values), all choices must be compared, which needs DP.}
+- id: computer-science-dynamic-programming-1-05
+  category: Computer Science
+  subtopic: Dynamic Programming
+  level: 1
+  question: |
+    \text{How do you obtain a DP's time complexity from its states and transitions? Apply it to a table of } n\times m \text{ states with } O(k) \text{ work per state,}\\
+    \text{and say when the stored table can shrink.}
+  answer: |
+    \text{Time} = (\text{number of states})\times(\text{work to compute one state from smaller ones}).\\
+    \text{Here } nm \text{ states at } O(k) \text{ each give } O(nmk)\text{, which is } O(nm) \text{ when } k=O(1).\\
+    \text{Space is the number of stored states } (nm)\text{. If each state depends only on a bounded window (e.g. the previous row), keep only that window: } O(m).
+- id: computer-science-dynamic-programming-2-01
+  category: Computer Science
+  subtopic: Dynamic Programming
+  level: 2
+  question: |
+    \text{House robber: from } a=[2,7,9,3,1] \text{ choose entries, no two adjacent, to maximize their sum. Give the recurrence and the DP values.}
+  answer: |
+    \text{Let } dp[i] \text{ be the best sum using } a_0,\dots,a_i\text{. Either skip } a_i\text{ or take it and skip } a_{i-1}\text{:}\\
+    dp[i]=\max\bigl(dp[i-1],\ dp[i-2]+a_i\bigr),\quad dp[0]=2,\ dp[1]=\max(2,7)=7.\\
+    dp[2]=\max(7,\,2+9)=11,\quad dp[3]=\max(11,\,7+3)=11,\quad dp[4]=\max(11,\,11+1)=12.\\
+    \text{Maximum sum } 12 \text{ (entries } 2,9,1\text{).}
+- id: computer-science-dynamic-programming-2-02
+  category: Computer Science
+  subtopic: Dynamic Programming
+  level: 2
+  question: |
+    \text{Count the right/down lattice paths from the top-left to the bottom-right cell of a } 3\times4 \text{ grid in which cell } (2,2) \text{ (row, column) is blocked.}
+  answer: |
+    \text{Let } dp[r][c] \text{ be the number of paths to cell } (r,c)\text{: } dp[r][c]=dp[r-1][c]+dp[r][c-1] \text{, and } dp[r][c]=0 \text{ for the blocked cell; } dp[1][1]=1.\\
+    \begin{array}{cccc} 1&1&1&1\\ 1&0&1&2\\ 1&1&2&4 \end{array}\\
+    \text{Number of paths: } 4.
+- id: computer-science-dynamic-programming-2-03
+  category: Computer Science
+  subtopic: Dynamic Programming
+  level: 2
+  question: |
+    \text{0/1 knapsack: items with (weight, value) } (1,1),\ (3,4),\ (4,5) \text{ and capacity } 6\text{. Fill the DP table and give the optimal value.}
+  answer: |
+    dp[i][w]=\text{best value using the first } i \text{ items with capacity } w\text{: } dp[i][w]=\max\bigl(dp[i-1][w],\ dp[i-1][w-w_i]+v_i\bigr) \text{ if } w\ge w_i\text{, else } dp[i-1][w].\\
+    \begin{array}{c|ccccccc} w&0&1&2&3&4&5&6\\ \hline \text{no items}&0&0&0&0&0&0&0\\ (1,1)&0&1&1&1&1&1&1\\ +(3,4)&0&1&1&4&5&5&5\\ +(4,5)&0&1&1&4&5&6&6 \end{array}\\
+    \text{Optimal value } dp[3][6]=6 \text{ (the items of weight } 1 \text{ and } 4\text{).}
+- id: computer-science-dynamic-programming-2-04
+  category: Computer Science
+  subtopic: Dynamic Programming
+  level: 2
+  question: |
+    \text{In the 1D knapsack update } dp[w]=\max\bigl(dp[w],\ dp[w-w_i]+v_i\bigr) \text{, why must } w \text{ run downward for each item?}\\
+    \text{For one item } (w_i,v_i)=(2,3)\text{, capacity } 6 \text{ and an all-zero start, compare } dp[6] \text{ for an upward and a downward loop.}
+  answer: |
+    \text{Downward: when } dp[w] \text{ is updated, } dp[w-w_i] \text{ (a smaller index) has not been updated yet, so it still reflects the previous items. Here } dp[6]=\max(0,\ dp[4]+3)=3 \text{ with } dp[4]=0\text{: the item is used once.}\\
+    \text{Upward: } dp[2]=3,\ dp[4]=dp[2]+3=6,\ dp[6]=dp[4]+3=9\text{, because } dp[w-w_i] \text{ already includes the item.}\\
+    \text{The item is then reused three times, which solves the unbounded knapsack, not 0/1.}
+- id: computer-science-dynamic-programming-2-05
+  category: Computer Science
+  subtopic: Dynamic Programming
+  level: 2
+  question: |
+    \text{Find the minimum number of coins from } \{1,3,4\} \text{ that sum to } 6\text{ with a DP, and compare with the greedy answer.}
+  answer: |
+    dp[a]=1+\min_{c\le a}dp[a-c],\quad dp[0]=0\text{:}\\
+    dp[1..6]=1,\ 2,\ 1,\ 1,\ 2,\ 2.\\
+    \text{E.g. } dp[5]=1+\min(dp[4],dp[2],dp[1])=1+1=2\text{ and } dp[6]=1+\min(dp[5],dp[3],dp[2])=1+1=2\ (3+3).\\
+    \text{Greedy (largest coin first) takes } 4+1+1 = 3 \text{ coins, so greedy is not optimal here; the DP answer is } 2.
+- id: computer-science-dynamic-programming-2-06
+  category: Computer Science
+  subtopic: Dynamic Programming
+  level: 2
+  question: |
+    \text{Count the ways to make } 5 \text{ from coins } \{1,2,5\} \text{ as combinations (order ignored). Why does the loop order (coins outer vs amount outer) matter, and what does the other order count?}
+  answer: |
+    \text{Coins outer, amount inner: } ways[a] \mathrel{+}= ways[a-c]\text{, starting from } ways[0]=1 \text{ and all else } 0.\\
+    \text{After coin } 1\text{: } 1,1,1,1,1,1. \text{ After coin } 2\text{: } 1,1,2,2,3,3. \text{ After coin } 5\text{: } ways[5]=3+ways[0]=4.\\
+    \text{The 4 combinations: } 5;\ 2{+}2{+}1;\ 2{+}1{+}1{+}1;\ 1{\times}5.\\
+    \text{Each coin is fully processed before the next, so a multiset is built in one fixed coin order and counted once.}\\
+    \text{Amount outer, coins inner counts ordered sequences instead: } f(a)=\sum_{c}f(a-c) \text{ gives } f(0..5)=1,1,2,3,5,9\text{, so } 9\text{ (e.g. } 1{+}2{+}2,\ 2{+}1{+}2,\ 2{+}2{+}1 \text{ counted separately).}
+- id: computer-science-dynamic-programming-2-07
+  category: Computer Science
+  subtopic: Dynamic Programming
+  level: 2
+  question: |
+    \text{Find the length of the longest common subsequence of } X=\text{ABCD} \text{ and } Y=\text{ACBD} \text{ by filling the DP table.}
+  answer: |
+    L[i][j]=\begin{cases} L[i-1][j-1]+1 & x_i=y_j\\ \max\bigl(L[i-1][j],\ L[i][j-1]\bigr) & x_i\ne y_j \end{cases},\quad L[0][\cdot]=L[\cdot][0]=0.\\
+    \begin{array}{c|ccccc} &\varnothing&A&C&B&D\\ \hline \varnothing&0&0&0&0&0\\ A&0&1&1&1&1\\ B&0&1&1&2&2\\ C&0&1&2&2&2\\ D&0&1&2&2&3 \end{array}\\
+    \text{Length } 3 \text{ (e.g. ABD).}
+- id: computer-science-dynamic-programming-2-08
+  category: Computer Science
+  subtopic: Dynamic Programming
+  level: 2
+  question: |
+    \text{Compute the edit distance from "horse" to "ros" (insert, delete, substitute each cost } 1\text{) by filling the DP table.}
+  answer: |
+    D[i][j]=\begin{cases} D[i-1][j-1] & x_i=y_j\\ 1+\min\bigl(D[i-1][j-1],\ D[i-1][j],\ D[i][j-1]\bigr) & x_i\ne y_j \end{cases},\quad D[i][0]=i,\ D[0][j]=j.\\
+    \begin{array}{c|cccc} &\varnothing&r&o&s\\ \hline \varnothing&0&1&2&3\\ h&1&1&2&3\\ o&2&2&1&2\\ r&3&2&2&2\\ s&4&3&3&2\\ e&5&4&4&3 \end{array}\\
+    \text{Edit distance } 3 \text{: horse} \to \text{rorse (substitute)} \to \text{rose (delete r)} \to \text{ros (delete e).}
+- id: computer-science-dynamic-programming-2-09
+  category: Computer Science
+  subtopic: Dynamic Programming
+  level: 2
+  question: |
+    \text{Find the length of the longest increasing subsequence of } [10,9,2,5,3,7,101,18] \text{ using the } O(n^2) \text{ recurrence.}
+  answer: |
+    dp[i]=\text{length of the longest increasing subsequence ending at } a_i\text{: } dp[i]=1+\max\{dp[j] : j<i,\ a_j<a_i\},\ \text{or } 1 \text{ if no such } j.\\
+    dp=[1,\,1,\,1,\,2,\,2,\,3,\,4,\,4].\\
+    \text{Answer } \max_i dp[i]=4 \text{ (e.g. } 2,5,7,101\text{). There are } n \text{ states with } O(n) \text{ work each, so } O(n^2).
+- id: computer-science-dynamic-programming-4-01
+  category: Computer Science
+  subtopic: Dynamic Programming
+  level: 4
+  question: |
+    \text{Find the maximum sum of a non-empty contiguous subarray in } O(n) \text{ time and } O(1) \text{ space, and apply it to } [-2,1,-3,4,-1,2,1,-5,4].
+  answer: |
+    \text{Let } b_i \text{ be the best sum of a subarray ending at } i\text{: } b_i=a_i+\max(b_{i-1},0).\\
+    \text{A negative running sum can only hurt any extension, so restart at } a_i \text{ instead. The answer is } \max_i b_i\text{.}\\
+    b=[-2,\,1,\,-2,\,4,\,3,\,5,\,6,\,1,\,5]\ \Rightarrow\ \text{maximum } 6 \text{ (subarray } 4,-1,2,1\text{).}\\
+    \text{Only } b_{i-1} \text{ and the running maximum are kept: one pass, } O(n) \text{ time, } O(1) \text{ space.}
+- id: computer-science-dynamic-programming-4-02
+  category: Computer Science
+  subtopic: Dynamic Programming
+  level: 4
+  question: |
+    \text{How many binary strings of length } 10 \text{ contain no two consecutive } 1\text{s?}
+  answer: |
+    \text{Let } a_n \text{ count valid strings of length } n\text{. Condition on the last bit:}\\
+    \text{ends in } 0\text{: any valid string of length } n-1 \text{ precedes it, } a_{n-1} \text{ ways;}\quad \text{ends in } 1\text{: the previous bit must be } 0\text{, any valid string of length } n-2 \text{ precedes that, } a_{n-2} \text{ ways.}\\
+    a_n=a_{n-1}+a_{n-2},\quad a_1=2,\ a_2=3.\\
+    a_3,\dots,a_{10}=5,\,8,\,13,\,21,\,34,\,55,\,89,\,144.\\
+    \text{Answer } 144 \ (=F_{12}\text{).}
+- id: computer-science-dynamic-programming-4-03
+  category: Computer Science
+  subtopic: Dynamic Programming
+  level: 4
+  question: |
+    \text{You roll a fair die up to } 3 \text{ times and may stop after any roll, taking the last value rolled as your payoff. What is the expected payoff under the optimal strategy?}
+  answer: |
+    \text{Backward induction: let } V_k \text{ be the optimal expected payoff with } k \text{ rolls left. After a roll } X \text{, stop if } X>V_{k-1} \text{, else roll again, so } V_k=\E[\max(X,V_{k-1})].\\
+    V_1=\E[X]=3.5.\\
+    V_2=\E[\max(X,3.5)]=\dfrac{3(3.5)+4+5+6}{6}=\dfrac{25.5}{6}=4.25.\\
+    V_3=\E[\max(X,4.25)]=\dfrac{4(4.25)+5+6}{6}=\dfrac{28}{6}=\dfrac{14}{3}\approx4.67.\\
+    \text{Strategy: stop on the first roll if it is } 5 \text{ or } 6\text{; otherwise stop on the second roll if it is } 4 \text{ or more; otherwise take the third roll.}
+- id: computer-science-dynamic-programming-4-04
+  category: Computer Science
+  subtopic: Dynamic Programming
+  level: 4
+  question: |
+    \text{You have } 2 \text{ identical eggs and a } 100\text{-floor building. Find the minimum number of drops that guarantees finding the highest safe floor in the worst case.}
+  answer: |
+    \text{Allow } m \text{ drops in the worst case. If the first egg breaks on its } k\text{-th drop, the second egg has } m-k \text{ drops left and must test the gap since the previous drop floor linearly,}\\
+    \text{so that gap has at most } m-k+1 \text{ floors (the } k\text{-th drop floor included).}\\
+    \text{The first egg's gaps are at most } m,\,m-1,\,\dots,\,1 \text{, so } m \text{ drops cover at most } m+(m-1)+\cdots+1=\dfrac{m(m+1)}{2} \text{ floors, and this is achievable.}\\
+    \text{Need } \dfrac{m(m+1)}{2}\ge100\text{: } m=13 \text{ gives } 91<100 \text{ and } m=14 \text{ gives } 105\ge100.\\
+    \text{Answer } 14 \text{ (drop the first egg at floors } 14,27,39,50,60,69,77,84,90,95,99,100\text{).}
+- id: computer-science-dynamic-programming-4-05
+  category: Computer Science
+  subtopic: Dynamic Programming
+  level: 4
+  question: |
+    \text{Two players alternately remove } 1,\ 3 \text{ or } 4 \text{ stones from a pile, and whoever takes the last stone wins. With } 100 \text{ stones, who wins with optimal play?}
+  answer: |
+    \text{Call a pile size } n \text{ losing (L) for the player to move if every move leads to a winning (W) position, and winning if some move leads to an L position; } n=0 \text{ is L.}\\
+    \begin{array}{c|cccccccccccccc} n&0&1&2&3&4&5&6&7&8&9&10&11&12&13\\ \hline &L&W&L&W&W&W&W&L&W&L&W&W&W&W \end{array}\\
+    \text{The outcome of } n \text{ depends only on } n-1,n-3,n-4\text{; positions } 7..10 \text{ repeat the values of } 0..3 \text{ (L, W, L, W), so the pattern has period } 7\text{: } n \text{ is losing iff } n \bmod 7\in\{0,2\}.\\
+    100=7\cdot14+2 \Rightarrow 100 \bmod 7=2\text{, a losing position for the first player, so the second player wins.}
+- id: computer-science-dynamic-programming-4-06
+  category: Computer Science
+  subtopic: Dynamic Programming
+  level: 4
+  question: |
+    \text{Stock prices over } 5 \text{ days are } [1,2,3,0,2]\text{. You may trade as often as you like, hold at most one share, and after a sale you must wait one day before buying again. What is the maximum profit?}
+  answer: |
+    \text{Track three states at the end of day } i\text{: } h_i \text{ (holding a share), } s_i \text{ (just sold today), } r_i \text{ (no share, free to buy). With price } p_i\text{:}\\
+    h_i=\max(h_{i-1},\ r_{i-1}-p_i),\quad s_i=h_{i-1}+p_i,\quad r_i=\max(r_{i-1},\ s_{i-1}),\quad (h_0,s_0,r_0)=(-\infty,-\infty,0).\\
+    \begin{array}{c|ccc} p_i&h_i&s_i&r_i\\ \hline 1&-1&-\infty&0\\ 2&-1&1&0\\ 3&-1&2&1\\ 0&1&-1&2\\ 2&1&3&2 \end{array}\\
+    \text{Maximum profit } \max(s_5,r_5)=3 \text{ (buy at } 1\text{, sell at } 2\text{, rest, buy at } 0\text{, sell at } 2\text{).}
