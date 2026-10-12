@@ -13669,3 +13669,187 @@
     \text{single} -\$90\text{k outlier makes the tail. ES averages over the entire tail, so that one large loss}\\
     \text{pulls it up to \$65k. Two portfolios could show identical VaR while having very different tail}\\
     \text{severity; VaR cannot distinguish them --- exactly the blind spot ES is designed to fix.}
+- id: economics-finance-backtesting-1-01
+  category: Economics & Finance
+  subtopic: Backtesting
+  level: 1
+  question: |
+    \text{What is backtesting, and why do quant traders do it before deploying a trading strategy live?}
+  answer: |
+    \text{Backtesting is simulating how a trading strategy would have performed by running it on}\\
+    \text{historical market data. It estimates a strategy's likely risk/return profile and checks that its}\\
+    \text{logic actually works before risking real capital, without needing to wait for live results.}
+- id: economics-finance-backtesting-1-02
+  category: Economics & Finance
+  subtopic: Backtesting
+  level: 1
+  question: |
+    \text{What is the difference between in-sample and out-of-sample data in a backtest, and why is}\\
+    \text{out-of-sample performance considered the more reliable evidence?}
+  answer: |
+    \text{In-sample data is the historical period used to build/calibrate the strategy (choose its rules or}\\
+    \text{fit its parameters). Out-of-sample data is a separate period the strategy was not tuned on.}\\
+    \text{A strategy can always be tuned to look good in-sample by fitting noise in that specific}\\
+    \text{history; only out-of-sample performance tests whether it generalizes to data it hasn't seen.}
+- id: economics-finance-backtesting-1-03
+  category: Economics & Finance
+  subtopic: Backtesting
+  level: 1
+  question: |
+    \text{In backtesting, what is look-ahead bias, and give an example of how it can creep into a}\\
+    \text{seemingly careful backtest.}
+  answer: |
+    \text{Look-ahead bias occurs when a backtest uses information that would not actually have been}\\
+    \text{available at the time a trading decision was made, making performance look better than it}\\
+    \text{really would have been live. Example: a strategy that trades at today's close using a company's}\\
+    \text{quarterly earnings number, when that number is not actually reported/public until after the}\\
+    \text{close --- the backtest is silently using tomorrow's information today.}
+- id: economics-finance-backtesting-1-04
+  category: Economics & Finance
+  subtopic: Backtesting
+  level: 1
+  question: |
+    \text{What is survivorship bias in a backtest, and why does it make a tested strategy's historical}\\
+    \text{returns look too good?}
+  answer: |
+    \text{Survivorship bias arises when the historical dataset used only includes assets that still exist}\\
+    \text{today (e.g.\ today's index members), excluding companies/funds that were delisted, went}\\
+    \text{bankrupt, or were acquired along the way. Since failures are removed from the sample, the}\\
+    \text{backtest only ever "trades" eventual survivors, inflating average historical returns above what}\\
+    \text{an investor trading the full original universe would actually have earned.}
+- id: economics-finance-backtesting-1-05
+  category: Economics & Finance
+  subtopic: Backtesting
+  level: 1
+  question: |
+    \text{What does it mean for a backtested strategy to be overfit (curve-fit) to its historical data, and}\\
+    \text{what is the practical symptom of this?}
+  answer: |
+    \text{Overfitting means the strategy's rules or parameters were tuned so closely to the quirks and}\\
+    \text{noise of one specific historical dataset that they capture patterns that don't actually recur,}\\
+    \text{rather than a genuine, persistent market effect. The symptom: performance looks excellent}\\
+    \text{in-sample (on the data it was fit to) but degrades sharply or disappears out-of-sample or once}\\
+    \text{traded live.}
+- id: economics-finance-backtesting-1-06
+  category: Economics & Finance
+  subtopic: Backtesting
+  level: 1
+  question: |
+    \text{Why do transaction costs and slippage need to be modeled in a backtest, and what happens to}\\
+    \text{a strategy's live performance if they're ignored?}
+  answer: |
+    \text{Transaction costs (commissions, fees, bid-ask spread) and slippage (the difference between the}\\
+    \text{price assumed in the backtest and the price actually achievable when the trade is executed,}\\
+    \text{e.g.\ due to market impact or latency) are real costs paid on every trade. Ignoring them}\\
+    \text{overstates backtested returns --- the gap is especially large for strategies that trade frequently}\\
+    \text{or in small/illiquid markets, and can turn a backtest that looks profitable into one that loses}\\
+    \text{money once these costs are included.}
+- id: economics-finance-backtesting-2-01
+  category: Economics & Finance
+  subtopic: Backtesting
+  level: 2
+  question: |
+    \text{Describe walk-forward testing (rolling or expanding window) as a backtesting methodology, and}\\
+    \text{explain what weakness of a single in-sample/out-of-sample split it addresses.}
+  answer: |
+    \text{Walk-forward testing repeatedly: (1) fits/tunes the strategy on a window of historical data,}\\
+    \text{(2) tests it out-of-sample on the next (unseen) period immediately after, then (3) slides the}\\
+    \text{window forward (rolling: drop the oldest data; expanding: keep all prior data) and repeats.}\\
+    \text{A single in-sample/out-of-sample split only ever tests one out-of-sample period, so a strategy}\\
+    \text{could get lucky (or unlucky) on that one period by chance; walk-forward instead produces many}\\
+    \text{independent out-of-sample periods, giving a more robust read on whether performance holds up}\\
+    \text{consistently through changing market conditions, not just once.}
+- id: economics-finance-backtesting-2-02
+  category: Economics & Finance
+  subtopic: Backtesting
+  level: 2
+  question: |
+    \text{Where does paper trading fit between backtesting and live trading with real capital, and what}\\
+    \text{does it test that a backtest cannot?}
+  answer: |
+    \text{Paper trading runs the strategy in real time, on live/current market data and a live execution}\\
+    \text{(or simulated-fill) pipeline, but with no real money at risk. It sits between backtesting and live}\\
+    \text{trading: a backtest only proves the idea worked on past data, while paper trading tests the}\\
+    \text{strategy's operational pipeline (data feeds, order logic, timing, execution handling) under}\\
+    \text{real current conditions before committing actual capital.}
+- id: economics-finance-backtesting-2-03
+  category: Economics & Finance
+  subtopic: Backtesting
+  level: 2
+  question: |
+    \text{A researcher backtests 200 independent, randomly-generated trading rules on the same}\\
+    \text{historical dataset and keeps only the one with the best Sharpe ratio. Why is this "winning"}\\
+    \text{strategy's apparent edge not trustworthy evidence of real skill, even though it beat the market}\\
+    \text{in the backtest?}
+  answer: |
+    \text{This is the data-snooping (multiple-testing) problem: testing many candidate strategies on the}\\
+    \text{same dataset and then selecting the best performer guarantees that some strategy looks good}\\
+    \text{purely by chance, even if every strategy tested was actually worthless (no real edge). Picking}\\
+    \text{the single best of 200 random strategies is equivalent to only reporting the luckiest coin flip}\\
+    \text{out of 200 tries --- the selection process itself manufactures an impressive-looking but}\\
+    \text{spurious backtest, not evidence that the chosen rule will keep working.}
+- id: economics-finance-backtesting-2-04
+  category: Economics & Finance
+  subtopic: Backtesting
+  level: 2
+  question: |
+    \text{Why should a strategy's backtested return be compared against a benchmark (e.g.\ a passive}\\
+    \text{buy-and-hold index) rather than judged on its raw return alone?}
+  answer: |
+    \text{A strategy's raw return can look good simply because the overall market (or asset class) rose}\\
+    \text{over the backtest period, with the strategy adding no real value beyond that market exposure.}\\
+    \text{Comparing against a passive buy-and-hold benchmark over the same period isolates whether the}\\
+    \text{strategy actually outperforms the market risk it's exposed to (e.g.\ on a risk-adjusted basis),}\\
+    \text{rather than just riding a broad trend that any passive investor would have captured for free.}
+- id: economics-finance-backtesting-2-05
+  category: Economics & Finance
+  subtopic: Backtesting
+  level: 2
+  question: |
+    \text{What is point-in-time data, and why does backtesting with restated (as-currently-known) data}\\
+    \text{instead introduce a hidden bias?}
+  answer: |
+    \text{Point-in-time data records exactly the value of a data field (e.g.\ a company's reported}\\
+    \text{earnings, an economic indicator) as it was known/published on each historical date, including}\\
+    \text{any since-superseded preliminary figures. Restated data instead shows today's final, revised}\\
+    \text{values applied retroactively to past dates. A backtest using restated data effectively lets the}\\
+    \text{strategy react to numbers that hadn't been revised/finalized yet at the time --- a subtler form}\\
+    \text{of look-ahead bias that silently inflates backtested performance.}
+- id: economics-finance-backtesting-4-01
+  category: Economics & Finance
+  subtopic: Backtesting
+  level: 4
+  question: |
+    \text{A trader backtests a long-only equity strategy over the past 20 years using today's current}\\
+    \text{S\&P 500 constituent list, applying the strategy's rules to each of those 500 companies'}\\
+    \text{full historical price history over the whole period. The backtest shows strong, steady}\\
+    \text{outperformance. What is the key methodological flaw here, and which direction does it bias}\\
+    \text{the reported returns?}
+  answer: |
+    \text{This is survivorship bias: companies that were delisted, went bankrupt, or were acquired out of}\\
+    \text{the S\&P 500 at any point in the past 20 years are entirely missing from "today's constituent}\\
+    \text{list," so the backtest only ever trades firms that happened to survive (and were successful}\\
+    \text{enough to still be in the index) through the whole period. Since failing/underperforming}\\
+    \text{companies are the ones removed from the sample, this systematically overstates the strategy's}\\
+    \text{historical returns relative to what would have been achieved trading the actual, full}\\
+    \text{historical universe (including firms later delisted) --- the bias is unambiguously upward.}\\
+    \text{The fix is to backtest against a point-in-time constituent list that includes delisted names.}
+- id: economics-finance-backtesting-4-02
+  category: Economics & Finance
+  subtopic: Backtesting
+  level: 4
+  question: |
+    \text{A researcher independently backtests } N=100 \text{ trading strategies on the same historical}\\
+    \text{dataset, where in reality every single strategy has zero true edge (pure noise). Each strategy's}\\
+    \text{backtested performance is independently tested for statistical significance at the } 5\%\text{ level.}\\
+    \text{What is the probability that at least one of the 100 strategies is (falsely) declared}\\
+    \text{"significant" purely by chance, and what does this illustrate about backtesting many strategies?}
+  answer: |
+    \text{For one strategy with no real edge, } P(\text{falsely significant}) = 0.05, \text{ so}\\
+    P(\text{not falsely significant}) = 0.95. \text{ With } N=100 \text{ independent strategies,}\\
+    P(\text{at least one false positive}) = 1 - (0.95)^{100} \approx 1 - 0.0059 \approx 99.4\%\\
+    \text{So it's almost certain that at least one of the 100 worthless strategies will look}\\
+    \text{"statistically significant" by pure chance. This is why testing (and especially cherry-picking}\\
+    \text{the best of) many backtested strategies manufactures the appearance of a real edge even when}\\
+    \text{none exists --- the more strategies tried, the more "significant-looking" false positives should}\\
+    \text{be expected, not fewer.}
