@@ -37,9 +37,44 @@ function render(...nodes) {
 
 const fmtDate = (iso) => new Date(iso).toLocaleString();
 
+// Split a card string into display lines. `aligned` environments are flattened (alignment `&`
+// dropped) and every top-level `\` starts a new line, so each line is plain inline math that
+// can wrap to the card width instead of sitting in an unbreakable table.
+function mathLines(text) {
+  const flat = text.replace(/\\begin\{aligned\}|\\end\{aligned\}/g, "\\\\");
+  const lines = [];
+  let cur = "";
+  let depth = 0;
+  for (let i = 0; i < flat.length; i++) {
+    const c = flat[i];
+    if (c === "\\") {
+      const n = flat[i + 1];
+      if (n === "\\" && depth === 0) {
+        lines.push(cur);
+        cur = "";
+        i++;
+        // drop an optional vertical-spacing argument such as \[4pt]
+        const m = /^\[[^\]]*\]/.exec(flat.slice(i + 1));
+        if (m) i += m[0].length;
+      } else {
+        cur += c + (n ?? "");
+        i++;
+      }
+      continue;
+    }
+    if (c === "{") depth++;
+    else if (c === "}") depth--;
+    if (c === "&" && depth === 0) continue;
+    cur += c;
+  }
+  lines.push(cur);
+  return lines.map((l) => l.trim()).filter(Boolean);
+}
+
 function renderMath(el, text) {
   // Inline (not display) math so long lines can wrap; \displaystyle keeps display-size fractions.
-  el.textContent = `\\(\\displaystyle ${text}\\)`;
+  const lines = mathLines(text).map((l) => h("div", { class: "math-line" }, `\\(\\displaystyle ${l}\\)`));
+  el.replaceChildren(...lines);
   renderMathInElement(el, {
     delimiters: [{ left: "\\(", right: "\\)", display: false }],
     macros: { ...(bundle?.macros ?? {}) }, // KaTeX mutates this object, so pass a copy
