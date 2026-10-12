@@ -1,6 +1,6 @@
-# Math Flashcards
+# QuantQuest
 
-A local web app for practicing quant-interview-style math/CS/stats problems as LaTeX flashcards, separate from the standalone scripts in `other_tools/`.
+An installable, offline-capable phone app for practicing quant-interview-style math/CS/stats problems as LaTeX flashcards, separate from the standalone scripts in `other_tools/`. Cards are authored in this repo; the app only reads them.
 
 ## Language
 
@@ -27,4 +27,5 @@ An unlimited-length session over a filtered set of Cards (by Category/Subtopic/L
 A fixed-length (N Cards) session over a filtered set of Cards, answered blind — no answers are shown until all N have been gone through, at which point every Q&A pair in that test is revealed together for review.
 
 **Sync** _(v2)_:
-A manual action, triggered from the phone, that fetches the latest Card data from this GitHub repo (via the GitHub API) into the phone's local offline copy. Distinct from git's own sync/pull — this is an in-app action for a non-git client.
+A manual action, triggered from the phone, that replaces the phone's local offline copy with the latest published Cards (plus the custom LaTeX macros and graphs they use). All-or-nothing: if anything fails, the previous copy is kept. Distinct from git's own sync/pull — this is an in-app action for a non-git client.
+_Avoid_: Pull, refresh, update
