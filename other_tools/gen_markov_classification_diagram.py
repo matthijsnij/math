@@ -63,7 +63,7 @@ self_loop("4", "1")
 
 plt.tight_layout()
 plt.savefig(
-    "app/static/graphs/probability-statistics-markov-chains-2-03.png",
+    "data/graphs/probability-statistics-markov-chains-2-03.png",
     dpi=150,
 )
 print("saved")

@@ -454,7 +454,7 @@
     \text{(a) the interval(s) where } f \text{ is strictly decreasing} \\
     \text{(b) } f(-3) \\
     \text{(c) whether } f \text{ is invertible on its full domain, and why} \\[1em]
-    \includegraphics[width=8cm,height=6.4cm]{/static/graphs/mathematics-functions-and-graphs-4-04.png}
+    \includegraphics[width=8cm,height=6.4cm]{graphs/mathematics-functions-and-graphs-4-04.png}
   answer: |
     \begin{aligned}
     &\text{(a) } f \text{ is strictly decreasing on } (-\infty, 0) \\
@@ -1172,7 +1172,7 @@
     \text{pass are found defective at final testing with probability 0.02 (Line A) or 0.06 (Line B).} \\
     \text{Given that an item was found defective at final testing, find the probability it came} \\
     \text{from Line B.} \\
-    \includegraphics[width=8cm,height=6cm]{/static/graphs/probability-statistics-conditional-probability-and-bayes-4-04.png}
+    \includegraphics[width=8cm,height=6cm]{graphs/probability-statistics-conditional-probability-and-bayes-4-04.png}
   answer: |
     \begin{aligned}
     \P(\text{Defective}, A) &= \P(A)\,\P(\text{Pass}\mid A)\,\P(\text{Defective}\mid \text{Pass}, A) = 0.7 \times 0.9 \times 0.02 = 0.0126 \\
@@ -4592,7 +4592,7 @@
     &\text{Explain why a joint } (1-\alpha) \text{ confidence } \textbf{region} \text{ for two parameters } (\beta_1,\beta_2) \text{ estimated from} \\
     &\text{the same data is generally an ellipse, not the rectangle formed by their two individual marginal} \\
     &(1-\alpha) \text{ confidence intervals, as in the figure below.} \\
-    &\includegraphics[width=8cm,height=6.4cm]{/static/graphs/probability-statistics-confidence-intervals-and-regions-3-05.png}
+    &\includegraphics[width=8cm,height=6.4cm]{graphs/probability-statistics-confidence-intervals-and-regions-3-05.png}
     \end{aligned}
   answer: |
     \begin{aligned}
@@ -5184,7 +5184,7 @@
   question: |
     \text{Classify each state of the chain below as transient, recurrent, or absorbing, and identify its} \\
     \text{communicating classes.}
-    \includegraphics[width=9cm,height=7.5cm]{/static/graphs/probability-statistics-markov-chains-2-03.png}
+    \includegraphics[width=9cm,height=7.5cm]{graphs/probability-statistics-markov-chains-2-03.png}
   answer: |
     \begin{aligned}
     &\text{State 1: transient — once the chain leaves 1 (to 2 or 4) no edge ever returns to 1.} \\
@@ -10309,7 +10309,7 @@
     \begin{aligned}
     &\text{The figure plots bias}^2\text{ (A), variance (B), and total expected test error (C) against model complexity.} \\
     &\text{Which curve is the total test error, and where is the best complexity to choose?} \\
-    &\includegraphics[width=8cm,height=6.4cm]{/static/graphs/machine-learning-bias-variance-tradeoff-1-05.png}
+    &\includegraphics[width=8cm,height=6.4cm]{graphs/machine-learning-bias-variance-tradeoff-1-05.png}
     \end{aligned}
   answer: |
     \begin{aligned}
