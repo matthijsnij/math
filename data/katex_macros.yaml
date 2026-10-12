@@ -13,3 +13,5 @@
 \tr: \operatorname{tr}
 \diag: \operatorname{diag}
 \Vega: \mathcal{V}
+\VaR: \operatorname{VaR}
+\ES: \operatorname{ES}

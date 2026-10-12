@@ -13328,3 +13328,344 @@
     &\text{further and forces more covering --- a self-reinforcing feedback loop (short squeeze) that is}\\
     &\text{more severe the higher both numbers are.}
     \end{aligned}
+- id: economics-finance-risk-1-01
+  category: Economics & Finance
+  subtopic: Risk
+  level: 1
+  question: |
+    \text{List and briefly define the five main types of risk a trading desk manages: market, credit,}\\
+    \text{liquidity, operational, and model risk.}
+  answer: |
+    \begin{aligned}
+    &\text{Market risk: loss from price/rate moves (equities, rates, FX, vol) in instruments held.}\\
+    &\text{Credit risk: loss from a counterparty or issuer failing to meet an obligation (default).}\\
+    &\text{Liquidity risk: inability to exit/enter a position at a fair price without moving the market,}\\
+    &\text{or a funding shortfall when cash is needed.}\\
+    &\text{Operational risk: loss from failed internal processes, systems, or people (e.g.\ a trading}\\
+    &\text{error, a system outage, fraud).}\\
+    &\text{Model risk: loss from a pricing/risk model being wrong or misused (bad assumptions,}\\
+    &\text{calibration error, misapplication outside its valid regime).}
+    \end{aligned}
+- id: economics-finance-risk-1-02
+  category: Economics & Finance
+  subtopic: Risk
+  level: 1
+  question: |
+    \text{A portfolio's 1-day 95\% Value at Risk (VaR) is \$1{,}000{,}000. What does this statement mean?}
+  answer: |
+    \text{Under the model used, there is (at most) a 5\% probability that the portfolio loses more than}\\
+    \text{\$1{,}000{,}000 over the next trading day --- equivalently, \$1{,}000{,}000 is the 95th percentile of the}\\
+    \text{1-day loss distribution. VaR is a loss threshold: it does not say how much worse the loss}\\
+    \text{could be in that remaining 5\% of scenarios, only that losses beyond it are expected 5\% of the time.}
+- id: economics-finance-risk-1-03
+  category: Economics & Finance
+  subtopic: Risk
+  level: 1
+  question: |
+    \text{Define Expected Shortfall (ES), also called Conditional VaR (CVaR), at confidence level } \alpha.\\
+    \text{How does it differ conceptually from } \VaR_\alpha \text{ at the same level?}
+  answer: |
+    \ES_\alpha = \E[\text{Loss} \mid \text{Loss} > \VaR_\alpha]\\
+    \VaR_\alpha \text{ is just the loss threshold itself (a single quantile); ES is the average loss in the}\\
+    \text{tail beyond that threshold. ES answers "if things are already bad (past VaR), how bad on}\\
+    \text{average?", capturing tail severity that VaR ignores entirely.}
+- id: economics-finance-risk-1-04
+  category: Economics & Finance
+  subtopic: Risk
+  level: 1
+  question: |
+    \text{Define the Sharpe ratio of a portfolio with expected return } \E[R], \text{ risk-free rate } R_f,\\
+    \text{and return standard deviation } \sigma.
+  answer: |
+    \text{Sharpe ratio} = \dfrac{\E[R]-R_f}{\sigma}\\
+    \text{It measures excess return earned per unit of total risk (volatility) taken --- a higher Sharpe}\\
+    \text{ratio means more reward for the same risk, or the same reward for less risk.}
+- id: economics-finance-risk-1-05
+  category: Economics & Finance
+  subtopic: Risk
+  level: 1
+  question: |
+    \text{Define the maximum drawdown (MDD) of an equity curve } V_t \text{ over the interval } [0,T].
+  answer: |
+    MDD = \max_{0 \le t \le T} \left( \dfrac{\max_{0 \le s \le t} V_s \ - \ V_t}{\max_{0 \le s \le t} V_s} \right)\\
+    \text{The largest percentage decline from any running peak to the lowest point reached afterward,}\\
+    \text{before a new peak is set --- a measure of the worst peak-to-trough loss an investor could have}\\
+    \text{experienced by holding through the period.}
+- id: economics-finance-risk-1-06
+  category: Economics & Finance
+  subtopic: Risk
+  level: 1
+  question: |
+    \text{In a trading context, what is leverage, and why does it amplify risk even if it doesn't change}\\
+    \text{the expected percentage return of the underlying asset?}
+  answer: |
+    \text{Leverage } L \text{ is the ratio of total position size to the trader's own capital (the rest funded}\\
+    \text{by borrowing). The return on capital scales directly with } L\text{: } R_{capital} = L \cdot R_{asset}.\\
+    \text{Since } \Var(L \cdot R_{asset}) = L^2 \Var(R_{asset})\text{, the standard deviation (risk) of capital returns}\\
+    \text{scales by } L \text{ as well --- leverage multiplies the size of both gains and losses, so risk rises}\\
+    \text{proportionally even though the expected percentage return of the underlying is unchanged.}
+- id: economics-finance-risk-2-01
+  category: Economics & Finance
+  subtopic: Risk
+  level: 2
+  question: |
+    \text{A portfolio's 1-day P\&L is assumed } X \sim N(\mu,\sigma^2) \text{ with } \mu=0, \ \sigma=\$200{,}000.\\
+    \text{Using the standard Normal quantile } z_{0.99}=2.33, \text{ compute the 1-day 99\% parametric VaR.}
+  answer: |
+    \VaR_{0.99} = -\mu + \sigma z_{0.99} = -0 + 200{,}000 \times 2.33 = \$466{,}000
+- id: economics-finance-risk-2-02
+  category: Economics & Finance
+  subtopic: Risk
+  level: 2
+  question: |
+    \text{A desk records 20 i.i.d.\ historical daily P\&L outcomes. Sorted worst to best, the single worst}\\
+    \text{loss is } -\$80{,}000. \text{ Using historical simulation, estimate the 95\% 1-day VaR.}
+  answer: |
+    \text{With } n=20, \ (1-0.95)\times n = 1 \text{ observation falls in the tail, so the empirical 95th-percentile}\\
+    \text{loss threshold is exactly the single worst observation: } \VaR_{0.95} = \$80{,}000.\\
+    \text{Historical simulation reads the quantile straight off realized P\&L --- no distributional}\\
+    \text{assumption (e.g.\ Normality) is required, unlike the parametric method.}
+- id: economics-finance-risk-2-03
+  category: Economics & Finance
+  subtopic: Risk
+  level: 2
+  question: |
+    \text{A fund has annualized mean return } 12\%, \text{ risk-free rate } 2\%, \text{ and annualized volatility}\\
+    20\%. \text{ Compute its Sharpe ratio.}
+  answer: |
+    \text{Sharpe} = \dfrac{0.12-0.02}{0.20} = \dfrac{0.10}{0.20} = 0.5
+- id: economics-finance-risk-2-04
+  category: Economics & Finance
+  subtopic: Risk
+  level: 2
+  question: |
+    \text{A fund has annualized mean return } 10\%, \text{ risk-free rate } 2\%, \text{ total volatility } 18\%, \text{ and}\\
+    \text{downside deviation (volatility computed using only below-target returns) } 12\%. \text{ Compute its}\\
+    \text{Sharpe and Sortino ratios, and explain why they differ.}
+  answer: |
+    \begin{aligned}
+    \text{Sharpe} &= \dfrac{0.10-0.02}{0.18} = 0.444\\
+    \text{Sortino} &= \dfrac{0.10-0.02}{0.12} = 0.667
+    \end{aligned}\\
+    \text{Sortino uses only downside deviation (volatility from returns below a target/zero), ignoring}\\
+    \text{upside swings entirely, while Sharpe penalizes upside and downside volatility equally. A fund}\\
+    \text{with more upside than downside volatility (positive skew) looks less risky --- and hence}\\
+    \text{better --- under Sortino than under Sharpe.}
+- id: economics-finance-risk-2-05
+  category: Economics & Finance
+  subtopic: Risk
+  level: 2
+  question: |
+    \text{A fund's 3-year annualized return is } 15\%, \text{ and its maximum drawdown over that period was}\\
+    24\%. \text{ Compute its Calmar ratio.}
+  answer: |
+    \text{Calmar ratio} = \dfrac{\text{annualized return}}{|\text{MDD}|} = \dfrac{0.15}{0.24} = 0.625
+- id: economics-finance-risk-2-06
+  category: Economics & Finance
+  subtopic: Risk
+  level: 2
+  question: |
+    \text{A bet wins with probability } p=0.55 \text{ at even-money odds (}b=1\text{: win \$1 per \$1 staked, lose}\\
+    \text{\$1 per \$1 staked). Using the Kelly formula } f^* = \dfrac{bp-q}{b} \text{ with } q=1-p, \text{ compute the}\\
+    \text{optimal fraction of bankroll to bet.}
+  answer: |
+    f^* = \dfrac{1(0.55)-0.45}{1} = 0.10\\
+    \text{Bet 10\% of bankroll per wager.}
+- id: economics-finance-risk-3-01
+  category: Economics & Finance
+  subtopic: Risk
+  level: 3
+  question: |
+    \text{Let } L \text{ denote a portfolio's loss (positive } L \text{ = a loss) and } \rho(L) \text{ a risk measure}\\
+    \text{(capital required against } L\text{). State the four axioms } \rho \text{ must satisfy to be called}\\
+    \text{"coherent" (Artzner et al.).}
+  answer: |
+    \begin{aligned}
+    &\text{Monotonicity: if } L_1 \le L_2 \text{ a.s., then } \rho(L_1) \le \rho(L_2) \text{ (never-smaller loss}\\
+    &\Rightarrow \text{never-smaller required capital).}\\
+    &\text{Subadditivity: } \rho(L_1+L_2) \le \rho(L_1)+\rho(L_2) \text{ (diversification/merging can't increase risk).}\\
+    &\text{Positive homogeneity: } \rho(cL) = c\,\rho(L) \text{ for } c>0 \text{ (scaling a position scales its required}\\
+    &\text{capital proportionally).}\\
+    &\text{Translation invariance: } \rho(L+c) = \rho(L)+c \text{ for a deterministic constant } c \text{ (adding a}\\
+    &\text{sure extra loss } c \text{ raises required capital by exactly } c\text{).}
+    \end{aligned}
+- id: economics-finance-risk-3-02
+  category: Economics & Finance
+  subtopic: Risk
+  level: 3
+  question: |
+    \text{For a portfolio with 1-day P\&L } X \sim N(\mu,\sigma^2), \text{ derive the formula for } \VaR_\alpha\\
+    \text{(defined by } \P(\text{Loss} > \VaR_\alpha) = 1-\alpha, \text{ where Loss}=-X\text{) in terms of } \mu,\sigma,\\
+    \text{and the standard Normal quantile function } \Phi^{-1}.
+  answer: |
+    \begin{aligned}
+    \P(\text{Loss} > \VaR_\alpha) = 1-\alpha
+    &\iff \P(-X > \VaR_\alpha) = 1-\alpha \iff \P(X < -\VaR_\alpha) = 1-\alpha\\
+    &\iff \P\!\left(\dfrac{X-\mu}{\sigma} < \dfrac{-\VaR_\alpha-\mu}{\sigma}\right) = 1-\alpha\\
+    &\iff \Phi\!\left(\dfrac{-\VaR_\alpha-\mu}{\sigma}\right) = 1-\alpha
+    \iff \dfrac{-\VaR_\alpha-\mu}{\sigma} = \Phi^{-1}(1-\alpha) = -\Phi^{-1}(\alpha)
+    \end{aligned}\\
+    \text{using } \Phi^{-1}(1-\alpha)=-\Phi^{-1}(\alpha) \text{ by symmetry of the standard Normal. Solving,}\\
+    \VaR_\alpha = -\mu + \sigma\,\Phi^{-1}(\alpha)
+- id: economics-finance-risk-3-03
+  category: Economics & Finance
+  subtopic: Risk
+  level: 3
+  question: |
+    \text{For } X \sim N(\mu,\sigma^2) \text{ representing 1-day P\&L, derive the closed-form Expected Shortfall}\\
+    \ES_\alpha = \E[\text{Loss} \mid \text{Loss} > \VaR_\alpha]. \text{ Then state (without a full proof) why ES is}\\
+    \text{subadditive while VaR is not.}
+  answer: |
+    \ES_\alpha = \E[-X \mid X < -\VaR_\alpha] = -\E[X \mid X < k], \quad k := -\VaR_\alpha = \mu-\sigma\Phi^{-1}(\alpha)\\
+    \text{For } X\sim N(\mu,\sigma^2)\text{, the truncated-mean identity gives }\\
+    \E[X\mid X<k] = \mu - \sigma\,\dfrac{\varphi\!\left(\frac{k-\mu}{\sigma}\right)}{\Phi\!\left(\frac{k-\mu}{\sigma}\right)}.\\
+    \text{Here } \frac{k-\mu}{\sigma} = -\Phi^{-1}(\alpha), \text{ so } \Phi\!\left(\frac{k-\mu}{\sigma}\right)=\Phi(-\Phi^{-1}(\alpha))=1-\alpha,\\
+    \text{and } \varphi\!\left(\frac{k-\mu}{\sigma}\right) = \varphi(\Phi^{-1}(\alpha)) \text{ since } \varphi \text{ is even. Substituting,}\\
+    \E[X\mid X<k] = \mu - \sigma\dfrac{\varphi(\Phi^{-1}(\alpha))}{1-\alpha}
+    \quad\Rightarrow\quad
+    \ES_\alpha = -\mu + \sigma\dfrac{\varphi(\Phi^{-1}(\alpha))}{1-\alpha}\\
+    \text{ES can be written as an average of VaR over all confidence levels } u \text{ from } \alpha \text{ to } 1\text{:}\\
+    \ES_\alpha = \dfrac{1}{1-\alpha}\displaystyle\int_\alpha^1 \VaR_u \, du. \text{ Averaging over a whole range of quantiles}\\
+    \text{(rather than reading off one single quantile, as VaR does) lets extreme-tail outcomes of one}\\
+    \text{portfolio offset mild ones of another when the two are combined, which is exactly what}\\
+    \text{restores subadditivity --- a property that comparing single cutoff points (VaR) cannot guarantee.}
+- id: economics-finance-risk-3-04
+  category: Economics & Finance
+  subtopic: Risk
+  level: 3
+  question: |
+    \text{Derive the Kelly criterion: for a bet that wins with probability } p \text{ (gaining a fraction } b \text{ of}\\
+    \text{the stake) and loses with probability } q=1-p \text{ (losing the full stake), find the fraction } f\\
+    \text{of bankroll per bet that maximizes the expected long-run growth rate}\\
+    g(f) = \E[\log(\text{wealth multiplier per bet})].
+  answer: |
+    \begin{aligned}
+    g(f) &= p\ln(1+bf) + q\ln(1-f)\\
+    g'(f) &= \dfrac{pb}{1+bf} - \dfrac{q}{1-f}
+    \end{aligned}\\
+    \text{Setting } g'(f)=0\text{:} \quad pb(1-f) = q(1+bf) \ \Rightarrow\ pb - pbf = q + qbf \ \Rightarrow\ pb-q = bf(p+q)\\
+    \text{Since } p+q=1\text{:} \quad f^* = \dfrac{pb-q}{b} = p - \dfrac{q}{b}\\
+    \text{(}g''(f)<0\text{ everywhere on the feasible domain, confirming this maximizes } g\text{.)}
+- id: economics-finance-risk-3-05
+  category: Economics & Finance
+  subtopic: Risk
+  level: 3
+  question: |
+    \text{For an asset with i.i.d.\ simple per-period returns } R_t \text{ of mean } \mu \text{ and variance } \sigma^2,\\
+    \text{use a second-order Taylor expansion of } \ln(1+R) \text{ to show that the long-run compound growth}\\
+    \text{rate (CAGR) satisfies CAGR} \approx \mu - \tfrac12\sigma^2.
+  answer: |
+    \begin{aligned}
+    \ln(1+R) &\approx R - \dfrac{R^2}{2} \qquad \text{(2nd-order Taylor expansion about } R=0\text{)}\\
+    \E[\ln(1+R)] &\approx \E[R] - \dfrac{\E[R^2]}{2} = \mu - \dfrac{\sigma^2+\mu^2}{2} \approx \mu - \dfrac{\sigma^2}{2}
+    \end{aligned}\\
+    \text{(dropping } \mu^2/2 \text{ as negligible next to } \mu \text{ for small per-period returns). Over } n\\
+    \text{i.i.d.\ periods, } \ln(\text{wealth}_n/\text{wealth}_0) = \sum_{t=1}^n \ln(1+R_t) \text{ has mean } \approx n\left(\mu-\tfrac12\sigma^2\right)\text{,}\\
+    \text{so the per-period compound growth rate is CAGR} = e^{\E[\ln(1+R)]}-1 \approx \mu - \tfrac12\sigma^2\\
+    \text{(using } e^x-1\approx x \text{ for small } x\text{). Volatility systematically drags realized compound growth}\\
+    \text{below the arithmetic mean return.}
+- id: economics-finance-risk-4-01
+  category: Economics & Finance
+  subtopic: Risk
+  level: 4
+  question: |
+    \text{Two independent zero-coupon bonds, A and B, each face value \$100, independently default with}\\
+    \text{probability } 4\% \text{ over the next year (losing the full \$100 on default, \$0 otherwise). Compute}\\
+    \text{the 95\% 1-year VaR of (a) bond A alone, and (b) a portfolio holding both A and B. Does VaR}\\
+    \text{satisfy subadditivity here?}
+  answer: |
+    \begin{aligned}
+    &\textbf{(a) Bond A alone: } \P(\text{Loss}=100)=4\%, \ \P(\text{Loss}=0)=96\%. \text{ Since } \P(\text{Loss}>0)=4\%\le 5\%,\\
+    &\text{the 95th-percentile loss is } 0\text{: } \VaR_{0.95}(A) = \VaR_{0.95}(B) = 0, \text{ so the sum of individual}\\
+    &\text{VaRs is } 0.\\[4pt]
+    &\textbf{(b) Portfolio } A+B \text{ (independent): } \P(\text{Loss}=0)=0.96^2=92.16\%, \ \P(\text{Loss}=100)=2(0.04)(0.96)=7.68\%,\\
+    &\P(\text{Loss}=200)=0.04^2=0.16\%. \text{ Now } \P(\text{Loss}>0)=7.84\% > 5\%\text{, so the 95th-percentile loss is}\\
+    &\$100\text{: } \VaR_{0.95}(A+B) = 100.
+    \end{aligned}\\
+    \text{Since } \VaR_{0.95}(A+B)=100 > \VaR_{0.95}(A)+\VaR_{0.95}(B)=0\text{, VaR fails subadditivity: holding both}\\
+    \text{bonds together looks riskier under VaR than holding them separately, even though combining}\\
+    \text{small independent risks is economically a diversification benefit --- a concrete demonstration}\\
+    \text{that VaR is not a coherent risk measure.}
+- id: economics-finance-risk-4-02
+  category: Economics & Finance
+  subtopic: Risk
+  level: 4
+  question: |
+    \text{A bettor has an edge: } p=0.6 \text{ probability of winning an even-money bet (}b=1\text{). The Kelly}\\
+    \text{fraction is } f^*=p-q=0.2. \text{ Compute the expected log-growth rate } g(f)=p\ln(1+f)+q\ln(1-f)\\
+    \text{at } f=0.2 \text{ (Kelly) and at } f=0.4 \text{ (double Kelly), and compare to the simple expected}\\
+    \text{per-bet profit } \E[\text{profit}]=f(2p-1) \text{ at each.}
+  answer: |
+    \begin{aligned}
+    g(0.2) &= 0.6\ln(1.2)+0.4\ln(0.8) = 0.6(0.1823)+0.4(-0.2231) = 0.0201\\
+    g(0.4) &= 0.6\ln(1.4)+0.4\ln(0.6) = 0.6(0.3365)+0.4(-0.5108) = -0.0024
+    \end{aligned}\\
+    \begin{aligned}
+    \E[\text{profit}]\big|_{f=0.2} &= 0.2(0.2) = 0.04, \qquad \E[\text{profit}]\big|_{f=0.4} = 0.4(0.2) = 0.08
+    \end{aligned}\\
+    \text{Doubling the stake past Kelly still raises the simple expected per-bet profit (0.04} \to \text{0.08),}\\
+    \text{but flips the expected log-growth rate from positive (}{+2.01\%}\text{ per bet) to negative (}{-0.24\%}\text{ per}\\
+    \text{bet) --- meaning a bettor who repeatedly stakes twice Kelly is on a path to almost-sure eventual}\\
+    \text{ruin despite having "positive EV" on every single bet. Maximizing expected profit and}\\
+    \text{maximizing expected compound growth are different objectives, and over-betting past Kelly}\\
+    \text{sacrifices the latter.}
+- id: economics-finance-risk-4-03
+  category: Economics & Finance
+  subtopic: Risk
+  level: 4
+  question: |
+    \text{A 2-asset portfolio has volatilities } \sigma_1,\sigma_2, \text{ correlation } \rho, \text{ and weights } w_1,w_2\\
+    (w_1+w_2=1). \text{ Asset } i\text{'s risk contribution is } RC_i = w_i\dfrac{(\Sigma w)_i}{\sigma_p}, \text{ where } \Sigma\\
+    \text{is the covariance matrix and } \sigma_p \text{ the portfolio volatility. Show that the equal-risk-}\\
+    \text{contribution ("risk parity") weights satisfy } w_i \propto 1/\sigma_i, \text{ regardless of } \rho.
+  answer: |
+    \begin{aligned}
+    (\Sigma w)_1 &= w_1\sigma_1^2 + w_2\rho\sigma_1\sigma_2 = \sigma_1(w_1\sigma_1+w_2\rho\sigma_2)\\
+    (\Sigma w)_2 &= w_2\sigma_2^2 + w_1\rho\sigma_1\sigma_2 = \sigma_2(w_2\sigma_2+w_1\rho\sigma_1)
+    \end{aligned}\\
+    \text{Setting } RC_1=RC_2 \text{ (the } \sigma_p \text{ in the denominator cancels on both sides):}\\
+    w_1\sigma_1(w_1\sigma_1+w_2\rho\sigma_2) = w_2\sigma_2(w_2\sigma_2+w_1\rho\sigma_1)\\
+    w_1^2\sigma_1^2 + \rho\sigma_1\sigma_2 w_1w_2 = w_2^2\sigma_2^2 + \rho\sigma_1\sigma_2 w_1w_2\\
+    \text{The correlation cross-term appears identically on both sides and cancels, leaving}\\
+    w_1^2\sigma_1^2 = w_2^2\sigma_2^2 \ \Rightarrow\ w_1\sigma_1 = w_2\sigma_2 \ \Rightarrow\ \dfrac{w_1}{w_2}=\dfrac{\sigma_2}{\sigma_1}\\
+    \text{So for exactly 2 assets, equal risk contribution reduces to simple inverse-volatility weighting,}\\
+    \text{independent of } \rho \text{ --- a result that does not extend to 3+ assets, where correlation no longer}\\
+    \text{cancels out.}
+- id: economics-finance-risk-4-04
+  category: Economics & Finance
+  subtopic: Risk
+  level: 4
+  question: |
+    \text{An asset's return alternates each period: } +50\%, \ -50\%, \ +50\%, \ -50\%,\ldots \text{ (arithmetic mean}\\
+    \text{return } 0\%\text{). After 2 periods, what is the actual compound return? Relate this to the}\\
+    \text{volatility-drag identity CAGR} \approx \mu - \tfrac12\sigma^2.
+  answer: |
+    \begin{aligned}
+    \text{Wealth after 2 periods} &= 1 \times 1.5 \times 0.5 = 0.75\\
+    \text{Compound return} &= 0.75 - 1 = -25\%, \qquad \text{per-period CAGR} = \sqrt{0.75}-1 \approx -13.4\%
+    \end{aligned}\\
+    \text{Despite a } 0\% \text{ arithmetic mean return, the investor actually loses money. Using the}\\
+    \text{per-period return sample } \{+0.5,-0.5\}\text{: } \mu=0, \ \sigma^2 = \dfrac{(0.5)^2+(-0.5)^2}{2}=0.25.\\
+    \text{The identity predicts CAGR} \approx 0 - \tfrac12(0.25) = -12.5\%\text{, close to (if a bit optimistic}\\
+    \text{versus) the exact} -13.4\%\text{: the approximation is a second-order Taylor expansion, so it}\\
+    \text{degrades as } \sigma \text{ grows large (here } \sigma=50\%\text{ is not "small"), but it correctly identifies}\\
+    \text{both the sign and the rough size of the volatility drag.}
+- id: economics-finance-risk-4-05
+  category: Economics & Finance
+  subtopic: Risk
+  level: 4
+  question: |
+    \text{A strategy's 20 historical daily P\&L outcomes (in \$'000s), sorted worst to best, are:}\\
+    -90,-40,-38,-35,-33,-30,-28,-25,-22,-20,-15,-10,-5,0,3,5,8,10,12,15.\\
+    \text{Compute the 90\% 1-day historical VaR and Expected Shortfall, and explain what the}\\
+    \text{comparison reveals about VaR's blind spot.}
+  answer: |
+    \text{With } n=20, \ (1-0.90)\times n = 2 \text{ observations fall in the tail: } -90 \text{ and } -40.
+    \begin{aligned}
+    \VaR_{0.90} &= 40 \quad \text{(the boundary of the worst 10\%, i.e.\ the 2nd-worst observation)}\\
+    \ES_{0.90} &= \dfrac{90+40}{2} = 65 \quad \text{(the average loss over the whole worst-10\% tail)}
+    \end{aligned}\\
+    \text{VaR reports only the \$40k threshold --- it is completely insensitive to how much worse the}\\
+    \text{single} -\$90\text{k outlier makes the tail. ES averages over the entire tail, so that one large loss}\\
+    \text{pulls it up to \$65k. Two portfolios could show identical VaR while having very different tail}\\
+    \text{severity; VaR cannot distinguish them --- exactly the blind spot ES is designed to fix.}
