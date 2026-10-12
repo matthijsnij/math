@@ -2,12 +2,13 @@
 
 from __future__ import annotations
 
+import re
 from pathlib import Path
 
-from app.categories import CATEGORIES, LEVELS
-from app.slugs import slugify
-from app.storage import CardStore
-from app.subtopics import SubtopicStore
+from cardlib.categories import CATEGORIES, LEVELS
+from cardlib.slugs import slugify
+from cardlib.storage import CardStore
+from cardlib.subtopics import SubtopicStore
 
 DATA_DIR = Path(__file__).resolve().parent.parent / "data"
 
@@ -55,3 +56,11 @@ def test_card_question_and_answer_are_non_empty():
     for card in _cards():
         assert card.question.strip(), f"{card.id}: empty question"
         assert card.answer.strip(), f"{card.id}: empty answer"
+
+
+def test_includegraphics_paths_point_to_existing_graph_files():
+    pattern = re.compile(r"\\includegraphics(?:\[[^\]]*\])?\{([^}]*)\}")
+    for card in _cards():
+        for path in pattern.findall(card.question + card.answer):
+            assert path.startswith("graphs/"), f"{card.id}: image path '{path}' must start with graphs/"
+            assert (DATA_DIR / path).is_file(), f"{card.id}: missing image file data/{path}"

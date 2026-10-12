@@ -41,28 +41,27 @@ Cards can reuse it. Don't add a macro for a one-off that won't recur.
 ## Formatting constraints
 
 The whole `question`/`answer` string is rendered as a single KaTeX display-math block (wrapped in
-`\[ ... \]` — see `app/templates/practice_session.html`). There is no markdown and no HTML inside
+`\[ ... \]`). There is no markdown and no HTML inside
 it:
 
 - Use `\text{...}` for any narrative words or sentences mixed into the math.
 - Use `\begin{aligned} ... \end{aligned}` with `\\` row separators to break a derivation into
   steps; use `\quad`/`\qquad` for spacing instead of literal line breaks.
-- In `data/cards.yaml`, prefer YAML block scalars (`question: |` / `answer: |`, as the Add page's
-  placeholder shows) over quoted strings for anything with more than a couple of backslashes.
+- In `data/cards.yaml`, prefer YAML block scalars (`question: |` / `answer: |`) over quoted strings for anything with more than a couple of backslashes.
   Double-quoted YAML strings require every backslash to be doubled (`\\\\begin` for `\begin`),
   which gets unreadable fast once `\begin{aligned}` and `\\` row separators are both involved;
   block scalars take the LaTeX as-is.
 ## Images (function plots, diagrams)
 
-A Card can embed a static image via `\includegraphics[width=8cm]{/static/graphs/<file>}` —
-KaTeX's `trust` is scoped (see `app/templates/base.html`) to only allow that command with a URL
-under `/static/graphs/`, nothing else. Use this when a case genuinely needs a visual (a function
+A Card can embed a static image via `\includegraphics[width=8cm]{graphs/<file>}` —
+the path is relative to `data/` (the app is served under a sub-path, so absolute paths won't
+resolve), and KaTeX's `trust` is scoped to only allow that command with a `graphs/` path. Use this when a case genuinely needs a visual (a function
 plot, a geometric figure, a Venn diagram, a probability tree, a Markov chain state diagram, a
 payoff diagram) rather than when the content is just as clear written out in LaTeX — most Cards
 still don't need one.
 
 - Generate the image (e.g. a small matplotlib/graphviz script) and save it under
-  `app/static/graphs/`, named after the Card's id it belongs to (e.g. `mathematics-functions-and-graphs-4-03.png`)
+  `data/graphs/`, named after the Card's id it belongs to (e.g. `mathematics-functions-and-graphs-4-03.png`)
   so it's obvious which Card it's for and it won't collide with another Card's image.
 - Reference it from the `question` or `answer` with `\includegraphics`, same KaTeX block as the
   rest of the Card — don't add markdown or an `<img>` tag, both are unsupported (see above).
@@ -76,14 +75,14 @@ still don't need one.
   done.
 ## Other practices
 
-- **Category/Subtopic/Level must be valid**: Category from the fixed list in `app/categories.py`,
+- **Category/Subtopic/Level must be valid**: Category from the fixed list in `cardlib/categories.py`,
   Level 1-4. Subtopic can be new text, but check `data/subtopics.yaml` first — reuse an existing
   Subtopic name rather than creating a near-duplicate (e.g. "Eigenvalues" vs "Eigenvalues and
   Eigenvectors").
 - **Self-contained answers**: the answer shouldn't assume the reader has another Card or an
   external reference open — restate any fact it depends on in one line rather than citing it.
-- **No duplicate ids**: ids follow `category-subtopic-level-NN` and auto-increment
-  (`app/slugs.py`) — only relevant if hand-editing `data/cards.yaml` instead of using the Add page.
+- **No duplicate ids**: ids follow `category-subtopic-level-NN` and sequential
+  (`cardlib/slugs.py` has `slugify`) — pick the next free `NN` by hand when editing `data/cards.yaml`.
 - **Batch review before adding**: when proposing several Cards at once, list them for review first
   rather than writing straight into `data/cards.yaml`, so duplicate cases (see above) get caught
   before they're stored. Show only the question of each Card at this stage — the question is what
@@ -119,7 +118,7 @@ case per card" above), which only works if every Level is visible at once.
    case that needs an image (see "Images" above) so that's agreed before drafting too.
 2. **Draft the Cards** for the approved outline, following the depth/formatting/macro rules above.
    For any case flagged as needing an image, generate it now and save it under
-   `app/static/graphs/` before writing the Card's `\includegraphics` reference.
+   `data/graphs/` before writing the Card's `\includegraphics` reference.
 3. **Batch-review the drafted Cards** as a single set, against each other and against the existing
    Cards from step 0, before anything is written to `data/cards.yaml` — this is the pass that
    catches cross-Level duplicates. Show only the question of each Card here (see "Batch review

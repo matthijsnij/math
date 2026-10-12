@@ -61,7 +61,7 @@ edge(6.1, 2.5, 8.1, 2, "0.94", label_dx=0.1, label_dy=-0.2)
 
 plt.tight_layout()
 plt.savefig(
-    "app/static/graphs/probability-statistics-conditional-probability-and-bayes-4-04.png",
+    "data/graphs/probability-statistics-conditional-probability-and-bayes-4-04.png",
     dpi=150,
 )
 print("saved")
