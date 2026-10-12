@@ -14177,3 +14177,173 @@
     \text{higher volatility states than high strikes (reached after a rise) --- this negative correlation}\\
     \text{between returns and volatility is exactly why equity index implied vol skews downward with}\\
     \text{strike, rather than being flat or skewing the other way.}
+- id: economics-finance-foreign-exchange-1-01
+  category: Economics & Finance
+  subtopic: Foreign Exchange
+  level: 1
+  question: |
+    \text{In the quote } \mathrm{EUR/USD} = 1.0850\text{, identify the base currency and the quote (price)}\\
+    \text{currency, and state what the number } 1.0850 \text{ means. For a U.S.-based investor, is this a}\\
+    \text{direct or indirect quote?}
+  answer: |
+    \text{The base currency is EUR (the currency being priced) and the quote currency is USD (the}\\
+    \text{currency the price is expressed in): the number } 1.0850 \text{ means } 1 \text{ EUR } = 1.0850 \text{ USD.}\\
+    \text{For a U.S.-based investor, a direct quote states the domestic-currency price of one unit of}\\
+    \text{foreign currency --- since this quote gives the USD (domestic) price of one EUR (foreign), it}\\
+    \text{is a direct quote.}
+- id: economics-finance-foreign-exchange-1-02
+  category: Economics & Finance
+  subtopic: Foreign Exchange
+  level: 1
+  question: |
+    \text{A dealer quotes EUR/USD as } 1.0845\,/\,1.0850 \text{ (bid/ask). Explain what the bid and ask}\\
+    \text{prices mean from the dealer's perspective, and compute the USD cost of immediately buying}\\
+    \text{EUR 1{,}000{,}000 and selling it straight back to the same dealer.}
+  answer: |
+    \text{The bid (} 1.0845\text{) is the price at which the dealer buys EUR from the client, i.e.\ the}\\
+    \text{client sells EUR at the bid; the ask (} 1.0850\text{) is the price at which the dealer sells EUR to}\\
+    \text{the client, i.e.\ the client buys EUR at the ask. Buying EUR 1{,}000{,}000 at the ask costs}\\
+    1{,}000{,}000\times1.0850 = \$1{,}085{,}000\text{. Selling it straight back at the bid yields}\\
+    1{,}000{,}000\times1.0845 = \$1{,}084{,}500\text{. The round trip costs } \$500\text{, i.e.\ the bid-ask}\\
+    \text{spread is the dealer's transaction-cost markup.}
+- id: economics-finance-foreign-exchange-1-03
+  category: Economics & Finance
+  subtopic: Foreign Exchange
+  level: 1
+  question: |
+    \text{Given the quotes } \mathrm{USD/JPY} = 150.00 \text{ and } \mathrm{EUR/USD} = 1.0800\text{, compute the}\\
+    \text{no-arbitrage EUR/JPY cross rate (JPY per EUR).}
+  answer: |
+    \text{EUR/JPY gives the JPY price of one EUR. Going EUR} \to \text{USD} \to \text{JPY:}\\
+    \mathrm{EUR/JPY} = \mathrm{EUR/USD}\times\mathrm{USD/JPY} = 1.0800\times150.00 = 162.00\\
+    \text{So } 1 \text{ EUR } = 162.00 \text{ JPY.}
+- id: economics-finance-foreign-exchange-2-01
+  category: Economics & Finance
+  subtopic: Foreign Exchange
+  level: 2
+  question: |
+    \text{Three dealer quotes are observed: } \mathrm{EUR/USD}=1.1000\text{, } \mathrm{USD/JPY}=110.00\text{,}\\
+    \text{and a direct quote } \mathrm{EUR/JPY}=122.00 \text{ (all mid-rates). Compute the cross rate implied}\\
+    \text{by the first two quotes, and state whether the quoted EUR/JPY is over- or under-priced}\\
+    \text{relative to it.}
+  answer: |
+    \text{Implied EUR/JPY} = \mathrm{EUR/USD}\times\mathrm{USD/JPY} = 1.1000\times110.00 = 121.00\\
+    \text{The quoted EUR/JPY} = 122.00 \text{ is higher than the } 121.00 \text{ implied by the other two}\\
+    \text{quotes, so EUR is over-priced (JPY under-priced) in the direct EUR/JPY quote relative to the}\\
+    \text{cross rate --- a triangular arbitrage opportunity exists.}
+- id: economics-finance-foreign-exchange-2-02
+  category: Economics & Finance
+  subtopic: Foreign Exchange
+  level: 2
+  question: |
+    \text{Spot } \mathrm{EUR/USD} = 1.1000\text{, the 1-year USD interest rate is } 5\%\text{, and the 1-year}\\
+    \text{EUR interest rate is } 3\% \text{ (both simple, annualized). Use covered interest rate parity to}\\
+    \text{compute the 1-year forward EUR/USD rate.}
+  answer: |
+    \text{Covered interest parity: } F = S\cdot\dfrac{1+r_{USD}T}{1+r_{EUR}T}\\
+    F = 1.1000\times\dfrac{1+0.05}{1+0.03} = 1.1000\times\dfrac{1.05}{1.03} \approx 1.1000\times1.0194 \approx 1.1214\\
+    \text{The forward EUR/USD exceeds spot (USD trades at a forward discount) because USD rates}\\
+    \text{exceed EUR rates --- the higher-yielding currency (USD) must weaken forward to prevent}\\
+    \text{arbitrage.}
+- id: economics-finance-foreign-exchange-2-03
+  category: Economics & Finance
+  subtopic: Foreign Exchange
+  level: 2
+  question: |
+    \text{A trader borrows JPY 110{,}000{,}000 for 1 year at } 0.5\%\text{, converts it to USD at spot}\\
+    \mathrm{USD/JPY}=110.00\text{, and invests the proceeds in a 1-year USD deposit at } 4.5\%\text{. At the}\\
+    \text{end of the year the spot rate has moved to } \mathrm{USD/JPY}=105.00\text{. Compute the trader's}\\
+    \text{profit or loss in JPY.}
+  answer: |
+    \text{JPY owed at maturity: } 110{,}000{,}000\times1.005 = 110{,}550{,}000 \text{ JPY}\\
+    \text{USD raised at spot: } 110{,}000{,}000/110.00 = \$1{,}000{,}000\\
+    \text{USD at maturity: } 1{,}000{,}000\times1.045 = \$1{,}045{,}000\\
+    \text{Converted back at the new spot: } 1{,}045{,}000\times105.00 = 109{,}725{,}000 \text{ JPY}\\
+    \text{P\&L} = 109{,}725{,}000 - 110{,}550{,}000 = -825{,}000 \text{ JPY}\\
+    \text{Despite earning a positive interest rate spread (carry), the trade loses money because the}\\
+    \text{JPY appreciated (USD/JPY fell) more than the carry compensated for --- the classic carry-}\\
+    \text{trade FX risk.}
+- id: economics-finance-foreign-exchange-3-01
+  category: Economics & Finance
+  subtopic: Foreign Exchange
+  level: 3
+  question: |
+    \text{Derive the covered interest rate parity formula } F = S\cdot\dfrac{1+r_dT}{1+r_fT} \text{ from a}\\
+    \text{no-arbitrage argument, where } S\text{ and } F \text{ are the spot and forward domestic-currency prices}\\
+    \text{of one unit of foreign currency, and } r_d, r_f \text{ are the domestic and foreign risk-free rates}\\
+    \text{over horizon } T.
+  answer: |
+    \begin{aligned}
+    &\textbf{Strategy A (domestic): } \text{invest } 1 \text{ unit of domestic currency risk-free, giving }\\
+    &(1+r_dT) \text{ units of domestic currency at time } T\text{, with no FX exposure.}\\
+    &\textbf{Strategy B (foreign, hedged): } \text{convert the same } 1 \text{ unit of domestic currency into}\\
+    &1/S \text{ units of foreign currency today, invest it at } r_f \text{ to get } (1/S)(1+r_fT) \text{ units of}\\
+    &\text{foreign currency at } T\text{, and simultaneously sell that known amount forward today at rate}\\
+    &F\text{, locking in } \dfrac{F}{S}(1+r_fT) \text{ units of domestic currency at } T\text{, with no FX risk.}\\
+    &\text{Both strategies start from the same } 1 \text{ unit of domestic currency today and carry no risk}\\
+    &\text{(the forward is contracted now, eliminating any exchange-rate uncertainty), so by}\\
+    &\text{no-arbitrage they must pay the same amount at } T\text{:}\\
+    &1+r_dT = \dfrac{F}{S}(1+r_fT) \ \Longrightarrow\ F = S\cdot\dfrac{1+r_dT}{1+r_fT}.
+    \end{aligned}
+- id: economics-finance-foreign-exchange-3-02
+  category: Economics & Finance
+  subtopic: Foreign Exchange
+  level: 3
+  question: |
+    \text{Covered interest rate parity (CIP) holds exactly under no-arbitrage. The "uncovered"}\\
+    \text{interest rate parity (UIP) instead claims } \E[S_T]/S_0 = (1+r_dT)/(1+r_fT)\text{, i.e.\ the forward}\\
+    \text{rate } F \text{ is an unbiased predictor of the future spot rate } S_T\text{. Explain why UIP, unlike CIP,}\\
+    \text{is not guaranteed by arbitrage, and what the empirical "forward bias puzzle" says about it.}
+  answer: |
+    \text{CIP is a riskless arbitrage relation: both sides of the no-arbitrage argument above are}\\
+    \text{contracted today with certainty (the forward leg removes all FX risk), so } F \text{ must equal}\\
+    \dfrac{S(1+r_dT)}{1+r_fT} \text{ or a riskless profit exists. UIP instead equates } F \text{ to } \E[S_T]\text{, the}\\
+    \text{market's expectation of a future, uncertain quantity --- going long the higher-yielding}\\
+    \text{currency uncovered (unhedged) is a risky bet, not an arbitrage, so UIP can only hold if}\\
+    \text{investors are risk-neutral (or the currency risk premium happens to be zero); otherwise}\\
+    F \text{ can differ from } \E[S_T] \text{ by a risk premium with no arbitrage violated.}\\
+    \text{Empirically, the "forward bias puzzle" (or "uncovered interest parity puzzle") is the}\\
+    \text{finding that high-interest-rate currencies tend to appreciate, or at least not depreciate by}\\
+    \text{the amount UIP predicts, on average --- so going long the forward-discount (high-yield)}\\
+    \text{currency has historically earned a positive expected excess return rather than the zero UIP}\\
+    \text{predicts, the basis for most FX carry-trade strategies.}
+- id: economics-finance-foreign-exchange-4-01
+  category: Economics & Finance
+  subtopic: Foreign Exchange
+  level: 4
+  question: |
+    \text{Three quotes are observed: } \mathrm{EUR/USD}=1.2000\text{, } \mathrm{GBP/USD}=1.4000\text{, and}\\
+    \text{a direct quote } \mathrm{EUR/GBP}=0.8300\text{. Starting with USD }1{,}000{,}000\text{, find the triangular}\\
+    \text{arbitrage loop that exploits this mispricing and compute the riskless USD profit.}
+  answer: |
+    \text{The implied (fair) EUR/GBP from the other two quotes is } \mathrm{EUR/USD}/\mathrm{GBP/USD} =\\
+    1.2000/1.4000 \approx 0.857143 \text{ GBP per EUR, above the quoted direct } 0.8300\text{: EUR is cheap}\\
+    \text{(GBP rich) on the direct quote, so the profitable loop buys EUR with GBP directly, routing}\\
+    \text{through USD to fund and collect the GBP: USD}\to\text{GBP}\to\text{EUR}\to\text{USD.}\\
+    \text{USD}\to\text{GBP (at GBP/USD}=1.4000\text{): } 1{,}000{,}000/1.4000 = \text{GBP } 714{,}285.71\\
+    \text{GBP}\to\text{EUR (direct quote, } 1/0.8300\approx1.204819 \text{ EUR per GBP): }\\
+    714{,}285.71\times1.204819 \approx \text{EUR } 860{,}585.20\\
+    \text{EUR}\to\text{USD (at EUR/USD}=1.2000\text{): } 860{,}585.20\times1.2000 \approx \$1{,}032{,}702.24\\
+    \text{Riskless profit} \approx \$1{,}032{,}702.24 - \$1{,}000{,}000 = \$32{,}702.24 \text{ on the }\\
+    \$1{,}000{,}000 \text{ notional (the reverse loop, USD}\to\text{EUR}\to\text{GBP}\to\text{USD, would instead}\\
+    \text{lose money, confirming the direction above is the correct one).}
+- id: economics-finance-foreign-exchange-4-02
+  category: Economics & Finance
+  subtopic: Foreign Exchange
+  level: 4
+  question: |
+    \text{Spot EUR/USD} = 1.2000\text{, the 1-year USD rate is } 6\%\text{, the 1-year EUR rate is } 2\%\text{, and}\\
+    \text{a dealer is quoting a 1-year forward of EUR/USD} = 1.2600\text{ (simple rates). Show this forward}\\
+    \text{violates covered interest rate parity, construct the arbitrage trade on USD }1{,}000{,}000\text{ of}\\
+    \text{borrowing, and compute the riskless profit.}
+  answer: |
+    \text{Fair forward: } F = 1.2000\times\dfrac{1.06}{1.02} \approx 1.2000\times1.039216 \approx 1.2471\text{, below the}\\
+    \text{quoted } 1.2600\text{: the forward overprices EUR, so the trade borrows USD, invests in EUR, and}\\
+    \text{sells EUR forward at the rich } 1.2600\text{ rate.}\\
+    \text{Borrow } \$1{,}000{,}000 \text{ at } 6\%\text{: owe } 1{,}000{,}000\times1.06 = \$1{,}060{,}000 \text{ at } T.\\
+    \text{Convert to EUR at spot: } 1{,}000{,}000/1.2000 = \text{EUR } 833{,}333.33.\\
+    \text{Invest in EUR at } 2\%\text{: } 833{,}333.33\times1.02 = \text{EUR } 850{,}000.00 \text{ at } T.\\
+    \text{Sell that EUR forward at the contracted } 1.2600\text{: } 850{,}000.00\times1.2600 = \$1{,}071{,}000.00.\\
+    \text{Repay the USD loan: } \$1{,}060{,}000\text{. Riskless profit} = 1{,}071{,}000 - 1{,}060{,}000 = \$11{,}000\text{,}\\
+    \text{locked in today with no FX risk since every leg (spot, deposit rate, and forward) is fixed at}\\
+    \text{trade inception.}
