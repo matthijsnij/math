@@ -14347,3 +14347,447 @@
     \text{Repay the USD loan: } \$1{,}060{,}000\text{. Riskless profit} = 1{,}071{,}000 - 1{,}060{,}000 = \$11{,}000\text{,}\\
     \text{locked in today with no FX risk since every leg (spot, deposit rate, and forward) is fixed at}\\
     \text{trade inception.}
+- id: mathematics-geometry-1-01
+  category: Mathematics
+  subtopic: Geometry
+  level: 1
+  question: |
+    \text{State the Pythagorean theorem, then use it to find the hypotenuse of a right triangle}\\
+    \text{with legs } 6 \text{ and } 8.
+  answer: |
+    \text{Pythagorean theorem: } a^2+b^2=c^2 \text{ for a right triangle with legs } a,b \text{ and hypotenuse } c.\\
+    c = \sqrt{6^2+8^2} = \sqrt{36+64} = \sqrt{100} = 10
+- id: mathematics-geometry-1-02
+  category: Mathematics
+  subtopic: Geometry
+  level: 1
+  question: |
+    \text{A triangle has two interior angles } 55^\circ \text{ and } 65^\circ. \text{ Using the triangle}\\
+    \text{angle-sum theorem, find the third interior angle, then use the exterior angle theorem to}\\
+    \text{find the exterior angle at that third vertex.}
+  answer: |
+    \text{Angle-sum theorem: interior angles of a triangle sum to } 180^\circ.\\
+    \text{Third angle } = 180^\circ - 55^\circ - 65^\circ = 60^\circ\\
+    \text{Exterior angle theorem: an exterior angle equals the sum of the two remote interior angles.}\\
+    \text{Exterior angle at that vertex } = 55^\circ+65^\circ = 120^\circ \quad (\text{also } 180^\circ-60^\circ)
+- id: mathematics-geometry-1-03
+  category: Mathematics
+  subtopic: Geometry
+  level: 1
+  question: |
+    \text{State the area formula for a triangle in terms of its base and height, then find the area}\\
+    \text{of a triangle with base } 10 \text{ and height } 6.
+  answer: |
+    \text{Area} = \dfrac{1}{2}\,b\,h\\
+    \text{Area} = \dfrac{1}{2}(10)(6) = 30
+- id: mathematics-geometry-1-04
+  category: Mathematics
+  subtopic: Geometry
+  level: 1
+  question: |
+    \text{State the area formulas for a parallelogram (base } b\text{, height } h\text{) and a trapezoid}\\
+    \text{(parallel sides } a,b\text{, height } h\text{). Use them to find the areas of a parallelogram with}\\
+    b=7,\ h=4 \text{ and a trapezoid with parallel sides } 5 \text{ and } 9 \text{ and height } 3.
+  answer: |
+    \text{Parallelogram: Area} = b\,h. \qquad \text{Trapezoid: Area} = \dfrac{1}{2}(a+b)\,h\\
+    \text{Parallelogram area} = 7\times 4 = 28\\
+    \text{Trapezoid area} = \dfrac{1}{2}(5+9)(3) = \dfrac{1}{2}(14)(3) = 21
+- id: mathematics-geometry-1-05
+  category: Mathematics
+  subtopic: Geometry
+  level: 1
+  question: |
+    \text{State the circumference and area formulas for a circle of radius } r, \text{ then compute}\\
+    \text{both (in terms of } \pi\text{) for } r=5.
+  answer: |
+    \text{Circumference} = 2\pi r, \qquad \text{Area} = \pi r^2\\
+    \text{Circumference} = 2\pi(5) = 10\pi, \qquad \text{Area} = \pi(5)^2 = 25\pi
+- id: mathematics-geometry-1-06
+  category: Mathematics
+  subtopic: Geometry
+  level: 1
+  question: |
+    \text{List the standard triangle congruence criteria, including the one that applies only to}\\
+    \text{right triangles.}
+  answer: |
+    \text{SSS (side-side-side), SAS (side-angle-side), ASA (angle-side-angle), AAS}\\
+    \text{(angle-angle-side), and HL (hypotenuse-leg, right triangles only).}
+- id: mathematics-geometry-1-07
+  category: Mathematics
+  subtopic: Geometry
+  level: 1
+  question: |
+    \text{List the standard triangle similarity criteria, and state what being "similar" means for}\\
+    \text{the corresponding angles and sides of two triangles.}
+  answer: |
+    \text{AA (angle-angle), SAS (side-angle-side), SSS (side-side-side) similarity.}\\
+    \text{Similar triangles have equal corresponding angles and corresponding sides in a}\\
+    \text{constant ratio (the scale factor).}
+- id: mathematics-geometry-1-08
+  category: Mathematics
+  subtopic: Geometry
+  level: 1
+  question: |
+    \text{State the side ratios for a } 45^\circ\text{-}45^\circ\text{-}90^\circ \text{ triangle and a } 30^\circ\text{-}60^\circ\text{-}90^\circ\\
+    \text{triangle. Use them to find the two missing sides of a } 30^\circ\text{-}60^\circ\text{-}90^\circ \text{ triangle whose}\\
+    \text{hypotenuse is } 10.
+  answer: |
+    45\text{-}45\text{-}90: \ 1:1:\sqrt{2}. \qquad 30\text{-}60\text{-}90: \ 1:\sqrt{3}:2 \ (\text{short leg : long leg : hyp.})\\
+    \text{Short leg} = \dfrac{10}{2} = 5, \qquad \text{long leg} = 5\sqrt{3}
+- id: mathematics-geometry-1-09
+  category: Mathematics
+  subtopic: Geometry
+  level: 1
+  question: |
+    \text{State } \sin\theta, \cos\theta, \tan\theta \text{ for an acute angle } \theta \text{ in a right triangle in terms of}\\
+    \text{opposite, adjacent, and hypotenuse. Use them to find } \sin\theta, \cos\theta, \tan\theta \text{ for a right}\\
+    \text{triangle with opposite } 3\text{, adjacent } 4\text{, hypotenuse } 5.
+  answer: |
+    \sin\theta = \dfrac{\text{opposite}}{\text{hypotenuse}}, \quad \cos\theta = \dfrac{\text{adjacent}}{\text{hypotenuse}}, \quad \tan\theta = \dfrac{\text{opposite}}{\text{adjacent}}\\
+    \sin\theta = \dfrac{3}{5}, \qquad \cos\theta = \dfrac{4}{5}, \qquad \tan\theta = \dfrac{3}{4}
+- id: mathematics-geometry-1-10
+  category: Mathematics
+  subtopic: Geometry
+  level: 1
+  question: |
+    \text{Define complementary angles, supplementary angles, and vertical angles, and state what}\\
+    \text{is always true about a pair of vertical angles.}
+  answer: |
+    \text{Complementary angles sum to } 90^\circ. \text{ Supplementary angles sum to } 180^\circ.\\
+    \text{Vertical angles are the two non-adjacent angles formed by two intersecting lines; a pair}\\
+    \text{of vertical angles always has equal measure.}
+- id: mathematics-geometry-1-11
+  category: Mathematics
+  subtopic: Geometry
+  level: 1
+  question: |
+    \text{A transversal crosses two parallel lines. Name the three standard angle-pair}\\
+    \text{relationships this creates, and state which pairs are equal and which are supplementary.}
+  answer: |
+    \text{Corresponding angles: equal. Alternate interior angles: equal.}\\
+    \text{Co-interior (same-side interior) angles: supplementary (sum to } 180^\circ).
+- id: mathematics-geometry-1-12
+  category: Mathematics
+  subtopic: Geometry
+  level: 1
+  question: |
+    \text{State the formula for the sum of interior angles of a convex } n\text{-gon, and use it to find}\\
+    \text{the measure of each interior angle of a regular hexagon } (n=6).
+  answer: |
+    \text{Sum of interior angles} = (n-2)\times 180^\circ\\
+    \text{Hexagon sum} = (6-2)\times 180^\circ = 720^\circ, \qquad \text{each angle} = \dfrac{720^\circ}{6} = 120^\circ
+- id: mathematics-geometry-1-13
+  category: Mathematics
+  subtopic: Geometry
+  level: 1
+  question: |
+    \text{State the distance formula between two points } (x_1,y_1) \text{ and } (x_2,y_2) \text{ in the}\\
+    \text{coordinate plane, and use it to find the distance between } (1,2) \text{ and } (4,6).
+  answer: |
+    d = \sqrt{(x_2-x_1)^2+(y_2-y_1)^2}\\
+    d = \sqrt{(4-1)^2+(6-2)^2} = \sqrt{9+16} = \sqrt{25} = 5
+- id: mathematics-geometry-1-14
+  category: Mathematics
+  subtopic: Geometry
+  level: 1
+  question: |
+    \text{State the midpoint formula for two points } (x_1,y_1), (x_2,y_2), \text{ and use it to find the}\\
+    \text{midpoint of } (2,-3) \text{ and } (8,5).
+  answer: |
+    M = \left(\dfrac{x_1+x_2}{2}, \dfrac{y_1+y_2}{2}\right)\\
+    M = \left(\dfrac{2+8}{2}, \dfrac{-3+5}{2}\right) = (5,\ 1)
+- id: mathematics-geometry-1-15
+  category: Mathematics
+  subtopic: Geometry
+  level: 1
+  question: |
+    \text{State the slope formula for a line through } (x_1,y_1), (x_2,y_2) \text{ and the slope-intercept}\\
+    \text{form of a line's equation. Use them to find the equation (in slope-intercept form) of the}\\
+    \text{line through } (1,1) \text{ and } (4,7).
+  answer: |
+    \text{Slope: } m = \dfrac{y_2-y_1}{x_2-x_1}. \qquad \text{Slope-intercept form: } y = mx+b\\
+    m = \dfrac{7-1}{4-1} = \dfrac{6}{3} = 2\\
+    \text{Using } (1,1): \ 1 = 2(1)+b \Rightarrow b = -1 \ \Rightarrow \ y = 2x-1
+- id: mathematics-geometry-1-16
+  category: Mathematics
+  subtopic: Geometry
+  level: 1
+  question: |
+    \text{State the triangle inequality theorem, and use it to determine whether side lengths}\\
+    3,\ 4,\ 9 \text{ can form a triangle.}
+  answer: |
+    \text{Triangle inequality: the sum of any two side lengths must exceed the third.}\\
+    3+4 = 7 < 9\text{, which violates the inequality, so these lengths cannot form a triangle.}
+- id: mathematics-geometry-1-17
+  category: Mathematics
+  subtopic: Geometry
+  level: 1
+  question: |
+    \text{State the volume and surface area formulas for a rectangular prism (dimensions}\\
+    l,w,h\text{) and a right circular cylinder (radius } r\text{, height } h\text{). Compute the volume of a}\\
+    \text{cylinder with } r=3,\ h=10.
+  answer: |
+    \text{Prism: } V = lwh, \quad SA = 2(lw+lh+wh)\\
+    \text{Cylinder: } V = \pi r^2 h, \quad SA = 2\pi r h + 2\pi r^2\\
+    V = \pi(3)^2(10) = 90\pi
+- id: mathematics-geometry-1-18
+  category: Mathematics
+  subtopic: Geometry
+  level: 1
+  question: |
+    \text{State the volume formulas for a right circular cone (radius } r\text{, height } h\text{), a sphere}\\
+    \text{(radius } r\text{), and a pyramid (base area } B\text{, height } h\text{). Compute the volume of a}\\
+    \text{sphere with radius } 3.
+  answer: |
+    \text{Cone: } V = \dfrac{1}{3}\pi r^2 h. \qquad \text{Sphere: } V = \dfrac{4}{3}\pi r^3. \qquad \text{Pyramid: } V = \dfrac{1}{3}Bh\\
+    \text{Sphere volume} = \dfrac{4}{3}\pi(3)^3 = \dfrac{4}{3}\pi(27) = 36\pi
+- id: mathematics-geometry-1-19
+  category: Mathematics
+  subtopic: Geometry
+  level: 1
+  question: |
+    \text{A line is tangent to a circle with center } O \text{ at point } P. \text{ State the relationship}\\
+    \text{between the tangent line and the radius } OP\text{, and use it to find the angle between the}\\
+    \text{tangent line and } OP.
+  answer: |
+    \text{A tangent line to a circle is always perpendicular to the radius drawn to the point of}\\
+    \text{tangency.}\\
+    \text{Angle between the tangent line and } OP = 90^\circ
+- id: mathematics-geometry-2-01
+  category: Mathematics
+  subtopic: Geometry
+  level: 2
+  question: |
+    \text{A triangle has sides } a=7,\ b=9 \text{ with included angle } C=60^\circ. \text{ Use the Law of}\\
+    \text{Cosines to find side } c.
+  answer: |
+    c^2 = a^2+b^2-2ab\cos C\\
+    c^2 = 7^2+9^2-2(7)(9)\cos 60^\circ = 49+81-126\left(\tfrac{1}{2}\right) = 130-63 = 67\\
+    c = \sqrt{67} \approx 8.19
+- id: mathematics-geometry-2-02
+  category: Mathematics
+  subtopic: Geometry
+  level: 2
+  question: |
+    \text{In triangle } ABC\text{, angle } A=40^\circ\text{, angle } B=75^\circ\text{, and side } a=10 \text{ (opposite }\\
+    A\text{). Use the Law of Sines to find side } b.
+  answer: |
+    \text{Law of Sines: } \dfrac{a}{\sin A} = \dfrac{b}{\sin B}\\
+    b = \dfrac{a\sin B}{\sin A} = \dfrac{10\sin 75^\circ}{\sin 40^\circ} \approx \dfrac{10(0.9659)}{0.6428} \approx 15.03
+- id: mathematics-geometry-2-03
+  category: Mathematics
+  subtopic: Geometry
+  level: 2
+  question: |
+    \text{A triangle has sides } 13,\ 14,\ 15. \text{ Use Heron's formula to find its area.}
+  answer: |
+    s = \dfrac{13+14+15}{2} = 21\\
+    \text{Area} = \sqrt{s(s-a)(s-b)(s-c)} = \sqrt{21(21-13)(21-14)(21-15)} = \sqrt{21\cdot 8\cdot 7\cdot 6}\\
+    = \sqrt{7056} = 84
+- id: mathematics-geometry-2-04
+  category: Mathematics
+  subtopic: Geometry
+  level: 2
+  question: |
+    \text{A } 6\text{-ft person casts a } 4\text{-ft shadow at the same moment a flagpole casts a } 30\text{-ft}\\
+    \text{shadow. Using similar triangles, find the height of the flagpole.}
+  answer: |
+    \text{The person and the flagpole, with their shadows, form similar right triangles:}\\
+    \dfrac{\text{height}}{\text{shadow}} \text{ is the same ratio for both.}\\
+    \dfrac{6}{4} = \dfrac{h}{30} \ \Rightarrow \ h = \dfrac{6\times 30}{4} = 45 \text{ ft}
+- id: mathematics-geometry-2-05
+  category: Mathematics
+  subtopic: Geometry
+  level: 2
+  question: |
+    \text{Find the length of the space diagonal of a rectangular box with dimensions}\\
+    3\times 4\times 12\text{, using the 3D Pythagorean theorem.}
+  answer: |
+    d = \sqrt{l^2+w^2+h^2}\\
+    d = \sqrt{3^2+4^2+12^2} = \sqrt{9+16+144} = \sqrt{169} = 13
+- id: mathematics-geometry-2-06
+  category: Mathematics
+  subtopic: Geometry
+  level: 2
+  question: |
+    \text{Find the center and radius of the circle } x^2+y^2-6x+4y-3=0 \text{ by completing the}\\
+    \text{square.}
+  answer: |
+    x^2-6x+y^2+4y = 3\\
+    (x^2-6x+9)+(y^2+4y+4) = 3+9+4\\
+    (x-3)^2+(y+2)^2 = 16\\
+    \text{Center } (3,-2)\text{, radius } 4
+- id: mathematics-geometry-2-07
+  category: Mathematics
+  subtopic: Geometry
+  level: 2
+  question: |
+    \text{Find the intersection point of the lines } y=2x+1 \text{ and } y=-x+7.
+  answer: |
+    2x+1 = -x+7 \ \Rightarrow \ 3x = 6 \ \Rightarrow \ x = 2\\
+    y = 2(2)+1 = 5\\
+    \text{Intersection point: } (2,\ 5)
+- id: mathematics-geometry-2-08
+  category: Mathematics
+  subtopic: Geometry
+  level: 2
+  question: |
+    \text{A circle has radius } 10. \text{ A chord lies at perpendicular distance } 6 \text{ from the}\\
+    \text{center. Find the length of the chord.}
+  answer: |
+    \text{The radius to the chord's midpoint, the half-chord, and the radius to an endpoint form}\\
+    \text{a right triangle.}\\
+    \text{Half-chord} = \sqrt{r^2-d^2} = \sqrt{10^2-6^2} = \sqrt{100-36} = \sqrt{64} = 8\\
+    \text{Chord length} = 2\times 8 = 16
+- id: mathematics-geometry-2-09
+  category: Mathematics
+  subtopic: Geometry
+  level: 2
+  question: |
+    \text{A circle has radius } 5 \text{ and center } O. \text{ An external point } P \text{ is at distance } 13\\
+    \text{from } O. \text{ Find the length of the tangent segment from } P \text{ to the circle.}
+  answer: |
+    \text{The radius to the point of tangency is perpendicular to the tangent line, so } O\text{,}\\
+    \text{the point of tangency, and } P \text{ form a right triangle with hypotenuse } OP=13 \text{ and}\\
+    \text{leg } r=5.\\
+    \text{Tangent length} = \sqrt{OP^2-r^2} = \sqrt{13^2-5^2} = \sqrt{169-25} = \sqrt{144} = 12
+- id: mathematics-geometry-2-10
+  category: Mathematics
+  subtopic: Geometry
+  level: 2
+  question: |
+    \text{For a regular polygon with } n=9 \text{ sides, find the measure of each exterior angle and}\\
+    \text{the total number of diagonals (using } \tfrac{n(n-3)}{2}\text{).}
+  answer: |
+    \text{Exterior angle} = \dfrac{360^\circ}{n} = \dfrac{360^\circ}{9} = 40^\circ\\
+    \text{Diagonals} = \dfrac{n(n-3)}{2} = \dfrac{9(6)}{2} = 27
+- id: mathematics-geometry-2-11
+  category: Mathematics
+  subtopic: Geometry
+  level: 2
+  question: |
+    \text{A triangle has sides } 5,\ 12,\ 13 \text{ (a right triangle). Find its inradius } r=\text{Area}/s\\
+    \text{and circumradius } R=\dfrac{abc}{4\cdot\text{Area}}.
+  answer: |
+    \text{Area} = \dfrac{1}{2}(5)(12) = 30 \quad (\text{legs } 5,12\text{, right angle between them})\\
+    s = \dfrac{5+12+13}{2} = 15\\
+    r = \dfrac{\text{Area}}{s} = \dfrac{30}{15} = 2\\
+    R = \dfrac{abc}{4\cdot\text{Area}} = \dfrac{5\times 12\times 13}{4\times 30} = \dfrac{780}{120} = 6.5
+- id: mathematics-geometry-2-12
+  category: Mathematics
+  subtopic: Geometry
+  level: 2
+  question: |
+    \text{Use the shoelace formula to find the area of the triangle with vertices } (1,1), (4,2),\\
+    (2,6).
+  answer: |
+    \text{Area} = \dfrac{1}{2}\left| x_1(y_2-y_3)+x_2(y_3-y_1)+x_3(y_1-y_2) \right|\\
+    = \dfrac{1}{2}\left| 1(2-6)+4(6-1)+2(1-2) \right| = \dfrac{1}{2}\left| -4+20-2 \right| = \dfrac{1}{2}(14) = 7
+- id: mathematics-geometry-2-13
+  category: Mathematics
+  subtopic: Geometry
+  level: 2
+  question: |
+    \text{From a point } 50\text{ m from the base of a tower, the angle of elevation to the top is}\\
+    30^\circ. \text{ Find the height of the tower.}
+  answer: |
+    \tan(30^\circ) = \dfrac{h}{50}\\
+    h = 50\tan(30^\circ) = 50\times\dfrac{1}{\sqrt{3}} = \dfrac{50\sqrt{3}}{3} \approx 28.87\text{ m}
+- id: mathematics-geometry-2-14
+  category: Mathematics
+  subtopic: Geometry
+  level: 2
+  question: |
+    \text{Find the distance from the point } (4,3) \text{ to the line } 3x-4y+1=0.
+  answer: |
+    d = \dfrac{|Ax_0+By_0+C|}{\sqrt{A^2+B^2}}\\
+    d = \dfrac{|3(4)-4(3)+1|}{\sqrt{3^2+4^2}} = \dfrac{|12-12+1|}{\sqrt{9+16}} = \dfrac{1}{5} = 0.2
+- id: mathematics-geometry-4-01
+  category: Mathematics
+  subtopic: Geometry
+  level: 4
+  question: |
+    \text{Find the angle between the hour and minute hands of a clock at } 3{:}40\text{, using an}\\
+    \text{angular-speed argument (not a drawing).}
+  answer: |
+    \text{The minute hand moves } 6^\circ\text{/min } (360^\circ/60), \text{ the hour hand moves } 0.5^\circ\text{/min}\\
+    (30^\circ/60, \text{ since it covers } 30^\circ \text{ per hour}).\\
+    \text{Minute hand position (from 12): } 6^\circ\times 40 = 240^\circ\\
+    \text{Hour hand position (from 12): } 30^\circ\times 3 + 0.5^\circ\times 40 = 90^\circ+20^\circ = 110^\circ\\
+    \text{Difference: } |240^\circ-110^\circ| = 130^\circ \quad (\le 180^\circ\text{, so this is the angle})
+- id: mathematics-geometry-4-02
+  category: Mathematics
+  subtopic: Geometry
+  level: 4
+  question: |
+    \text{A square barn has side } 10\text{ m. A goat is tied by a } 14\text{ m rope to a corner of the}\\
+    \text{barn, and can graze anywhere outside the barn the rope allows. Find the total grazing}\\
+    \text{area.}
+  answer: |
+    \text{At the tied corner, the barn itself blocks a } 90^\circ \text{ wedge (the barn's interior angle),}\\
+    \text{so the full rope length sweeps a } 270^\circ \ (\tfrac{3}{4}) \text{ sector of radius } 14.\\
+    \text{When the rope wraps around each of the two adjacent corners, the remaining rope}\\
+    \text{length is } 14-10=4\text{ m, sweeping an extra } 90^\circ \ (\tfrac{1}{4}) \text{ sector of radius } 4 \text{ at each}\\
+    \text{of those two corners (and } 4<10\text{, so it doesn't reach a third corner).}\\
+    \text{Area} = \dfrac{3}{4}\pi(14)^2 + 2\times\dfrac{1}{4}\pi(4)^2 = \dfrac{3}{4}\pi(196) + \dfrac{1}{2}\pi(16)\\
+    = 147\pi + 8\pi = 155\pi \text{ m}^2
+- id: mathematics-geometry-4-03
+  category: Mathematics
+  subtopic: Geometry
+  level: 4
+  question: |
+    \text{A box has dimensions } 4\times 3\times 5. \text{ An ant starts at one corner and must crawl}\\
+    \text{along the box's surface to the diagonally opposite corner. Find the shortest path}\\
+    \text{length, by unfolding the box into a plane.}
+  answer: |
+    \text{Unfolding two adjacent faces into a flat plane turns the surface path into a straight}\\
+    \text{line; for dimensions } l,w,h \text{ there are three ways to unfold, giving candidate}\\
+    \text{distances } \sqrt{(l+w)^2+h^2},\ \sqrt{(l+h)^2+w^2},\ \sqrt{(w+h)^2+l^2}\text{, and the shortest}\\
+    \text{path is the minimum of the three.}\\
+    \sqrt{(4+3)^2+5^2} = \sqrt{49+25} = \sqrt{74} \approx 8.60\\
+    \sqrt{(4+5)^2+3^2} = \sqrt{81+9} = \sqrt{90} \approx 9.49\\
+    \sqrt{(3+5)^2+4^2} = \sqrt{64+16} = \sqrt{80} \approx 8.94\\
+    \text{Shortest path} = \sqrt{74} \approx 8.60 \quad (\text{pairing the two smallest dimensions})
+- id: mathematics-geometry-4-04
+  category: Mathematics
+  subtopic: Geometry
+  level: 4
+  question: |
+    \text{Point } A=(0,2) \text{ and point } B=(6,3) \text{ lie on the same side of the } x\text{-axis (a}\\
+    \text{straight river). Find the point on the } x\text{-axis minimizing the total path length from}\\
+    A \text{ to the river to } B\text{, and compute that shortest total distance, using the reflection}\\
+    \text{trick.}
+  answer: |
+    \text{Reflect } A \text{ across the } x\text{-axis to } A'=(0,-2). \text{ Any path } A\to P\to B \text{ with } P \text{ on}\\
+    \text{the axis has the same length as } A'\to P\to B\text{, which is minimized when } A', P, B \text{ are}\\
+    \text{collinear -- so the shortest total distance equals } |A'B|.\\
+    |A'B| = \sqrt{(6-0)^2+(3-(-2))^2} = \sqrt{36+25} = \sqrt{61} \approx 7.81\\
+    \text{Line } A'B: \text{ slope } = \dfrac{3-(-2)}{6-0} = \dfrac{5}{6}\text{, so } y = -2+\dfrac{5}{6}x. \text{ Setting}\\
+    y=0 \text{ gives } x = \dfrac{12}{5} = 2.4\text{, so } P = (2.4,\ 0).
+- id: mathematics-geometry-4-05
+  category: Mathematics
+  subtopic: Geometry
+  level: 4
+  question: |
+    \text{A ladder of length } 10 \text{ slides with one end on the } x\text{-axis (floor) and the other on}\\
+    \text{the } y\text{-axis (wall), which meet at a right angle at the origin. As the ladder slides}\\
+    \text{from vertical to horizontal, what curve does its midpoint trace, and why?}
+  answer: |
+    \text{Let the floor and wall endpoints be } (x,0) \text{ and } (0,y)\text{, with } x^2+y^2=10^2 \text{ (the}\\
+    \text{ladder's fixed length). This is a right triangle with legs } x,y \text{ and hypotenuse } 10\text{,}\\
+    \text{with the right angle at the origin.}\\
+    \text{The midpoint of a right triangle's hypotenuse is always equidistant from all three}\\
+    \text{vertices (it is the triangle's circumcenter), a distance equal to half the hypotenuse.}\\
+    \text{So the midpoint } M=(x/2,\ y/2) \text{ stays at distance } \tfrac{10}{2}=5 \text{ from the origin}\\
+    \text{throughout the slide, regardless of the ladder's angle.}\\
+    \text{The midpoint traces the quarter-circle } x^2+y^2 = 25 \ (x,y \ge 0).
+- id: mathematics-geometry-4-06
+  category: Mathematics
+  subtopic: Geometry
+  level: 4
+  question: |
+    \text{Two chords } AB \text{ and } CD \text{ of a circle intersect inside the circle at point } P. \text{ Given}\\
+    PA=4,\ PB=9,\ PC=6\text{, find } PD\text{, using the power of a point.}
+  answer: |
+    \text{Power of a point (intersecting chords): } PA\times PB = PC\times PD\\
+    4\times 9 = 6\times PD \ \Rightarrow \ 36 = 6\times PD \ \Rightarrow \ PD = 6
