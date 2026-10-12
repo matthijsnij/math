@@ -38,9 +38,10 @@ function render(...nodes) {
 const fmtDate = (iso) => new Date(iso).toLocaleString();
 
 function renderMath(el, text) {
-  el.textContent = `\\[${text}\\]`;
+  // Inline (not display) math so long lines can wrap; \displaystyle keeps display-size fractions.
+  el.textContent = `\\(\\displaystyle ${text}\\)`;
   renderMathInElement(el, {
-    delimiters: [{ left: "\\[", right: "\\]", display: true }],
+    delimiters: [{ left: "\\(", right: "\\)", display: false }],
     macros: { ...(bundle?.macros ?? {}) }, // KaTeX mutates this object, so pass a copy
     trust: (ctx) => ctx.command === "\\includegraphics" && ctx.url.startsWith("graphs/"),
     throwOnError: false,
@@ -165,7 +166,7 @@ function setupScreen(mode) {
 
   form.append(
     h("h2", {}, mode === "practice" ? "Practice" : "Test"),
-    categoryGroup, subtopicGroup, levelGroup, countRow,
+    categoryGroup, subtopicGroup, levelGroup, ...(countRow ? [countRow] : []),
     h("div", { class: "row" },
       h("button", { class: "btn secondary", type: "button", onclick: () => homeScreen() }, "Back"),
       h("button", { class: "btn", type: "button", onclick: start }, "Start")));
