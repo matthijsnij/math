@@ -52,8 +52,8 @@ repo; the phone is read-only.
 **Preview locally:**
 
 ```powershell
-.env\Scripts\python.exe -m scripts.build_bundle _site
-.env\Scripts\python.exe -m http.server 8000 -d _site
+.\venv\Scripts\python.exe -m scripts.build_bundle _site
+.\venv\Scripts\python.exe -m http.server 8000 -d _site
 ```
 
 Then open <http://localhost:8000/>. (`_site/` is git-ignored.) Regenerate the icons with
