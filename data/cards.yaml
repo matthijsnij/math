@@ -13853,3 +13853,327 @@
     \text{the best of) many backtested strategies manufactures the appearance of a real edge even when}\\
     \text{none exists --- the more strategies tried, the more "significant-looking" false positives should}\\
     \text{be expected, not fewer.}
+- id: economics-finance-volatility-1-01
+  category: Economics & Finance
+  subtopic: Volatility
+  level: 1
+  question: |
+    \text{Define historical (realized) volatility, and describe how it is estimated from a price series,}\\
+    \text{including how a daily estimate is annualized.}
+  answer: |
+    \text{Historical/realized volatility is the sample standard deviation of the asset's log returns}\\
+    r_i=\ln(S_i/S_{i-1})\text{ over some lookback window, taken as an estimate of the asset's true return}\\
+    \text{volatility. A daily estimate } \hat\sigma_{\text{daily}} \text{ is annualized by scaling by the square root of the}\\
+    \text{number of trading days in a year: } \hat\sigma_{\text{ann}} = \hat\sigma_{\text{daily}}\sqrt{252}\text{, since returns are assumed}\\
+    \text{i.i.d. so variance (not volatility) scales linearly with time, making volatility scale with } \sqrt{\text{time}}.
+- id: economics-finance-volatility-1-02
+  category: Economics & Finance
+  subtopic: Volatility
+  level: 1
+  question: |
+    \text{Define the volatility term structure, and explain how it differs from the volatility smile/skew.}
+  answer: |
+    \text{The volatility term structure is implied (or historical) volatility viewed as a function of time}\\
+    \text{to maturity } T\text{, holding moneyness fixed (e.g.\ tracking only at-the-money vol across expiries).}\\
+    \text{This is a different cross-section of the same data than the smile/skew, which instead fixes } T\\
+    \text{and varies implied vol across strike } K. \text{ Together the two cross-sections (vol by maturity,}\\
+    \text{vol by strike) form the full two-dimensional volatility surface.}
+- id: economics-finance-volatility-1-03
+  category: Economics & Finance
+  subtopic: Volatility
+  level: 1
+  question: |
+    \text{Define the VIX index.}
+  answer: |
+    \text{The CBOE VIX is a model-free estimate of the S\&P 500's expected annualized volatility over the}\\
+    \text{next 30 days, computed directly from a weighted strip of out-of-the-money S\&P 500 option}\\
+    \text{prices across many strikes (the same variance-swap-replication logic used to price a variance}\\
+    \text{swap), rather than from a single Black-Scholes implied vol. It is often called the "fear gauge"}\\
+    \text{since option prices --- and hence the VIX --- rise when the market expects larger future moves,}\\
+    \text{typically during market stress.}
+- id: economics-finance-volatility-1-04
+  category: Economics & Finance
+  subtopic: Volatility
+  level: 1
+  question: |
+    \text{Define volatility clustering.}
+  answer: |
+    \text{The empirical pattern that large price changes (of either sign) tend to be followed by more}\\
+    \text{large changes, and small changes by more small changes --- i.e.\ volatility is persistent/}\\
+    \text{autocorrelated over time, even though the returns themselves show little to no autocorrelation.}\\
+    \text{This stylized fact motivates time-varying-volatility models (ARCH/GARCH) in place of treating}\\
+    \sigma \text{ as a single constant.}
+- id: economics-finance-volatility-1-05
+  category: Economics & Finance
+  subtopic: Volatility
+  level: 1
+  question: |
+    \text{Define the volatility risk premium.}
+  answer: |
+    \text{The empirical tendency for an option's implied volatility to exceed the volatility subsequently}\\
+    \text{realized by the underlying, on average. It is the compensation option sellers earn for bearing}\\
+    \text{the risk of occasional large realized-volatility spikes --- equivalently, a short variance/}\\
+    \text{volatility swap position has positive expected P\&L on average, but with negative skew (frequent}\\
+    \text{small gains, occasional large losses when realized vol spikes above what was priced in).}
+- id: economics-finance-volatility-1-06
+  category: Economics & Finance
+  subtopic: Volatility
+  level: 1
+  question: |
+    \text{Define a variance swap and a volatility swap.}
+  answer: |
+    \text{Both are OTC forward contracts with zero initial cost whose payoff at maturity depends on the}\\
+    \text{underlying's realized variance/volatility over the contract's life, rather than its price level:}
+    \begin{aligned}
+    \text{Variance swap payoff} &= N_{\text{var}}\big(\text{RV} - K_{\text{var}}\big)\\
+    \text{Volatility swap payoff} &= N_{\text{vol}}\big(\sqrt{\text{RV}} - K_{\text{vol}}\big)
+    \end{aligned}\\
+    \text{where RV is the annualized realized variance over the contract's life, } K_{\text{var}}/K_{\text{vol}}\\
+    \text{are the fixed variance/volatility strikes agreed at inception, and } N \text{ is the notional. A variance}\\
+    \text{swap pays linearly in realized variance; a volatility swap pays based on realized volatility}\\
+    \text{(the square root) directly instead.}
+- id: economics-finance-volatility-1-07
+  category: Economics & Finance
+  subtopic: Volatility
+  level: 1
+  question: |
+    \text{Define the ARCH(q) model, and explain how GARCH generalizes it.}
+  answer: |
+    \text{ARCH(q) (Engle) models the conditional variance as a function of only the past } q \text{ squared}\\
+    \text{return shocks (residuals):}
+    \sigma_t^2 = \omega + \sum_{i=1}^q \alpha_i\,\epsilon_{t-i}^2.\\
+    \text{GARCH(1,1) generalizes this by also feeding back the previous period's own conditional variance:}
+    \sigma_t^2 = \omega + \alpha\,\epsilon_{t-1}^2 + \beta\,\sigma_{t-1}^2.\\
+    \text{The extra } \beta\sigma_{t-1}^2 \text{ term lets a shock's effect on variance decay smoothly over many}\\
+    \text{periods through recursive feedback, capturing long-lived volatility persistence with just two}\\
+    \text{parameters } (\alpha,\beta) \text{ instead of needing a large number of explicit ARCH lag terms.}
+- id: economics-finance-volatility-2-01
+  category: Economics & Finance
+  subtopic: Volatility
+  level: 2
+  question: |
+    \text{A stock has 4 daily log returns: } 0.01,\ -0.01,\ 0.02,\ -0.02. \text{ Treating the mean daily return as}\\
+    \text{negligible (standard practice at daily frequency), compute the realized daily volatility and its}\\
+    \text{annualized value.}
+  answer: |
+    \text{With mean assumed } 0\text{, } \hat\sigma_{\text{daily}}^2 = \dfrac1n\sum r_i^2 = \dfrac{0.01^2+0.01^2+0.02^2+0.02^2}{4}\\
+    = \dfrac{0.0001+0.0001+0.0004+0.0004}{4} = \dfrac{0.0010}{4} = 0.00025.\\
+    \hat\sigma_{\text{daily}} = \sqrt{0.00025} \approx 1.58\%. \qquad \hat\sigma_{\text{ann}} = 1.58\%\times\sqrt{252} \approx 25.1\%.
+- id: economics-finance-volatility-2-02
+  category: Economics & Finance
+  subtopic: Volatility
+  level: 2
+  question: |
+    \text{Using the EWMA (RiskMetrics) variance update } \sigma_{t+1}^2=\lambda\sigma_t^2+(1-\lambda)r_t^2 \text{ with}\\
+    \lambda=0.94\text{, today's volatility estimate } \sigma_t=1.5\%\text{, and today's return } r_t=3\%\text{, compute}\\
+    \text{tomorrow's updated volatility estimate } \sigma_{t+1}.
+  answer: |
+    \sigma_{t+1}^2 = 0.94(0.015)^2 + 0.06(0.03)^2 = 0.94(0.000225)+0.06(0.0009) = 0.0002115+0.000054 = 0.0002655.\\
+    \sigma_{t+1} = \sqrt{0.0002655} \approx 1.63\%.\\
+    \text{The large realized move (3\% on a day when vol was estimated at only 1.5\%) pushes the updated}\\
+    \text{estimate up, with the weight } (1-\lambda)=0.06 \text{ controlling how quickly EWMA reacts to new shocks.}
+- id: economics-finance-volatility-2-03
+  category: Economics & Finance
+  subtopic: Volatility
+  level: 2
+  question: |
+    \text{A GARCH(1,1) model is fit with } \omega=0.000002,\ \alpha=0.08,\ \beta=0.90. \text{ Compute the model's}\\
+    \text{long-run (unconditional) daily variance, daily volatility, and annualized volatility.}
+  answer: |
+    \text{Long-run variance: } \bar V = \dfrac{\omega}{1-\alpha-\beta} = \dfrac{0.000002}{1-0.08-0.90} = \dfrac{0.000002}{0.02} = 0.0001.\\
+    \text{Daily vol: } \sqrt{0.0001} = 1\%. \qquad \text{Annualized: } 1\%\times\sqrt{252} \approx 15.87\%.
+- id: economics-finance-volatility-2-04
+  category: Economics & Finance
+  subtopic: Volatility
+  level: 2
+  question: |
+    \text{A variance swap has variance notional } N_{\text{var}}=\$100 \text{ per variance point, where 1 variance}\\
+    \text{point} = 1\text{ (vol-point)}^2\text{, strike } K_{\text{var}}=20^2=400\text{, and realized volatility over the life of}\\
+    \text{the swap turns out to be } 25\%\text{, i.e.\ } \text{RV}=25^2=625. \text{ Compute the long variance position's payoff.}
+  answer: |
+    \text{Payoff} = N_{\text{var}}(\text{RV}-K_{\text{var}}) = \$100\times(625-400) = \$100\times225 = \$22{,}500.\\
+    \text{Realized volatility (25\%) came in above the strike volatility (20\%), so the long variance}\\
+    \text{position (effectively long realized vs.\ short strike variance) profits.}
+- id: economics-finance-volatility-2-05
+  category: Economics & Finance
+  subtopic: Volatility
+  level: 2
+  question: |
+    \text{State the two static no-arbitrage conditions a volatility surface } \sigma(K,T) \text{ must satisfy (one across}\\
+    \text{maturity, one across strike). Then check: at fixed at-the-money moneyness, } T_1=0.5 \text{ has implied}\\
+    \text{vol } 25\%\text{, and } T_2=1.0 \text{ has implied vol } 15\%\text{. Does this violate either condition?}
+  answer: |
+    \textbf{Calendar-spread condition: } \text{total variance } w(K,T)=\sigma(K,T)^2T \text{ must be non-decreasing in}\\
+    T \text{ at fixed strike/moneyness --- otherwise a calendar spread (sell the shorter-dated option, buy the}\\
+    \text{longer-dated one at the same strike) is a riskless arbitrage.}\\
+    \textbf{Butterfly condition: } \text{the call price } C(K,T) \text{ must be convex in } K \text{ at fixed } T \text{ (equivalently}\\
+    \text{the implied risk-neutral density is non-negative everywhere) --- otherwise a butterfly spread}\\
+    \text{(buy wings, sell } 2\times \text{ the middle strike) has negative cost but a non-negative payoff.}\\
+    \textbf{Check: } w_1 = 0.25^2\times0.5 = 0.03125\text{, } w_2 = 0.15^2\times1.0 = 0.0225. \text{ Since } w_2<w_1\text{, total}\\
+    \text{variance decreases with maturity --- this violates the calendar-spread condition: a calendar}\\
+    \text{arbitrage exists.}
+- id: economics-finance-volatility-2-06
+  category: Economics & Finance
+  subtopic: Volatility
+  level: 2
+  question: |
+    \text{A stock's daily volatility is } 1.2\%. \text{ Using the } \sqrt{\text{time}} \text{ scaling rule, compute its 5-day}\\
+    \text{(weekly) and annualized (252-day) volatility. Then explain why this rule is only exact under}\\
+    \text{i.i.d.\ returns, and how volatility clustering breaks it.}
+  answer: |
+    \text{Weekly: } 1.2\%\times\sqrt5 \approx 2.68\%. \qquad \text{Annual: } 1.2\%\times\sqrt{252} \approx 19.05\%.\\
+    \text{The rule relies on variance being additive across independent periods: } \Var\!\left[\sum_{i=1}^n r_i\right]\\
+    = \sum_i\Var[r_i] = n\sigma_{\text{daily}}^2 \text{ only when the } r_i \text{ are uncorrelated, which requires}\\
+    \sum_{i\ne j}\Cov(r_i,r_j)=0. \text{ Under volatility clustering (GARCH-type dynamics), today's squared}\\
+    \text{return is correlated with tomorrow's conditional variance, inducing non-zero covariance terms}\\
+    \text{between periods --- so multi-day variance is not simply } n \text{ times the daily variance, and the}\\
+    \sqrt{\text{time}} \text{ rule becomes only an approximation.}
+- id: economics-finance-volatility-3-01
+  category: Economics & Finance
+  subtopic: Volatility
+  level: 3
+  question: |
+    \text{Under the risk-neutral measure, a stock follows } dS_t/S_t = r\,dt+\sigma_t\,dW_t \text{ for some (possibly}\\
+    \text{stochastic or local) volatility process } \sigma_t\text{, with no dividends. Using the identity } d\ln S_t =\\
+    dS_t/S_t - \tfrac12\sigma_t^2\,dt \text{ and static replication of a log payoff with options, derive the fair variance}\\
+    \text{strike } K_{\text{var}}=\tfrac1T\E^{\mathbb Q}\!\left[\int_0^T\sigma_t^2\,dt\right] \text{ in terms of } r,T\text{, and today's } (S_0\text{-struck)}\\
+    \text{put/call prices } P(K),\,C(K).
+  answer: |
+    \begin{aligned}
+    &\textbf{Step 1 (variance as a log payoff): } \text{Rearranging } d\ln S_t = dS_t/S_t-\tfrac12\sigma_t^2\,dt \text{ and}\\
+    &\text{integrating over } [0,T]\text{:} \int_0^T\sigma_t^2\,dt = 2\left(\int_0^T\dfrac{dS_t}{S_t} - \ln\dfrac{S_T}{S_0}\right).\\
+    &\text{Taking } \E^{\mathbb Q}\text{, and using } \E^{\mathbb Q}\!\left[\int_0^T dS_t/S_t\right]=rT \text{ (risk-neutral drift):}\\
+    &K_{\text{var}} = \dfrac1T\E^{\mathbb Q}\!\left[\int_0^T\sigma_t^2\,dt\right] = \dfrac2T\left(rT - \E^{\mathbb Q}\!\left[\ln\dfrac{S_T}{S_0}\right]\right).\\
+    &\textbf{Step 2 (replicate the log payoff): } \text{Spanning } f(S_T)=-\ln(S_T/S_0) \text{ about } S_0 \text{ using}\\
+    &f(S)=f(S_0)+f'(S_0)(S-S_0)+\int_0^{S_0}f''(K)(K-S)^+dK+\int_{S_0}^\infty f''(K)(S-K)^+dK\text{, with}\\
+    &f'(S_0)=-1/S_0,\ f''(K)=1/K^2\text{:}\\
+    &-\ln\dfrac{S_T}{S_0} = -\dfrac{S_T-S_0}{S_0} + \int_0^{S_0}\dfrac{(K-S_T)^+}{K^2}dK + \int_{S_0}^\infty\dfrac{(S_T-K)^+}{K^2}dK.\\
+    &\textbf{Step 3 (take discounted expectations): } \text{Using } \E^{\mathbb Q}[S_T]=S_0e^{rT}\text{, } e^{-rT}\E^{\mathbb Q}[(K-S_T)^+]=P(K)\text{,}\\
+    &\text{and } e^{-rT}\E^{\mathbb Q}[(S_T-K)^+]=C(K)\text{:}\\
+    &e^{-rT}\E^{\mathbb Q}\!\left[-\ln\dfrac{S_T}{S_0}\right] = -(e^{rT}-1)e^{-rT} + \int_0^{S_0}\dfrac{P(K)}{K^2}dK + \int_{S_0}^\infty\dfrac{C(K)}{K^2}dK\\
+    &\Rightarrow\ \E^{\mathbb Q}\!\left[-\ln\dfrac{S_T}{S_0}\right] = -(1-e^{-rT})\cdot e^{rT}\big/1 \ \text{(undo discounting): } = -(e^{rT}-1) + e^{rT}\!\left(\int_0^{S_0}\dfrac{P(K)}{K^2}dK+\int_{S_0}^\infty\dfrac{C(K)}{K^2}dK\right).\\
+    &\textbf{Step 4 (combine): } \text{Substituting into Step 1's formula:}\\
+    &K_{\text{var}} = \dfrac2T\left[rT - (e^{rT}-1) + e^{rT}\left(\int_0^{S_0}\dfrac{P(K)}{K^2}dK + \int_{S_0}^\infty\dfrac{C(K)}{K^2}dK\right)\right].\\
+    &\text{This is exactly the market "fair variance" formula: the strike of a variance swap is pinned down}\\
+    &\text{by a static portfolio of OTM puts (below } S_0\text{) and OTM calls (above } S_0\text{), weighted by } 1/K^2\text{,}\\
+    &\text{with no model assumption on the dynamics of } \sigma_t \text{ needed at all.}
+    \end{aligned}
+- id: economics-finance-volatility-3-02
+  category: Economics & Finance
+  subtopic: Volatility
+  level: 3
+  question: |
+    \text{For the GARCH(1,1) model } \sigma_t^2=\omega+\alpha\epsilon_{t-1}^2+\beta\sigma_{t-1}^2 \text{ with } \epsilon_{t-1}=\sigma_{t-1}z_{t-1}\text{,}\\
+    z_{t-1} \text{ i.i.d.\ mean } 0\text{, variance } 1\text{, independent of } \sigma_{t-1}\text{, prove that a finite, strictly positive}\\
+    \text{stationary (unconditional) variance exists if and only if } \alpha+\beta<1\text{, and derive its value.}
+  answer: |
+    \begin{aligned}
+    &\text{Suppose a stationary unconditional variance } \bar V = \E[\sigma_t^2] \text{ exists and is the same for all } t.\\
+    &\text{Since } z_{t-1} \text{ is independent of } \sigma_{t-1} \text{ with } \E[z_{t-1}^2]=1\text{:}\\
+    &\E[\epsilon_{t-1}^2] = \E[\sigma_{t-1}^2z_{t-1}^2] = \E[\sigma_{t-1}^2]\E[z_{t-1}^2] = \bar V.\\
+    &\text{Taking expectations of the recursion: } \bar V = \omega + \alpha\bar V + \beta\bar V \ \Rightarrow\ \bar V(1-\alpha-\beta)=\omega.\\
+    &\text{Since } \omega>0 \text{ (variance must have a strictly positive floor), this has a finite, strictly positive}\\
+    &\text{solution } \bar V = \dfrac{\omega}{1-\alpha-\beta} \text{ if and only if } 1-\alpha-\beta>0\text{, i.e.\ } \alpha+\beta<1.\\
+    &\text{If instead } \alpha+\beta\ge1\text{, no finite positive } \bar V \text{ solves the equation (at } \alpha+\beta=1 \text{ --- "IGARCH"}\\
+    &\text{--- the equation forces } \omega=0 \text{ and variance shocks never decay; if } \alpha+\beta>1 \text{ the recursion is}\\
+    &\text{explosive): the process is non-stationary and has no well-defined long-run variance.}
+    \end{aligned}
+- id: economics-finance-volatility-3-03
+  category: Economics & Finance
+  subtopic: Volatility
+  level: 3
+  question: |
+    \text{Under the risk-neutral dynamics } dS_t = rS_t\,dt + \sigma_{\text{loc}}(S_t,t)S_t\,dW_t\text{, the transition density}\\
+    p(K,T) \text{ of } S_T \text{ satisfies the forward (Fokker-Planck) equation}\\
+    \partial_T p = -\partial_K[rKp] + \tfrac12\partial_K^2\big[\sigma_{\text{loc}}(K,T)^2K^2p\big].\\
+    \text{Using the Breeden-Litzenberger identity } p(K,T)=e^{rT}\partial_K^2C(K,T) \text{ (from differentiating}\\
+    C(K,T)=e^{-rT}\!\int_K^\infty(S-K)p(S,T)\,dS \text{ twice in } K\text{), derive Dupire's local volatility formula}\\
+    \text{expressing } \sigma_{\text{loc}}(K,T)^2 \text{ purely in terms of observable call prices.}
+  answer: |
+    \begin{aligned}
+    &\textbf{Step 1: } \text{Differentiate } C(K,T)=e^{-rT}\!\int_K^\infty(S-K)p(S,T)\,dS \text{ w.r.t.\ } T\text{:}\\
+    &\partial_TC = -rC + e^{-rT}\!\int_K^\infty(S-K)\,\partial_Tp\,dS.\\
+    &\textbf{Step 2: } \text{Substitute the Fokker-Planck equation for } \partial_Tp \text{ and integrate by parts, using that }\\
+    &p,\,Kp\to0 \text{ as } S\to\infty \text{ and } (S-K)=0 \text{ at } S=K\text{:}\\
+    &\int_K^\infty(S-K)\big({-\partial_S[rSp]}\big)dS = r\!\int_K^\infty Sp\,dS = r\!\int_K^\infty(S-K)p\,dS + rK\!\int_K^\infty p\,dS.\\
+    &\text{Using } C=e^{-rT}\!\int_K^\infty(S-K)p\,dS \text{ and } -\partial_KC=e^{-rT}\!\int_K^\infty p\,dS\text{ (one } K\text{-derivative of } C\text{):}\\
+    &= re^{rT}C - rKe^{rT}\partial_KC.\\
+    &\text{For the diffusion term, integrating by parts twice (boundary terms vanish for the same reasons):}\\
+    &\int_K^\infty(S-K)\,\tfrac12\partial_S^2\big[\sigma_{\text{loc}}^2S^2p\big]dS = \tfrac12\sigma_{\text{loc}}(K,T)^2K^2p(K,T) = \tfrac12\sigma_{\text{loc}}(K,T)^2K^2e^{rT}\partial_K^2C\\
+    &\text{(using Breeden-Litzenberger } p(K,T)=e^{rT}\partial_K^2C \text{ in the last step).}\\
+    &\textbf{Step 3: } \text{Combining, } e^{-rT}\!\int_K^\infty(S-K)\partial_Tp\,dS = rC - rK\partial_KC + \tfrac12\sigma_{\text{loc}}^2K^2\partial_K^2C\text{, so}\\
+    &\partial_TC = -rC + \big(rC - rK\partial_KC + \tfrac12\sigma_{\text{loc}}(K,T)^2K^2\partial_K^2C\big) = -rK\partial_KC + \tfrac12\sigma_{\text{loc}}(K,T)^2K^2\partial_K^2C.\\
+    &\textbf{Step 4 (solve for local vol): }\\
+    &\sigma_{\text{loc}}(K,T)^2 = \dfrac{\partial_TC + rK\partial_KC}{\tfrac12K^2\partial_K^2C}.\\
+    &\text{This is Dupire's formula: the entire local volatility surface is recovered from the maturity and}\\
+    &\text{strike derivatives of today's observed call prices alone, with no need to specify a dynamics model}\\
+    &\text{for } \sigma_{\text{loc}} \text{ in advance.}
+    \end{aligned}
+- id: economics-finance-volatility-4-01
+  category: Economics & Finance
+  subtopic: Volatility
+  level: 4
+  question: |
+    \text{An index is made of 4 equally-weighted stocks, each with implied volatility } 40\%\text{, and every}\\
+    \text{pairwise correlation equals the same value } \rho. \text{ The index's own implied volatility is } 25\%.\\
+    \text{Using } \sigma_I^2 = \sigma^2\!\left[\dfrac1n+\rho\dfrac{n-1}{n}\right] \text{ for } n \text{ equally-weighted, equal-vol, equal-correlation}\\
+    \text{stocks, back out the market's implied average pairwise correlation } \rho.
+  answer: |
+    0.25^2 = 0.40^2\left[\dfrac14+\rho\dfrac34\right] \ \Rightarrow\ 0.0625 = 0.16\big(0.25+0.75\rho\big) \ \Rightarrow\ 0.25+0.75\rho = \dfrac{0.0625}{0.16}=0.390625.\\
+    0.75\rho = 0.140625 \ \Rightarrow\ \rho = 0.1875 = 18.75\%.\\
+    \text{The index trades as if the underlying stocks were only } 18.75\%\text{ correlated on average --- lower}\\
+    \text{index vol than the single names' average vol reflects diversification. A dispersion trader who}\\
+    \text{believes true correlation is actually higher than } 18.75\%\text{ would buy single-stock variance and}\\
+    \text{sell index variance (a long-dispersion trade), betting this implied correlation is too low.}
+- id: economics-finance-volatility-4-02
+  category: Economics & Finance
+  subtopic: Volatility
+  level: 4
+  question: |
+    \text{Realized variance RV over a variance swap's life is random with two equally likely outcomes:}\\
+    \text{RV}=0.01 \text{ or RV}=0.09. \text{ Using Jensen's inequality, explain why the fair volatility swap strike}\\
+    K_{\text{vol}}=\E[\sqrt{\text{RV}}] \text{ must be strictly below } \sqrt{K_{\text{var}}}=\sqrt{\E[\text{RV}]}\text{, then verify it numerically.}
+  answer: |
+    \sqrt{\cdot} \text{ is a strictly concave function, so Jensen's inequality gives } \E[\sqrt{\text{RV}}] < \sqrt{\E[\text{RV}]}\\
+    \text{whenever RV is genuinely random (not a constant) --- a volatility swap's fair strike is always}\\
+    \text{below the square root of the corresponding variance swap's fair strike; this gap is the}\\
+    \text{"volatility convexity" that must be priced into (deducted from) a vol swap's strike.}\\
+    \textbf{Numerically: } \E[\text{RV}] = \tfrac12(0.01)+\tfrac12(0.09) = 0.05 \ \Rightarrow\ \sqrt{\E[\text{RV}]} = \sqrt{0.05}\approx22.36\%.\\
+    \E[\sqrt{\text{RV}}] = \tfrac12\sqrt{0.01}+\tfrac12\sqrt{0.09} = \tfrac12(0.10)+\tfrac12(0.30) = 0.20 = 20\%.\\
+    \text{Indeed } 20\% < 22.36\%\text{: the volatility swap strike sits about } 2.36 \text{ points below the "naive"}\\
+    \sqrt{K_{\text{var}}}\text{, exactly the convexity gap Jensen's inequality predicts.}
+- id: economics-finance-volatility-4-03
+  category: Economics & Finance
+  subtopic: Volatility
+  level: 4
+  question: |
+    \text{A GARCH(1,1) model has persistence } \alpha+\beta=0.97. \text{ Starting from } \sigma_t^2-\bar V = d\text{, show that}\\
+    \text{the expected deviation from the long-run variance } \bar V \text{ decays geometrically in } (\alpha+\beta)\text{,}\\
+    \text{and compute the half-life (in days) of a variance shock.}
+  answer: |
+    \text{Subtracting } \bar V=\omega/(1-\alpha-\beta)\text{, i.e.\ } \omega=\bar V(1-\alpha-\beta)\text{, from the recursion:}\\
+    \sigma_{t+1}^2-\bar V = \omega+\alpha\epsilon_t^2+\beta\sigma_t^2-\bar V = \alpha(\epsilon_t^2-\bar V)+\beta(\sigma_t^2-\bar V).\\
+    \text{Taking } \E_t[\cdot] \text{ and using } \E_t[\epsilon_t^2]=\sigma_t^2\text{: } \E_t[\sigma_{t+1}^2]-\bar V = (\alpha+\beta)(\sigma_t^2-\bar V).\\
+    \text{Iterating } k \text{ steps: } \E_t[\sigma_{t+k}^2]-\bar V = (\alpha+\beta)^k(\sigma_t^2-\bar V) = (0.97)^k\,d\text{ --- a geometric decay.}\\
+    \text{Half-life solves } (0.97)^k=0.5\text{: } k = \dfrac{\ln0.5}{\ln0.97} \approx \dfrac{-0.6931}{-0.0305} \approx 22.7\text{ days.}\\
+    \text{A variance shock today is expected to have decayed halfway back to the long-run level in about}\\
+    23\text{ trading days --- higher persistence (}\alpha+\beta\text{ closer to }1\text{) means a longer half-life.}
+- id: economics-finance-volatility-4-04
+  category: Economics & Finance
+  subtopic: Volatility
+  level: 4
+  question: |
+    \text{Using the leverage effect (the relationship between a firm's leverage and its equity volatility),}\\
+    \text{explain why equity index implied volatility typically skews downward with strike (OTM puts}\\
+    \text{trade at higher implied vol than OTM calls).}
+  answer: |
+    \text{Treat the firm's equity value } E \text{ as roughly } E \approx V - D \text{ for asset value } V \text{ and (roughly fixed,}\\
+    \text{slow-moving) debt } D\text{. Equity volatility relates to asset volatility via the leverage ratio:}\\
+    \sigma_E \approx \dfrac{V}{E}\sigma_V = \dfrac{E+D}{E}\sigma_V,\\
+    \text{holding asset volatility } \sigma_V \text{ roughly constant. As the stock price (and hence } E\text{) falls, the}\\
+    \text{leverage ratio } (E+D)/E \text{ rises mechanically (the same fixed debt now sits on a thinner equity}\\
+    \text{cushion), pushing equity volatility higher; as the price rises, } E \text{ grows, leverage falls, and equity}\\
+    \text{volatility falls. So low strikes (reached after a price decline) are naturally associated with}\\
+    \text{higher volatility states than high strikes (reached after a rise) --- this negative correlation}\\
+    \text{between returns and volatility is exactly why equity index implied vol skews downward with}\\
+    \text{strike, rather than being flat or skewing the other way.}
