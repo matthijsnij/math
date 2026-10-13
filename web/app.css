@@ -62,12 +62,13 @@ h2 { margin: 0 0 var(--space-3); font-size: 1.15rem; }
   border-radius: var(--radius);
   padding: var(--space-3);
   font-size: clamp(0.9rem, 3.6vw + 0.2rem, 1.15rem);
+  overflow: hidden;
 }
 /* Let inline math wrap at spaces and operators instead of scrolling sideways. */
-.card { overflow-wrap: anywhere; }
-.card .katex { white-space: normal; }
-.card .katex .base { white-space: normal; width: auto; max-width: 100%; }
-.card .math-line { margin: 0.4em 0; max-width: 100%; overflow-x: auto; overflow-y: hidden; }
+.card { overflow-wrap: break-word; word-break: break-word; }
+.card .katex { white-space: normal; display: inline-block; max-width: 100%; overflow: hidden; }
+.card .katex .base { white-space: normal; width: 100%; max-width: 100%; }
+.card .math-line { margin: 0.4em 0; max-width: 100%; min-width: 0; overflow: hidden; word-break: break-word; }
 .card .math-line:first-child { margin-top: 0; }
 .card .math-line:last-child { margin-bottom: 0; }
 .card .label { font-size: 0.8rem; color: var(--color-muted); margin-bottom: var(--space-2); }

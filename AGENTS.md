@@ -16,5 +16,3 @@ Single-context: `CONTEXT.md` + `docs/adr/` at the repo root. See `docs/agents/do
 
 Guidelines for authoring Card question/answer pairs (one case per Card, answer depth by Level,
 LaTeX macro use, KaTeX formatting constraints). See `docs/agents/card-writing.md`.
-
-
