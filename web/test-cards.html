@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Card Test</title>
+  <link rel="stylesheet" href="vendor/katex/katex.min.css">
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+  <header class="topbar"><h1>QuantQuest - Test</h1></header>
+  <main id="app">
+    <div class="stack">
+      <div class="card">
+        <div class="label">Mathematics · Exponents and Logarithms · Level 1</div>
+        <div>
+          <div class="math-line">\(\displaystyle \text{Simplify: } \dfrac{a^{4} \cdot a^{-6}}{a^{-3}}\)</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="label">Answer</div>
+        <div>
+          <div class="math-line">\(\displaystyle a\)</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="label">Complex Problem</div>
+        <div>
+          <div class="math-line">\(\displaystyle (A(BC))_{il}\)</div>
+          <div class="math-line">\(\displaystyle ((AB)C)_{il}\)</div>
+          <div class="math-line">\(\displaystyle \text{Both } A(BC) \text{ and } (AB)C \text{ are } m \times q \text{ matrices. Compare entries using the definition } (XY)_{ij} = \sum_k x_{ik}y_{kj}:\)</div>
+          <div class="math-line">\(\displaystyle = \sum_j a_{ij}(BC)_{jl} = \sum_j a_{ij} \sum_k b_{jk}c_{kl} = \sum_j \sum_k a_{ij}b_{jk}c_{kl}\)</div>
+          <div class="math-line">\(\displaystyle \text{Both double sums range over the same finite index sets and sum the same terms } a_{ij}b_{jk}c_{kl}, \text{ just in a different summation order, so they're equal for every } i, l. \text{ Hence } A(BC) = (AB)C.\)</div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <script src="vendor/katex/katex.min.js"></script>
+  <script src="vendor/katex/contrib/auto-render.min.js"></script>
+  <script>
+    renderMathInElement(document.body, {
+      delimiters: [{ left: "\\(", right: "\\)", display: false }],
+      throwOnError: false,
+    });
+  </script>
+</body>
+</html>

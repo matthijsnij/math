@@ -72,7 +72,7 @@ function mathLines(text) {
 }
 
 function renderMath(el, text) {
-  // Inline (not display) math so long lines can wrap; \displaystyle keeps display-size fractions.
+  // Inline math, \displaystyle keeps display-size fractions; long lines scroll horizontally (see app.css).
   const lines = mathLines(text).map((l) => h("div", { class: "math-line" }, `\\(\\displaystyle ${l}\\)`));
   el.replaceChildren(...lines);
   renderMathInElement(el, {
