@@ -2,6 +2,7 @@ import { filterCards, availableSubtopics } from "./filters.js";
 import { createPractice, selectTest } from "./session.js";
 import { performSync } from "./sync.js";
 import { createStagingStore, fetchNoStore, readActiveMeta } from "./cachestore.js";
+import { layoutLines } from "./mathlayout.js";
 
 const CATEGORIES = [
   "Mathematics",
@@ -37,50 +38,76 @@ function render(...nodes) {
 
 const fmtDate = (iso) => new Date(iso).toLocaleString();
 
-// Split a card string into display lines. `aligned` environments are flattened (alignment `&`
-// dropped) and every top-level `\` starts a new line, so each line is plain inline math that
-// can wrap to the card width instead of sitting in an unbreakable table.
-function mathLines(text) {
-  const flat = text.replace(/\\begin\{aligned\}|\\end\{aligned\}/g, "\\\\");
-  const lines = [];
-  let cur = "";
+// Words without TeX specials skip KaTeX and become plain text in KaTeX's font (much cheaper);
+// apply the ligatures KaTeX's text mode would.
+const PLAIN_WORD = /^[\p{L}\p{N}.,;:!?()[\]/'*+=-]+$/u;
+const ligatures = (word) =>
+  word.replace(/---/g, "—").replace(/--/g, "–").replace(/''/g, "”").replace(/'/g, "’");
+
+// KaTeX allows a line break after every relation/operator, even inside brackets ("P(H |" then
+// "E)"). Glue the .base boxes that sit inside an open bracket so breaks only happen outside.
+function glueBrackets(span) {
   let depth = 0;
-  for (let i = 0; i < flat.length; i++) {
-    const c = flat[i];
-    if (c === "\\") {
-      const n = flat[i + 1];
-      if (n === "\\" && depth === 0) {
-        lines.push(cur);
-        cur = "";
-        i++;
-        // drop an optional vertical-spacing argument such as \[4pt]
-        const m = /^\[[^\]]*\]/.exec(flat.slice(i + 1));
-        if (m) i += m[0].length;
-      } else {
-        cur += c + (n ?? "");
-        i++;
-      }
-      continue;
+  let glue = null;
+  for (const base of span.querySelectorAll(".katex-html > .base")) {
+    if (glue) glue.append(base);
+    // KaTeX merges adjacent delimiters into one span ("))"), so count characters.
+    for (const d of base.querySelectorAll(".mopen")) depth += d.textContent.match(/[([]/g)?.length ?? 0;
+    for (const d of base.querySelectorAll(".mclose")) depth -= d.textContent.match(/[)\]]/g)?.length ?? 0;
+    if (depth > 0 && !glue) {
+      glue = h("span", { class: "glue" });
+      base.before(glue);
+      glue.append(base);
+    } else if (depth <= 0) {
+      depth = 0;
+      glue = null;
     }
-    if (c === "{") depth++;
-    else if (c === "}") depth--;
-    if (c === "&" && depth === 0) continue;
-    cur += c;
   }
-  lines.push(cur);
-  return lines.map((l) => l.trim()).filter(Boolean);
+}
+
+function renderChunk(chunk, options) {
+  if (chunk.kind === "text" && PLAIN_WORD.test(chunk.tex)) {
+    return h("span", { class: `tx ${chunk.cmd}` }, ligatures(chunk.tex));
+  }
+  const span = h("span");
+  // \displaystyle keeps display-size fractions/sums in the inline math.
+  const tex = chunk.kind === "math" ? `\\displaystyle ${chunk.tex}` : `\\${chunk.cmd}{${chunk.tex}}`;
+  katex.render(tex, span, options);
+  glueBrackets(span);
+  return span;
+}
+
+// One div per line; words wrap at spaces, math at breaks and after relations/operators (app.css).
+// Chunks with no space between them are glued so e.g. punctuation never starts a line.
+function renderLine(chunks, options) {
+  const line = h("div", { class: "math-line" });
+  let glued = [];
+  const flush = () => {
+    line.append(...(glued.length > 1 ? [h("span", { class: "glue" }, glued)] : glued));
+    glued = [];
+  };
+  for (const chunk of chunks) {
+    if (chunk.kind === "space") {
+      flush();
+      line.append(h("span", { class: "tx" }, " "));
+    } else if (chunk.kind === "break") {
+      flush();
+      line.append(h("wbr"));
+    } else {
+      glued.push(renderChunk(chunk, options));
+    }
+  }
+  flush();
+  return line;
 }
 
 function renderMath(el, text) {
-  // Inline math, \displaystyle keeps display-size fractions; long lines scroll horizontally (see app.css).
-  const lines = mathLines(text).map((l) => h("div", { class: "math-line" }, `\\(\\displaystyle ${l}\\)`));
-  el.replaceChildren(...lines);
-  renderMathInElement(el, {
-    delimiters: [{ left: "\\(", right: "\\)", display: false }],
+  const options = {
     macros: { ...(bundle?.macros ?? {}) }, // KaTeX mutates this object, so pass a copy
     trust: (ctx) => ctx.command === "\\includegraphics" && ctx.url.startsWith("graphs/"),
     throwOnError: false,
-  });
+  };
+  el.replaceChildren(...layoutLines(text).map((chunks) => renderLine(chunks, options)));
 }
 
 function mathBlock(label, text) {

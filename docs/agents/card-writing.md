@@ -40,13 +40,19 @@ Cards can reuse it. Don't add a macro for a one-off that won't recur.
 
 ## Formatting constraints
 
-The whole `question`/`answer` string is rendered as a single KaTeX display-math block (wrapped in
-`\[ ... \]`). There is no markdown and no HTML inside
-it:
+The whole `question`/`answer` string is LaTeX for KaTeX. There is no markdown and no HTML inside
+it. To fit a phone screen, the app (`web/js/mathlayout.js`) lays it out instead of rendering one
+display block: every top-level `\\` row becomes its own line, top-level `\text{...}` wraps like
+normal prose, and math wraps after relations, operators, commas and `\quad`.
 
 - Use `\text{...}` for any narrative words or sentences mixed into the math.
 - Use `\begin{aligned} ... \end{aligned}` with `\\` row separators to break a derivation into
-  steps; use `\quad`/`\qquad` for spacing instead of literal line breaks.
+  steps; use `\quad`/`\qquad` for spacing instead of literal line breaks. Rows are shown one per
+  line, left-aligned (the `&` alignment points are not kept).
+- Don't hand-wrap prose with `\\` for width; the text wraps itself. A newline in the YAML is
+  not a space: `\text{the}` on one line followed by `\text{mean}` on the next renders "themean".
+- Matrices, `cases`, `array` and `\left...\right` groups can't wrap and scroll sideways on a
+  narrow screen if wide, so keep them compact.
 - In `data/cards.yaml`, prefer YAML block scalars (`question: |` / `answer: |`) over quoted strings for anything with more than a couple of backslashes.
   Double-quoted YAML strings require every backslash to be doubled (`\\\\begin` for `\begin`),
   which gets unreadable fast once `\begin{aligned}` and `\\` row separators are both involved;
