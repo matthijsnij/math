@@ -63,13 +63,23 @@ h2 { margin: 0 0 var(--space-3); font-size: 1.15rem; }
   padding: var(--space-3);
   font-size: clamp(0.9rem, 3.6vw + 0.2rem, 1.15rem);
 }
-/* No wrapping: each line stays on one row and scrolls horizontally. */
-.card .math-line { margin: 0.5em 0; overflow-x: auto; overflow-y: hidden; white-space: nowrap; padding-bottom: 2px; }
-.card .katex, .card .katex .base { white-space: nowrap; }
+/* Lines wrap at word spaces (.tx) and, inside math, after relations/operators (between KaTeX
+   .base boxes). Anything still wider than the card (a wide matrix) scrolls rather than clips. */
+.card .math-line { margin: 0.5em 0; overflow-x: auto; overflow-y: hidden; padding-bottom: 2px; }
+.card .katex { white-space: normal; }
+.card .glue { white-space: nowrap; }
+/* Plain words rendered outside KaTeX, matching \text in KaTeX's font and size. */
+.card .tx { font: normal 1.21em KaTeX_Main, "Times New Roman", serif; }
+.card .tx.textbf { font-weight: bold; }
+.card .tx.textit { font-style: italic; }
 .card .math-line:first-child { margin-top: 0; }
 .card .math-line:last-child { margin-bottom: 0; }
 .card .label { font-size: 0.8rem; color: var(--color-muted); margin-bottom: var(--space-2); }
-.card img { max-width: 100%; height: auto; }
+/* KaTeX's .base is min-content wide, which collapses an image with a % max-width to 0px; let
+   it take the card width instead, and drop the strut that would keep the unscaled height. */
+.card .katex .base:has(img) { width: auto; }
+.card .katex .base:has(img) .strut { display: none; }
+.card img { max-width: 100%; height: auto !important; } /* beats KaTeX's inline height */
 
 fieldset { border: 1px solid var(--color-border); border-radius: var(--radius); margin: 0; padding: var(--space-2) var(--space-3); background: var(--color-surface); }
 legend { font-weight: 600; padding: 0 var(--space-1); }

@@ -4737,15 +4737,15 @@
     \text{What is the } p\text{-value of a hypothesis test, in words?}
   answer: |
     \text{The probability, computed assuming } H_0 \text{ is true, of observing a test statistic at least as extreme}
-    \text{as the one actually observed. A small } p\text{-value means the data would be unusual under } H_0\text{,}
-    \text{which is evidence against } H_0.
+    \text{ as the one actually observed. A small } p\text{-value means the data would be unusual under } H_0\text{,}
+    \text{ which is evidence against } H_0.
 - id: probability-statistics-hypothesis-testing-1-04
   category: Probability & Statistics
   subtopic: Hypothesis Testing
   level: 1
   question: |
     \text{How does the rejection region of a two-sided test } (H_1: \theta \neq \theta_0) \text{ differ from a one-sided}
-    \text{test } (H_1: \theta > \theta_0 \text{ or } \theta < \theta_0)?
+    \text{ test } (H_1: \theta > \theta_0 \text{ or } \theta < \theta_0)?
   answer: |
     \begin{aligned}
     &\text{Two-sided: the rejection region is split between both tails, each tail getting } \alpha/2 \\
@@ -4759,7 +4759,7 @@
   level: 1
   question: |
     \text{Describe the critical-value decision rule for a hypothesis test: how is a test statistic turned into a}
-    \text{reject / fail-to-reject decision?}
+    \text{ reject / fail-to-reject decision?}
   answer: |
     \begin{aligned}
     &\text{Choose a significance level } \alpha\text{, then find the critical value(s) that cut off probability } \alpha \\
@@ -4869,7 +4869,7 @@
   level: 2
   question: |
     \text{A pollster claims } 40\% \text{ of voters favor a measure. A sample of } n=200 \text{ voters finds } 92 \text{ in favor.}
-    \text{Test } H_0:p=0.4 \text{ vs } H_1:p\neq0.4 \text{ at } \alpha=0.05.
+    \text{ Test } H_0:p=0.4 \text{ vs } H_1:p\neq0.4 \text{ at } \alpha=0.05.
   answer: |
     \begin{aligned}
     \hat p &= 92/200 = 0.46 \\
@@ -4896,7 +4896,7 @@
   level: 2
   question: |
     \text{A Binomial experiment has } n=20 \text{ trials and } x=15 \text{ successes. Test } H_0:p=0.5 \text{ using the}
-    \text{likelihood-ratio statistic } \lambda=-2\ln\!\big(L(p_0)/L(\hat p)\big)\text{, comparing to } \chi^2_1 \text{ at } \alpha=0.05
+    \text{ likelihood-ratio statistic } \lambda=-2\ln\!\big(L(p_0)/L(\hat p)\big)\text{, comparing to } \chi^2_1 \text{ at } \alpha=0.05
     \text{ (} \chi^2_{1,0.05}=3.841\text{).}
   answer: |
     \begin{aligned}
@@ -4980,8 +4980,8 @@
   level: 3
   question: |
     \text{Running } m \text{ independent hypothesis tests, each at level } \alpha\text{, when all } m \text{ null hypotheses are}
-    \text{true. Derive the family-wise error rate (probability of at least one false rejection), and show why testing}
-    \text{each at level } \alpha/m \text{ (Bonferroni) controls it at } \alpha.
+    \text{ true. Derive the family-wise error rate (probability of at least one false rejection), and show why testing}
+    \text{ each at level } \alpha/m \text{ (Bonferroni) controls it at } \alpha.
   answer: |
     \begin{aligned}
     &\text{FWER} = \P(\text{at least one false rejection}) = 1-\P(\text{no false rejections}) = 1-(1-\alpha)^m \\
@@ -4998,7 +4998,7 @@
   question: |
     \text{For } X_1,\dots,X_n\overset{iid}{\sim}N(\mu,\sigma^2) \text{ (both unknown), derive the Lagrange-Multiplier (score)}
     \text{test statistic for } H_0:\mu=\mu_0 \text{ (treating } \sigma^2 \text{ as a nuisance parameter), using the Fisher}
-    \text{information matrix for } (\mu,\sigma^2).
+    \text{ information matrix for } (\mu,\sigma^2).
   answer: |
     \begin{aligned}
     &\ln L(\mu,\sigma^2) = -\dfrac{n}{2}\ln(2\pi\sigma^2) - \dfrac{1}{2\sigma^2}\sum_i (x_i-\mu)^2 \\
@@ -5032,9 +5032,9 @@
   level: 4
   question: |
     \text{A data team runs } m=20 \text{ independent A/B tests in a quarter, each at } \alpha=0.05\text{, and in reality none}
-    \text{of the 20 changes has any effect (all 20 nulls are true). Compute the probability at least one test is}
-    \text{falsely declared significant, and state how the team should adjust } \alpha \text{ per test to keep the overall}
-    \text{false-positive risk at } 0.05.
+    \text{ of the 20 changes has any effect (all 20 nulls are true). Compute the probability at least one test is}
+    \text{ falsely declared significant, and state how the team should adjust } \alpha \text{ per test to keep the overall}
+    \text{ false-positive risk at } 0.05.
   answer: |
     \begin{aligned}
     \P(\text{at least one false positive}) &= 1-(1-0.05)^{20} = 1-0.95^{20} \approx 1-0.358 = 0.642 \\
@@ -5049,7 +5049,7 @@
   level: 4
   question: |
     \text{A die is rolled } 120 \text{ times with observed face counts } (1\text{–}6): 15, 24, 22, 17, 25, 17. \text{ Test } H_0\text{:}
-    \text{the die is fair at } \alpha=0.05 \text{ using a chi-square goodness-of-fit test. (Use } \chi^2_{0.05,5}=11.07\text{.)}
+    \text{ the die is fair at } \alpha=0.05 \text{ using a chi-square goodness-of-fit test. (Use } \chi^2_{0.05,5}=11.07\text{.)}
   answer: |
     \begin{aligned}
     &\text{Expected count per face (fair die): } E_i = 120/6 = 20 \\
@@ -5444,23 +5444,23 @@
   level: 1
   question: |
     \text{Let } (\mathcal F_n) \text{ be a filtration. Define what it means for an adapted process } (X_n) \text{ to be a}
-    \text{martingale, a submartingale, and a supermartingale.}
+    \text{ martingale, a submartingale, and a supermartingale.}
   answer: |
     \text{$(X_n)$ is a martingale if } \E[|X_n|]<\infty \text{ for all } n \text{ and}
     \E[X_{n+1}\mid \mathcal F_n] = X_n \quad \text{a.s. for every } n.
     \text{It is a submartingale if } \E[X_{n+1}\mid\mathcal F_n]\ge X_n \text{ (tends to increase), and a supermartingale}
-    \text{if } \E[X_{n+1}\mid\mathcal F_n]\le X_n \text{ (tends to decrease).}
+    \text{ if } \E[X_{n+1}\mid\mathcal F_n]\le X_n \text{ (tends to decrease).}
 - id: probability-statistics-martingale-and-random-walk-1-04
   category: Probability & Statistics
   subtopic: Martingale and Random Walk
   level: 1
   question: |
     \text{Define a stopping time w.r.t. a filtration } (\mathcal F_n). \text{ Give an example of a stopping time and an}
-    \text{example of an adapted random time that is NOT one, both for a random walk } (S_n).
+    \text{ example of an adapted random time that is NOT one, both for a random walk } (S_n).
   answer: |
     \text{A random time } T\in\{0,1,2,\dots\}\cup\{\infty\} \text{ is a stopping time if for every } n, \{T=n\}\in\mathcal F_n
     \text{(you can tell whether $T=n$ occurred using only information up to time $n$).}
-    \text{Example (stopping time): } T=\min\{n: S_n=a\}, \text{ the first hitting time of level } a.
+    \text{ Example (stopping time): } T=\min\{n: S_n=a\}, \text{ the first hitting time of level } a.
     \text{Non-example: } L=\max\{n\le N: S_n=0\}, \text{ the last time before horizon } N \text{ the walk is at } 0 \text{---}
     \text{deciding } \{L=n\} \text{ requires knowing whether the walk returns to } 0 \text{ again after time } n, \text{ so } L
     \text{is not a stopping time.}
@@ -5544,10 +5544,10 @@
   level: 2
   question: |
     \text{State Wald's equation. A trader makes a sequence of iid trades with mean profit } \E[X]=\$0.2, \text{ stopping}
-    \text{at a stopping time } T \text{ with } \E[T]=25. \text{ Compute her expected total profit } \E[S_T].
+    \text{ at a stopping time } T \text{ with } \E[T]=25. \text{ Compute her expected total profit } \E[S_T].
   answer: |
     \text{Wald's equation: if } X_1,X_2,\dots \text{ are iid with } \E[|X_i|]<\infty \text{ and } T \text{ is a stopping time}
-    \text{w.r.t. } (X_i) \text{ with } \E[T]<\infty, \text{ then } \E[S_T] = \E[X]\,\E[T].
+    \text{ w.r.t. } (X_i) \text{ with } \E[T]<\infty, \text{ then } \E[S_T] = \E[X]\,\E[T].
     \text{Here } \E[S_T] = 0.2 \times 25 = \$5.
 - id: probability-statistics-martingale-and-random-walk-3-01
   category: Probability & Statistics
@@ -5561,7 +5561,7 @@
     \binom{2n}{n} = \frac{(2n)!}{(n!)^2} \sim \frac{4^n}{\sqrt{\pi n}} \quad\Rightarrow\quad \P(S_{2n}=0)\sim\frac{1}{\sqrt{\pi n}}.
     \text{Hence } \sum_n\P(S_{2n}=0)\sim\sum_n\frac{1}{\sqrt{\pi n}} = \infty.
     \text{Let } N \text{ be the (random) number of returns to } 0; \text{ by the strong Markov property, } N \text{ is}
-    \text{geometric: if } \rho=\P(\text{at least one return}) \text{, then } \P(N\ge k)=\rho^k, \text{ so}
+    \text{ geometric: if } \rho=\P(\text{at least one return}) \text{, then } \P(N\ge k)=\rho^k, \text{ so}
     \E[N] = \frac{\rho}{1-\rho} \text{ if } \rho<1 \text{ (finite), and } \E[N]=\infty \text{ iff } \rho=1.
     \text{Since } \E[N]=\sum_n\P(S_{2n}=0)=\infty, \text{ we must have } \rho=1, \text{ i.e. the walk returns to } 0
     \text{infinitely often almost surely.}
@@ -5571,10 +5571,10 @@
   level: 3
   question: |
     \text{State the Optional Stopping Theorem (give a sufficient condition), and prove it when } T \text{ is a bounded}
-    \text{stopping time.}
+    \text{ stopping time.}
   answer: |
     \text{OST: if } (X_n) \text{ is a martingale w.r.t. } (\mathcal F_n) \text{ and } T \text{ is a stopping time satisfying}
-    \text{any one of: (a) } T\le K \text{ a.s. for a constant } K; \text{ (b) } T<\infty \text{ a.s. and } (X_{n\wedge T})
+    \text{ any one of: (a) } T\le K \text{ a.s. for a constant } K; \text{ (b) } T<\infty \text{ a.s. and } (X_{n\wedge T})
     \text{is uniformly integrable; (c) } \E[T]<\infty \text{ and increments } |X_{n+1}-X_n| \text{ are bounded --- then }
     \E[X_T]=\E[X_0].
     \text{Proof for bounded } T\le K: \text{ write } X_{n\wedge T} = X_0+\sum_{k=1}^n(X_k-X_{k-1})\mathbf 1\{T\ge k\}.
@@ -5608,7 +5608,7 @@
   answer: |
     \E[M_{n+1}\mid\mathcal F_n] = \E[S_n+X_{n+1}-(n+1)\mu\mid\mathcal F_n] = M_n + \E[X_{n+1}] - \mu = M_n,
     \text{so } (M_n) \text{ is a martingale. Since } \E[T]<\infty \text{ and the increments } X_{n+1}-\mu \text{ have}
-    \text{bounded mean absolute value (a constant independent of } n\text{), the OST (condition (c)) gives}
+    \text{ bounded mean absolute value (a constant independent of } n\text{), the OST (condition (c)) gives}
     \E[M_T] = \E[M_0] = 0 \quad\Longrightarrow\quad \E[S_T - T\mu] = 0 \quad\Longrightarrow\quad \E[S_T] = \mu\,\E[T] = \E[X]\,\E[T].
 - id: probability-statistics-martingale-and-random-walk-4-01
   category: Probability & Statistics
@@ -5617,7 +5617,7 @@
   question: |
     \text{A gambler starts with \$}i \text{ and plays a fair (} p=\tfrac12\text{) \$1 coin-flip game, stopping at \$0 or \$}N.
     \text{Let } T \text{ be the (a.s. finite) time the game ends. Using the martingale } M_n=S_n^2-n \text{ and the Optional}
-    \text{Stopping Theorem, find } \E[T].
+    \text{ Stopping Theorem, find } \E[T].
   answer: |
     \text{Let } S_n=W_n-i \text{ (so } S_0=0\text{), stopped at } T=\min\{n: S_n=-i \text{ or } S_n=N-i\}.
     M_n=S_n^2-n \text{ is a martingale with } M_0=0; \text{ since } T \text{ is a.s. finite with } \E[T]<\infty, \text{ OST gives}
@@ -5635,13 +5635,13 @@
   question: |
     \text{In an election, candidate A receives } a \text{ votes and B receives } b \text{ votes, } a>b, \text{ and all }
     \binom{a+b}{a} \text{ orderings of the counted votes are equally likely. Find the probability A is strictly ahead}
-    \text{of B throughout the entire count.}
+    \text{ of B throughout the entire count.}
   answer: |
     \text{This is the classical ballot problem. Encode the count as a } \pm1 \text{ path (+1 per A-vote, -1 per B-vote)}
     \text{ending at } a-b>0. \text{ By the cycle lemma: for any sequence of } a+b \text{ steps of } \pm1 \text{ summing to}
     k=a-b>0, \text{ exactly } k \text{ of its } a+b \text{ cyclic rotations have every partial sum strictly positive.}
-    \text{Since a uniformly random arrangement of the votes is equally likely to be any cyclic rotation of its own}
-    \text{necklace, the probability a uniformly random arrangement itself stays strictly positive throughout is}
+    \text{ Since a uniformly random arrangement of the votes is equally likely to be any cyclic rotation of its own}
+    \text{ necklace, the probability a uniformly random arrangement itself stays strictly positive throughout is}
     \P(\text{A always ahead}) = \frac{k}{a+b} = \frac{a-b}{a+b}.
 - id: probability-statistics-martingale-and-random-walk-4-03
   category: Probability & Statistics
@@ -5649,28 +5649,28 @@
   level: 4
   question: |
     \text{A gambler plays fair \$1 bets forming a martingale } (S_n),\ S_0=0, \text{ choosing her bet sizes based only on}
-    \text{the past and stopping at a stopping time } T. \text{ Using OST, explain why no such strategy can produce}
-    \text{positive expected profit, and examine the classic "double the bet after each loss, stop at the first win"}
+    \text{ the past and stopping at a stopping time } T. \text{ Using OST, explain why no such strategy can produce}
+    \text{ positive expected profit, and examine the classic "double the bet after each loss, stop at the first win"}
     \text{strategy.}
   answer: |
     \text{Betting a previsible amount } C_n \text{ at round } n \text{ and stopping at } T \text{ gives wealth}
     S_T=\sum_{n=1}^T C_n\xi_n, \ \xi_n=\pm1 \text{ fair coin flips --- this martingale transform is itself a martingale,}
-    \text{so whenever } T \text{ satisfies an OST condition, } \E[S_T]=\E[S_0]=0: \text{ no strategy changes the expected}
-    \text{payoff of a fair game.}
-    \text{Doubling strategy: bet \$1, if lose bet \$2, \$4, \dots, stop at the first win (round } T\text{). If the first win}
-    \text{is on flip } k, \text{ losses total } 2^{k-1}-1 \text{ and the winning bet is } 2^{k-1}, \text{ net profit } +\$1
+    \text{ so whenever } T \text{ satisfies an OST condition, } \E[S_T]=\E[S_0]=0: \text{ no strategy changes the expected}
+    \text{ payoff of a fair game.}
+    \text{ Doubling strategy: bet \$1, if lose bet \$2, \$4, \dots, stop at the first win (round } T\text{). If the first win}
+    \text{ is on flip } k, \text{ losses total } 2^{k-1}-1 \text{ and the winning bet is } 2^{k-1}, \text{ net profit } +\$1
     \text{always; } T \text{ is geometric with } \E[T]=2<\infty, \text{ so } S_T=1>0=S_0 \text{ seemingly contradicts OST.}
-    \text{It does not: the bet sizes } C_n=2^{n-1} \text{ are unbounded, so } (S_{n\wedge T}) \text{ is not uniformly}
-    \text{integrable --- the strategy requires unbounded capital to guarantee no ruin before the eventual win. With any}
-    \text{finite starting capital there is a nonzero probability of ruin first, and accounting for that loss the expected}
-    \text{profit is exactly } 0 \text{ again.}
+    \text{ It does not: the bet sizes } C_n=2^{n-1} \text{ are unbounded, so } (S_{n\wedge T}) \text{ is not uniformly}
+    \text{ integrable --- the strategy requires unbounded capital to guarantee no ruin before the eventual win. With any}
+    \text{ finite starting capital there is a nonzero probability of ruin first, and accounting for that loss the expected}
+    \text{ profit is exactly } 0 \text{ again.}
 - id: probability-statistics-martingale-and-random-walk-4-04
   category: Probability & Statistics
   subtopic: Martingale and Random Walk
   level: 4
   question: |
     \text{Let } T_0=\min\{n\ge1:S_n=0\} \text{ be the first return time to } 0 \text{ for the symmetric simple random walk.}
-    \text{Given that the walk is recurrent (} \P(T_0<\infty)=1\text{), show that } \E[T_0]=\infty.
+    \text{ Given that the walk is recurrent (} \P(T_0<\infty)=1\text{), show that } \E[T_0]=\infty.
   answer: |
     \text{The first-return probabilities satisfy } \P(T_0=2n) = \dfrac{1}{2n-1}\binom{2n}{n}2^{-2n}
     \text{(standard first-return identity). Using the Level 3 asymptotic } \binom{2n}{n}2^{-2n}\sim\tfrac{1}{\sqrt{\pi n}},
@@ -5685,8 +5685,8 @@
   level: 4
   question: |
     \text{A stock priced at } S_0=100 \text{ moves to } S_1=uS_0=120 \text{ or } S_1=dS_0=90 \text{ after one period, with}
-    \text{gross risk-free return } R=1.05. \text{ Find the risk-neutral probability } q=\P(\text{up}) \text{ making the}
-    \text{discounted stock price a martingale, then price a European call with strike } K=100 \text{ expiring after one period.}
+    \text{ gross risk-free return } R=1.05. \text{ Find the risk-neutral probability } q=\P(\text{up}) \text{ making the}
+    \text{ discounted stock price a martingale, then price a European call with strike } K=100 \text{ expiring after one period.}
   answer: |
     \text{Need } \E^q[S_1]/R=S_0, \text{ i.e. } q\,uS_0+(1-q)\,dS_0=RS_0, \text{ so}
     q = \frac{R-d}{u-d} = \frac{1.05-0.9}{1.2-0.9} = \frac{0.15}{0.3} = 0.5.
@@ -5703,9 +5703,9 @@
     2n \text{ is } \P(T_0=2n) = \dfrac{1}{2n-1}\binom{2n}{n}2^{-2n}, \text{ via Catalan-number path-counting.}
   answer: |
     \text{By symmetry, assume the first step is } +1; \text{ first return at } 2n \text{ means staying } \ge1 \text{ for}
-    \text{steps } 1,\dots,2n-1 \text{ then returning to } 0 \text{ at step } 2n. \text{ Shifting down by 1, steps 2 through}
+    \text{ steps } 1,\dots,2n-1 \text{ then returning to } 0 \text{ at step } 2n. \text{ Shifting down by 1, steps 2 through}
     2n-1 \text{ form an excursion of length } 2n-2 \text{ from } 0 \text{ to } 0 \text{ staying } \ge0, \text{ counted by the}
-    \text{Catalan number } C_{n-1}=\tfrac1n\binom{2n-2}{n-1}.
+    \text{ Catalan number } C_{n-1}=\tfrac1n\binom{2n-2}{n-1}.
     \text{Counting both the } +1\text{-first and } -1\text{-first mirror cases, out of } 2^{2n} \text{ total paths of length } 2n\text{,}
     \P(T_0=2n) = \frac{2C_{n-1}}{2^{2n}} = \frac{2}{n}\binom{2n-2}{n-1}2^{-2n}.
     \text{Using } \binom{2n}{n} = \binom{2n-2}{n-1}\cdot\frac{2n(2n-1)}{n^2}, \text{ this simplifies to}
@@ -5741,7 +5741,7 @@
     \text{State (without proof) the path continuity and differentiability properties of Brownian motion.}
   answer: |
     \text{With probability } 1, \text{ the map } t\mapsto B_t \text{ is continuous everywhere, but it is also, with}
-    \text{probability } 1, \text{ nowhere differentiable: at every } t, \text{ the path is too jagged at every scale for}
+    \text{ probability } 1, \text{ nowhere differentiable: at every } t, \text{ the path is too jagged at every scale for}
     \lim_{h\to0}\frac{B_{t+h}-B_t}{h} \text{ to exist.}
 - id: probability-statistics-brownian-motion-1-04
   category: Probability & Statistics
@@ -5752,7 +5752,7 @@
     \text{what is the distribution of the process } (c^{-1/2}B_{ct})_{t\ge0}?
   answer: |
     (c^{-1/2}B_{ct})_{t\ge0} \text{ is itself a standard Brownian motion: it starts at } 0, \text{ has independent}
-    \text{increments, and for } s<t,
+    \text{ increments, and for } s<t,
     c^{-1/2}B_{ct} - c^{-1/2}B_{cs} = c^{-1/2}(B_{ct}-B_{cs}) \sim \text{Normal}\!\left(0,\ \frac{c(t-s)}{c}\right) = \text{Normal}(0,t-s),
     \text{matching the increments of a standard BM. So Brownian motion has no characteristic time or length scale.}
 - id: probability-statistics-brownian-motion-1-05
@@ -5792,7 +5792,7 @@
     \text{For standard Brownian motion and } 0<s<t, \text{ find the conditional distribution of } B_s \text{ given } B_t=b.
   answer: |
     (B_s,B_t) \text{ is jointly Gaussian with } \Var(B_s)=s,\ \Var(B_t)=t,\ \Cov(B_s,B_t)=s. \text{ For a bivariate normal,}
-    \text{conditioning gives}
+    \text{ conditioning gives}
     \begin{aligned}
     \E[B_s\mid B_t=b] &= \frac{\Cov(B_s,B_t)}{\Var(B_t)}\,b = \frac{s}{t}\,b, \\
     \Var(B_s\mid B_t=b) &= \Var(B_s) - \frac{\Cov(B_s,B_t)^2}{\Var(B_t)} = s - \frac{s^2}{t} = \frac{s(t-s)}{t}.
@@ -5815,7 +5815,7 @@
   level: 2
   question: |
     \text{Partition } [0,t] \text{ into } n \text{ equal pieces } t_i=it/n,\ i=0,\dots,n. \text{ For standard Brownian motion,}
-    \text{compute } \E\!\left[\sum_{i=0}^{n-1}(B_{t_{i+1}}-B_{t_i})^2\right].
+    \text{ compute } \E\!\left[\sum_{i=0}^{n-1}(B_{t_{i+1}}-B_{t_i})^2\right].
   answer: |
     \text{Each increment } B_{t_{i+1}}-B_{t_i}\sim\text{Normal}(0,t/n), \text{ so } \E[(B_{t_{i+1}}-B_{t_i})^2] = \Var(B_{t_{i+1}}-B_{t_i}) = t/n.
     \text{Summing over the } n \text{ terms:}
@@ -5871,12 +5871,12 @@
   level: 3
   question: |
     \text{Let } M_t=\max_{0\le s\le t}B_s \text{ and } T_a=\min\{s\ge0:B_s=a\} \text{ for } a>0. \text{ Using the strong Markov}
-    \text{property at } T_a, \text{ derive } \P(M_t\ge a)=2\P(B_t\ge a).
+    \text{ property at } T_a, \text{ derive } \P(M_t\ge a)=2\P(B_t\ge a).
   answer: |
     \text{Since BM has continuous paths, } \{M_t\ge a\}=\{T_a\le t\}. \text{ At the stopping time } T_a, \text{ the strong}
-    \text{Markov property says } (B_{T_a+u}-a)_{u\ge0} \text{ is itself a standard Brownian motion, independent of } \mathcal F_{T_a}
+    \text{ Markov property says } (B_{T_a+u}-a)_{u\ge0} \text{ is itself a standard Brownian motion, independent of } \mathcal F_{T_a}
     \text{and in particular symmetric about } 0. \text{ So conditional on } T_a\le t, \text{ the post-}T_a\text{ path reflected}
-    \text{about level } a \text{ is an equally likely path, meaning } B_t-a \text{ is, given } T_a\le t, \text{ symmetric about } 0:
+    \text{ about level } a \text{ is an equally likely path, meaning } B_t-a \text{ is, given } T_a\le t, \text{ symmetric about } 0:
     \P(B_t>a\mid T_a\le t) = \tfrac12.
     \text{Since } B_t>a \text{ can only happen if } T_a\le t,
     \P(B_t>a) = \P(T_a\le t)\,\P(B_t>a\mid T_a\le t) = \tfrac12\,\P(T_a\le t).
@@ -5911,8 +5911,8 @@
     \text{(chain rule, } \tfrac{d}{dt}(a t^{-1/2}) = -\tfrac12 a t^{-3/2}\text{):}
     f(t) = F'(t) = -2\phi\!\left(\frac{a}{\sqrt t}\right)\cdot\left(-\frac{a}{2}t^{-3/2}\right) = \frac{a}{\sqrt{2\pi t^3}}\,\exp\!\left(-\frac{a^2}{2t}\right), \quad t>0
     \text{(a L\'evy distribution). As } t\to\infty,\ F(t)\to 2(1-\Phi(0))=1, \text{ so } \P(T_a<\infty)=1 \text{ (BM hits every}
-    \text{level eventually).}
-    \text{But}
+    \text{ level eventually).}
+    \text{ But}
     \E[T_a] = \int_0^\infty t\,f(t)\,dt = \int_0^\infty \frac{a}{\sqrt{2\pi t}}\exp\!\left(-\frac{a^2}{2t}\right)dt,
     \text{and as } t\to\infty \text{ the integrand behaves like } \dfrac{a}{\sqrt{2\pi t}}, \text{ whose integral diverges}
     \text{(like } \int t^{-1/2}dt\text{). So } \E[T_a]=\infty: \text{ the hitting time is a.s. finite but has infinite mean.}
@@ -5923,10 +5923,10 @@
   question: |
     \text{Let } X_t=x_0+\mu t+\sigma B_t \text{ with } 0<x_0<N \text{ and } \mu\neq0, \text{ and } T=\min\{t:X_t\in\{0,N\}\}.
     \text{Using the martingale } M_t=\exp(\theta X_t) \text{ for a suitable constant } \theta \text{ and the Optional Stopping}
-    \text{Theorem, find } p=\P(X \text{ hits } N \text{ before } 0).
+    \text{ Theorem, find } p=\P(X \text{ hits } N \text{ before } 0).
   answer: |
     \text{For } M_t=e^{\theta X_t} \text{ to be a martingale, need (as in the exponential-martingale card, applied to the}
-    \text{drifted process)}
+    \text{ drifted process)}
     \E[M_t\mid\mathcal F_s] = M_s\,e^{\theta\mu(t-s)}\,e^{\theta^2\sigma^2(t-s)/2} \overset{!}{=} M_s
     \quad\Longrightarrow\quad \theta\mu+\tfrac12\theta^2\sigma^2=0 \quad\Longrightarrow\quad \theta = -\frac{2\mu}{\sigma^2} \ (\theta\neq0).
     \text{Since } T \text{ is a.s. finite and } X_{t\wedge T}\in[0,N] \text{ is bounded, OST gives } \E[M_T]=M_0=e^{\theta x_0}.
@@ -5940,8 +5940,8 @@
   level: 4
   question: |
     \text{For the same process } X_t=x_0+\mu t+\sigma B_t\ (\mu\neq0) \text{ and } T=\min\{t:X_t\in\{0,N\}\}, \text{ use the}
-    \text{martingale } Y_t=X_t-\mu t \text{ together with } p=\P(\text{hit } N \text{ before } 0) \text{ from the previous card}
-    \text{to find } \E[T].
+    \text{ martingale } Y_t=X_t-\mu t \text{ together with } p=\P(\text{hit } N \text{ before } 0) \text{ from the previous card}
+    \text{ to find } \E[T].
   answer: |
     Y_t = X_t-\mu t = x_0+\sigma B_t \text{ is a martingale (since } (B_t) \text{ is). } T \text{ has finite mean here}
     \text{(boundary absorption under nonzero drift), so OST gives } \E[Y_T]=Y_0=x_0, \text{ i.e.}
@@ -5970,7 +5970,7 @@
     \text{ per year. Find the probability the price doubles before it halves.}
   answer: |
     \text{Doubling/halving means } Y_t \text{ hits } U=\ln2 \text{ before } L=-\ln2. \text{ Shift origin to the lower barrier:}
-    \text{let } x_0'=Y_0-L=\ln2 \text{ and } N'=U-L=2\ln2. \text{ Reusing the two-barrier formula with } \theta=-2\mu/\sigma^2\text{:}
+    \text{ let } x_0'=Y_0-L=\ln2 \text{ and } N'=U-L=2\ln2. \text{ Reusing the two-barrier formula with } \theta=-2\mu/\sigma^2\text{:}
     \begin{aligned}
     p &= \frac{e^{\theta x_0'}-1}{e^{\theta N'}-1} = \frac{e^{\theta\ln2}-1}{e^{2\theta\ln2}-1} = \frac{2^\theta-1}{2^{2\theta}-1} = \frac{2^\theta-1}{(2^\theta-1)(2^\theta+1)} = \frac{1}{2^\theta+1}.
     \end{aligned}
@@ -5993,7 +5993,7 @@
     \P(A\le0.1) = \frac{2}{\pi}\arcsin(\sqrt{0.1}) = \frac{2}{\pi}\arcsin(0.316) \approx \frac{2}{\pi}(0.322) \approx 0.205.
     \text{So there is over a } 20\% \text{ chance the path spends } 90\% \text{ or more of the time on ONE side of } 0 ---
     \text{the density } f_A(x) \text{ blows up near the endpoints } 0 \text{ and } 1, \text{ meaning a Brownian path is far more}
-    \text{likely to spend almost all its time on one side than to split time evenly, contrary to naive intuition.}
+    \text{ likely to spend almost all its time on one side than to split time evenly, contrary to naive intuition.}
 - id: probability-statistics-poisson-process-1-01
   category: Probability & Statistics
   subtopic: Poisson Process
@@ -12270,7 +12270,7 @@
   answer: |
     \Theta_C = -\dfrac{S\phi(d_1)\sigma}{2\sqrt T} - rKe^{-rT}N(d_2).
     \Theta_C = -\dfrac{60(0.3909)(0.25)}{2\sqrt{0.5}} - (0.04)(60)e^{-0.02}(0.5099) \approx -4.147 - 1.200 \approx -5.35 \text{ per year.}
-    \text{Per calendar day: } \Theta_C/365 \approx -0.0146\text{, i.e. the call loses about \$0.0146 per day, all else equal.}
+    \text{ Per calendar day: } \Theta_C/365 \approx -0.0146\text{, i.e. the call loses about \$0.0146 per day, all else equal.}
 - id: economics-finance-greeks-2-05
   category: Economics & Finance
   subtopic: Greeks
