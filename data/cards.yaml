@@ -10130,6 +10130,32 @@
     &\text{(Note this convergence is only conditional: } \sum \left|\dfrac{(-1)^{n+1}}{n}\right|=\sum\dfrac1n \text{ is the harmonic series, which diverges.)} \\
     &\text{The error bound for an alternating series is } |S-S_N|\le b_{N+1}\text{, so with } N=100\text{: } |S-S_{100}| \le \dfrac{1}{101}.
     \end{aligned}
+- id: mathematics-sequences-and-series-2-09
+  category: Mathematics
+  subtopic: Sequences and Series
+  level: 2
+  question: |
+    \text{Use the } n\text{th root test to determine whether } \sum_{n=1}^\infty \left(\dfrac{n}{2n+1}\right)^n \text{ converges.}
+  answer: |
+    \begin{aligned}
+    &\text{Root test: compute } L=\lim_{n\to\infty}\sqrt[n]{|a_n|}\text{; the series converges absolutely if } L<1\text{, diverges if } L>1\text{, and the test is inconclusive if } L=1\text{.} \\
+    &\sqrt[n]{|a_n|} = \sqrt[n]{\left(\dfrac{n}{2n+1}\right)^n} = \dfrac{n}{2n+1} \\
+    &L = \lim_{n\to\infty}\dfrac{n}{2n+1} = \dfrac12 < 1 \\
+    &\text{So } \sum_{n=1}^\infty \left(\dfrac{n}{2n+1}\right)^n \text{ converges.}
+    \end{aligned}
+- id: mathematics-sequences-and-series-2-10
+  category: Mathematics
+  subtopic: Sequences and Series
+  level: 2
+  question: |
+    \text{Use the integral test to determine whether } \sum_{n=1}^\infty n e^{-n^2} \text{ converges.}
+  answer: |
+    \begin{aligned}
+    &\text{Integral test: if } f \text{ is positive, continuous, and decreasing on } [1,\infty) \text{ with } a_n=f(n)\text{, then } \sum a_n \text{ and } \int_1^\infty f(x)\,dx \text{ converge or diverge together.} \\
+    &\text{Take } f(x)=xe^{-x^2}\text{, which is positive and continuous. Its derivative is } f'(x)=e^{-x^2}(1-2x^2)<0 \text{ for } x\ge1\text{, so } f \text{ is decreasing.} \\
+    &\int_1^\infty xe^{-x^2}\,dx = \lim_{b\to\infty}\left[-\dfrac12 e^{-x^2}\right]_1^b = \lim_{b\to\infty}\left(\dfrac{1}{2e}-\dfrac12 e^{-b^2}\right) = \dfrac{1}{2e} \\
+    &\text{The integral is finite, so } \sum_{n=1}^\infty ne^{-n^2} \text{ converges.}
+    \end{aligned}
 - id: mathematics-sequences-and-series-3-01
   category: Mathematics
   subtopic: Sequences and Series
